@@ -30,6 +30,8 @@ gem 'sqlite3'
 group :development, :test do
   gem 'cucumber-rails'
   gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl'
   gem 'capybara'
   gem 'database_cleaner'
 end
