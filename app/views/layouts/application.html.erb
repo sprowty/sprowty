@@ -1,14 +1,112 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <title>Sprowty</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+<title>sprowty</title>
+<%= stylesheet_link_tag "application", "lightboxes", "shadowbox" %>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<%= csrf_meta_tag %>
 </head>
+
 <body>
+
+<div id="topbar"></div> <!--/Topbar-->
+
+
+<div id="header">
+<div class="left">
+<div class="logo">
+<h1><a href="home.html" title="sprowty">sprowty</a></h1>
+</div>
+</div> <!--/LEFT-->
+
+<div class="right">
+
+<!--SIGN IN-->
+<div id="logincontainer">
+
+<div id="topnav" class="topnav">
+<a href="login" class="signin">
+<span>Sign in</span>
+</a> 
+</div>
+
+<fieldset id="signin_menu">
+<form method="post" id="signin" action="https://twitter.com/sessions">
+<label for="username">Username or email</label>
+<input id="username" name="username" value="" title="username" tabindex="4" type="text">
+
+<p>
+<label for="password">Password</label>
+<input id="password" name="password" value="" title="password" tabindex="5" type="password">
+</p>
+      
+<p class="remember">
+<input id="signin_submit" value="Sign in" tabindex="6" type="submit">
+<input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
+<label for="remember">Remember me</label>
+</p>
+
+</form>
+</fieldset>
+  
+</div>
+<!--/SIGN IN-->
+
+<img class="fbconnect" src="images/fbconnect.png" />
+</div> <!--/RIGHT-->
+
+<div class="clear"></div>
+</div> <!--/HEADER-->
 
 <%= yield %>
 
-</body>
+
+<div id="footer"> 
+<div class="holder">
+<a href="#top"><h3>Back to Top</h3></a>
+</div> <!--/HOLDER-->
+</div> <!--/FOOTER-->
+
+
+<%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'shadowbox', :cache => true %>
+<!-- Sign In -->
+<script type="text/javascript">
+  $(function(){
+    
+    $(".signin").click(function(e) {          
+      e.preventDefault();
+      $("fieldset#signin_menu").toggle();
+      $(".signin").toggleClass("menu-open");
+    });
+
+    $("fieldset#signin_menu").mouseup(function() {
+      return false
+    });
+    
+    $(document).mouseup(function(e) {
+      if ($(e.target).parent("a.signin").length == 0) {
+        $(".signin").removeClass("menu-open");
+        $("fieldset#signin_menu").hide();
+      }
+    });
+  
+    $('#forget_username_link').tipsy({ gravity: 'w' });
+    
+    $("#stay-target-1 #stay-target-2 #stay-target-3 #stay-target-4 #stay-target-5 #stay-target-6 #stay-target7 #stay-target8 #stay-target8 #stay-target-9 #stay-target-10 #stay-target-11 #stay-target-12").ezpz_tooltip({
+    	contentPosition: 'belowStatic',
+    	stayOnContent: true,
+    	offset: 0
+    });
+  });
+		
+</script>
+<!-- SHADOWBOX -->
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+
+
+</body> 
 </html>
