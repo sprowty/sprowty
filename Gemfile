@@ -34,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'pickle'
 end
