@@ -4,6 +4,7 @@ gem 'rails', '3.0.6'
 gem 'mysql2'
 gem 'devise'
 gem 'annotate'
+gem 'formtastic'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -38,4 +39,5 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pickle'
+  gem 'launchy'
 end
