@@ -11,72 +11,72 @@
 
 <body>
 
-<div id="topbar"></div> <!--/Topbar-->
+  <div id="topbar"></div> <!--/Topbar-->
 
-<div id="header">
-  <div class="left">
-    <div class="logo">
-      <h1><a href="home.html" title="sprowty">sprowty</a></h1>
-    </div>
-  </div> <!--/LEFT-->
-
-  <div class="right">
-  <% unless current_user %>
-    <!--SIGN IN-->
-    <div id="logincontainer">
-
-      <div id="topnav" class="topnav">
-        <a href="login" class="signin">
-          <span>Sign in</span>
-        </a> 
+  <div id="header">
+    <div class="left">
+      <div class="logo">
+        <h1><a href="home.html" title="sprowty">sprowty</a></h1>
       </div>
+    </div> <!--/LEFT-->
 
-      <fieldset id="signin_menu">
-        <%= semantic_form_for "user", :url => user_session_path do |f| %>
-        <ul>  
-          <%= f.input :email, :as => :string %>
-          <%= f.input :password, :as => :password %>
-          <%= f.submit 'Sign in', :style => 'float:right;' %>
-          <div class="clear"></div>
+    <div class="right">
+    <% unless current_user %>
+      <!--SIGN IN-->
+      <div id="logincontainer">
+
+        <div id="topnav" class="topnav">
+          <a href="login" class="signin">
+            <span>Sign in</span>
+          </a> 
+        </div>
+
+        <fieldset id="signin_menu">
+          <%= semantic_form_for "user", :url => user_session_path do |f| %>
+          <ul>  
+            <%= f.input :email, :as => :string %>
+            <%= f.input :password, :as => :password %>
+            <%= f.submit 'Sign in', :style => 'float:right;' %>
+            <div class="clear"></div>
+          </ul>
+          <% end %>
+        </fieldset>
+  
+      </div>
+    <!--/SIGN IN-->
+
+      <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
+  
+      <% else %>
+        <ul class="loggedin">
+          <li><a href="#">My Profile</a></li>
+          <li><a href="#">Inbox</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">You're Needed</a></li>
         </ul>
-        <% end %>
-      </fieldset>
-  
-    </div>
-  <!--/SIGN IN-->
 
-    <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
-  
-    <% else %>
-      <ul class="loggedin">
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#">Inbox</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">You're Needed</a></li>
-      </ul>
+        <ul class="userlog">
+          <li><b>Welcome</b></li>
+          <li><a href="#">NYGal</a></li>
+          <li><%= link_to 'Logout', logout_path %></li>
+        </ul>
+      <% end %>
+    </div> <!--/RIGHT-->
 
-      <ul class="userlog">
-        <li><b>Welcome</b></li>
-        <li><a href="#">NYGal</a></li>
-        <li><%= link_to 'Logout', logout_path %></li>
-      </ul>
-    <% end %>
-  </div> <!--/RIGHT-->
+    <div class="clear"></div>
+  </div> <!--/HEADER-->
 
-  <div class="clear"></div>
-</div> <!--/HEADER-->
+  <%= yield %>
 
-<%= yield %>
+  <div style="display: none;" id="sign_up_container">
+    <%= render "shared/sign_up" %>
+  </div>
 
-<div style="display: none;" id="sign_up_container">
-  <%= render "shared/sign_up" %>
-</div>
-
-<div id="footer"> 
-  <div class="holder">
-    <a href="#top"><h3>Back to Top</h3></a>
-  </div> <!--/HOLDER-->
-</div> <!--/FOOTER-->
+  <div id="footer"> 
+    <div class="holder">
+      <a href="#top"><h3>Back to Top</h3></a>
+    </div> <!--/HOLDER-->
+  </div> <!--/FOOTER-->
 
 <%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => true %>
 <!-- Sign In -->
