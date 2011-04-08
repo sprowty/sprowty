@@ -1,9 +1,9 @@
 <div id="signupcontainer" class="background">
  <div class="left">
  <%= form_for(:user, :url => registration_path('user')) do |f| %>
-   <%= f.email_field :email, :class => "field" %>
-   <%= f.password_field :password, :class => 'field' %>
-   <%= f.password_field :password_confirmation, :class => 'fieldlast' %>
+   <%= f.email_field :email,                :class => "field clearField",     :value => 'E-mail Address' %>
+   <%= f.text_field :password,              :class => 'field clearField',     :value => "Password" %>
+   <%= f.text_field :password_confirmation, :class => 'fieldlast clearField', :value => "Password Confirmation" %>
   </div> <!--LEFT-->
 
   <div class="right">
