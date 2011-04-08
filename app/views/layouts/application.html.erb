@@ -78,7 +78,7 @@
     </div> <!--/HOLDER-->
   </div> <!--/FOOTER-->
 
-<%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => true %>
+<%= javascript_include_tag 'jquery', 'scrolltop', 'jquery.clearfield.min', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => true %>
 <!-- Sign In -->
 <script type="text/javascript">
   $(function(){
@@ -109,6 +109,8 @@
     });
     
     $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "50%", height: "420px", innerHeight: "400px" });
+    
+    $('.clearField').clearField();
   });
 		
 </script>

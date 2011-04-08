@@ -1,3 +1,4 @@
+<% unless current_user %>
 <div id="signup">
 
 <div class="left">
@@ -26,17 +27,17 @@
 <div class="clear"></div>
 </div> <!--/SIGNUP-->
 
-
-
-
-
 <div id="slider">
 <div class="holder">
 <b>SLIDER HERE</b>
 </div>
 </div> <!--/SLIDER-->
 
+<% else %>
 
+<div id="subhead"></div>
+
+<% end %>
 
 <div id="needdone">
 <div class="holder">
