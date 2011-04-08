@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.6)
       activesupport (= 3.0.6)
     activesupport (3.0.6)
+    addressable (2.2.4)
     annotate (2.4.0)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
@@ -66,6 +67,10 @@ GEM
     factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
       railties (>= 3.0.0)
+    faraday (0.6.0)
+      addressable (~> 2.2.4)
+      multipart-post (~> 1.1.0)
+      rack (>= 1.1.0, < 2)
     ffi (0.6.3)
       rake (>= 0.8.7)
     formtastic (1.2.3)
@@ -87,8 +92,22 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    multi_json (0.0.5)
+    multipart-post (1.1.0)
     mysql2 (0.2.6)
     nokogiri (1.4.4)
+    oa-core (0.2.1)
+      rack (~> 1.1)
+    oa-oauth (0.2.1)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.2.1)
+      oauth (~> 0.4.0)
+      oauth2 (~> 0.2.0)
+    oauth (0.4.4)
+    oauth2 (0.2.0)
+      faraday (~> 0.6.0)
+      multi_json (~> 0.0.4)
     orm_adapter (0.0.4)
     pickle (0.4.7)
       cucumber (>= 0.8)
@@ -158,6 +177,7 @@ DEPENDENCIES
   formtastic
   launchy
   mysql2
+  oa-oauth
   pickle
   rails (= 3.0.6)
   rspec-rails
