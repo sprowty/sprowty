@@ -3,7 +3,7 @@
 
 <head>
 <title>sprowty</title>
-<%= stylesheet_link_tag "application", "lightboxes", "shadowbox" %>
+<%= stylesheet_link_tag "application", "lightboxes", "colorbox" %>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <%= csrf_meta_tag %>
@@ -11,66 +11,74 @@
 
 <body>
 
-<div id="topbar"></div> <!--/Topbar-->
+  <div id="topbar"></div> <!--/Topbar-->
 
+  <div id="header">
+    <div class="left">
+      <div class="logo">
+        <h1><%= link_to 'sprowty', root_path %></h1>
+      </div>
+    </div> <!--/LEFT-->
 
-<div id="header">
-<div class="left">
-<div class="logo">
-<h1><a href="home.html" title="sprowty">sprowty</a></h1>
-</div>
-</div> <!--/LEFT-->
+    <div class="right">
+    <% unless current_user %>
+      <!--SIGN IN-->
+      <div id="logincontainer">
 
-<div class="right">
+        <div id="topnav" class="topnav">
+          <a href="login" class="signin">
+            <span>Sign in</span>
+          </a> 
+        </div>
 
-<!--SIGN IN-->
-<div id="logincontainer">
-
-<div id="topnav" class="topnav">
-<a href="login" class="signin">
-<span>Sign in</span>
-</a> 
-</div>
-
-<fieldset id="signin_menu">
-<form method="post" id="signin" action="https://twitter.com/sessions">
-<label for="username">Username or email</label>
-<input id="username" name="username" value="" title="username" tabindex="4" type="text">
-
-<p>
-<label for="password">Password</label>
-<input id="password" name="password" value="" title="password" tabindex="5" type="password">
-</p>
-      
-<p class="remember">
-<input id="signin_submit" value="Sign in" tabindex="6" type="submit">
-<input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
-<label for="remember">Remember me</label>
-</p>
-
-</form>
-</fieldset>
+        <fieldset id="signin_menu">
+          <%= semantic_form_for "user", :url => user_session_path do |f| %>
+          <ul>  
+            <%= f.input :email, :as => :string %>
+            <%= f.input :password, :as => :password %>
+            <%= f.submit 'Sign in', :style => 'float:right;' %>
+            <div class="clear"></div>
+          </ul>
+          <% end %>
+        </fieldset>
   
-</div>
-<!--/SIGN IN-->
+      </div>
+    <!--/SIGN IN-->
 
-<img class="fbconnect" src="images/fbconnect.png" />
-</div> <!--/RIGHT-->
+      <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
+  
+      <% else %>
+        <ul class="loggedin">
+          <li><a href="#">My Profile</a></li>
+          <li><a href="#">Inbox</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">You're Needed</a></li>
+        </ul>
 
-<div class="clear"></div>
-</div> <!--/HEADER-->
+        <ul class="userlog">
+          <li><b>Welcome</b></li>
+          <li><a href="#">NYGal</a></li>
+          <li><%= link_to 'Logout', logout_path %></li>
+        </ul>
+      <% end %>
+    </div> <!--/RIGHT-->
 
-<%= yield %>
+    <div class="clear"></div>
+  </div> <!--/HEADER-->
 
+  <%= yield %>
 
-<div id="footer"> 
-<div class="holder">
-<a href="#top"><h3>Back to Top</h3></a>
-</div> <!--/HOLDER-->
-</div> <!--/FOOTER-->
+  <div style="display: none;" id="sign_up_container">
+    <%= render "shared/sign_up" %>
+  </div>
 
+  <div id="footer"> 
+    <div class="holder">
+      <a href="#top"><h3>Back to Top</h3></a>
+    </div> <!--/HOLDER-->
+  </div> <!--/FOOTER-->
 
-<%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'shadowbox', :cache => true %>
+<%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => true %>
 <!-- Sign In -->
 <script type="text/javascript">
   $(function(){
@@ -99,14 +107,11 @@
     	stayOnContent: true,
     	offset: 0
     });
+    
+    $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "50%", height: "420px", innerHeight: "400px" });
   });
 		
 </script>
-<!-- SHADOWBOX -->
-<script type="text/javascript">
-Shadowbox.init();
-</script>
-
 
 </body> 
 </html>
