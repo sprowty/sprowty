@@ -1,0 +1,19 @@
+<div id="signupcontainer">
+ <div class="left">
+ <%= form_for(:user, :url => registration_path('user')) do |f| %>
+   <%= f.email_field :email, :class => "field" %>
+   <%= f.password_field :password, :class => 'field' %>
+   <%= f.password_field :password_confirmation, :class => 'fieldlast' %>
+  </div> <!--LEFT-->
+
+  <div class="right">
+    <img class="recaptcha" src="/images/dummy_recaptcha.gif" />
+
+    <div class="radio">
+      <input type="radio" name="data[Submit][question]"><p>I have read & agree to sprowty’s <a href="#">Terms & Conditions</a></p>
+    </div>
+  
+    <%= f.submit 'Create Account', :class => 'create' %>
+  </div> <!--RIGHT-->
+  <% end %>
+</div> <!--SIGNUPCONTAINER-->

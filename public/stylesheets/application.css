@@ -14,7 +14,7 @@ Yellow: #E69A2C;
 } 
  
 * { margin: 0; padding: 0px; }
-html, body { margin: 0; padding: 0px; height: 100%; background: url(/images/bg.jpg) repeat-x;} 
+html, body, #signupcontainer { margin: 0; padding: 0px; height: 100%; background: url(/images/bg.jpg) repeat-x;} 
 
 
 /* ----------SITE ELEMENTS--------------------- */
@@ -131,7 +131,7 @@ font-size:11px;
 #signin_menu form {background: white; padding: 10px}
 
 
-#signin_menu input[type=text], #signin_menu input[type=password] {
+#signin_menu input[type=text], #signin_menu input[type=password], #signin input[type=text], #signin input[type=password] {
 display:block;
 -moz-border-radius:4px;
 -webkit-border-radius:4px;
@@ -144,12 +144,12 @@ border: 1px solid #E69A2C;
 color: #422215
 }
 
-#signin_menu p { margin:0;}
-#signin_menu label {font: 12px Georgia, 'Times New Roman', Serif; color: #894125; margin-bottom: 6px;}
-#signin_menu p.remember { padding:8px 0;}
+#signin_menu p, #signin p { margin:0;}
+#signin_menu label, #signin label {font: 12px Georgia, 'Times New Roman', Serif; color: #894125; margin-bottom: 6px;}
+#signin_menu p.remember, #sigin .remember { padding:8px 0;}
 #signin_menu p.forgot, #signin_menu p.complete { clear:both; margin:5px 0;}
 #signin_menu p a { color:#27B!important;}
-#signin_submit { background: url('/images/button_signin.gif') no-repeat; width: 71px; height: 30px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
+#signin_submit, .signin_submit, #user_submit { background: url('/images/button_signin.gif') no-repeat; width: 71px; height: 30px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
 #signin_submit::-moz-focus-inner { padding:0; border:0;}
 #signin_submit:hover, #signin_submit:focus {cursor:pointer;}
 
@@ -965,3 +965,41 @@ box-shadow: 1px 1px 1px #fff;
 #topcontrol {display: none}
 /* -------------------------/FOOTER------------------------------- */
 
+.formtastic ul {
+  list-style-type: none;
+}
+
+
+a:active, a:focus, button{outline: 0;}
+#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 300px;}
+#signupcontainer .left {float: left; width: 350px;}
+#signupcontainer .right {float: right; width: 320px;}
+
+#signupcontainer input.field, input.fieldlast {
+padding: 20px; 
+border: 1px solid #c3b288; 
+font: 22px Georgia,'Times New Roman',Serif; 
+font-style: italic; 
+color: #3c3c39; 
+width: 300px;
+margin-bottom: 24px;
+}
+
+#signupcontainer input.fieldlast {margin-bottom: 0}
+#signupcontainer h3, #signupcontainer p, #signupcontainer p a {color: #532c19}
+#signupcontainer h3 {margin: 0; padding: 0; font-size: 22px; }
+#signupcontainer a.login {font-weight: bold; font-size: 18px; color: #585a05}
+#signupcontainer p {font-size: 11px; margin: 0; padding: 0}
+.recaptcha {margin: 20px 0}
+.radio {margin: 20px 0}
+.radio input  {float: left; margin-right: 10px}
+#signupcontainer p {padding: 4px 0}
+#signupcontainer .create {background: url(/images/button_create.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
+
+#signupcontainer .create:hover {
+-webkit-box-shadow: 0px 0px 8px #000;
+-moz-box-shadow: 0px 0px 8px #000;
+box-shadow: 0px 0px 8px #000; 
+-moz-border-radius: 22px;
+border-radius: 22px;
+}

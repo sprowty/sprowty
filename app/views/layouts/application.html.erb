@@ -3,7 +3,7 @@
 
 <head>
 <title>sprowty</title>
-<%= stylesheet_link_tag "application", "lightboxes", "shadowbox", "formtastic" %>
+<%= stylesheet_link_tag "application", "lightboxes", "colorbox" %>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <%= csrf_meta_tag %>
@@ -33,22 +33,14 @@
 </div>
 
 <fieldset id="signin_menu">
-<form method="post" id="signin" action="https://twitter.com/sessions">
-<label for="username">Username or email</label>
-<input id="username" name="username" value="" title="username" tabindex="4" type="text">
-
-<p>
-<label for="password">Password</label>
-<input id="password" name="password" value="" title="password" tabindex="5" type="password">
-</p>
-      
-<p class="remember">
-<input id="signin_submit" value="Sign in" tabindex="6" type="submit">
-<input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
-<label for="remember">Remember me</label>
-</p>
-
-</form>
+  <%= semantic_form_for "user", :url => user_session_path do |f| %>
+  <ul>  
+    <%= f.input :email, :as => :string %>
+    <%= f.input :password, :as => :password %>
+    <%= f.submit 'Sign in', :style => 'float:right;' %>
+    <div class="clear"></div>
+  </ul>
+  <% end %>
 </fieldset>
   
 </div>
@@ -62,6 +54,10 @@
 
 <%= yield %>
 
+<div style="display: none;" id="sign_up_container">
+  <%= render "shared/sign_up" %>
+</div>
+
 
 <div id="footer"> 
 <div class="holder">
@@ -70,7 +66,7 @@
 </div> <!--/FOOTER-->
 
 
-<%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'shadowbox', :cache => true %>
+<%= javascript_include_tag 'jquery', 'scrolltop', 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1', 'jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => true %>
 <!-- Sign In -->
 <script type="text/javascript">
   $(function(){
@@ -99,14 +95,11 @@
     	stayOnContent: true,
     	offset: 0
     });
+    
+    $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "50%", height: "420px", innerHeight: "400px" });
   });
 		
 </script>
-<!-- SHADOWBOX -->
-<script type="text/javascript">
-Shadowbox.init();
-</script>
-
 
 </body> 
 </html>
