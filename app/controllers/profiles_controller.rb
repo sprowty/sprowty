@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     if @profile.save
-      redirect_to root_url, :notice => 'Successfully updated your Profile!'
+      redirect_to my_profile_url, :notice => 'Successfully updated your Profile!'
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(params[:profile])
-      redirect_to root_url, :notice => 'Successfully updated your Profile!'
+      redirect_to my_profile_url, :notice => 'Successfully updated your Profile!'
     else
       render :edit
     end
