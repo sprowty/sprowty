@@ -1,0 +1,159 @@
+<div id="needdone">
+<div class="holder">
+
+<div class="left">
+<h4>Need Something Done?</h4>
+</div> <!--/LEFT-->
+
+<div class="right">
+<form id="search" method="get" action="" name="input">
+<input class="field" name="Type What You Need Done Here" type="text" value="Type What You Need Done Here" onfocus="if(this.value=='Type What You Need Done Here')this.value=''" onblur="if(this.value=='')this.value='Type What You Need Done Here'" />
+<button type="submit">Plant</button>
+</form>
+</div> <!--/RIGHT-->
+
+</div>
+</div> <!--/NEEDDONE-->
+
+
+
+<div id="container"> 
+
+
+<div id="main">
+
+<div class="rightside">
+<div class="boxheadin"><h3>Recent Projects</h3></div>
+
+<div class="recentprojects">
+
+<a class="job" href="#">Help Me Build A Resume</a>
+<p><b>By:</b><a href="#" id="stay-target-1" class="stay-tooltip-target tooltip-target">Username</a></p>
+
+<div id="stay-content-1" class="stay-tooltip-username tooltip-username">
+<a href="#">Sample Name</a>
+<p>New York City, New York</p>
+<ul>
+<li class="up">215</li>
+<li class="down">0</li>
+</ul>
+</div> <!--/Stay Content 1-->
+
+<p class="status"><em>Status:</em><i class="completed">Completed</i></p>
+
+
+<a class="job" href="#">Help Me Build A Resume</a>
+<p><b>By:</b><a href="#" id="stay-target-2" class="stay-tooltip-target tooltip-target">Username</a></p>
+
+<div id="stay-content-2" class="stay-tooltip-username tooltip-username">
+<a href="#">Sample Name</a>
+<p>New York City, New York</p>
+<ul>
+<li class="up">215</li>
+<li class="down">0</li>
+</ul>
+</div> <!--/Stay Content 2-->
+
+<p class="status"><em>Status:</em><i class="inprogress">In Progress</i></p>
+
+<a class="job" href="#">Help Me Build A Resume</a>
+<p><b>By:</b><a href="#" id="stay-target-3" class="stay-tooltip-target tooltip-target">Username</a></p>
+
+<div id="stay-content-3" class="stay-tooltip-username tooltip-username">
+<a href="#">Sample Name</a>
+<p>New York City, New York</p>
+<ul>
+<li class="up">215</li>
+<li class="down">0</li>
+</ul>
+</div> <!--/Stay Content 3-->
+
+<p class="status"><em>Status:</em><i class="canceled">Canceled</i></p>
+
+
+<a class="job" href="#">Help Me Build A Resume</a>
+<p><b>By:</b><a href="#" id="stay-target-4" class="stay-tooltip-target tooltip-target">Username</a></p>
+
+<div id="stay-content-4" class="stay-tooltip-username tooltip-username">
+<a href="#">Sample Name</a>
+<p>New York City, New York</p>
+<ul>
+<li class="up">215</li>
+<li class="down">0</li>
+</ul>
+</div> <!--/Stay Content 4-->
+
+<p class="status"><em>Status:</em><i class="completed">Completed</i></p>
+
+
+</div> <!--/BOX-->
+</div> <!--/RIGHTSIDE-->
+
+
+<div class="content">
+
+<div class="head">
+
+<div class="left">
+<h5>Inbox</h5>
+</div> <!--/LEFT-->
+
+<div class="right">
+<ul class="big">
+<li><a href="#" class="active">All</a></li>
+<li><a href="#">Read</a></li>
+<li><a href="#">Archived</a></li>
+</ul>
+</div> <!--/RIGHT-->
+</div> <!--/HEAD-->
+
+
+<div id="inboxhead">
+<b class="left">Recipient</b>
+<b class="right">Updated</b>
+<div class="clear"></div>
+</div>
+
+
+
+<div id="inbox">
+<% unless @messages.nil? || @messages.empty? %>
+  <ul>
+  <% @messages.each do |message| %>
+    <li>
+      <a href="#" title="Text">Username
+        <em>Aug. 20th, 2011</em>
+        <span>Message Message</span>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+<% else %>
+  <h2><strong>You currently have no messages</strong></h2>
+<% end %>
+</div> <!--INBOX-->
+
+<!--PAGINATION-->
+<!--<div id="paginationholder">
+  <div class="pagination">
+    <ol class="wp-paginate">
+      <li><span class="title"></span></li>
+      <li><a href="#" class="prev">&#8249;&#8249;</a></li>
+      <li><span class='currentpage'>1</span></li> 
+      <li><a href='#' title='2' class='page'>2</a></li>
+      <li><a href='#' title='3' class='page'>3</a></li>
+      <li><a href='#' title='4' class='page'>4</a></li>
+      <li><a href="#" class="next">&#8250;&#8250;</a></li>
+    </ol>
+  </div>
+</div>-->
+<!--/PAGINATION-->
+
+
+
+
+
+
+
+</div> <!--/CONTENT-->
+</div> <!--/MAIN-->
