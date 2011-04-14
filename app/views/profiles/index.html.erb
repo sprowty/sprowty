@@ -1,0 +1,348 @@
+<div id="subhead"></div>
+
+
+
+<div id="container"> 
+
+
+<div id="main">
+
+<div class="rightside">
+
+
+<div class="boxheadin"><h3>What You Can Do</h3></div>
+<div class="box">
+<ul class="categories">
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+<li><a href="#">Sample Link</a></li>
+</ul>
+
+<input name="Add New Skill" type="text" size="50" value="Add New Skill" onfocus="if(this.value=='Add New Skill')this.value=''" onblur="if(this.value=='')this.value='Add New Skill'" />
+<button class="add"></button>
+
+</div> <!--/BOX-->
+
+
+
+<div class="boxhead"><h3>My Work</h3></div>
+<div class="box">
+
+<button class="upload"></button>
+<ul class="upload">
+<li class="file"><a href="#">Filename.jpg</a></li>
+</ul>
+<a href="#" class="delete"></a>
+<div class="clear"></div>
+
+<button class="upload"></button>
+<ul class="upload">
+<li class="file"><a href="#">Filename.jpg</a></li>
+</ul>
+<a href="#" class="delete"></a>
+<div class="clear"></div>
+
+
+<button class="upload"></button>
+<ul class="upload">
+<li class="file"><a href="#">OtherFilename.jpg</a></li>
+</ul>
+<a href="#" class="delete"></a>
+<div class="clear"></div>
+
+
+<button class="upload"></button>
+<ul class="upload">
+<li class="file"><a href="#">VeryVeryVery Long  Filename.jpg</a></li>
+</ul>
+<a href="#" class="delete"></a>
+
+
+<div class="clear"></div>
+</div> <!--/BOX-->
+
+
+
+
+
+</div> <!--/RIGHTSIDE-->
+
+
+<div class="content">
+
+<div class="head">
+
+<div class="left">
+<h5>Profile</h5>
+</div> <!--/LEFT-->
+
+<div class="right">
+<ul>
+  <li class="sort"><b>Manage Your Account:</b></li>
+  <li><%= link_to 'Edit Information', edit_profile_path %></li>
+</ul>
+</div> <!--/RIGHT-->
+</div> <!--/HEAD-->
+
+
+
+<div id="profile">
+
+
+<div id="info">
+
+<div class="left">
+<img src="images/dummy_profile.jpg" />
+<ul class="action">
+<li class="upload"><a href="#">Upload A Pic</a></li>
+<li class="invite"><a href="#">Invite A Friend</a></li>
+</ul>
+</div> <!--/LEFT-->
+
+
+
+<div class="right">
+<h2><%= @profile.username %></h2>
+<ul class="user">
+<li><%= @profile.username %></li>
+<li><%= @profile.location %></li>
+</ul>
+
+<b class="ratings">Customer Ratings:</b>
+<ul class="ratings">
+<li class="positive">214</li>
+<li class="negative">4</li>
+</ul>
+
+<div class="clear"></div>
+
+
+<b>About:</b>
+<p><%= @profile.about %></p>
+
+</div> <!--/RIGHT-->
+
+
+<div class="clear"></div>
+</div> <!--/INFO-->
+
+
+<div id="plantbuy">
+<div class="holder">
+
+<div class="left">
+<h2>Plant</h2>
+<p>Ready to get a job done? Click plant and fill out the form to get your new job posted.</p>
+<a href="shadowboxes/plantseed.html" rel="shadowbox;height=455;width=740" class="plant">Sprowt It</a>
+</div>
+
+<div class="right">
+<h2>Buy</h2>
+<h4>20</h4>
+<a href="shadowboxes/buycoins.html" rel="shadowbox;height=400;width=740" class="buy">Buy</a>
+</div>
+
+<div class="clear"></div>
+</div> <!--/HOLDER-->
+</div> <!--/PLANTBUY-->
+
+
+
+<div class="mybalance">
+<h2>Available:</h2>
+<h3>$50.00</h3>
+<div class="clear"></div>
+
+<div class="column">
+<b>Awaiting Clearance:<em>$20.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN-->
+
+<div class="column">
+<b>Upcoming Payments:<em>$20.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN-->
+
+
+<div class="columnlast">
+<b>My Balance:<em>$20.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN LAST-->
+
+
+<div class="column">
+<b>Already Withdrawn:<em>$20.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN-->
+
+<div class="column">
+<b>Revenue Purchases:<em>$20.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN-->
+
+
+<div class="columnlast">
+<b>Money Spent:<em>$1,800.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN LAST-->
+
+
+<div class="column">
+<b>Revenue Purchases:<em>$20.00</em></b>
+<p>asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd</p>
+</div> <!--/COLUMN-->
+
+<a href="#" class="withdraw">Sprowt It</a>
+
+
+<div class="clear"></div>
+</div> <!--/MY BALANCE-->
+
+
+
+<div class="feedback">
+<h2>Feedback:</h2>
+<div class="clear"></div>
+
+
+<div class="holder">
+
+<div class="up"></div>
+<div class="left">
+<h6>Help Me Build A Resume</h6>
+<b class="post">By:<a href="#">Username</a></b>
+<div class="clear"></div>
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+</div> <!--/Up-->
+
+
+<div class="down"></div>
+<div class="left">
+<h6>Help Me Build A Resume</h6>
+<b class="post">By:<a href="#">Username</a></b>
+<div class="clear"></div>
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+</div> <!--/Up-->
+
+
+<div class="up"></div>
+<div class="left">
+<h6>Help Me Build A Resume</h6>
+<b class="post">By:<a href="#">Username</a></b>
+<div class="clear"></div>
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+</div> <!--/Up-->
+
+
+<div class="up"></div>
+<div class="left">
+<h6>Help Me Build A Resume</h6>
+<b class="post">By:<a href="#">Username</a></b>
+<div class="clear"></div>
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+
+</div> <!--/Up-->
+
+
+<div class="up"></div>
+<div class="left">
+<h6>Help Me Build A Resume</h6>
+<b class="post">By:<a href="#">Username</a></b>
+<div class="clear"></div>
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+</div> <!--/Up-->
+
+</div> <!--/HOLDER-->
+
+<div class="clear"></div>
+</div> <!--/FEEDBACK-->
+
+
+<div id="colholder">
+
+<div class="column">
+<div class="infohead">
+<b>Latest Seeds:</b>
+<p>Jobs I Need Done</p>
+</div>
+<ul>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+</ul>
+</div>
+
+<div class="column">
+<div class="infohead">
+<b>Latest Sprowts:</b>
+<p>Jobs I Have Done</p>
+</div>
+<ul>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+</ul>
+</div>
+
+
+<div class="column">
+<div class="infohead">
+<b>Working On:</b>
+<p>Jobs I Am Doing</p>
+</div>
+<ul>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
+</ul>
+</div>
+
+</div> <!--/COLHOLDER-->
+
+</div> <!--/PROFILE-->
+
+
+
+
+
+
+</div> <!--/CONTENT-->
+</div> <!--/MAIN-->
+
+<div class="clear"></div>
+
+</div> <!--/CONTAINER-->
+
+
+<div id="botlinks">
+
+<div class="left">
+
+<ul>
+<li><a href="#">Sample</a></li>
+<li><a href="#">Sample</a></li>
+<li><a href="#">Sample</a></li>
+<li><a href="#">Sample</a></li>
+<li><a href="#">Sample</a></li>
+<li><a href="#">Sample</a></li>
+</ul>
+
+<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+
+</div> <!--/LEFT-->

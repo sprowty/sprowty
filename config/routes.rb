@@ -9,5 +9,7 @@ Sprowty::Application.routes.draw do
   end
 
   root :to => 'home#index'
-  match 'inbox' => 'messages#index', :as => 'inbox'
+  match 'inbox'         => 'messages#index',  :as => 'inbox'
+  match 'profile'       => 'profiles#index',  :as => 'my_profile'
+  match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
 end
