@@ -93,7 +93,7 @@
 
 
 <div id="profile">
-<%= semantic_form_for @profile do |f| %>
+<%= semantic_form_for @profile, :html => { :multipart => true } do |f| %>
 <div class="settings">
   <div class="label">
     <label>Email Address</label></div>
@@ -190,6 +190,12 @@
 
 <div class="input">
 <input class="password" name="Confirm" type="text" value="Confirm" onfocus="if(this.value=='Confirm')this.value=''" onblur="if(this.value=='')this.value='Confirm'" />
+</div>
+
+
+<div id="profile_picture" class="input">
+  <div class="label"><label>Profile Picture</label></div>
+  <%= f.file_field :picture %>
 </div>
 
 </div>

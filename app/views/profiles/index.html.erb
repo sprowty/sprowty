@@ -98,7 +98,7 @@
 <div id="info">
 
 <div class="left">
-<img src="images/dummy_profile.jpg" />
+  <%= image_tag @profile.picture_file_name.nil? || @profile.picture_file_name.empty? ? 'dummy_profile.jpg' : @profile.picture.url(:profile) %>
 <ul class="action">
 <li class="upload"><a href="#">Upload A Pic</a></li>
 <li class="invite"><a href="#">Invite A Friend</a></li>
