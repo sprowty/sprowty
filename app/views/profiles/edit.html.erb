@@ -98,8 +98,9 @@
   <div class="label">
     <label>Email Address</label></div>
     <div class="input">
-
-      <input name="Email Address" type="text" value="Email Address" onfocus="if(this.value=='Email Address')this.value=''"  onblur="if(this.value=='')this.value='Email Address'" />
+    <%= f.fields_for :user do |u| %>
+      <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
+    <% end %>
   </div>
 </div>
 <div class="clear"></div>
