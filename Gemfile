@@ -6,6 +6,7 @@ gem 'devise'
 gem 'annotate'
 gem 'formtastic'
 gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'paperclip'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
