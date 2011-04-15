@@ -1,5 +1,7 @@
 Sprowty::Application.routes.draw do
 
+  resources :projects
+
   resources :messages
 
   # Authentication
