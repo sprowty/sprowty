@@ -92,122 +92,118 @@
 
 
 
-<div id="profile">
-<%= semantic_form_for @profile, :html => { :multipart => true } do |f| %>
-<div class="settings">
-  <div class="label">
-    <label>Email Address</label></div>
+  <div id="profile">
+    <%= semantic_form_for @profile, :html => { :multipart => true } do |f| %>
+    <div class="settings">
+      <div class="label">
+        <label>Email Address</label></div>
+        <div class="input">
+        <%= f.fields_for :user do |u| %>
+          <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="settings">
+      <div class="label">
+        <label>First Name</label>
+      </div>
+      <div class="input">
+        <%= f.text_field :first_name, :value => @profile.first_name.nil? || @profile.first_name.empty? ? 'First Name' : @profile.first_name, :onfocus => "if(this.value=='First Name')this.value=''", :onblur => "if(this.value=='')this.value='First Name'" %>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="settings">
+      <div class="label"><label>Last Name</label></div>
+      <div class="input">
+        <%= f.text_field :last_name, :value => @profile.last_name.nil? || @profile.last_name.empty? ? 'Last Name' : @profile.last_name, :onfocus => "if(this.value=='Last Name')this.value=''", :onblur => "if(this.value=='')this.value='Last Name'" %>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="settings">
+      <div class="label"><label>Location</label><p>(Example: Dallas, TX)</p></div>
+      <div class="input">
+        <%= f.text_field :location, :value => @profile.location.nil? || @profile.location.empty? ? 'New York, NY' : @profile.location, :onfocus => "if(this.value=='New York, NY')this.value=''", :onblur => "if(this.value=='')this.value='New York, NY'" %>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="settings">
+      <div class="label"><label>About</label><p>(Max 400 Characters)</p></div>
+      <div class="input">
+        <%= f.text_area :about %>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="paypal">
+      <img src="/images/icon_settings_paypal.png" />
+        <%= f.text_field :paypal, :value => @profile.paypal.nil? || @profile.paypal.empty? ? 'Username' : @profile.paypal, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="facebook">
+      <img src="/images/icon_settings_facebook.png" />
+        <%= f.text_field :facebook, :value => @profile.facebook.nil? || @profile.facebook.empty? ? 'Username' : @profile.facebook, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="twitter">
+      <img src="/images/icon_settings_twitter.png" />
+        <%= f.text_field :twitter, :value => @profile.twitter.nil? || @profile.twitter.empty? ? 'Username' : @profile.twitter, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+    </div>
+    <div class="clear"></div>
+
+  <div class="head">
+    <div class="left">
+      <h5>Privacy Settings</h5>
+    </div> <!--/LEFT-->
+  </div> <!--/HEAD-->
+  <div class="settings">
+    <div class="label"><label>Username</label></div>
     <div class="input">
+      <%= f.text_field :username, :value => @profile.username.nil? || @profile.username.empty? ? 'Username' : @profile.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+
+  <div class="settings">
     <%= f.fields_for :user do |u| %>
-      <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
+    <div class="label"><label>Password</label></div>
+
+    <div class="input">
+      <%= u.text_field :current_password, :value => 'Old Password', :class => 'password', :onfocus => "if(this.value=='Old Password')this.value=''", :onblur => "if(this.value=='')this.value='Old Password'" %>
+    </div>
+
+    <div class="input">
+      <%= u.text_field :password, :value => 'New Password', :class => 'password', :onfocus => "if(this.value=='New Password')this.value=''", :onblur => "if(this.value=='')this.value='New Password'" %>
+    </div>
+
+    <div class="input">
+      <%= u.text_field :password_confirmation, :value => 'Confirm', :class => 'password', :onfocus => "if(this.value=='Confirm')this.value=''", :onblur => "if(this.value=='')this.value='Confirm'" %>
+    </div>
     <% end %>
   </div>
-</div>
-<div class="clear"></div>
 
-<div class="settings">
-  <div class="label">
-    <label>First Name</label>
+  <div id="profile_picture" class="input">
+    <div class="label"><label>Profile Picture</label></div>
+    <%= f.file_field :picture %>
+    </div>
   </div>
-  <div class="input">
-    <%= f.text_field :first_name, :value => @profile.first_name.nil? || @profile.first_name.empty? ? 'First Name' : @profile.first_name, :onfocus => "if(this.value=='First Name')this.value=''", :onblur => "if(this.value=='')this.value='First Name'" %>
-  </div>
-</div>
-<div class="clear"></div>
+  
+  <div class="clear"></div>
 
-
-<div class="settings">
-<div class="label"><label>Last Name</label></div>
-<div class="input">
-    <%= f.text_field :last_name, :value => @profile.last_name.nil? || @profile.last_name.empty? ? 'Last Name' : @profile.last_name, :onfocus => "if(this.value=='Last Name')this.value=''", :onblur => "if(this.value=='')this.value='Last Name'" %>
-</div>
-</div>
-<div class="clear"></div>
-
-
-<div class="settings">
-<div class="label"><label>Location</label><p>(Example: Dallas, TX)</p></div>
-<div class="input">
-    <%= f.text_field :location, :value => @profile.location.nil? || @profile.location.empty? ? 'New York, NY' : @profile.location, :onfocus => "if(this.value=='New York, NY')this.value=''", :onblur => "if(this.value=='')this.value='New York, NY'" %>
-</div>
-</div>
-<div class="clear"></div>
-
-<div class="settings">
-<div class="label"><label>About</label><p>(Max 400 Characters)</p></div>
-<div class="input">
-<%= f.text_area :about %>
-
-<div class="paypal">
-<img src="/images/icon_settings_paypal.png" />
-    <%= f.text_field :paypal, :value => @profile.paypal.nil? || @profile.paypal.empty? ? 'Username' : @profile.paypal, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-</div>
-<div class="clear"></div>
-
-
-<div class="facebook">
-<img src="/images/icon_settings_facebook.png" />
-    <%= f.text_field :facebook, :value => @profile.facebook.nil? || @profile.facebook.empty? ? 'Username' : @profile.facebook, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-</div>
-<div class="clear"></div>
-
-
-<div class="twitter">
-<img src="/images/icon_settings_twitter.png" />
-    <%= f.text_field :twitter, :value => @profile.twitter.nil? || @profile.twitter.empty? ? 'Username' : @profile.twitter, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-</div>
-
-</div>
-</div>
-<div class="clear"></div>
-
-<div class="head">
-<div class="left">
-<h5>Privacy Settings</h5>
-</div> <!--/LEFT-->
-</div> <!--/HEAD-->
-
-
-<div class="settings">
-<div class="label"><label>Username</label></div>
-<div class="input">
-    <%= f.text_field :username, :value => @profile.username.nil? || @profile.username.empty? ? 'Username' : @profile.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-</div>
-</div>
-<div class="clear"></div>
-
-
-<div class="settings">
-<div class="label"><label>Password</label></div>
-
-<div class="input">
-<input class="password" name="Old Password" type="text" value="Old Password" onfocus="if(this.value=='Old Password')this.value=''" onblur="if(this.value=='')this.value='Old Password'" />
-</div>
-
-<div class="input">
-<input class="password" name="New Password" type="text" value="New Password" onfocus="if(this.value=='New Password')this.value=''" onblur="if(this.value=='')this.value='New Password'" />
-</div>
-
-
-<div class="input">
-<input class="password" name="Confirm" type="text" value="Confirm" onfocus="if(this.value=='Confirm')this.value=''" onblur="if(this.value=='')this.value='Confirm'" />
-</div>
-
-
-<div id="profile_picture" class="input">
-  <div class="label"><label>Profile Picture</label></div>
-  <%= f.file_field :picture %>
-</div>
-
-</div>
-<div class="clear"></div>
-
-<%= f.submit 'Save', :class => 'save' %>
+  <%= f.submit 'Save', :class => 'save' %>
 <% end %>
-
 </div> <!--/PROFILE-->
-
-
 
 </div> <!--/CONTENT-->
 </div> <!--/MAIN-->
