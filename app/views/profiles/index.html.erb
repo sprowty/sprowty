@@ -139,7 +139,7 @@
 <div class="left">
 <h2>Plant</h2>
 <p>Ready to get a job done? Click plant and fill out the form to get your new job posted.</p>
-<a href="shadowboxes/plantseed.html" rel="shadowbox;height=455;width=740" class="plant">Sprowt It</a>
+<%= link_to 'Sprowt It', new_project_path, :class => 'plant' %>
 </div>
 
 <div class="right">
@@ -271,17 +271,15 @@
 <div id="colholder">
 
 <div class="column">
-<div class="infohead">
-<b>Latest Seeds:</b>
-<p>Jobs I Need Done</p>
-</div>
-<ul>
-<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
-<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
-<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
-<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
-<li><a href="#">I need a flyer for a club I am promoting</a></li><i>due 03/11/2011</i>
-</ul>
+  <div class="infohead">
+    <b>Latest Seeds:</b>
+    <p>Jobs I Need Done</p>
+  </div>
+  <ul>
+    <% @seeds.each do |project| %>
+    <li><a href="#"><%= project.title %></a></li><i>due <%= project.due_date.strftime("%m/%d/%Y")%></i>
+    <% end %>
+  </ul>
 </div>
 
 <div class="column">

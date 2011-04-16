@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>sprowty</title>
+<link rel="stylesheet" type="text/css" href="shadowboxes.css" />
+
+<style type="text/css">
+a:active, a:focus, button{outline: 0;}
+.left, .right {text-align: left; padding: 20px 0 20px 20px}
+.right {padding:20px 20px 20px 0px}
+.left, .labelholder {float: left}
+.right, #plantseed i {float: right}
+.clear {clear: both}
+
+#plantseed .right p i {float: none; margin-bottom: 20px; padding: 0}
+
+#plantseed {font: 12px Helvetica, Arial, Sans-Serif; text-align: center; background-color: #E5D7C1; height: 100%;}
+#plantseed .head {
+background-color: green; 
+padding: 30px 30px 25px 30px; 
+background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.19, rgb(122,124,30)),
+    color-stop(0.58, rgb(159,161,36))
+);
+background: -moz-linear-gradient(
+    center bottom,
+    rgb(122,124,30) 19%,
+    rgb(159,161,36) 58%
+);
+border-bottom: 1px solid #606117;
+border-bottom: 1px solid #606117;
+-moz-border-radius-topleft: 14px;
+-moz-border-radius-topright: 14px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+border-top-left-radius: 14px;
+border-top-right-radius: 14px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px; 
+}
+
+
+#plantseed h3  {
+color: #313104; 
+text-shadow: 1px 1px 1px #b4b64c;
+filter: dropshadow(color=#b4b64c, offx=1, offy=1);
+margin: 0; 
+padding: 0; 
+font-size: 22px; 
+text-transform: uppercase 
+}
+
+#plantseed .left {width: 490px; }
+#plantseed .right {width: 190px }
+#plantseed .labelholder {width: 140px; text-align: right; padding: 4px 14px 0 0;}
+#plantseed label, h5, h5.due {color: #422215; font-size: 18px; font-weight: bold; }
+#plantseed i {font-style: normal; color: #894125; font-size: 11px}
+ 
+#plantseed input.field, input.price, input.year, textarea {
+padding: 12px; 
+border: 1px solid #c3b288; 
+font: 14px Georgia,'Times New Roman',Serif; 
+font-style: italic; 
+color: #3c3c39; 
+width: 300px;
+margin-bottom: 14px;
+}
+
+
+input.price {font: bold 16px Helvetica, Arial, Sans-Serif; font-style: normal; color: #585A05; width: 50px }
+input.year {font: bold 14px Helvetica, Arial, Sans-Serif; font-style: normal; padding: 10px; width: 150px; color: #422215}
+p {padding-bottom: 14px; margin: 0}
+select {float: left;  width: 179px; margin: 0px 0 14px 0}
+textarea {resize:none;}
+
+
+#plantseed textarea {
+font: 12px Helvetica,Arial,Sans-Serif;
+height: 50px;
+padding: 12px;
+}
+
+#plantseed h4 {margin-bottom: 0; margin-top: 10px; color: #422215;}
+#plantseed h5 {font-size: 18px; margin: 0; padding: 0}
+
+#plantseed a.plantseed, #plantseed .plantseed {
+background: url(../images/button_plantseed.png) no-repeat; 
+border: none;
+width: 533px; 
+height: 73px; 
+text-indent: -9999em; 
+display: block; 
+margin: 0 auto;
+float: right;
+margin-right: 20px;
+margin-top: -24px
+}
+
+
+#plantseed a.plantseed:hover, #plantseed .plantseed:hover {
+-webkit-box-shadow: 0px 0px 8px #000;
+-moz-box-shadow: 0px 0px 8px #000;
+box-shadow: 0px 0px 8px #000; 
+-moz-border-radius: 22px;
+border-radius: 22px; 
+}
+
+select.month, select.day, select.year, #project_due_date_2i, #project_due_date_1i, #project_due_date_3i {width: 48px; float: left; margin-right: 8px}
+select.month, #project_due_date_2i {width: 58px}
+select.year, #project_due_date_1i {width: 60px}
+</style>
+
+</head>
+
+<body>
+
+<div id="plantseed">
+
+<div class="head">
+<h3>Plant A Seed</h3>
+</div>
+
+
+<div class="left">
+
+<%= form_for @project do |f| %>
+  <%= error_messages_for :project %>
+  <div class="labelholder">
+    <label>Job Title:</label>
+  </div>
+  <%= f.text_field :title, :class => 'field' %>
+
+  <div class="labelholder">
+    <label>Description:</label>
+    <i>Insert the full description and guidelines of your job</i>
+  </div>
+  <%= f.text_area :description, :class => 'field' %>
+
+
+  <div class="labelholder">
+    <label>Tags:</label>
+    <i>Tags Associated With Job</i>
+  </div>
+  <%= f.text_field :tags, :class => 'field' %>
+
+  <div class="labelholder">
+    <label>Price:</label>
+    <i>Enter in Increments of $5</i>
+  </div>
+  <%= f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price' %>
+
+</div> <!--LEFT-->
+
+
+<div class="right">
+<h5>Categories:</h5>
+<p><i>Choose the categories your job should be listed in</i></p>
+
+<select>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+</select>
+
+<select>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+</select>
+
+<select>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+</select>
+
+
+<h5>Due Date:</h5>
+<p><i>Select Your Due Date</i></p>
+<%= date_select :project, :due_date, { :order => [:month, :day, :year] } %>
+
+
+</div> <!--RIGHT-->
+
+<div class="clear"></div>
+
+  <%= f.submit 'Plant Seed', :class => 'plantseed' %>
+<% end %>
+</div> <!--PLANTSEED-->
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $("#project_submit").click(function () {
+      $.post("<%= projects_path %>",
+        $("#new_project").serialize(),
+        function(json) {
+          if (json.success == false) {
+            $.fn.colorbox({
+              html:   json.html,
+              open:   true,
+              iframe: false
+            });
+          } else {
+            $('#cboxClose').click();
+            return false;
+          }
+        }, "json");
+    });
+  });
+</script>
+
+</body> 
+</html>
