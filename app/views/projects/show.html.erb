@@ -1,0 +1,171 @@
+
+<div id="subhead"></div>
+
+
+<div id="needdone">
+  <div class="holder">
+
+    <div class="left">
+      <h4>Need Something Done?</h4>
+    </div> <!--/LEFT-->
+
+    <div class="right">
+      <form id="search" method="get" action="" name="input">
+        <input class="field" name="Type What You Need Done Here" type="text" value="Type What You Need Done Here" onfocus="if(this.value=='Type What You Need Done Here')this.value=''" onblur="if(this.value=='')this.value='Type What You Need Done Here'" />
+        <button type="submit">Plant</button>
+      </form>
+    </div> <!--/RIGHT-->
+
+  </div>
+</div> <!--/NEEDDONE-->
+
+
+
+<div id="container"> 
+
+
+  <div id="main">
+
+    <div class="rightside">
+
+      <h2>Harvest Fields</h2>
+      <p>Find the jobs you want to do</p>
+
+      <form id="search" method="get" action="" name="input">
+        <input name="Search" type="text" value="Search" onfocus="if(this.value=='Search')this.value=''" onblur="if(this.value=='')this.value='Search'" />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="clear"></div>
+
+
+      <div class="boxhead"><h3>Categories</h3></div>
+      <div class="box">
+        <ul class="categories">
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+        </ul>
+      </div> <!--/BOX-->
+
+
+      <img src="images/icon_rooster.png" class="rooster" />
+      <div class="twitbox">
+        <div id="twitter">
+          <ul id="twitter_update_list"><li></li></ul>
+        </div>
+        <span class="quote"></span>
+      </div> <!--/TWITBOX-->
+      <div class="follow"><h2><a href="#">@sprowty</a></h2></div>
+
+
+    </div> <!--/RIGHTSIDE-->
+
+
+
+    <div class="content">
+
+      <div class="convohead">
+        <div class="left">
+          <h5>Project Description</h5>
+        </div> <!--/LEFT-->
+      </div> <!--/HEAD-->
+
+      <div id="listings">
+        <div class="posttwo">
+          <div class="sprowts">
+            <b>0</b>
+            <p>Sprowts</p>
+            <p>(Bids)</p>
+          </div>
+
+          <div class="pic"><%= image_tag(@project.user.profile.picture.url(:thumb))%></div>
+
+          <div class="info">
+            <h2><a href="#"><%= @project.title %></a></h2>
+            <ul class="posted">
+              <li><b>Due:</b><%= @project.due_date.strftime("%m/%d/%Y") %></li>
+              <li >
+                <b>By:</b>
+                <a id="stay-target-1" class="stay-tooltip-target tooltip-target"><%= @project.user.profile.username %></a>
+              </li>
+
+              <div id="stay-content-1" class="stay-tooltip-username tooltip-username">
+                <a href="#">Sample Name</a>
+                <p><%= @project.user.profile.location %></p>
+                <ul>
+                  <li class="up">215</li>
+                  <li class="down">0</li>
+                </ul>
+              </div> <!--/Stay Content 7-->
+            </ul> <!--/Posted-->
+
+            <div id="description">
+              <div class="keywords">
+                <b>In Category:</b>
+                <ul>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                  <li><a href="#">Category</a>,</li>
+                </ul>
+              </div> <!--/Category-->
+
+              <div class="keywords">
+                <b>Keywords:</b>
+                <ul>
+                  <li><a href="#">Keyword</a>,</li>
+                  <li><a href="#">Keyword</a>,</li>
+                  <li><a href="#">Keyword</a>,</li>
+                  <li><a href="#">Keyword</a>,</li>
+                </ul>
+              </div> <!--/Keywords-->
+            </div> <!--/Description-->
+
+            <p><%= @project.description %></p>
+
+            <ul class="actions">
+              <li><a href="shadowboxes/submitbid.html" rel="shadowbox;height=480;width=650">Sprowt It!</a></li>
+              <li><a href="#">Create Similar</a></li>
+              <li class="share"><a id="stay-target-2" class="stay-tooltip-target tooltip-target">Share</a></li>
+            </ul>
+
+            <div id="stay-content-2" class="stay-tooltip-username tooltip-share">
+              <ul>
+                <li><a href="#" class="facebook"></a></li>
+                <li><a href="#" class="twitter"></a></li>
+                <li><a href="#" class="email"></a></li>
+              </ul>
+            </div> <!--/stay-content-2-->
+          </div> <!--/INFO-->
+
+          <div class="price">
+            <h4><%= number_to_currency(@project.price, :precision => 0) %></h4>
+            <i>Asking Price</i>
+          </div>
+
+          <div class="clear"></div>
+        </div> <!--/POST-->
+
+      </div> <!--/LISTINGS-->
+
+
+
+
+
+    </div> <!--/CONTENT-->
+  </div> <!--/MAIN-->
+
+  <div class="clear"></div>
+
+</div> <!--/CONTAINER-->
