@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   respond_to :html, :json
   
   def index
+    @projects = current_user.projects
   end
   
   def new
