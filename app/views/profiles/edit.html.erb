@@ -1,109 +1,62 @@
 <div id="subhead"></div>
-
-
-
 <div id="container"> 
+  <div id="main">
+    <div class="rightside">
+      <div class="boxheadin"><h3>What You Can Do</h3></div>
+      <div class="box">
+        <ul class="categories">
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+        </ul>
 
+        <input name="Add New Skill" type="text" size="50" value="Add New Skill"   onfocus="if(this.value=='Add New Skill')this.value=''" onblur="if(this.value=='')this.value='Add New Skill'" />
+        <button class="add"></button>
+      </div> <!--/BOX-->
 
-<div id="main">
+      <div class="boxhead"><h3>My Work</h3></div>
+      <div class="box">
+        <button class="upload"></button>
+        <ul class="upload">
+          <li class="file"><a href="#">Filename.jpg</a></li>
+        </ul>
+        <a href="#" class="delete"></a>
+        <div class="clear"></div>
+      </div> <!--/BOX-->
+    </div> <!--/RIGHTSIDE-->
 
-<div class="rightside">
+    <div class="content">
+      <div class="head">
+        <div class="left">
+          <h5>Profile Settings</h5>
+        </div> <!--/LEFT-->
 
+        <div class="right">
+          <ul>
+            <li class="sort"><b>Manage Your Account:</b></li>
+            <li><a href="#">Edit Information</a></li>
+          </ul>
+        </div> <!--/RIGHT-->
+      </div> <!--/HEAD-->
 
-<div class="boxheadin"><h3>What You Can Do</h3></div>
-<div class="box">
-<ul class="categories">
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-</ul>
-
-<input name="Add New Skill" type="text" size="50" value="Add New Skill" onfocus="if(this.value=='Add New Skill')this.value=''" onblur="if(this.value=='')this.value='Add New Skill'" />
-<button class="add"></button>
-
-</div> <!--/BOX-->
-
-
-
-<div class="boxhead"><h3>My Work</h3></div>
-<div class="box">
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">Filename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-<div class="clear"></div>
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">Filename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-<div class="clear"></div>
-
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">OtherFilename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-<div class="clear"></div>
-
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">VeryVeryVery Long  Filename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-
-
-<div class="clear"></div>
-</div> <!--/BOX-->
-
-
-
-
-
-</div> <!--/RIGHTSIDE-->
-
-
-<div class="content">
-
-<div class="head">
-
-<div class="left">
-<h5>Profile Settings</h5>
-</div> <!--/LEFT-->
-
-<div class="right">
-<ul>
-<li class="sort"><b>Manage Your Account:</b></li>
-<li><a href="#">Edit Information</a></li>
-</ul>
-</div> <!--/RIGHT-->
-</div> <!--/HEAD-->
-
-
-
-  <div id="profile">
-    <%= semantic_form_for @profile, :html => { :multipart => true } do |f| %>
-    <div class="settings">
-      <div class="label">
-        <label>Email Address</label></div>
-        <div class="input">
-        <%= f.fields_for :user do |u| %>
-          <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="clear"></div>
+      <div id="profile">
+        <%= semantic_form_for @profile, :html => { :multipart => true } do |f| %>
+        <div class="settings">
+          <div class="label">
+            <label>Email Address</label></div>
+            <div class="input">
+              <%= f.fields_for :user do |u| %>
+              <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="clear"></div>
 
     <div class="settings">
       <div class="label">
@@ -112,9 +65,8 @@
       <div class="input">
         <%= f.text_field :first_name, :value => @profile.first_name.nil? || @profile.first_name.empty? ? 'First Name' : @profile.first_name, :onfocus => "if(this.value=='First Name')this.value=''", :onblur => "if(this.value=='')this.value='First Name'" %>
       </div>
-    </div>
+    </div><!--/SETTINGS-->
     <div class="clear"></div>
-
 
     <div class="settings">
       <div class="label"><label>Last Name</label></div>
@@ -123,7 +75,6 @@
       </div>
     </div>
     <div class="clear"></div>
-
 
     <div class="settings">
       <div class="label"><label>Location</label><p>(Example: Dallas, TX)</p></div>
@@ -138,96 +89,65 @@
       <div class="input">
         <%= f.text_area :about %>
       </div>
-    </div>
-    <div class="clear"></div>
+      <div class="clear"></div>
 
-    <div class="paypal">
-      <img src="/images/icon_settings_paypal.png" />
+      <div class="paypal">
+        <img src="/images/icon_settings_paypal.png" />
         <%= f.text_field :paypal, :value => @profile.paypal.nil? || @profile.paypal.empty? ? 'Username' : @profile.paypal, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-    </div>
-    <div class="clear"></div>
-
-
-    <div class="facebook">
-      <img src="/images/icon_settings_facebook.png" />
+      </div>
+      <div class="clear"></div>
+      
+      <div class="facebook">
+        <img src="/images/icon_settings_facebook.png" />
         <%= f.text_field :facebook, :value => @profile.facebook.nil? || @profile.facebook.empty? ? 'Username' : @profile.facebook, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-    </div>
-    <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
 
-
-    <div class="twitter">
-      <img src="/images/icon_settings_twitter.png" />
+      <div class="twitter">
+        <img src="/images/icon_settings_twitter.png" />
         <%= f.text_field :twitter, :value => @profile.twitter.nil? || @profile.twitter.empty? ? 'Username' : @profile.twitter, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="head">
+      <div class="left">
+        <h5>Privacy Settings</h5>
+      </div> <!--/LEFT-->
+    </div> <!--/HEAD-->
+  
+    <div class="settings">
+      <div class="label"><label>Username</label></div>
+      <div class="input">
+        <%= f.text_field :username, :value => @profile.username.nil? || @profile.username.empty? ? 'Username' : @profile.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+      </div>
     </div>
     <div class="clear"></div>
 
-  <div class="head">
-    <div class="left">
-      <h5>Privacy Settings</h5>
-    </div> <!--/LEFT-->
-  </div> <!--/HEAD-->
-  <div class="settings">
-    <div class="label"><label>Username</label></div>
-    <div class="input">
-      <%= f.text_field :username, :value => @profile.username.nil? || @profile.username.empty? ? 'Username' : @profile.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-    </div>
-  </div>
-  <div class="clear"></div>
+    <div class="settings">
+      <%= f.fields_for :user do |u| %>
+      <div class="label"><label>Password</label></div>
+      <div class="input">
+        <%= u.text_field :current_password, :value => 'Old Password', :class => 'password', :onfocus => "if(this.value=='Old Password')this.value=''", :onblur => "if(this.value=='')this.value='Old Password'" %>
+      </div>
 
+      <div class="input">
+        <%= u.text_field :password, :value => 'New Password', :class => 'password', :onfocus => "if(this.value=='New Password')this.value=''", :onblur => "if(this.value=='')this.value='New Password'" %>
+      </div>
 
-  <div class="settings">
-    <%= f.fields_for :user do |u| %>
-    <div class="label"><label>Password</label></div>
-
-    <div class="input">
-      <%= u.text_field :current_password, :value => 'Old Password', :class => 'password', :onfocus => "if(this.value=='Old Password')this.value=''", :onblur => "if(this.value=='')this.value='Old Password'" %>
-    </div>
-
-    <div class="input">
-      <%= u.text_field :password, :value => 'New Password', :class => 'password', :onfocus => "if(this.value=='New Password')this.value=''", :onblur => "if(this.value=='')this.value='New Password'" %>
-    </div>
-
-    <div class="input">
-      <%= u.text_field :password_confirmation, :value => 'Confirm', :class => 'password', :onfocus => "if(this.value=='Confirm')this.value=''", :onblur => "if(this.value=='')this.value='Confirm'" %>
-    </div>
+      <div class="input">
+        <%= u.text_field :password_confirmation, :value => 'Confirm', :class => 'password', :onfocus => "if(this.value=='Confirm')this.value=''", :onblur => "if(this.value=='')this.value='Confirm'" %>
+      </div>
+      <% end %>
+    
+      <div id="profile_picture" class="input">
+        <div class="label"><label>Profile Picture</label></div>
+          <%= f.file_field :picture %>
+        </div>
+      </div>  
+      <div class="clear"></div>
+      <%= f.submit 'Save', :class => 'save' %>
     <% end %>
-  </div>
-
-  <div id="profile_picture" class="input">
-    <div class="label"><label>Profile Picture</label></div>
-    <%= f.file_field :picture %>
     </div>
-  </div>
-  
-  <div class="clear"></div>
-
-  <%= f.submit 'Save', :class => 'save' %>
-<% end %>
-</div> <!--/PROFILE-->
-
-</div> <!--/CONTENT-->
-</div> <!--/MAIN-->
-
-<div class="clear"></div>
-
-</div> <!--/CONTAINER-->
-
-
-<div id="botlinks">
-
-<div class="left">
-
-<ul>
-<li><a href="#">Sample</a></li>
-<li><a href="#">Sample</a></li>
-<li><a href="#">Sample</a></li>
-<li><a href="#">Sample</a></li>
-<li><a href="#">Sample</a></li>
-<li><a href="#">Sample</a></li>
-</ul>
-
-<p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
-
-</div> <!--/LEFT-->
-
-</div> 
+  </div> <!--/PROFILE-->
+</div>

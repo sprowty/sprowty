@@ -80,6 +80,7 @@ GEM
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
+    haml (3.0.25)
     i18n (0.5.0)
     json (1.4.6)
     json_pure (1.4.6)
@@ -178,6 +179,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   formtastic
+  haml
   launchy
   mysql2
   oa-oauth
