@@ -7,14 +7,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :omniauthable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  before_save :create_profile
-
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  after_save :create_profile
+  
   def create_profile
-    self.build_profile
+    self.build_profile.save
   end
 
-   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
     if user = User.find_by_email(data["email"])
       user

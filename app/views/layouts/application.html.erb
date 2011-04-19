@@ -57,7 +57,7 @@
 
         <ul class="userlog">
           <li><b>Welcome</b></li>
-          <li><a href="#">NYGal</a></li>
+          <li><%= link_to @current_user.username, my_profile_path %></li>
           <li><%= link_to 'Logout', logout_path %></li>
         </ul>
       <% end %>
@@ -109,7 +109,7 @@
     	offset: 0
     });
     
-    $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "50%", height: "420px", innerHeight: "400px" });
+    $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "50%", height: "440px", innerHeight: "420px" });
     $('.plant').colorbox({ width: "50%", height: "520px", innerHeight: "400px" });
     
     $('.clearField').clearField();

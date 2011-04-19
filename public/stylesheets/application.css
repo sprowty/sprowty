@@ -15,6 +15,7 @@ Yellow: #E69A2C;
  
 * { margin: 0; padding: 0px; }
 html, body, .background { margin: 0; padding: 0px; height: 100%; background: url(/images/bg.jpg) repeat-x;}
+#signupcontainer.background { height: 330px; }
 
 /* ----------SITE ELEMENTS--------------------- */
 a {cursor: pointer}

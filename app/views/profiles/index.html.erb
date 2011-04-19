@@ -108,10 +108,10 @@
 
 
 <div class="right">
-<h2><%= @profile.username %></h2>
+<h2><%= @current_user.username %></h2>
 <ul class="user">
-<li><%= @profile.username %></li>
-<li><%= @profile.location %></li>
+<li><%= @current_user.username %></li>
+<li><%= @current_user.profile.location %></li>
 </ul>
 
 <b class="ratings">Customer Ratings:</b>
