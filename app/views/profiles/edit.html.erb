@@ -119,9 +119,7 @@
     <div class="settings">
       <div class="label"><label>Username</label></div>
       <div class="input">
-        <%= f.fields_for :user %>
-          <%= f.text_field :username, :value => @current_user.username.nil? || @current_user.username.empty? ? 'Username' : @current_user.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
-        <% end %>
+        <%= f.text_field :username, :value => @current_user.username.nil? || @current_user.username.empty? ? 'Username' : @current_user.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
       </div>
     </div>
     <div class="clear"></div>
