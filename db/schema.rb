@@ -10,8 +10,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110415232834) do
-  
+ActiveRecord::Schema.define(:version => 20110419003738) do
+
   create_table "messages", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20110415232834) do
     t.string   "paypal"
     t.string   "facebook"
     t.string   "twitter"
-    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -61,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20110415232834) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
