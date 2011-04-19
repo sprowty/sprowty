@@ -57,7 +57,7 @@
 
         <ul class="userlog">
           <li><b>Welcome</b></li>
-          <li><%= link_to @current_user.username, my_profile_path %></li>
+          <li><%= link_to current_user.username, my_profile_path %></li>
           <li><%= link_to 'Logout', logout_path %></li>
         </ul>
       <% end %>
