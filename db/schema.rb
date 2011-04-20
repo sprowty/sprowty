@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419003738) do
+ActiveRecord::Schema.define(:version => 20110420030753) do
 
   create_table "messages", :force => true do |t|
     t.datetime "created_at"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(:version => 20110419003738) do
     t.text     "tags"
     t.float    "price"
     t.datetime "due_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "skill"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
