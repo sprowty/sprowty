@@ -47,12 +47,13 @@
 
       <div id="profile">
         <%= semantic_form_for @profile, :html => { :multipart => true } do |f| %>
+        <p><%= error_messages_for :profile, :user %></p>
         <div class="settings">
           <div class="label">
             <label>Email Address</label></div>
             <div class="input">
               <%= f.fields_for :user do |u| %>
-              <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
+                <%= u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'" %>
               <% end %>
             </div>
           </div>
@@ -119,27 +120,14 @@
     <div class="settings">
       <div class="label"><label>Username</label></div>
       <div class="input">
-        <%= f.text_field :username, :value => @current_user.username.nil? || @current_user.username.empty? ? 'Username' : @current_user.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+        <%= f.fields_for :user do |u| %>
+          <%= u.text_field :username, :value => current_user.username.nil? || current_user.username.empty? ? 'Username' : current_user.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'" %>
+        <% end %>
       </div>
     </div>
     <div class="clear"></div>
 
-    <div class="settings">
-      <%= f.fields_for :user do |u| %>
-      <div class="label"><label>Password</label></div>
-      <div class="input">
-        <%= u.text_field :current_password, :value => 'Old Password', :class => 'password', :onfocus => "if(this.value=='Old Password')this.value=''", :onblur => "if(this.value=='')this.value='Old Password'" %>
-      </div>
-
-      <div class="input">
-        <%= u.text_field :password, :value => 'New Password', :class => 'password', :onfocus => "if(this.value=='New Password')this.value=''", :onblur => "if(this.value=='')this.value='New Password'" %>
-      </div>
-
-      <div class="input">
-        <%= u.text_field :password_confirmation, :value => 'Confirm', :class => 'password', :onfocus => "if(this.value=='Confirm')this.value=''", :onblur => "if(this.value=='')this.value='Confirm'" %>
-      </div>
-      <% end %>
-    
+    <div class="settings">    
       <div id="profile_picture" class="input">
         <div class="label"><label>Profile Picture</label></div>
           <%= f.file_field :picture %>

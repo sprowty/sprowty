@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
-  after_save :create_profile
+  after_create :create_profile
   
   def create_profile
     self.build_profile.save
