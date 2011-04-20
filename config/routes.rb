@@ -1,5 +1,7 @@
 Sprowty::Application.routes.draw do
   
+  resources :bids
+
   resources :messages, :profiles, :projects
   
   # Authentication
