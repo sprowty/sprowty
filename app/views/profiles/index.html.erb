@@ -14,7 +14,7 @@
   <div class="box">
     <ul class="categories">
     <% @skills.each do |skill| %>
-      <li><%= skill.skill %></li>
+      <li><%= skill.skill %> <%= link_to '', skill_path(skill), :method => :delete, :class => "delete", :remote => true  %></li>
     <% end %>
     </ul>
     <input id="skill" name="skill" type="text" size="50" value="Add New Skill" onfocus="if(this.value=='Add New Skill')this.value=''" onblur="if(this.value=='')this.value='Add New Skill'" />
@@ -345,10 +345,14 @@
       var current_user  = "<%= current_user.id %>";
       $.post('<%= skills_path %>', { 'skill[skill]': skill, 'current_user': current_user }, function(json) {
         if (json.status == 'success') {
-          console.log('hey');
           $('ul.categories').append('<li>' + skill + '</li>');
+          $('#skill').val('');
         }
       }, "json");
+    });
+    
+    $('.delete').bind('ajax:success', function(e) {
+      $(this).closest('li').remove();
     });
   });
 </script>
