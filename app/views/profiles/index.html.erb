@@ -8,25 +8,17 @@
 <div id="main">
 
 <div class="rightside">
-
-
-<div class="boxheadin"><h3>What You Can Do</h3></div>
-<div class="box">
-<ul class="categories">
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-<li><a href="#">Sample Link</a></li>
-</ul>
-
-<input name="Add New Skill" type="text" size="50" value="Add New Skill" onfocus="if(this.value=='Add New Skill')this.value=''" onblur="if(this.value=='')this.value='Add New Skill'" />
-<button class="add"></button>
-
+  <div class="boxheadin">
+    <h3>What You Can Do</h3>
+  </div>
+  <div class="box">
+    <ul class="categories">
+    <% @skills.each do |skill| %>
+      <li><%= skill.skill %></li>
+    <% end %>
+    </ul>
+    <input id="skill" name="skill" type="text" size="50" value="Add New Skill" onfocus="if(this.value=='Add New Skill')this.value=''" onblur="if(this.value=='')this.value='Add New Skill'" />
+    <button class="add"></button>
 </div> <!--/BOX-->
 
 
@@ -344,3 +336,19 @@
 <p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
 
 </div> <!--/LEFT-->
+
+<script type="text/javascript" charset="utf-8">
+  $(function() { 
+    $('.add').bind('click', function(e) {
+      e.preventDefault();
+      var skill         = $('#skill').val();
+      var current_user  = "<%= current_user.id %>";
+      $.post('<%= skills_path %>', { 'skill[skill]': skill, 'current_user': current_user }, function(json) {
+        if (json.status == 'success') {
+          console.log('hey');
+          $('ul.categories').append('<li>' + skill + '</li>');
+        }
+      }, "json");
+    });
+  });
+</script>

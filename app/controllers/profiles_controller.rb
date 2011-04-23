@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   def index
     @profile = current_user.profile
     @seeds   = current_user.projects
+    @skills  = current_user.skills
   end
   
   def new
