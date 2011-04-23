@@ -71,10 +71,11 @@
 <h2>Harvest Fields</h2>
 <p>Find the jobs you want to do</p>
 
-<form id="search" method="get" action="" name="input">
-<input name="Search" type="text" value="Search" onfocus="if(this.value=='Search')this.value=''" onblur="if(this.value=='')this.value='Search'" />
-<button type="submit">Search</button>
-</form>
+
+<%= form_for :search, :url => root_url do |f| %>
+  <%= f.text_field :title_or_description_contains, :placeholder => 'Search' %>
+  <button type="submit">Search</button>
+<% end %>
 
 <div class="clear"></div>
 
@@ -135,7 +136,7 @@
   <% @projects.each do |project| %>
   <div class="post">
     <div class="sprowts">
-      <b>0</b>
+      <span class="bold bid_count"><%= project.bid_count %></span>
       <p>Sprowts</p>
       <p>(Bids)</p>
     </div>
