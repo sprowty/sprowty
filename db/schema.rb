@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110420030753) do
+ActiveRecord::Schema.define(:version => 20110423202121) do
+
+  create_table "bids", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.float    "price"
+    t.text     "why"
+    t.datetime "offer_expires"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "accept_current_price"
+  end
 
   create_table "messages", :force => true do |t|
     t.datetime "created_at"
@@ -73,5 +84,15 @@ ActiveRecord::Schema.define(:version => 20110420030753) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "works", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "work_file_name"
+    t.string   "work_content_type"
+    t.integer  "work_file_size"
+    t.datetime "work_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

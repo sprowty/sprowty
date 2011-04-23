@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :projects
   has_many :skills
+  has_many :bids
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
