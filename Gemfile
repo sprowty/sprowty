@@ -9,6 +9,7 @@ gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'paperclip'
 gem 'haml'
 gem 'inherited_resources'
+gem 'meta_search'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
