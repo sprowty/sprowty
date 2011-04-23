@@ -16,4 +16,9 @@ class BidsController < ApplicationController
       render :json => { :success => 'false', :html => render_to_string(:file => 'bids/new.html.erb', :template => false) }
     end
   end
+  
+  def dashboard
+    @project  = Project.find(params[:project])
+    @bids     = Bid.where(:project_id => @project.id)
+  end
 end

@@ -2,6 +2,12 @@ Sprowty::Application.routes.draw do
   
   resources :messages, :profiles, :projects, :skills, :bids
 
+  resources :projects do
+    collection do
+      get :dashboard
+    end
+  end
+
   # Authentication
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     get 'login',  :to => 'devise/sessions#new'
