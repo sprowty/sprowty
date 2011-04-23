@@ -4,6 +4,7 @@
 <head>
 <title>sprowty</title>
 <%= stylesheet_link_tag "application", "lightboxes", "colorbox" %>
+<%= javascript_include_tag "jquery", "application", "rails" %>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <%= csrf_meta_tag %>
@@ -78,7 +79,7 @@
     </div> <!--/HOLDER-->
   </div> <!--/FOOTER-->
 
-<%= javascript_include_tag 'jquery', 'scrolltop', 'jquery.clearfield.min','jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => false %>
+<%= javascript_include_tag 'scrolltop', 'jquery.clearfield.min','jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => false %>
 <%= javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1' %>
 <!-- Sign In -->
 <script type="text/javascript">
@@ -113,9 +114,8 @@
     $('.plant').colorbox({ width: "50%", height: "520px", innerHeight: "400px" });
     
     $('.clearField').clearField();
-  });
-		
+  });		
 </script>
-
+<%= yield :javascript %>
 </body> 
 </html>

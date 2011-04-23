@@ -1,6 +1,6 @@
 Sprowty::Application.routes.draw do
   
-  resources :messages, :profiles, :projects
+  resources :messages, :profiles, :projects, :skills
   
   # Authentication
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
