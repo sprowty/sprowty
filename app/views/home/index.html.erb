@@ -121,10 +121,10 @@
 <div class="right">
 <ul>
 <li class="sort"><b>Filter By:</b></li>
-<li><a href="#">Newest</a></li>
-<li><a href="#">Expiration</a></li>
-<li><a href="#">Pay Amount</a></li>
-<li><a href="#">Number Of Sprowts</a></li>
+  <li><%= sort_link @search, :created_at, 'Newest' %></li>
+  <li><%= sort_link @search, :due_date, 'Expiration' %></li>
+  <li><%= sort_link @search, :price %></li>
+  <li><%= sort_link @search, :bid_count, 'Sprowt count' %></li>
 </ul>
 </div> <!--/RIGHT-->
 </div> <!--/HEAD-->

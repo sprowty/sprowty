@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   
   def index
-    @projects = Project.all
+    @search   = Project.search(params[:search])
+    @projects = @search.all
   end
   
 end
