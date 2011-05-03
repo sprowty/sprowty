@@ -18,11 +18,31 @@ class User < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
+
     if user = User.find_by_email(data["email"])
       user
     else # Create a user with a stub password. 
-      User.create!(:email => data["email"], :password => Devise.friendly_token[0,20]) 
+      user = User.create!(:email => data["email"], :password => Devise.friendly_token[0,20], :username => create_username(data['username'], data['first_name'], data['last_name']))
+      user.profile.first_name = data['first_name'] unless data['first_name'].blank?
+      user.profile.last_name  = data['last_name'] unless data['last_name'].blank?
+      user.profile.location   = data['location']['name'] unless data['location'].blank? || data['location']['name'].blank?
+      user.profile.save
+      user
     end
+  end
+  
+  def self.create_username(username = nil, first_name = nil, last_name = nil)
+    if !username.blank? || username.taken? != true
+      username
+    elsif first_name.blank? || last_name.blank?
+      "#{first_name.downcase}_#{last_name.downcase}"
+    else
+      ''
+    end
+  end
+  
+  def self.taken?(username)
+    User.find_by_username(username).blank?
   end
   
   def self.new_with_session(params, session)
