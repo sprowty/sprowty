@@ -345,13 +345,13 @@
       var current_user  = "<%= current_user.id %>";
       $.post('<%= skills_path %>', { 'skill[skill]': skill, 'current_user': current_user }, function(json) {
         if (json.status == 'success') {
-          $('ul.categories').append('<li>' + skill + '</li>');
+          $('ul.categories').append('<li>' + skill + ' ' + json.destroy_link + '</li>');
           $('#skill').val('');
         }
       }, "json");
     });
     
-    $('.delete').bind('ajax:success', function(e) {
+    $('.delete').live('ajax:success', function(e) {
       $(this).closest('li').remove();
     });
   });

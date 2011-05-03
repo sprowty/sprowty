@@ -5,7 +5,7 @@ class SkillsController < ApplicationController
     @skill = Skill.new(:skill => params[:skill][:skill], :user_id => params[:current_user])
     
     if @skill.save
-      render :json => { :status => 'success' }
+      render :json => { :status => 'success', :destroy_link => render_to_string(template: 'skills/_delete.html.erb', locals: { skill: @skill })}
     else
       render :json => { :status => 'false' }
     end
