@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   after_create :create_profile
   
+  validates_presence_of :username
+  validates_uniqueness_of :username
+  
   def create_profile
     self.build_profile.save
   end
