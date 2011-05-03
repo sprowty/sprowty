@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
       user.profile.first_name = data['first_name'] unless data['first_name'].blank?
       user.profile.last_name  = data['last_name'] unless data['last_name'].blank?
       user.profile.location   = data['location']['name'] unless data['location'].blank? || data['location']['name'].blank?
+      user.profile.username   = data['username'] unless data['username'].blank?
       user.profile.save
       user
     end
