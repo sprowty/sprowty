@@ -1,6 +1,6 @@
 Sprowty::Application.routes.draw do
   
-  resources :messages, :profiles, :projects, :skills, :bids
+  resources :messages, :profiles, :projects, :skills, :bids, :works
 
   resources :projects do
     collection do
