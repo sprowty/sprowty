@@ -25,36 +25,18 @@
 
 <div class="boxhead"><h3>My Work</h3></div>
 <div class="box">
+  <% @works.each do |work| %>
+  <ul class="upload">
+    <li class="file"><%= link_to work.work_file_name, work.work.url %></li>
+  </ul>
+  <%= link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true) %>
+  <div class="clear"></div>  
+  <% end %>
 
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">Filename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-<div class="clear"></div>
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">Filename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-<div class="clear"></div>
-
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">OtherFilename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-<div class="clear"></div>
-
-
-<button class="upload"></button>
-<ul class="upload">
-<li class="file"><a href="#">VeryVeryVery Long  Filename.jpg</a></li>
-</ul>
-<a href="#" class="delete"></a>
-
+<%= semantic_form_for Work.new, :html => { :multipart => true } do |f| %>
+  <%= f.input :work, :as => :file, :label => false %>
+  <button id="submit" class="upload"></button>
+<% end %>
 
 <div class="clear"></div>
 </div> <!--/BOX-->
@@ -352,7 +334,12 @@
     });
     
     $('.delete').live('ajax:success', function(e) {
-      $(this).closest('li').remove();
+      if ($(this).hasClass('work')) {
+       $(this).prev('ul').remove();
+       $(this).remove();
+      } else {
+        $(this).closest('li').remove();
+      }
     });
   });
 </script>

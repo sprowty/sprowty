@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/thoughtbot/paperclip.git
+  revision: 93753d5c4da6488cce82e5378997dc3f5478ceff
+  specs:
+    paperclip (2.3.10)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -119,9 +127,6 @@ GEM
       faraday (~> 0.6.0)
       multi_json (~> 0.0.4)
     orm_adapter (0.0.4)
-    paperclip (2.3.11)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
     pickle (0.4.7)
       cucumber (>= 0.8)
       rake
@@ -146,6 +151,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     responders (0.6.2)
+    rmagick (2.13.1)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -195,9 +201,10 @@ DEPENDENCIES
   meta_search
   mysql2
   oa-oauth
-  paperclip
+  paperclip!
   pickle
   rails (= 3.0.6)
+  rmagick
   rspec-rails
   shoulda
   sqlite3

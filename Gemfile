@@ -6,10 +6,11 @@ gem 'devise'
 gem 'annotate'
 gem 'formtastic'
 gem 'oa-oauth', :require => 'omniauth/oauth'
-gem 'paperclip'
+gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git'
 gem 'haml'
 gem 'inherited_resources'
 gem 'meta_search'
+gem 'rmagick'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

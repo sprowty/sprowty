@@ -1,9 +1,10 @@
 class ProfilesController < ApplicationController
   
   def index
-    @profile = current_user.profile
-    @seeds   = current_user.projects
-    @skills  = current_user.skills
+    @profile  = current_user.profile
+    @seeds    = current_user.projects
+    @skills   = current_user.skills
+    @works    = current_user.works
   end
   
   def new

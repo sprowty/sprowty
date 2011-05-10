@@ -1013,3 +1013,8 @@ border-radius: 22px;
 .bold {
   font-weight: bold;
 }
+
+#new_work li {
+  list-style: none;
+  width: 20px;
+}
