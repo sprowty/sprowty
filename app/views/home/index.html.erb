@@ -49,8 +49,8 @@
 
 <div class="right">
 <form id="search" method="get" action="" name="input">
-<input class="field" name="Type What You Need Done Here" type="text" value="Type What You Need Done Here" onfocus="if(this.value=='Type What You Need Done Here')this.value=''" onblur="if(this.value=='')this.value='Type What You Need Done Here'" />
-<button type="submit">Plant</button>
+<input class="field" id="what_you_need_done" name="what_you_need_done" type="text" placeholder="Type What You Need Done Here" />
+<button id="plant_it" type="submit">Plant</button>
 </form>
 </div> <!--/RIGHT-->
 
@@ -226,3 +226,13 @@
 </div>
 
 </div> <!--/BOTLINKS-->
+<script type="text/javascript" charset="utf-8">
+  jQuery(function() {
+    jQuery('#plant_it').bind('click', function(e) {
+      e.preventDefault();
+      var link = "<%= new_project_url %>";
+      link = link + '?title=' + jQuery('#what_you_need_done').val();
+      jQuery.colorbox({ href: link, width: "50%", height: "570px", innerHeight: "540px" });
+    });
+  });
+</script>
