@@ -85,7 +85,7 @@
             <p>(Bids)</p>
           </div>
 
-          <div class="pic"><%= image_tag(@project.user.profile.picture.url(:thumb))%></div>
+          <div class="pic"><%= link_to image_tag(@project.user.profile.picture.url(:thumb)), profile_path(@project.user) %></div>
 
           <div class="info">
             <h2><a href="#"><%= @project.title %></a></h2>
@@ -93,7 +93,7 @@
               <li><b>Due:</b><%= @project.due_date.strftime("%m/%d/%Y") %></li>
               <li >
                 <b>By:</b>
-                <a id="stay-target-1" class="stay-tooltip-target tooltip-target"><%= @project.user.username %></a>
+                <a id="stay-target-1" class="stay-tooltip-target tooltip-target"><%= link_to @project.user.username, profile_path(@project.user) %></a>
               </li>
 
               <div id="stay-content-1" class="stay-tooltip-username tooltip-username">
