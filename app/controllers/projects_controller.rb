@@ -6,8 +6,8 @@ class ProjectsController < ApplicationController
   end
   
   def new
-    @project = Project.new
-    @project.title = params[:title] unless !params || params[:title].blank?
+    @project        = Project.new
+    @project.title  = params[:title] unless !params || params[:title].blank?
     render :layout => 'blank'
   end
   
