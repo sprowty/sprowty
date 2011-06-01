@@ -11,7 +11,7 @@ gem 'haml'
 gem 'inherited_resources'
 gem 'meta_search'
 gem 'rmagick'
-
+gem 'recaptcha', :require => 'recaptcha/rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
