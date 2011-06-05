@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :omniauthable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :recaptcha
   after_create :create_profile
   
   validates_presence_of :username
   validates_uniqueness_of :username
-  
+
   def create_profile
     self.build_profile.save
   end
