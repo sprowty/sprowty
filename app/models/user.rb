@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     self.build_profile.save
   end
 
+  def self.find_by_id_or_username(param)
+    where("id = ? or username = ?", param, param).first
+  end
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
 

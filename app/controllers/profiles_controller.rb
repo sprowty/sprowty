@@ -34,7 +34,11 @@ class ProfilesController < ApplicationController
   end
   
   def show
-    @profile = Profile.find(params[:id])
+    @user    = User.find_by_id_or_username(params[:id])
+    @profile = Profile.find(@user.id)
+    @works   = @profile.works
+    @skills  = @profile.skills
+    @seeds   = @profile.projects
   end
   
 end

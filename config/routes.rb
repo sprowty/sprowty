@@ -18,4 +18,5 @@ Sprowty::Application.routes.draw do
   match 'inbox'         => 'messages#index',  :as => 'inbox'
   match 'profile'       => 'profiles#index',  :as => 'my_profile'
   match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
+  match 'profile/:id'   => 'profiles#show',   :as => 'profile'
 end
