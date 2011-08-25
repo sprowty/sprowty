@@ -10,7 +10,7 @@ gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git'
 gem 'haml'
 gem 'inherited_resources'
 gem 'meta_search'
-gem 'rmagick'
+gem 'rmagick', '2.12.2'
 gem 'recaptcha', :require => 'recaptcha/rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thoughtbot/paperclip.git
-  revision: ab7db5a5d09a494866dc08fbf3fd83d3b44c107f
+  revision: 74784558f5a53d8ce46a4ac693e1e464c9dc4d73
   specs:
     paperclip (2.3.16)
       activerecord (>= 2.3.0)
@@ -52,7 +52,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.2.1)
       ffi (~> 1.0.6)
-    cocaine (0.1.0)
+    cocaine (0.2.0)
     cucumber (1.0.2)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -71,7 +71,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    factory_girl (2.0.4)
+    factory_girl (2.0.5)
     factory_girl_rails (1.1.0)
       factory_girl (~> 2.0.0)
       railties (>= 3.0.0)
@@ -84,7 +84,7 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
-    gherkin (2.4.6)
+    gherkin (2.4.16)
       json (>= 1.4.6)
     haml (3.1.2)
     has_scope (0.5.1)
@@ -150,7 +150,7 @@ GEM
     rake (0.9.2)
     recaptcha (0.3.1)
     responders (0.6.4)
-    rmagick (2.13.1)
+    rmagick (2.12.2)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -165,7 +165,7 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.6.0)
     rubyzip (0.9.4)
-    selenium-webdriver (2.4.0)
+    selenium-webdriver (2.5.0)
       childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
       json_pure
@@ -206,7 +206,7 @@ DEPENDENCIES
   pickle
   rails (= 3.0.6)
   recaptcha
-  rmagick
+  rmagick (= 2.12.2)
   rspec-rails
   shoulda
   sqlite3
