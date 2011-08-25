@@ -87,11 +87,7 @@
           <li><a href="#">Sample Link</a></li>
           <li><a href="#">Sample Link</a></li>
           <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
+
         </ul>
       </div> <!--/BOX-->
 
@@ -100,15 +96,16 @@
       <div class="twitbox">
         <div id="twitter">
           <ul id="twitter_update_list"><li></li></ul>
+          
         </div>
         <span class="quote"></span>
       </div> <!--/TWITBOX-->
-      <div class="follow"><h2><a href="#">@sprowty</a></h2></div>
+      <div class="follow"><h2><a href="http://twitter.com/#!/sprowty" target="_blank">@sprowty</a></h2></div>
 
 
     </div> <!--/RIGHTSIDE-->
 
-
+    <%= javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5' %>
 
     <div class="content">
 
@@ -191,17 +188,19 @@
             </div>
             <div class="clear"></div>
           </div> <!--/POST TWO-->
+          
         <% end %>
-
+        
       </div> <!--/LISTINGS-->
-
+      
 
 
     </div> <!--/CONTENT-->
+    
   </div> <!--/MAIN-->
-
+  
   <div class="clear"></div>
-
+  <%= will_paginate @projects %>
 </div> <!--/CONTAINER-->
 
 

@@ -38,6 +38,7 @@
             <%= f.input :email, :as => :string %>
             <%= f.input :password, :as => :password %>
             <%= f.submit 'Sign in', :style => 'float:right;' %>
+            
             <div class="clear"></div>
           </ul>
           <% end %>
@@ -79,8 +80,7 @@
     </div> <!--/HOLDER-->
   </div> <!--/FOOTER-->
 
-<%= javascript_include_tag 'scrolltop', 'jquery.clearfield.min','jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => false %>
-<%= javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=1' %>
+
 <!-- Sign In -->
 <script type="text/javascript">
   $(function(){
@@ -117,6 +117,13 @@
     $('.clearField').clearField();
   });		
 </script>
+
+
+
+
 <%= yield :javascript %>
+<%= javascript_include_tag 'scrolltop', 'jquery.clearfield.min','jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => false %>
+<%= javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&count=5' %>
+
 </body> 
 </html>

@@ -25,6 +25,13 @@ a:active, a:focus, button{outline: 0;}
 .left {float: left}
 .right, #main .rightside {float: right}
 p {font: 12px Helvetica, Arial, Sans-Serif; }
+
+p7 {font: 14px Georgia,'Times New Roman',Serif; 
+	text-transform: uppercase;
+	font-style: italic;
+	padding: 10px;
+	color: red;
+}
 h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
 h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
 textarea {resize:none;}
@@ -52,6 +59,12 @@ font-style: normal;
 /* ----------TOPBAR--------------------- */
 #topbar {height: 6px; background-color: #2f2f2f; border-bottom: 1px solid white;}
 /* ----------/TOPBAR--------------------- */
+
+/* ----------DEVISE ERRORS--------------------- */
+
+
+
+
 
 
 /* ----------CONTAINER--------------------- */
@@ -910,7 +923,7 @@ margin-top: 4px
 
 /*--/PAGINATION--*/
 #paginationholder { float:left; padding: 40px 20px 20px; text-align:center; width:600px;}
-.pagination{ padding: 2px; color: #894125;}
+.pagination{ padding: 14px; color: #894125; text-align: center;}
 .pagination ul{ margin: 0; text-align: center; /*Set to "right" to right align pagination interface*/ font-size: 16px;}
 .pagination li{ list-style-type: none; display: inline;}
 

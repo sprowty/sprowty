@@ -165,3 +165,312 @@ e):f.css(e)}};c.fn.extend({position:function(){if(!this[0])return null;var a=thi
 c.css(a,"position")==="static";)a=a.offsetParent;return a})}});c.each(["Left","Top"],function(a,b){var d="scroll"+b;c.fn[d]=function(e){var f=this[0],h;if(!f)return null;if(e!==B)return this.each(function(){if(h=fa(this))h.scrollTo(!a?e:c(h).scrollLeft(),a?e:c(h).scrollTop());else this[d]=e});else return(h=fa(f))?"pageXOffset"in h?h[a?"pageYOffset":"pageXOffset"]:c.support.boxModel&&h.document.documentElement[d]||h.document.body[d]:f[d]}});c.each(["Height","Width"],function(a,b){var d=b.toLowerCase();
 c.fn["inner"+b]=function(){return this[0]?parseFloat(c.css(this[0],d,"padding")):null};c.fn["outer"+b]=function(e){return this[0]?parseFloat(c.css(this[0],d,e?"margin":"border")):null};c.fn[d]=function(e){var f=this[0];if(!f)return e==null?null:this;if(c.isFunction(e))return this.each(function(l){var k=c(this);k[d](e.call(this,l,k[d]()))});if(c.isWindow(f))return f.document.compatMode==="CSS1Compat"&&f.document.documentElement["client"+b]||f.document.body["client"+b];else if(f.nodeType===9)return Math.max(f.documentElement["client"+
 b],f.body["scroll"+b],f.documentElement["scroll"+b],f.body["offset"+b],f.documentElement["offset"+b]);else if(e===B){f=c.css(f,d);var h=parseFloat(f);return c.isNaN(h)?f:h}else return this.css(d,typeof e==="string"?e:e+"px")}})})(window);
+
+
+//** jQuery Scroll to Top Control script- (c) Dynamic Drive DHTML code library: http://www.dynamicdrive.com.
+//** Available/ usage terms at http://www.dynamicdrive.com (March 30th, 09')
+//** v1.1 (April 7th, 09'):
+//** 1) Adds ability to scroll to an absolute position (from top of page) or specific element on the page instead.
+//** 2) Fixes scroll animation not working in Opera. 
+
+
+var scrolltotop={
+	//startline: Integer. Number of pixels from top of doc scrollbar is scrolled before showing control
+	//scrollto: Keyword (Integer, or "Scroll_to_Element_ID"). How far to scroll document up when control is clicked on (0=top).
+	setting: {startline:100, scrollto: 0, scrollduration:800, fadeduration:[500, 100]},
+	controlHTML: '<img src="up.png" style="" />', //HTML for control, which is auto wrapped in DIV w/ ID="topcontrol"
+	controlattrs: {offsetx:5, offsety:5}, //offset of control relative to right/ bottom of window corner
+	anchorkeyword: '#top', //Enter href value of HTML anchors on the page that should also act as "Scroll Up" links
+
+	state: {isvisible:false, shouldvisible:false},
+
+	scrollup:function(){
+		if (!this.cssfixedsupport) //if control is positioned using JavaScript
+			this.$control.css({opacity:0}) //hide control immediately after clicking it
+		var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)
+		if (typeof dest=="string" && jQuery('#'+dest).length==1) //check element set by string exists
+			dest=jQuery('#'+dest).offset().top
+		else
+			dest=0
+		this.$body.animate({scrollTop: dest}, this.setting.scrollduration);
+	},
+
+	keepfixed:function(){
+		var $window=jQuery(window)
+		var controlx=$window.scrollLeft() + $window.width() - this.$control.width() - this.controlattrs.offsetx
+		var controly=$window.scrollTop() + $window.height() - this.$control.height() - this.controlattrs.offsety
+		this.$control.css({left:controlx+'px', top:controly+'px'})
+	},
+
+	togglecontrol:function(){
+		var scrolltop=jQuery(window).scrollTop()
+		if (!this.cssfixedsupport)
+			this.keepfixed()
+		this.state.shouldvisible=(scrolltop>=this.setting.startline)? true : false
+		if (this.state.shouldvisible && !this.state.isvisible){
+			this.$control.stop().animate({opacity:1}, this.setting.fadeduration[0])
+			this.state.isvisible=true
+		}
+		else if (this.state.shouldvisible==false && this.state.isvisible){
+			this.$control.stop().animate({opacity:0}, this.setting.fadeduration[1])
+			this.state.isvisible=false
+		}
+	},
+	
+	init:function(){
+		jQuery(document).ready(function($){
+			var mainobj=scrolltotop
+			var iebrws=document.all
+			mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest //not IE or IE7+ browsers in standards mode
+			mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
+			mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
+				.css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
+				.attr({title:'Scroll Back to Top'})
+				.click(function(){mainobj.scrollup(); return false})
+				.appendTo('body')
+			if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='') //loose check for IE6 and below, plus whether control contains any text
+				mainobj.$control.css({width:mainobj.$control.width()}) //IE6- seems to require an explicit width on a DIV containing text
+			mainobj.togglecontrol()
+			$('a[href="' + mainobj.anchorkeyword +'"]').click(function(){
+				mainobj.scrollup()
+				return false
+			})
+			$(window).bind('scroll resize', function(e){
+				mainobj.togglecontrol()
+			})
+		})
+	}
+}
+
+scrolltotop.init()
+
+/**
+ * jQuery-Plugin "clearField"
+ * 
+ * @version: 1.1, 04.12.2010
+ * 
+ * @author: Stijn Van Minnebruggen
+ *          stijn@donotfold.be
+ *          http://www.donotfold.be
+ * 
+ * @example: $('selector').clearField();
+ * @example: $('selector').clearField({ blurClass: 'myBlurredClass', activeClass: 'myactiveClass' });
+ * 
+ */
+	
+	(function($){$.fn.clearField=function(s){s=jQuery.extend({blurClass:'clearFieldBlurred',activeClass:'clearFieldActive',attribute:'rel',value:''},s);return $(this).each(function(){var el=$(this);s.value=el.val();if(el.attr(s.attribute)==undefined){el.attr(s.attribute,el.val()).addClass(s.blurClass)}else{s.value=el.attr(s.attribute)}el.focus(function(){if(el.val()==el.attr(s.attribute)){el.val('').removeClass(s.blurClass).addClass(s.activeClass)}});el.blur(function(){if(el.val()==''){el.val(el.attr(s.attribute)).removeClass(s.activeClass).addClass(s.blurClass)}})})}})(jQuery);
+
+
+
+
+// EZPZ Tooltip v1.0; Copyright (c) 2009 Mike Enriquez, http://theezpzway.com; Released under the MIT License
+(function($){$.fn.ezpz_tooltip=function(options){var settings=$.extend({},$.fn.ezpz_tooltip.defaults,options);return this.each(function(){var content=$("#"+getContentId(this.id));var targetMousedOver=$(this).mouseover(function(){settings.beforeShow(content,$(this))}).mousemove(function(e){contentInfo=getElementDimensionsAndPosition(content);targetInfo=getElementDimensionsAndPosition($(this));contentInfo=$.fn.ezpz_tooltip.positions[settings.contentPosition](contentInfo,e.pageX,e.pageY,settings.offset,targetInfo);contentInfo=keepInWindow(contentInfo);content.css('top',contentInfo['top']);content.css('left',contentInfo['left']);settings.showContent(content)});if(settings.stayOnContent&&this.id!=""){$("#"+this.id+", #"+getContentId(this.id)).mouseover(function(){content.css('display','block')}).mouseout(function(){content.css('display','none');settings.afterHide()})}else{targetMousedOver.mouseout(function(){settings.hideContent(content);settings.afterHide()})}});function getContentId(targetId){if(settings.contentId==""){var name=targetId.split('-')[0];var id=targetId.split('-')[2];return name+'-content-'+id}else{return settings.contentId}};function getElementDimensionsAndPosition(element){var height=element.outerHeight(true);var width=element.outerWidth(true);var top=$(element).offset().top;var left=$(element).offset().left;var info=new Array();info['height']=height;info['width']=width;info['top']=top;info['left']=left;return info};function keepInWindow(contentInfo){var windowWidth=$(window).width();var windowTop=$(window).scrollTop();var output=new Array();output=contentInfo;if(contentInfo['top']<windowTop){output['top']=windowTop}if((contentInfo['left']+contentInfo['width'])>windowWidth){output['left']=windowWidth-contentInfo['width']}if(contentInfo['left']<0){output['left']=0}return output}};$.fn.ezpz_tooltip.positionContent=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=mouseY-offset-contentInfo['height'];contentInfo['left']=mouseX+offset;return contentInfo};$.fn.ezpz_tooltip.positions={aboveRightFollow:function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=mouseY-offset-contentInfo['height'];contentInfo['left']=mouseX+offset;return contentInfo}};$.fn.ezpz_tooltip.defaults={contentPosition:'aboveRightFollow',stayOnContent:false,offset:10,contentId:"",beforeShow:function(content){},showContent:function(content){content.show()},hideContent:function(content){content.hide()},afterHide:function(){}}})(jQuery);(function($){$.fn.ezpz_tooltip.positions.aboveFollow=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=mouseY-offset-contentInfo['height'];contentInfo['left']=mouseX-(contentInfo['width']/2);return contentInfo};$.fn.ezpz_tooltip.positions.rightFollow=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=mouseY-(contentInfo['height']/2);contentInfo['left']=mouseX+offset;return contentInfo};$.fn.ezpz_tooltip.positions.belowRightFollow=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=mouseY+offset;contentInfo['left']=mouseX+offset;return contentInfo};$.fn.ezpz_tooltip.positions.belowFollow=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=mouseY+offset;contentInfo['left']=mouseX-(contentInfo['width']/2);return contentInfo};$.fn.ezpz_tooltip.positions.aboveStatic=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=targetInfo['top']-offset-contentInfo['height'];contentInfo['left']=(targetInfo['left']+(targetInfo['width']/2))-(contentInfo['width']/2);return contentInfo};$.fn.ezpz_tooltip.positions.rightStatic=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=(targetInfo['top']+(targetInfo['height']/2))-(contentInfo['height']/2);contentInfo['left']=targetInfo['left']+targetInfo['width']+offset;return contentInfo};$.fn.ezpz_tooltip.positions.belowStatic=function(contentInfo,mouseX,mouseY,offset,targetInfo){contentInfo['top']=targetInfo['top']+targetInfo['height']+offset;contentInfo['left']=(targetInfo['left']+(targetInfo['width']/2))-(contentInfo['width']/2);return contentInfo}})(jQuery);
+
+// tipsy, facebook style tooltips for jquery
+// version 1.0.0a
+// (c) 2008-2010 jason frame [jason@onehackoranother.com]
+// released under the MIT license
+
+(function($) {
+    
+    function Tipsy(element, options) {
+        this.$element = $(element);
+        this.options = options;
+        this.enabled = true;
+        this.fixTitle();
+    }
+    
+    Tipsy.prototype = {
+        show: function() {
+            var title = this.getTitle();
+            if (title && this.enabled) {
+                var $tip = this.tip();
+                
+                $tip.find('.tipsy-inner')[this.options.html ? 'html' : 'text'](title);
+                $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
+                $tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
+                
+                var pos = $.extend({}, this.$element.offset(), {
+                    width: this.$element[0].offsetWidth,
+                    height: this.$element[0].offsetHeight
+                });
+                
+                var actualWidth = $tip[0].offsetWidth, actualHeight = $tip[0].offsetHeight;
+                var gravity = (typeof this.options.gravity == 'function')
+                                ? this.options.gravity.call(this.$element[0])
+                                : this.options.gravity;
+                
+                var tp;
+                switch (gravity.charAt(0)) {
+                    case 'n':
+                        tp = {top: pos.top + pos.height + this.options.offset, left: pos.left + pos.width / 2 - actualWidth / 2};
+                        break;
+                    case 's':
+                        tp = {top: pos.top - actualHeight - this.options.offset, left: pos.left + pos.width / 2 - actualWidth / 2};
+                        break;
+                    case 'e':
+                        tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - this.options.offset};
+                        break;
+                    case 'w':
+                        tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + this.options.offset};
+                        break;
+                }
+                
+                if (gravity.length == 2) {
+                    if (gravity.charAt(1) == 'w') {
+                        tp.left = pos.left + pos.width / 2 - 15;
+                    } else {
+                        tp.left = pos.left + pos.width / 2 - actualWidth + 15;
+                    }
+                }
+                
+                $tip.css(tp).addClass('tipsy-' + gravity);
+                
+                if (this.options.fade) {
+                    $tip.stop().css({opacity: 0, display: 'block', visibility: 'visible'}).animate({opacity: this.options.opacity});
+                } else {
+                    $tip.css({visibility: 'visible', opacity: this.options.opacity});
+                }
+            }
+        },
+        
+        hide: function() {
+            if (this.options.fade) {
+                this.tip().stop().fadeOut(function() { $(this).remove(); });
+            } else {
+                this.tip().remove();
+            }
+        },
+        
+        fixTitle: function() {
+            var $e = this.$element;
+            if ($e.attr('title') || typeof($e.attr('original-title')) != 'string') {
+                $e.attr('original-title', $e.attr('title') || '').removeAttr('title');
+            }
+        },
+        
+        getTitle: function() {
+            var title, $e = this.$element, o = this.options;
+            this.fixTitle();
+            var title, o = this.options;
+            if (typeof o.title == 'string') {
+                title = $e.attr(o.title == 'title' ? 'original-title' : o.title);
+            } else if (typeof o.title == 'function') {
+                title = o.title.call($e[0]);
+            }
+            title = ('' + title).replace(/(^\s*|\s*$)/, "");
+            return title || o.fallback;
+        },
+        
+        tip: function() {
+            if (!this.$tip) {
+                this.$tip = $('<div class="tipsy"></div>').html('<div class="tipsy-arrow"></div><div class="tipsy-inner"></div>');
+            }
+            return this.$tip;
+        },
+        
+        validate: function() {
+            if (!this.$element[0].parentNode) {
+                this.hide();
+                this.$element = null;
+                this.options = null;
+            }
+        },
+        
+        enable: function() { this.enabled = true; },
+        disable: function() { this.enabled = false; },
+        toggleEnabled: function() { this.enabled = !this.enabled; }
+    };
+    
+    $.fn.tipsy = function(options) {
+        
+        if (options === true) {
+            return this.data('tipsy');
+        } else if (typeof options == 'string') {
+            var tipsy = this.data('tipsy');
+            if (tipsy) tipsy[options]();
+            return this;
+        }
+        
+        options = $.extend({}, $.fn.tipsy.defaults, options);
+        
+        function get(ele) {
+            var tipsy = $.data(ele, 'tipsy');
+            if (!tipsy) {
+                tipsy = new Tipsy(ele, $.fn.tipsy.elementOptions(ele, options));
+                $.data(ele, 'tipsy', tipsy);
+            }
+            return tipsy;
+        }
+        
+        function enter() {
+            var tipsy = get(this);
+            tipsy.hoverState = 'in';
+            if (options.delayIn == 0) {
+                tipsy.show();
+            } else {
+                tipsy.fixTitle();
+                setTimeout(function() { if (tipsy.hoverState == 'in') tipsy.show(); }, options.delayIn);
+            }
+        };
+        
+        function leave() {
+            var tipsy = get(this);
+            tipsy.hoverState = 'out';
+            if (options.delayOut == 0) {
+                tipsy.hide();
+            } else {
+                setTimeout(function() { if (tipsy.hoverState == 'out') tipsy.hide(); }, options.delayOut);
+            }
+        };
+        
+        if (!options.live) this.each(function() { get(this); });
+        
+        if (options.trigger != 'manual') {
+            var binder   = options.live ? 'live' : 'bind',
+                eventIn  = options.trigger == 'hover' ? 'mouseenter' : 'focus',
+                eventOut = options.trigger == 'hover' ? 'mouseleave' : 'blur';
+            this[binder](eventIn, enter)[binder](eventOut, leave);
+        }
+        
+        return this;
+        
+    };
+    
+    $.fn.tipsy.defaults = {
+        delayIn: 0,
+        delayOut: 0,
+        fade: false,
+        fallback: '',
+        gravity: 'n',
+        html: false,
+        live: false,
+        offset: 0,
+        opacity: 0.8,
+        title: 'title',
+        trigger: 'hover'
+    };
+    
+    // Overwrite this method to provide options on a per-element basis.
+    // For example, you could store the gravity in a 'tipsy-gravity' attribute:
+    // return $.extend({}, options, {gravity: $(ele).attr('tipsy-gravity') || 'n' });
+    // (remember - do not modify 'options' in place!)
+    $.fn.tipsy.elementOptions = function(ele, options) {
+        return $.metadata ? $.extend({}, options, $(ele).metadata()) : options;
+    };
+    
+    $.fn.tipsy.autoNS = function() {
+        return $(this).offset().top > ($(document).scrollTop() + $(window).height() / 2) ? 's' : 'n';
+    };
+    
+    $.fn.tipsy.autoWE = function() {
+        return $(this).offset().left > ($(document).scrollLeft() + $(window).width() / 2) ? 'e' : 'w';
+    };
+    
+})(jQuery);
+
+
+// ColorBox v1.3.16 - a full featured, light-weight, customizable lightbox based on jQuery 1.3+
+// Copyright (c) 2011 Jack Moore - jack@colorpowered.com
+// Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+(function(a,b,c){function ba(b){if(!T){O=b,Z(a.extend(J,a.data(O,e))),x=a(O),P=0,J.rel!=="nofollow"&&(x=a("."+V).filter(function(){var b=a.data(this,e).rel||this.rel;return b===J.rel}),P=x.index(O),P===-1&&(x=x.add(O),P=x.length-1));if(!R){R=S=!0,q.show();if(J.returnFocus)try{O.blur(),a(O).one(k,function(){try{this.focus()}catch(a){}})}catch(c){}p.css({opacity:+J.opacity,cursor:J.overlayClose?"pointer":"auto"}).show(),J.w=X(J.initialWidth,"x"),J.h=X(J.initialHeight,"y"),U.position(0),n&&y.bind("resize."+o+" scroll."+o,function(){p.css({width:y.width(),height:y.height(),top:y.scrollTop(),left:y.scrollLeft()})}).trigger("resize."+o),$(g,J.onOpen),I.add(C).hide(),H.html(J.close).show()}U.load(!0)}}function _(){var a,b=f+"Slideshow_",c="click."+f,d,e,g;J.slideshow&&x[1]&&(d=function(){E.text(J.slideshowStop).unbind(c).bind(i,function(){if(P<x.length-1||J.loop)a=setTimeout(U.next,J.slideshowSpeed)}).bind(h,function(){clearTimeout(a)}).one(c+" "+j,e),q.removeClass(b+"off").addClass(b+"on"),a=setTimeout(U.next,J.slideshowSpeed)},e=function(){clearTimeout(a),E.text(J.slideshowStart).unbind([i,h,j,c].join(" ")).one(c,d),q.removeClass(b+"on").addClass(b+"off")},J.slideshowAuto?d():e())}function $(b,c){c&&c.call(O),a.event.trigger(b)}function Z(b){for(var c in b)a.isFunction(b[c])&&c.substring(0,2)!=="on"&&(b[c]=b[c].call(O));b.rel=b.rel||O.rel||"nofollow",b.href=a.trim(b.href||a(O).attr("href")),b.title=b.title||O.title}function Y(a){return J.photo||/\.(gif|png|jpg|jpeg|bmp)(?:\?([^#]*))?(?:#(\.*))?$/i.test(a)}function X(a,b){b=b==="x"?y.width():y.height();return typeof a=="string"?Math.round(/%/.test(a)?b/100*parseInt(a,10):parseInt(a,10)):a}function W(c,d){var e=b.createElement("div");c&&(e.id=f+c),e.style.cssText=d||!1;return a(e)}var d={transition:"elastic",speed:300,width:!1,initialWidth:"600",innerWidth:!1,maxWidth:!1,height:!1,initialHeight:"450",innerHeight:!1,maxHeight:!1,scalePhotos:!0,scrolling:!0,inline:!1,html:!1,iframe:!1,fastIframe:!0,photo:!1,href:!1,title:!1,rel:!1,opacity:.9,preloading:!0,current:"image {current} of {total}",previous:"previous",next:"next",close:"close",open:!1,returnFocus:!0,loop:!0,slideshow:!1,slideshowAuto:!0,slideshowSpeed:2500,slideshowStart:"start slideshow",slideshowStop:"stop slideshow",onOpen:!1,onLoad:!1,onComplete:!1,onCleanup:!1,onClosed:!1,overlayClose:!0,escKey:!0,arrowKey:!0},e="colorbox",f="cbox",g=f+"_open",h=f+"_load",i=f+"_complete",j=f+"_cleanup",k=f+"_closed",l=f+"_purge",m=a.browser.msie&&!a.support.opacity,n=m&&a.browser.version<7,o=f+"_IE6",p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J={},K,L,M,N,O,P,Q,R,S,T=!1,U,V=f+"Element";U=a.fn[e]=a[e]=function(b,c){var f=this,g;if(!f[0]&&f.selector)return f;b=b||{},c&&(b.onComplete=c);if(!f[0]||f.selector===undefined)f=a("<a/>"),b.open=!0;f.each(function(){a.data(this,e,a.extend({},a.data(this,e)||d,b)),a(this).addClass(V)}),g=b.open,a.isFunction(g)&&(g=g.call(f)),g&&ba(f[0]);return f},U.init=function(){y=a(c),q=W().attr({id:e,"class":m?f+(n?"IE6":"IE"):""}),p=W("Overlay",n?"position:absolute":"").hide(),r=W("Wrapper"),s=W("Content").append(z=W("LoadedContent","width:0; height:0; overflow:hidden"),B=W("LoadingOverlay").add(W("LoadingGraphic")),C=W("Title"),D=W("Current"),F=W("Next"),G=W("Previous"),E=W("Slideshow").bind(g,_),H=W("Close")),r.append(W().append(W("TopLeft"),t=W("TopCenter"),W("TopRight")),W(!1,"clear:left").append(u=W("MiddleLeft"),s,v=W("MiddleRight")),W(!1,"clear:left").append(W("BottomLeft"),w=W("BottomCenter"),W("BottomRight"))).children().children().css({"float":"left"}),A=W(!1,"position:absolute; width:9999px; visibility:hidden; display:none"),a("body").prepend(p,q.append(r,A)),s.children().hover(function(){a(this).addClass("hover")},function(){a(this).removeClass("hover")}).addClass("hover"),K=t.height()+w.height()+s.outerHeight(!0)-s.height(),L=u.width()+v.width()+s.outerWidth(!0)-s.width(),M=z.outerHeight(!0),N=z.outerWidth(!0),q.css({"padding-bottom":K,"padding-right":L}).hide(),F.click(function(){U.next()}),G.click(function(){U.prev()}),H.click(function(){U.close()}),I=F.add(G).add(D).add(E),s.children().removeClass("hover"),a("."+V).live("click",function(a){a.button!==0&&typeof a.button!="undefined"||a.ctrlKey||a.shiftKey||a.altKey||(a.preventDefault(),ba(this))}),p.click(function(){J.overlayClose&&U.close()}),a(b).bind("keydown."+f,function(a){var b=a.keyCode;R&&J.escKey&&b===27&&(a.preventDefault(),U.close()),R&&J.arrowKey&&x[1]&&(b===37?(a.preventDefault(),G.click()):b===39&&(a.preventDefault(),F.click()))})},U.remove=function(){q.add(p).remove(),a("."+V).die("click").removeData(e).removeClass(V)},U.position=function(a,c){function g(a){t[0].style.width=w[0].style.width=s[0].style.width=a.style.width,B[0].style.height=B[1].style.height=s[0].style.height=u[0].style.height=v[0].style.height=a.style.height}var d,e=Math.max(b.documentElement.clientHeight-J.h-M-K,0)/2+y.scrollTop(),f=Math.max(y.width()-J.w-N-L,0)/2+y.scrollLeft();d=q.width()===J.w+N&&q.height()===J.h+M?0:a,r[0].style.width=r[0].style.height="9999px",q.dequeue().animate({width:J.w+N,height:J.h+M,top:e,left:f},{duration:d,complete:function(){g(this),S=!1,r[0].style.width=J.w+N+L+"px",r[0].style.height=J.h+M+K+"px",c&&c()},step:function(){g(this)}})},U.resize=function(a){if(R){a=a||{},a.width&&(J.w=X(a.width,"x")-N-L),a.innerWidth&&(J.w=X(a.innerWidth,"x")),z.css({width:J.w}),a.height&&(J.h=X(a.height,"y")-M-K),a.innerHeight&&(J.h=X(a.innerHeight,"y"));if(!a.innerHeight&&!a.height){var b=z.wrapInner("<div style='overflow:auto'></div>").children();J.h=b.height(),b.replaceWith(b.children())}z.css({height:J.h}),U.position(J.transition==="none"?0:J.speed)}},U.prep=function(b){function h(b){U.position(b,function(){var b,d,g,h,j=x.length,k,n;!R||(n=function(){B.hide(),$(i,J.onComplete)},m&&Q&&z.fadeIn(100),C.html(J.title).add(z).show(),j>1?(typeof J.current=="string"&&D.html(J.current.replace(/\{current\}/,P+1).replace(/\{total\}/,j)).show(),F[J.loop||P<j-1?"show":"hide"]().html(J.next),G[J.loop||P?"show":"hide"]().html(J.previous),b=P?x[P-1]:x[j-1],g=P<j-1?x[P+1]:x[0],J.slideshow&&E.show(),J.preloading&&(h=a.data(g,e).href||g.href,d=a.data(b,e).href||b.href,h=a.isFunction(h)?h.call(g):h,d=a.isFunction(d)?d.call(b):d,Y(h)&&(a("<img/>")[0].src=h),Y(d)&&(a("<img/>")[0].src=d))):I.hide(),J.iframe?(k=a("<iframe/>").addClass(f+"Iframe")[0],J.fastIframe?n():a(k).load(n),k.name=f+ +(new Date),k.src=J.href,J.scrolling||(k.scrolling="no"),m&&(k.frameBorder=0,k.allowTransparency="true"),a(k).appendTo(z).one(l,function(){k.src="//about:blank"})):n(),J.transition==="fade"?q.fadeTo(c,1,function(){q[0].style.filter=""}):q[0].style.filter="",y.bind("resize."+f,function(){U.position(0)}))})}function g(){J.h=J.h||z.height(),J.h=J.mh&&J.mh<J.h?J.mh:J.h;return J.h}function d(){J.w=J.w||z.width(),J.w=J.mw&&J.mw<J.w?J.mw:J.w;return J.w}if(!!R){var c=J.transition==="none"?0:J.speed;y.unbind("resize."+f),z.remove(),z=W("LoadedContent").html(b),z.hide().appendTo(A.show()).css({width:d(),overflow:J.scrolling?"auto":"hidden"}).css({height:g()}).prependTo(s),A.hide(),a(Q).css({"float":"none"}),n&&a("select").not(q.find("select")).filter(function(){return this.style.visibility!=="hidden"}).css({visibility:"hidden"}).one(j,function(){this.style.visibility="inherit"}),J.transition==="fade"?q.fadeTo(c,0,function(){h(0)}):h(c)}},U.load=function(b){var c,d,g=U.prep;S=!0,Q=!1,O=x[P],b||Z(a.extend(J,a.data(O,e))),$(l),$(h,J.onLoad),J.h=J.height?X(J.height,"y")-M-K:J.innerHeight&&X(J.innerHeight,"y"),J.w=J.width?X(J.width,"x")-N-L:J.innerWidth&&X(J.innerWidth,"x"),J.mw=J.w,J.mh=J.h,J.maxWidth&&(J.mw=X(J.maxWidth,"x")-N-L,J.mw=J.w&&J.w<J.mw?J.w:J.mw),J.maxHeight&&(J.mh=X(J.maxHeight,"y")-M-K,J.mh=J.h&&J.h<J.mh?J.h:J.mh),c=J.href,B.show(),J.inline?(W().hide().insertBefore(a(c)[0]).one(l,function(){a(this).replaceWith(z.children())}),g(a(c))):J.iframe?g(" "):J.html?g(J.html):Y(c)?(a(Q=new Image).addClass(f+"Photo").error(function(){J.title=!1,g(W("Error").text("This image could not be loaded"))}).load(function(){var a;Q.onload=null,J.scalePhotos&&(d=function(){Q.height-=Q.height*a,Q.width-=Q.width*a},J.mw&&Q.width>J.mw&&(a=(Q.width-J.mw)/Q.width,d()),J.mh&&Q.height>J.mh&&(a=(Q.height-J.mh)/Q.height,d())),J.h&&(Q.style.marginTop=Math.max(J.h-Q.height,0)/2+"px"),x[1]&&(P<x.length-1||J.loop)&&(Q.style.cursor="pointer",Q.onclick=function(){U.next()}),m&&(Q.style.msInterpolationMode="bicubic"),setTimeout(function(){g(Q)},1)}),setTimeout(function(){Q.src=c},1)):c&&A.load(c,function(b,c,d){g(c==="error"?W("Error").text("Request unsuccessful: "+d.statusText):a(this).contents())})},U.next=function(){!S&&x[1]&&(P<x.length-1||J.loop)&&(P=P<x.length-1?P+1:0,U.load())},U.prev=function(){!S&&x[1]&&(P||J.loop)&&(P=P?P-1:x.length-1,U.load())},U.close=function(){R&&!T&&(T=!0,R=!1,$(j,J.onCleanup),y.unbind("."+f+" ."+o),p.fadeTo(200,0),q.stop().fadeTo(300,0,function(){q.add(p).css({opacity:1,cursor:"auto"}).hide(),$(l),z.remove(),setTimeout(function(){T=!1,$(k,J.onClosed)},1)}))},U.element=function(){return a(O)},U.settings=d,a(U.init)})(jQuery,document,this);
