@@ -8,7 +8,7 @@ class Profile < ActiveRecord::Base
   
   has_attached_file :picture, :styles => { :thumb => '124x124', :profile => "195x175#" }
   
-  before_save :remove_emails
+  before_update :remove_emails
   
   accepts_nested_attributes_for :user
 
