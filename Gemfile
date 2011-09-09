@@ -11,7 +11,7 @@ gem 'haml'
 gem 'inherited_resources'
 gem 'meta_search'
 gem 'rmagick', '2.12.2'
-gem 'recaptcha', :require => 'recaptcha/rails'
+#gem 'recaptcha', :require => 'recaptcha/rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -27,7 +27,7 @@ gem 'sqlite3'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:
 # gem 'bj'

@@ -53,7 +53,7 @@ textarea {resize:none;}
 #plantseed label, h5, h5.due {color: #422215; font-size: 18px; font-weight: bold; }
 #plantseed i {font-style: normal; color: #894125; font-size: 11px}
  
-#plantseed input.field, input.price, input.year, textarea {
+#plantseed input.field, input.price, input.year, textarea, input.city {
 padding: 12px; 
 border: 1px solid #c3b288; 
 font: 14px Georgia,'Times New Roman',Serif; 
@@ -62,6 +62,17 @@ color: #3c3c39;
 width: 300px;
 margin-bottom: 14px;
 }
+
+input.city {
+  width: 180px;
+}
+
+select.states {
+  width: 100px;
+  float: right;
+  margin: 12px;
+}
+
 
 
 input.price {font: bold 16px Helvetica, Arial, Sans-Serif; font-style: normal; color: #585A05; width: 50px }
@@ -103,7 +114,6 @@ border-radius: 22px;
 }
 
 select.month, select.day, select.year, #project_due_date_2i, #project_due_date_1i, #project_due_date_3i {width: 48px; float: left; margin-right: 8px}
-select.month, #project_due_date_2i {width: 58px}
 select.year, #project_due_date_1i {width: 60px}
 </style>
 
@@ -135,6 +145,14 @@ select.year, #project_due_date_1i {width: 60px}
   </div>
   <%= f.text_area :description, :class => 'field' %>
 
+
+  <div class="labelholder">
+    <label>City/State:</label>
+  </div>
+  <%= f.text_field :city, :class => 'city' %>
+  <%= f.select :state, STATES_ABBREVIATED, {:include_blank => true}, {:class => 'states'} %>
+  
+  
 
   <div class="labelholder">
     <label>Tags:</label>
@@ -182,7 +200,7 @@ select.year, #project_due_date_1i {width: 60px}
 
 <h5>Due Date:</h5>
 <p><i>Select Your Due Date</i></p>
-<%= date_select :project, :due_date, { :order => [:month, :day, :year] }, :class => 'date' %>
+<%= f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date' %>
 
 
 </div> <!--RIGHT-->

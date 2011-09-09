@@ -1,19 +1,17 @@
 <div id="signupcontainer" class="background">
-  <div class="left">
-    <%= form_for(:user, :url => registration_path('user')) do |f| %>
+  <%= form_for(:user, :url => registration_path('user')) do |f| %>
+    <div class="left">
       <%= f.text_field :username,              :class => "field clearField",     :value => 'Username' %>
       <%= f.email_field :email,                :class => "field clearField",     :value => 'E-mail Address' %>
+    </div> <!--LEFT-->
+
+    <div class="right">
       <%= f.text_field :password,              :class => 'field clearField',     :value => "Password" %>
       <%= f.text_field :password_confirmation, :class => 'fieldlast clearField', :value => "Password Confirmation" %>
-  </div> <!--LEFT-->
-
-  <div class="right">
-    <%= recaptcha_tags %>
-    <div class="radio">
-      <input type="radio" name="data[Submit][question]"><p>I have read & agree to sprowty’s <a href="#">Terms & Conditions</a></p>
+    </div> <!--RIGHT-->
+    <div class="center">
+      <p><%= f.check_box :terms, :class => 'checkbox', :style => 'width: auto' %> I have read & agree to sprowty’s <a href="#">Terms & Conditions</a></p>
+      <%= f.submit 'Create Account', :class => 'create' %>
     </div>
-
-    <%= f.submit 'Create Account', :class => 'create' %>
-  </div> <!--RIGHT-->
   <% end %>
 </div> <!--SIGNUPCONTAINER-->

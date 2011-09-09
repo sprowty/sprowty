@@ -1,8 +1,3 @@
-/********************************************
-   AUTHOR:          http://www.ectomachine.com 
-   WEBSITE:     http://www.sprowty.com/
-   TEMPLATE NAME:  sprowty
- *******************************************/ 
  
 Colors: {
 Dark Grey: #2f2f2f;
@@ -26,10 +21,11 @@ a:active, a:focus, button{outline: 0;}
 .right, #main .rightside {float: right}
 p {font: 12px Helvetica, Arial, Sans-Serif; }
 
-p7 {font: 14px Georgia,'Times New Roman',Serif; 
+p.notice, p.alert {font: 14px Georgia,'Times New Roman',Serif; 
 	text-transform: uppercase;
 	font-style: italic;
-	padding: 10px;
+	padding: 0
+	margin: 0;
 	color: red;
 }
 h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
@@ -998,7 +994,8 @@ box-shadow: 1px 1px 1px #fff;
 a:active, a:focus, button{outline: 0;}
 #signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 300px;}
 #signupcontainer .left {float: left; width: 350px;}
-#signupcontainer .right {float: right; width: 320px;}
+#signupcontainer .right {float: right; width: 350px;}
+#signupcontainer .center {float: left; width: 100%; text-align: center; margin-top: 10px;}
 
 #signupcontainer input.field, input.fieldlast {
 padding: 20px; 
