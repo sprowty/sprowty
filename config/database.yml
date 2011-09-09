@@ -2,7 +2,7 @@
 #   gem install sqlite3
 development:
   adapter: mysql2
-  database: sprowty_production
+  database: sprowty_development
   username: root
   password: 
   pool: 5
