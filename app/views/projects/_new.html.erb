@@ -139,6 +139,12 @@ select.year, #project_due_date_1i {width: 60px}
     <i>Insert the full description and guidelines of your job</i>
   </div>
   <%= f.text_area :description, :class => 'field' %>
+  
+  <div class="labelholder">
+    <label>City/State:</label>
+  </div>
+  <%= f.text_field :city, :class => 'field' %>
+  <%= f.select :state, STATES, :include_blank => true %>
 
 
   <div class="labelholder">
