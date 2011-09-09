@@ -1,6 +1,12 @@
 Sprowty::Application.routes.draw do
   
-  resources :messages, :profiles, :projects, :skills, :bids, :works
+  resources :messages, :projects, :skills, :bids, :works
+  
+  
+  
+  resource :profile, :controller => "profiles"
+  
+  resources :profiles, :only => :show
 
   resources :projects do
     collection do
@@ -16,9 +22,9 @@ Sprowty::Application.routes.draw do
 
   root :to => 'home#index'
   match 'inbox'         => 'messages#index',  :as => 'inbox'
-  match 'profile'       => 'profiles#index',  :as => 'my_profile'
-  match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
-  match 'profile/:id'   => 'profiles#show',   :as => 'profile'
-  match '/user'         => 'profiles#index',  :as => :user_root
+  #match 'profile'       => 'profiles#index',  :as => 'my_profile'
+  #match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
+  #match 'profile/:id'   => 'profiles#show',   :as => 'profile'
+  #match '/user'         => 'profiles#index',  :as => :user_root
   
 end
