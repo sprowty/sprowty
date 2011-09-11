@@ -1,11 +1,6 @@
 class ResumesController < ApplicationController
 
   def index
-    @resume = current_user.resume
-#    if current_user.resume.blank?
-#      flash[:notice] = "You currently have no resume created. Please create one."
-#      redirect_to new_user_resume_url(current_user.id)
-#    end
   end
 
   def new
@@ -14,6 +9,7 @@ class ResumesController < ApplicationController
 
   def create
     @resume = Resume.new(params[:resume])
+    @resume.user_id = current_user.id
     if @resume.save
       redirect_to root_url, :notice => 'Successfully created your Resume!'
     else
@@ -35,6 +31,10 @@ class ResumesController < ApplicationController
   end
 
   def show
-    @resume = params[:id] || current_user.resume
+    if params[:id].blank?
+      redirect_to :action => 'new', :notice => 'You need to create a resume'
+    else
+      @resume = current_user.resume #Resume.find(params[:id])
+    end
   end
 end
