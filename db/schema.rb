@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110909151452) do
+ActiveRecord::Schema.define(:version => 20110911144450) do
 
   create_table "bids", :force => true do |t|
     t.integer  "user_id"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20110909151452) do
     t.integer  "bid_count",   :default => 0
     t.string   "city"
     t.string   "state"
+  end
+
+  create_table "resumes", :force => true do |t|
+    t.string   "title"
+    t.text     "activities"
+    t.text     "experience"
+    t.text     "education"
+    t.text     "sample_work"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "skills", :force => true do |t|

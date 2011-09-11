@@ -1,11 +1,14 @@
 Sprowty::Application.routes.draw do
-  
+
   resources :messages, :projects, :skills, :bids, :works
-  
-  
-  
+
   resource :profile, :controller => "profiles"
-  
+
+  resources :users do
+    resources :resumes
+  end
+
+  resources :resumes
   resources :profiles, :only => :show
 
   resources :projects do
@@ -26,5 +29,5 @@ Sprowty::Application.routes.draw do
   #match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
   #match 'profile/:id'   => 'profiles#show',   :as => 'profile'
   match '/user'         => 'profiles#index',  :as => :user_root
-  
+
 end
