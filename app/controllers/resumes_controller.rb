@@ -4,7 +4,8 @@ class ResumesController < ApplicationController
   end
 
   def new
-    @resume = current_user.build_resume
+    @user = current_user
+    @resume = @user.build_resume
   end
 
   def create

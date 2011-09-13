@@ -8,7 +8,6 @@ Sprowty::Application.routes.draw do
     resources :resumes
   end
 
-  resources :resumes
   resources :profiles, :only => :show
 
   resources :projects do

@@ -67,7 +67,7 @@
       <% else %>
         <ul class="loggedin">
           <li><%= link_to 'My Profile', profile_path %></li>
-          <li><%= link_to 'My Resume', user_resume_path(current_user.id, current_user.resume.id) %></li>
+          <li><%= link_to_resume %>
           <li><%= link_to 'Inbox', inbox_path %></li>
           <li><a href="#">Projects</a></li>
           <li><a href="#">You're Needed</a></li>
