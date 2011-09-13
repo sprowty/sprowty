@@ -1,5 +1,9 @@
 Sprowty::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :messages, :projects, :skills, :bids, :works
 
   resource :profile, :controller => "profiles"
