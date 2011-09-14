@@ -215,7 +215,7 @@ DEPENDENCIES
   inherited_resources
   launchy
   meta_search
-  mysql2 (= 0.2.7)
+  mysql2
   oa-oauth
   paperclip!
   pickle
