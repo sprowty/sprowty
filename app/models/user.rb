@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :skills
   has_many :bids
   has_many :works
+  has_one :resume
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,7 +14,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :terms
   after_create :create_profile
-  
+
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_acceptance_of :terms
@@ -30,7 +32,7 @@ class User < ActiveRecord::Base
 
     if user = User.find_by_email(data["email"])
       user
-    else # Create a user with a stub password. 
+    else # Create a user with a stub password.
       user = User.create!(:email => data["email"], :password => Devise.friendly_token[0,20], :username => create_username(data['username'], data['first_name'], data['last_name']))
       user.profile.first_name = data['first_name'] unless data['first_name'].blank?
       user.profile.last_name  = data['last_name'] unless data['last_name'].blank?
@@ -40,7 +42,7 @@ class User < ActiveRecord::Base
       user
     end
   end
-  
+
   def self.create_username(username = nil, first_name = nil, last_name = nil)
     if !username.blank? || username.taken? != true
       username
@@ -50,11 +52,11 @@ class User < ActiveRecord::Base
       ''
     end
   end
-  
+
   def self.taken?(username)
     User.find_by_username(username).blank?
   end
-  
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]

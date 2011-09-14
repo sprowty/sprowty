@@ -1,11 +1,17 @@
 Sprowty::Application.routes.draw do
-  
-  resources :messages, :projects, :skills, :bids, :works
-  
-  
-  
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  resources :messages, :projects, :skills, :bids, :works, :keywords
+
   resource :profile, :controller => "profiles"
-  
+
+  resources :users do
+    resources :resumes
+  end
+
   resources :profiles, :only => :show
 
   resources :projects do
@@ -25,6 +31,10 @@ Sprowty::Application.routes.draw do
   #match 'profile'       => 'profiles#index',  :as => 'my_profile'
   #match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
   #match 'profile/:id'   => 'profiles#show',   :as => 'profile'
+
   match '/user'          => 'profiles#index',  :as => :user_root
   match "/community"     => 'community#index'
+
+  match '/user'         => 'profiles#index',  :as => :user_root
+
 end

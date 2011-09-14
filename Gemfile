@@ -19,6 +19,8 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'sqlite3'
 
+gem 'activeadmin'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
