@@ -1039,3 +1039,17 @@ border-radius: 22px;
   list-style: none;
   width: 20px;
 }
+
+#active_admin_content #main_content_wrapper { min-height: 500px; }
+.admin_dashboard #header { height: 20px; }
+.admin_dashboard table.dashboard .dashboard_section h3 {
+  background: url("/images/mainhead.jpg") repeat-x scroll 0 0 transparent;
+  height: 20px;
+  color: #E69A2C;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  font-family: Helvetica,Arial,Sans-Serif;
+  text-transform: uppercase;
+  text-shadow: none;
+}

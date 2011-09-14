@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913224416) do
+ActiveRecord::Schema.define(:version => 20110914020613) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20110913224416) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accept_current_price"
+  end
+
+  create_table "keywords", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages", :force => true do |t|
