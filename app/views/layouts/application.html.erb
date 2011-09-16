@@ -38,6 +38,7 @@
 
     <div class="right">
     <% unless current_user %>
+      
       <!--SIGN IN-->
       <div id="logincontainer">
 
@@ -46,11 +47,14 @@
           <a href="login" class="signin">
             <span>Sign in</span>
             
-            <a href="<%= new_user_registration_path %>" id="sign_up">  
-              <img src="/images/sign_up_header.png" />
-              </a>
-  
+            
         </div>
+        
+        <a href="<%= new_user_registration_path %>" id="sign_up">  
+          <img src="/images/sign_up_header.png" />
+          </a>
+          
+        <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
 
         <fieldset id="signin_menu">
           <%= semantic_form_for "user", :url => user_session_path do |f| %>
@@ -70,9 +74,10 @@
       
     <!--/SIGN IN-->
       
-      <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
+      
 
       <% else %>
+      
         <ul class="loggedin">
           <li><%= link_to 'My Profile', profile_path %></li>
           <li><%= link_to_resume %>
