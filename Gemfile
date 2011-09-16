@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.6'
-gem 'mysql2', '0.2.7'
+gem 'mysql2'
 gem 'devise'
 gem 'annotate'
 gem 'formtastic'
@@ -18,6 +18,8 @@ gem 'rmagick', '2.12.2'
 gem 'will_paginate', '~> 3.0'
 
 gem 'sqlite3'
+
+gem 'activeadmin'
 
 # Use unicorn as the web server
 # gem 'unicorn'

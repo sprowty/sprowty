@@ -1,31 +1,5 @@
 <% unless current_user %>
-  <div id="signup">
-
-    <div class="left">
-      <div class="block">
-        <h2>1. Sign Up</h2>
-        <p>Become a member of sprowty today. It's free and easy!</p>
-      </div>
-
-      <div class="block">
-        <h2>2. Get Active</h2>
-        <p>Become a member of sprowty today. It's free and easy!</p>
-      </div>
-
-      <div class="block">
-        <h2>3. Share</h2>
-        <p>Become a member of sprowty today. It's free and easy!</p>
-      </div>
-    </div> <!--/LEFT-->
-
-    <div class="arrow"></div>
-
-    <div class="right">
-      <a href="<%= new_user_registration_path %>" id="sign_up">Sign Up For sprowty</a>
-    </div>
-
-    <div class="clear"></div>
-  </div> <!--/SIGNUP-->
+  
 
   <div id="slider">
     <div class="holder">
@@ -38,7 +12,7 @@
   <div id="subhead"></div>
 
 <% end %>
-
+<div class="holder"></div>
 <div id="needdone">
   <div class="holder">
 
@@ -52,7 +26,7 @@
         <input class="field" id="what_you_need_done" name="what_you_need_done" type="text" placeholder="Type What You Need Done Here" />
         <button id="plant_it" type="submit">Plant</button>
       </form>
-    </div> <!--/RIGHT-->
+    </div> <!--/RIGHT--> 
 
 
   </div>

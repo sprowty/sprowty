@@ -1,4 +1,4 @@
- 
+
 Colors: {
 Dark Grey: #2f2f2f;
 Dark Brown: #422215;
@@ -6,8 +6,8 @@ Light Brown: #894125;
 Dark Green: #313104;
 Light Green: #585a05;
 Yellow: #E69A2C;
-} 
- 
+}
+
 * { margin: 0; padding: 0px; }
 html, body, .background { margin: 0; padding: 0px; height: 100%; background: url(/images/bg.jpg) repeat-x;}
 #signupcontainer.background { height: 330px; }
@@ -21,7 +21,7 @@ a:active, a:focus, button{outline: 0;}
 .right, #main .rightside {float: right}
 p {font: 12px Helvetica, Arial, Sans-Serif; }
 
-p.notice, p.alert {font: 14px Georgia,'Times New Roman',Serif; 
+p.notice, p.alert {font: 14px Georgia,'Times New Roman',Serif;
 	text-transform: uppercase;
 	font-style: italic;
 	padding: 0
@@ -64,9 +64,9 @@ font-style: normal;
 
 
 /* ----------CONTAINER--------------------- */
-#container { 
-height: auto !important; 
-height: 100%; 
+#container {
+height: auto !important;
+height: 100%;
 margin: 0 auto;
 width: 980px;
 background-color: #e5d7c1;
@@ -77,9 +77,9 @@ background-color: #e5d7c1;
 border-top-left-radius: 0px;
 border-top-right-radius: 0px;
 border-bottom-right-radius: 20px;
-border-bottom-left-radius: 20px; 
-margin-bottom: 34px; 
-} 
+border-bottom-left-radius: 20px;
+margin-bottom: 34px;
+}
 
 /* -------------------------HEADER------------------------------- */
 #header, #signup, #needdone .holder, #slider, #subhead { width: 980px; margin: 0 auto;}
@@ -87,7 +87,7 @@ margin-bottom: 34px;
 #header .left {width: 200px;}
 #header .logo h1 { background: url("/images/logo.png") no-repeat; height: 116px; width: 138px; text-indent: -9999em;}
 #header .logo a { display: block; height: 100%; width: 100%;}
-#header .right {width: 600px; text-align: right; padding: 26px 10px 0 0;}
+#header .right {width: 700px; text-align: right; padding: 26px 10px 0 0;}
 
 
 /* --Sign In-- */
@@ -129,8 +129,8 @@ z-index:100;
 border:1px transparent;
 text-align:left;
 padding: 8px;
-top: 24.5px; 
-right: 0px; 
+top: 24.5px;
+right: 0px;
 margin-right: 40px;
 *margin-right: -1px;
 color:#789;
@@ -166,9 +166,9 @@ color: #422215
 #signin_submit:hover {
 -webkit-box-shadow: 0px 0px 6px rgba(0,0,0, 0.8);
 -moz-box-shadow: 0px 0px 6px rgba(0,0,0, 0.8);
-box-shadow: 0px 0px 6px rgba(0,0,0, 0.8); 
+box-shadow: 0px 0px 6px rgba(0,0,0, 0.8);
 -moz-border-radius: 9px;
-border-radius: 9px; 
+border-radius: 9px;
 }
 
 /* --/Sign In-- */
@@ -203,42 +203,42 @@ ul.userlog li a:hover {color: #313104}
 #signup .right {width: 191px; padding-top: 29px; text-indent: -9999px;}
 
 #signup h2 {
-color: #8a4225; 
-font: 50px'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; 
-text-transform: uppercase; 
+color: #8a4225;
+font: 50px'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif;
+text-transform: uppercase;
 font-weight: normal;
 text-shadow: 1px 1px 0px #ffffff;
-filter: dropshadow(color=#ffffff, offx=1, offy=1); 
+filter: dropshadow(color=#ffffff, offx=1, offy=1);
 }
 
 #signup p {line-height: 18px; font-family: Georgia, 'Times New Roman', Serif; }
 
 #signup .right a {
-background: url("/images/button_signup.png") no-repeat left top; 
-display: block; 
-float: left; 
-width: 191px; 
+background: url("/images/button_signup.png") no-repeat left top;
+display: block;
+float: left;
+width: 191px;
 height: 62px;
 -webkit-box-shadow: 0px 0px 8px #585959;
 -moz-box-shadow: 0px 0px 8px #585959;
-box-shadow: 0px 0px 8px #585959; 
+box-shadow: 0px 0px 8px #585959;
 -moz-border-radius: 30px;
-border-radius: 30px; 
+border-radius: 30px;
 }
 
 #signup .right a:hover, #needdone button:hover {
 -webkit-box-shadow: 0px 0px 8px #000;
 -moz-box-shadow: 0px 0px 8px #000;
-box-shadow: 0px 0px 8px #000; 
+box-shadow: 0px 0px 8px #000;
 -moz-border-radius: 30px;
-border-radius: 30px; 
+border-radius: 30px;
 }
 /* --------------SIGN UP------------- */
 
 
 
 /* --------------SLIDER------------- */
-#slider {background: url(/images/sliderbg.jpg) repeat-x; height: 233px; 
+#slider {background: url(/images/sliderbg.jpg) repeat-x; height: 233px;
 -moz-border-radius-topleft: 20px;
 -moz-border-radius-topright: 20px;
 -moz-border-radius-bottomright: 0px;
@@ -246,7 +246,7 @@ border-radius: 30px;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
 border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px; 
+border-bottom-left-radius: 0px;
 border-top: 8px solid #c7e7fc;
 border-left: 8px solid #c7e7fc;
 border-right: 8px solid #c7e7fc;
@@ -291,7 +291,7 @@ background-color: #e5d7c1;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
 border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px; 
+border-bottom-left-radius: 0px;
 height: 52px
 }
 /* --------------/SUBHEAD------------- */
@@ -345,9 +345,9 @@ height: 52px
 
 .rightside form {margin: 20px 0px }
 
-.rightside input { 
-float: left; 
-padding: 0px 14px 0px 10px; 
+.rightside input {
+float: left;
+padding: 0px 14px 0px 10px;
 width: 164px;
 height: 47px;
 border: 1px solid #b6a376;
@@ -359,7 +359,7 @@ border-right: 0;
 border-top-left-radius: 10px;
 border-top-right-radius: 0px;
 border-bottom-right-radius: 0px;
-border-bottom-left-radius: 10px; 
+border-bottom-left-radius: 10px;
 color: #2f2f2f;
 font: 12px Georgia, 'Times New Roman', Serif;
 font-style: italic
@@ -379,9 +379,9 @@ border: 0;
 
 
 /* ----------BOXES------------*/
-.box, .recentprojects, .whatcanyoudo { 
-background-color: #d6bf9e; 
-padding: 18px 14px 18px 18px; 
+.box, .recentprojects, .whatcanyoudo {
+background-color: #d6bf9e;
+padding: 18px 14px 18px 18px;
 margin-bottom: 20px;
 -moz-border-radius-topleft: 0px;
 -moz-border-radius-topright: 0px;
@@ -390,7 +390,7 @@ margin-bottom: 20px;
 border-top-left-radius: 0px;
 border-top-right-radius: 0px;
 border-bottom-right-radius: 20px;
-border-bottom-left-radius: 20px;  
+border-bottom-left-radius: 20px;
 }
 
 .boxhead, .twitbox {margin-top: 20px; }
@@ -401,10 +401,10 @@ border-bottom-left-radius: 20px;
 .box ul.categories, ul.theirwork {margin: 0; padding-left: 8px}
 
 .box ul.categories li, ul.theirwork li{
-list-style-type: none; 
-display: block; 
-line-height: 28px; 
-padding-left: 20px; 
+list-style-type: none;
+display: block;
+line-height: 28px;
+padding-left: 20px;
 background: url(/images/icon_smallseed.png) no-repeat left center
 }
 
@@ -417,7 +417,7 @@ ul.theirwork li a{font-weight: bold}
 .box input {
 float: none;
 margin-top: 10px;
-padding: 0 10px 0 10px; 
+padding: 0 10px 0 10px;
 border: 1px solid #b6a476;
 -moz-border-radius-topleft: 0px;
 -moz-border-radius-topright: 0px;
@@ -426,7 +426,7 @@ border: 1px solid #b6a476;
 border-top-left-radius: 0px;
 border-top-right-radius: 0px;
 border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px; 
+border-bottom-left-radius: 0px;
 height: 30px;
 width: 114px
 }
@@ -443,9 +443,9 @@ width: 114px
 .box .delete {background: url(/images/icon_removefile.png) no-repeat center top; width: 10px; height: 11px; display: block; float: right; margin-top: 8px}
 
 /* --Twitter--*/
-.twitbox { 
-background-color: #d6bf9e; 
-padding: 18px; 
+.twitbox {
+background-color: #d6bf9e;
+padding: 18px;
 -moz-border-radius-topleft: 20px;
 -moz-border-radius-topright: 20px;
 -moz-border-radius-bottomright: 20px;
@@ -453,7 +453,7 @@ padding: 18px;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
 border-bottom-right-radius: 20px;
-border-bottom-left-radius: 20px;  
+border-bottom-left-radius: 20px;
 margin-top: -40px
 }
 
@@ -571,7 +571,7 @@ font-family: Helvetica, Arial, Sans-Serif;
 
 /* --------------INBOX / PROJECTS INSIDE------------- */
 #inboxhead {background-color: #d6bf9e; font-size: 16px; text-transform: none; padding: 24px 20px 20px 20px; margin: 0 }
-#inbox ul {list-style-type: none;} 
+#inbox ul {list-style-type: none;}
 #inbox li {background: url(/images/linebg.gif) repeat-x; list-style-type: none;  }
 #inbox li a { color: #422215; display: block; font: bold 14px Arial, Helvetica, sans-serif; padding: 16px 24px 16px 20px; text-decoration: none;}
 #inbox li a:last-child {padding-right: 0}
@@ -585,10 +585,10 @@ font-family: Helvetica, Arial, Sans-Serif;
 #inbox .message, #inbox .messagereply, #projectsinside, #inbox textarea, #projectsinside textarea {font-family: Helvetica, Arial, Sans-Serif}
 
 #inbox .message a, #inbox .messagereply a, #projectsinside a {
-line-height: 36px; 
-text-decoration: none; 
-padding: 4px 4px 1px 0; 
-color: #422215; 
+line-height: 36px;
+text-decoration: none;
+padding: 4px 4px 1px 0;
+color: #422215;
 }
 
 #inbox .message a:hover, #inbox .messagereply a:hover, #projectsinside a:hover {text-decoration: underline}
@@ -604,16 +604,16 @@ color: #422215;
 #inbox textarea, #projectsinside textarea {margin: 10px 0; padding: 10px; width: 440px; height: 100px; border: 1px solid #c3b288; font-size: 12px}
 
 #inbox input.submit, #projectsinside input.submit, #projectsinside input.release {
-float: right; 
-padding: 12px 40px; 
-background: url(/images/buttonbg.gif) repeat-x; 
-border: 0; 
+float: right;
+padding: 12px 40px;
+background: url(/images/buttonbg.gif) repeat-x;
+border: 0;
 cursor: pointer;
 font-size: 20px;
 font-weight: bold;
 color: #52301c;
 -moz-border-radius: 20px;
-border-radius: 20px; 
+border-radius: 20px;
 border: 1px solid #815200;
 text-shadow: 1px 1px 1px #ffd28b;
 filter: dropshadow(color=#ffd28b, offx=1, offy=1);
@@ -648,7 +648,7 @@ filter: dropshadow(color=#ffd28b, offx=1, offy=1);
 /* --------------PROJECTS INSIDE------------- */
 #projectsinside .right {width: 400px}
 #projectsinside ul li {display: inline; list-style-type: none; }
-#projectsinside .posted, .waiting, .payment, .wip, .complete { 
+#projectsinside .posted, .waiting, .payment, .wip, .complete {
 margin: 40px 0 0 600px; position: absolute; width: 45px; height: 43px;
 }
 
@@ -684,9 +684,9 @@ margin: 40px 0 0 600px; position: absolute; width: 45px; height: 43px;
 #projectsinside .choose em {font-style: normal; font-size: 12px }
 #projectsinside .choose .expires {text-align: center; margin-top: 60px; color: #422215 }
 
-#projectsinside .choose .cancel { 
+#projectsinside .choose .cancel {
 background: url("/images/icon_canceled.png") no-repeat left center;
-font: 12px Georgia, 'Times New Roman', Serif; 
+font: 12px Georgia, 'Times New Roman', Serif;
 color: red;
 text-decoration: none;
 padding-left: 24px;
@@ -718,10 +718,10 @@ a.report {font-weight: bold; background: url(/images/icon_report.png) no-repeat 
 #description .left .keywords {margin-top: 0; margin-bottom: 18px; }
 
 a.sprowtit, #profile .withdraw {
-background: url("/images/button_sprowtit.png") no-repeat left top; 
-display: block; 
-float: left; 
-width: 153px; 
+background: url("/images/button_sprowtit.png") no-repeat left top;
+display: block;
+float: left;
+width: 153px;
 height: 47px;
 text-indent: -9999em;
 }
@@ -731,10 +731,10 @@ a.sprowtit {float: none; margin: 14px 0 18px 0}
 a.sprowtit:hover, #profile .withdraw:hover, #plantbuy a.plant:hover, #plantbuy a.buy:hover, #profile a.save:hover, #profile .save {
 -webkit-box-shadow: 0px 0px 8px #585959;
 -moz-box-shadow: 0px 0px 8px #585959;
-box-shadow: 0px 0px 8px #585959; 
+box-shadow: 0px 0px 8px #585959;
 -webkit-border-radius: 20px;
 -moz-border-radius: 30px;
-border-radius: 30px; 
+border-radius: 30px;
 }
 /* --------------/PROJECT DESCRIPTION------------- */
 
@@ -746,9 +746,9 @@ border-radius: 30px;
 #profile h2 {color: #422215; font-size: 48px; margin-right: 20px }
 
 #profile h3 {
-color: #585a05; 
-font-size: 38px; 
-font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue',Arial,Helvetica,sans-serif; 
+color: #585a05;
+font-size: 38px;
+font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue',Arial,Helvetica,sans-serif;
 font-weight: 200;
 }
 
@@ -774,7 +774,7 @@ font-weight: 200;
 #info ul.user {font: 18px Georgia, 'Times New Roman', Serif;}
 #info ul.user li {display: inline; list-style-type: none; border-right: 1px solid #894125; padding-left: 8px; padding-right: 8px;color: #894125}
 #info ul.user li:first-child {padding-left: 0px}
-#info ul.user li:last-child {border: 0} 
+#info ul.user li:last-child {border: 0}
 #info ul.ratings {margin-left: 20px}
 #info ul.ratings, b.ratings {float: left; }
 #info ul.ratings li {display: inline; font: bold 14px Helvetica, Arial, sans-serif; color: #585A05; margin-right: 12px}
@@ -802,9 +802,9 @@ color: #894125
 #plantbuy p {padding-bottom: 20px}
 
 #plantbuy a.plant, #plantbuy a.buy {
-background: url("/images/button_planttwo.png") no-repeat top; 
-display: block; 
-width: 205px; 
+background: url("/images/button_planttwo.png") no-repeat top;
+display: block;
+width: 205px;
 height: 73px;
 text-indent: -9999em;
 margin: 0 auto;
@@ -824,12 +824,12 @@ margin: 0 auto;
 .mybalance b {font-size: 12px; color: #894125; }
 
 .mybalance em {
-font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif; 
-font-size: 14px; 
-padding-left: 5px; 
+font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size: 14px;
+padding-left: 5px;
 font-style: normal;
 font-weight: 200;
-color: #585a05; 
+color: #585a05;
 }
 
 .mybalance p {color: #422215;}
@@ -877,11 +877,11 @@ color: #585a05;
 #profile .settings label {font: bold 14px Helvetica, Arial, sans-serif; color: #422215; line-height: 10px;}
 
 #profile .settings input, .settings textarea {
-width: 400px; 
-padding: 16px; 
-border: 1px solid #b6a476; 
-color: #2f2f2f; 
-font: 14px Georgia, 'Times New Roman', Serif; 
+width: 400px;
+padding: 16px;
+border: 1px solid #b6a476;
+color: #2f2f2f;
+font: 14px Georgia, 'Times New Roman', Serif;
 font-style: italic;
 }
 
@@ -889,9 +889,9 @@ font-style: italic;
 #profile .settings input.password {width: 100px; margin-right: 15px;}
 
 #profile a.save, #profile .save {
-background: url("/images/button_save.png") no-repeat top; 
-display: block; 
-width: 170px; 
+background: url("/images/button_save.png") no-repeat top;
+display: block;
+width: 170px;
 height: 54px;
 text-indent: -9999em;
 float: right;
@@ -901,11 +901,11 @@ border: none;
 
 
 #profile .paypal input, #profile .facebook input, #profile .twitter input {
-width: 200px; 
-padding: 8px; 
-border: 1px solid #b6a476; 
-color: #2f2f2f; 
-font: 14px Georgia, 'Times New Roman', Serif; 
+width: 200px;
+padding: 8px;
+border: 1px solid #b6a476;
+color: #2f2f2f;
+font: 14px Georgia, 'Times New Roman', Serif;
 font-style: italic;
 margin-top: 4px
 }
@@ -921,13 +921,13 @@ margin-top: 4px
 /*--/PAGINATION--*/
 #paginationholder { float:left; padding: 40px 20px 20px; text-align:center; width:600px;}
 .pagination{ padding: 14px; color: #894125; text-align: center;text-decoration:none;
--webkit-border-radius: 18px; 
--moz-border-radius: 18px; 
+-webkit-border-radius: 18px;
+-moz-border-radius: 18px;
 border-radius: 18px;
 font: 14px Georgia, Serif;
 margin: 0px 2px;
--webkit-box-shadow: 1px 1px 1px #fff; 
--moz-box-shadow: 1px 1px 1px #fff; 
+-webkit-box-shadow: 1px 1px 1px #fff;
+-moz-box-shadow: 1px 1px 1px #fff;
 box-shadow: 1px 1px 1px #fff;
 color:#fff;
 padding: 4px 11px 8px;}
@@ -939,13 +939,13 @@ background-color:#a28c67;
 color:#fff;
 padding: 4px 11px 8px;
 text-decoration:none;
--webkit-border-radius: 18px; 
--moz-border-radius: 18px; 
+-webkit-border-radius: 18px;
+-moz-border-radius: 18px;
 border-radius: 18px;
 font: 14px Georgia, Serif;
 margin: 0px 2px;
--webkit-box-shadow: 1px 1px 1px #fff; 
--moz-box-shadow: 1px 1px 1px #fff; 
+-webkit-box-shadow: 1px 1px 1px #fff;
+-moz-box-shadow: 1px 1px 1px #fff;
 box-shadow: 1px 1px 1px #fff;
 }
 
@@ -977,7 +977,7 @@ box-shadow: 1px 1px 1px #fff;
 
 
 /* -------------------------FOOTER------------------------------- */
-#footer, .push { clear: both; width: 100%; margin: 0 auto; position: relative;} 
+#footer, .push { clear: both; width: 100%; margin: 0 auto; position: relative;}
 #footer { height: 112px; height: auto; background: url(/images/footerbg.png) repeat-x; margin-top: -38px  }
 #footer .holder { width: 260px; margin: 0 auto; position: relative; text-align: center; height: 112px; }
 #footer h3 {padding-top: 46px; }
@@ -992,17 +992,17 @@ box-shadow: 1px 1px 1px #fff;
 
 
 a:active, a:focus, button{outline: 0;}
-#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 300px;}
+#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 300px;background-color: #E5D7C1;}
 #signupcontainer .left {float: left; width: 350px;}
 #signupcontainer .right {float: right; width: 350px;}
 #signupcontainer .center {float: left; width: 100%; text-align: center; margin-top: 10px;}
 
 #signupcontainer input.field, input.fieldlast {
-padding: 20px; 
-border: 1px solid #c3b288; 
-font: 22px Georgia,'Times New Roman',Serif; 
-font-style: italic; 
-color: #3c3c39; 
+padding: 20px;
+border: 1px solid #c3b288;
+font: 22px Georgia,'Times New Roman',Serif;
+font-style: italic;
+color: #3c3c39;
 width: 300px;
 margin-bottom: 24px;
 }
@@ -1021,7 +1021,7 @@ margin-bottom: 24px;
 #signupcontainer .create:hover {
 -webkit-box-shadow: 0px 0px 8px #000;
 -moz-box-shadow: 0px 0px 8px #000;
-box-shadow: 0px 0px 8px #000; 
+box-shadow: 0px 0px 8px #000;
 -moz-border-radius: 22px;
 border-radius: 22px;
 }
@@ -1039,3 +1039,43 @@ border-radius: 22px;
   list-style: none;
   width: 20px;
 }
+
+#active_admin_content #main_content_wrapper { min-height: 500px; }
+.admin_dashboard #header { height: 20px; }
+.admin_dashboard table.dashboard .dashboard_section h3 {
+  background: url("/images/mainhead.jpg") repeat-x scroll 0 0 transparent;
+  height: 20px;
+  color: #E69A2C;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  font-family: Helvetica,Arial,Sans-Serif;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+/* COMMUNITY */
+.community .project {background-color: #F5EFE6; padding:20px; font-family: Helvetica, Arial, sans-serif;  }
+.community .holder {padding: 14px;}
+.community .up, .feedback .down, .feedback h6 {float: left; }
+.community h6, .feedback b { margin: 6px 0 12px 0}
+.community h6, .feedback a {color: #894125;}
+.community h6 {font-size: 14px }
+.community .up, .feedback .down {width: 26px; height: 26px; }
+.community .up {background: url(/images/icon_thumbup.png) no-repeat top left;}
+.community .down {background: url(/images/icon_thumbdown.png) no-repeat top left;}
+.community .left { padding-left: 20px; width: 520px;}
+.community b { font-size: 12px; float: right; color: #422215; }
+.community a {text-decoration: none; margin-left: 6px}
+.community a:hover {text-decoration: underline}
+.community p {margin-bottom: 20px}
+
+#main .spotlight {width:650px;height:285px;float:left;margin-top:35px;margin-bottom:20px;}
+#main .spotlight .spotlight-content {float:right;width:273px;margin-top:-285px;}
+#main .spotlight .spotlight-content p {font-family: Georgia,'Times New Roman',Serif;font-size:12px;line-height:1.2em;margin-top: 6px;margin-bottom: 13px;color:#000;}
+#main .spotlight .spotlight-content h2 {color:#894125;}
+#main .spotlight .spotlight-video {width:355px;height:285px;background-color:#eee;display:block;}
+
+#main #listings li.red {border: none; font-size:16px;font-family:Helvetica,Arial,Sans-Serif;}
+#main #listings li.red a {color:#894125;font-weight:bold;}
+

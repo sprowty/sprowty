@@ -1,0 +1,150 @@
+<% unless current_user %>
+  <div id="signup">
+
+    <div class="left">
+      <div class="block">
+        <h2>1. Sign Up</h2>
+        <p>Become a member of sprowty today. It's free and easy!</p>
+      </div>
+
+      <div class="block">
+        <h2>2. Get Active</h2>
+        <p>Become a member of sprowty today. It's free and easy!</p>
+      </div>
+
+      <div class="block">
+        <h2>3. Share</h2>
+        <p>Become a member of sprowty today. It's free and easy!</p>
+      </div>
+    </div> <!--/LEFT-->
+
+    <div class="arrow"></div>
+
+    <div class="right">
+      <a href="<%= new_user_registration_path %>" id="sign_up">Sign Up For sprowty</a>
+    </div>
+
+    <div class="clear"></div>
+  </div> <!--/SIGNUP-->
+  <div id="subhead"></div>
+<% else %>
+
+  <div id="subhead"></div>
+
+<% end %>
+
+<div id="needdone">
+  <div class="holder">
+
+    <div class="left">
+      <h4>Need Something Done?</h4>
+    </div> <!--/LEFT-->
+
+
+    <div class="right">
+      <form id="search" method="get" action="" name="input">
+        <input class="field" id="what_you_need_done" name="what_you_need_done" type="text" placeholder="Type What You Need Done Here" />
+        <button id="plant_it" type="submit">Plant</button>
+      </form>
+    </div> <!--/RIGHT-->
+
+
+  </div>
+</div> <!--/NEEDDONE-->
+
+<div id="container">
+  <div id="main">
+    <div class="rightside">
+
+      <h2>Harvest Fields</h2>
+      <p>Find the jobs you want to do</p>
+
+
+      <%= form_for :search, :url => root_url do |f| %>
+        <%= f.text_field :title_or_description_contains, :placeholder => 'Search' %>
+        <button type="submit">Search</button>
+      <% end %>
+
+      <div class="clear"></div>
+
+
+      <div class="boxhead"><h3>Categories</h3></div>
+      <div class="box">
+        <ul class="categories">
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+          <li><a href="#">Sample Link</a></li>
+
+        </ul>
+      </div> <!--/BOX-->
+
+
+      <img src="images/icon_rooster.png" class="rooster" />
+      <div class="twitbox">
+        <div id="twitter">
+          <ul id="twitter_update_list"><li></li></ul>
+
+        </div>
+        <span class="quote"></span>
+      </div> <!--/TWITBOX-->
+      <div class="follow"><h2><a href="http://twitter.com/#!/sprowty" target="_blank">@sprowty</a></h2></div>
+
+
+    </div> <!--/RIGHTSIDE-->
+  <%= javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5' %>
+    <div class="content">
+
+      <div class="head">
+
+        <div class="left" style="width:450px">
+          <h2 style='margin-top:5px;'><%= @project.title %></h2>
+
+        </div> <!--/LEFT-->
+        <div class='spotlight'>
+          <div class='spotlight-video'>
+
+          </div>
+        </div> <!--/SPOTLIGHT-->
+
+        <div id="listings">
+          <div class='clear'></div>
+          <p style="color: #000000; font-family: Georgia,'Times New Roman',Serif; font-size: 12px; line-height: 1.2em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nibh vel nibh ullamcorper molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce purus enim, vulputate vitae malesuada in, tristique vel ante. Integer eget purus at purus laoreet facilisis id sed magna. Mauris lectus ipsum, commodo sit amet mattis tempus, porta sed mi. Fusce dictum porta tempus. Sed rutrum posuere mauris id porttitor. Nam pretium pharetra purus, id fringilla erat placerat vitae. Integer risus arcu, tempor vel dignissim et, dapibus et quam. Etiam rutrum diam quis quam tincidunt vitae iaculis justo pretium. In a porttitor lorem. Nulla bibendum mi et erat lobortis et pharetra ligula aliquam. Integer arcu mi, molestie nec hendrerit sit amet, egestas eu nisi. Ut velit felis, consequat rhoncus facilisis non, tempor vitae sem. Donec pulvinar nisi sit amet augue aliquet ornare. Pellentesque tincidunt dui nec massa rhoncus quis dignissim magna laoreet. Nullam adipiscing rutrum elit quis consectetur. Praesent tristique elit ut purus venenatis at vulputate tortor varius. Nulla vestibulum massa sit amet turpis tempor imperdiet.
+
+Suspendisse quis posuere lorem. Proin tellus elit, pretium non vestibulum a, placerat id eros. Nullam id velit eget urna auctor pretium quis ac lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec dolor lacus, consequat commodo tincidunt non, posuere non ligula. Proin turpis purus, aliquam eget hendrerit nec, volutpat a ligula. Duis condimentum pretium rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elit magna, pulvinar aliquam accumsan vel, luctus nec augue. Quisque euismod ullamcorper quam sed pharetra. In in nulla mauris. Pellentesque semper, erat eget venenatis dapibus, lacus arcu condimentum nisl, vel cursus elit orci vel lacus. Pellentesque eu tortor libero. Phasellus gravida porta purus, quis accumsan nisi fermentum ut. Donec tempor urna in arcu sodales mollis. Pellentesque est nibh, blandit non aliquam in, condimentum nec enim. Aliquam vulputate dignissim scelerisque. Donec ut lorem ac quam bibendum tincidunt. Donec vel libero lectus, nec rhoncus libero. Sed sit amet turpis et metus tristique dictum nec at sapien.
+
+Nam quam purus, congue id pretium non, convallis in mauris. Etiam malesuada tempor ullamcorper. Vestibulum molestie nisl nec elit faucibus vel ultrices ante imperdiet. Vestibulum ac diam lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum, dui laoreet venenatis placerat, urna mi suscipit nisi, ut dictum sem urna id enim. Phasellus leo ipsum, volutpat at cursus nec, varius sed leo. Vestibulum condimentum ligula vitae lacus ullamcorper faucibus. In hac habitasse platea dictumst. Maecenas ac justo lacus, non faucibus arcu. Donec eu elit sem, ac suscipit purus. Duis vulputate quam quis eros laoreet feugiat. Duis rhoncus, nisl non egestas dapibus, erat ipsum consequat magna, a porta lacus diam eget turpis. Ut facilisis sollicitudin tortor.</p>
+        </div> <!--/LISTINGS-->
+
+    </div> <!--/HEAD-->
+
+    </div> <!--/CONTENT-->
+
+  </div> <!--/MAIN-->
+
+  <div class="clear"></div>
+</div> <!--/CONTAINER-->
+
+<div id="botlinks">
+
+  <div class="left">
+
+    <ul>
+      <li><a href="#">Sample</a></li>
+      <li><a href="#">Sample</a></li>
+      <li><a href="#">Sample</a></li>
+      <li><a href="#">Sample</a></li>
+      <li><a href="#">Sample</a></li>
+      <li><a href="#">Sample</a></li>
+    </ul>
+
+    <p>Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est. </p>
+
+  </div> <!--/LEFT-->
+
+  <div class="right">
+    <h4>Sprowty</h4>
+    <b>All Rights Reserved, 2010</b>
+  </div>
+
+</div> <!--/BOTLINKS-->

@@ -2,14 +2,14 @@
 
 
 
-<div id="container"> 
+<div id="container">
 
 
 <div id="main">
 
 <div class="rightside">
   <div class="boxheadin">
-    <h3>What You Can Do</h3>
+    <h3>My Resume</h3>
   </div>
   <div class="box">
     <ul class="categories">
@@ -30,7 +30,7 @@
     <li class="file"><%= link_to work.work_file_name, work.work.url %></li>
   </ul>
   <%= link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true) %>
-  <div class="clear"></div>  
+  <div class="clear"></div>
   <% end %>
 
 <%= semantic_form_for Work.new, :html => { :multipart => true } do |f| %>
@@ -320,7 +320,7 @@
 </div> <!--/LEFT-->
 
 <script type="text/javascript" charset="utf-8">
-  $(function() { 
+  $(function() {
     $('.add').bind('click', function(e) {
       e.preventDefault();
       var skill         = $('#skill').val();
@@ -332,7 +332,7 @@
         }
       }, "json");
     });
-    
+
     $('.delete').live('ajax:success', function(e) {
       if ($(this).hasClass('work')) {
        $(this).prev('ul').remove();
