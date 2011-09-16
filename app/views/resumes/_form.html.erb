@@ -1,5 +1,5 @@
       <div id="profile">
-        <%= form_for @resume do |f| %>
+        <%= form_for @resume, :url => resume_path do |f| %>
         <p><%= error_messages_for :resume %></p>
         <div class="settings">
           <div class="label">
