@@ -1041,8 +1041,8 @@ border-radius: 22px;
 }
 
 #active_admin_content #main_content_wrapper { min-height: 500px; }
-.admin_dashboard, .admin_users, #header { height: 20px; }
-#active_admin_content h3, .admin_dashboard .panel h3, table.dashboard .dashboard_section h3 {
+.admin_dashboard #header { height: 20px; }
+.admin_dashboard table.dashboard .dashboard_section h3 {
   background: url("/images/mainhead.jpg") repeat-x scroll 0 0 transparent;
   height: 20px;
   color: #E69A2C;
