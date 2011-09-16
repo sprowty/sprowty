@@ -25,7 +25,7 @@ class ResumesController < ApplicationController
   def update
     @resume = current_user.resume
     if @resume.update_attributes(params[:resume])
-      redirect_to user_resume_url(current_user.id,@resume), :notice => 'Successfully updated your Resume!'
+      redirect_to root_url, :notice => 'Successfully updated your Resume!'
     else
       render :edit
     end

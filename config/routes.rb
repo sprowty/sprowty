@@ -8,9 +8,7 @@ Sprowty::Application.routes.draw do
 
   resource :profile, :controller => "profiles"
 
-  resources :users do
-    resources :resumes
-  end
+  resource :resume, :controller => "resumes"
 
   resources :profiles, :only => :show
 
