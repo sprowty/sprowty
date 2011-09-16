@@ -1,19 +1,19 @@
-ActiveAdmin.register User do
-  filter :username
-  filter :email
-  filter :created_at
+ActiveAdmin.register Project do
+  filter :title
+  filter :price
+  filter :due_date
 
   index do
     id_column
-    column :username
-    column :email
+    column :title
+    column :price
     column :created_at
     default_actions
   end
 
-  show :title => :username do
-    panel "Recent Activity" do
-      table_for(user.bids) do
+  show :title => "Project" do
+    panel "Project Detail" do
+      table_for(project) do
         #column("Order", :sortable => :id) {|order| link_to "##{order.id}", admin_order_path(order) }
         #column("State") {|order| status_tag(order.state) }
         #column("Date", :sortable => :checked_out_at){|order| pretty_format(order.checked_out_at) }
