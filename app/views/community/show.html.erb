@@ -98,36 +98,22 @@
       <div class="head">
 
         <div class="left" style="width:450px">
-          <h2 style='margin-top:5px;'>See What Sprowty Has Done For The Week</h2>
+          <h2 style='margin-top:5px;'><%= @project.title %></h2>
 
         </div> <!--/LEFT-->
         <div class='spotlight'>
           <div class='spotlight-video'>
 
           </div>
-          <div class='spotlight-content'>
-            <h2>WEEK ONE</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nibh vel nibh ullamcorper molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce purus enim, vulputate vitae malesuada in, tristique vel ante. Integer eget purus at purus laoreet facilisis id sed magna.</p>
-            <p>Mauris lectus ipsum, commodo sit amet mattis tempus, porta sed mi. Fusce dictum porta tempus. Sed rutrum posuere mauris id porttitor. Nam pretium pharetra purus, id fringilla erat placerat vitae. Integer risus arcu, tempor vel dignissim et, dapibus et quam. Etiam rutrum diam quis quam tincidunt vitae iaculis justo pretium.</p>
-          </div> <!--/SPOTLIGHT-CONTENT-->
         </div> <!--/SPOTLIGHT-->
 
         <div id="listings">
           <div class='clear'></div>
-          <%- @projects.each do |project| %>
-            <div class="post" style="background-color: <%= cycle('#E5D7C1', '#F5EFE6') -%>;width:620px;">
-              <div class='pic' style="background-color:#000;width:123px;height:103px;margin-top:15px;margin-bottom:25px;margin-right: 20px;"><%#= project.user.profile.picture %></div>
-              <h2 style='color:#894125;font-size:32px;margin-top: 10px;'><%= link_to project.title, community_project_path(project.id) %></h2>
-              <div class='posted red'>By: <%= link_to project.user.username, user_path(project.user) %></div>
-              <p style='color:#000;'><%= project.description %></p>
-              <div class='clear'></div>
-              <ul class='actions' style='float: right;margin-top:-50px;'>
-                <li>LIKE</li>
-                <li class='red'><%= link_to 'Fund Community', '#' %></li>
-                <li class='red'><%= link_to 'Donate Time', '#' %></li>
-              </ul>
-            </div>
-          <% end %>
+          <p style="color: #000000; font-family: Georgia,'Times New Roman',Serif; font-size: 12px; line-height: 1.2em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nibh vel nibh ullamcorper molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce purus enim, vulputate vitae malesuada in, tristique vel ante. Integer eget purus at purus laoreet facilisis id sed magna. Mauris lectus ipsum, commodo sit amet mattis tempus, porta sed mi. Fusce dictum porta tempus. Sed rutrum posuere mauris id porttitor. Nam pretium pharetra purus, id fringilla erat placerat vitae. Integer risus arcu, tempor vel dignissim et, dapibus et quam. Etiam rutrum diam quis quam tincidunt vitae iaculis justo pretium. In a porttitor lorem. Nulla bibendum mi et erat lobortis et pharetra ligula aliquam. Integer arcu mi, molestie nec hendrerit sit amet, egestas eu nisi. Ut velit felis, consequat rhoncus facilisis non, tempor vitae sem. Donec pulvinar nisi sit amet augue aliquet ornare. Pellentesque tincidunt dui nec massa rhoncus quis dignissim magna laoreet. Nullam adipiscing rutrum elit quis consectetur. Praesent tristique elit ut purus venenatis at vulputate tortor varius. Nulla vestibulum massa sit amet turpis tempor imperdiet.
+
+Suspendisse quis posuere lorem. Proin tellus elit, pretium non vestibulum a, placerat id eros. Nullam id velit eget urna auctor pretium quis ac lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec dolor lacus, consequat commodo tincidunt non, posuere non ligula. Proin turpis purus, aliquam eget hendrerit nec, volutpat a ligula. Duis condimentum pretium rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elit magna, pulvinar aliquam accumsan vel, luctus nec augue. Quisque euismod ullamcorper quam sed pharetra. In in nulla mauris. Pellentesque semper, erat eget venenatis dapibus, lacus arcu condimentum nisl, vel cursus elit orci vel lacus. Pellentesque eu tortor libero. Phasellus gravida porta purus, quis accumsan nisi fermentum ut. Donec tempor urna in arcu sodales mollis. Pellentesque est nibh, blandit non aliquam in, condimentum nec enim. Aliquam vulputate dignissim scelerisque. Donec ut lorem ac quam bibendum tincidunt. Donec vel libero lectus, nec rhoncus libero. Sed sit amet turpis et metus tristique dictum nec at sapien.
+
+Nam quam purus, congue id pretium non, convallis in mauris. Etiam malesuada tempor ullamcorper. Vestibulum molestie nisl nec elit faucibus vel ultrices ante imperdiet. Vestibulum ac diam lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum, dui laoreet venenatis placerat, urna mi suscipit nisi, ut dictum sem urna id enim. Phasellus leo ipsum, volutpat at cursus nec, varius sed leo. Vestibulum condimentum ligula vitae lacus ullamcorper faucibus. In hac habitasse platea dictumst. Maecenas ac justo lacus, non faucibus arcu. Donec eu elit sem, ac suscipit purus. Duis vulputate quam quis eros laoreet feugiat. Duis rhoncus, nisl non egestas dapibus, erat ipsum consequat magna, a porta lacus diam eget turpis. Ut facilisis sollicitudin tortor.</p>
         </div> <!--/LISTINGS-->
 
     </div> <!--/HEAD-->
@@ -137,7 +123,6 @@
   </div> <!--/MAIN-->
 
   <div class="clear"></div>
-  <%= will_paginate @projects %>
 </div> <!--/CONTAINER-->
 
 <div id="botlinks">

@@ -1053,3 +1053,29 @@ border-radius: 22px;
   text-transform: uppercase;
   text-shadow: none;
 }
+
+/* COMMUNITY */
+.community .project {background-color: #F5EFE6; padding:20px; font-family: Helvetica, Arial, sans-serif;  }
+.community .holder {padding: 14px;}
+.community .up, .feedback .down, .feedback h6 {float: left; }
+.community h6, .feedback b { margin: 6px 0 12px 0}
+.community h6, .feedback a {color: #894125;}
+.community h6 {font-size: 14px }
+.community .up, .feedback .down {width: 26px; height: 26px; }
+.community .up {background: url(/images/icon_thumbup.png) no-repeat top left;}
+.community .down {background: url(/images/icon_thumbdown.png) no-repeat top left;}
+.community .left { padding-left: 20px; width: 520px;}
+.community b { font-size: 12px; float: right; color: #422215; }
+.community a {text-decoration: none; margin-left: 6px}
+.community a:hover {text-decoration: underline}
+.community p {margin-bottom: 20px}
+
+#main .spotlight {width:650px;height:285px;float:left;margin-top:35px;margin-bottom:20px;}
+#main .spotlight .spotlight-content {float:right;width:273px;margin-top:-285px;}
+#main .spotlight .spotlight-content p {font-family: Georgia,'Times New Roman',Serif;font-size:12px;line-height:1.2em;margin-top: 6px;margin-bottom: 13px;color:#000;}
+#main .spotlight .spotlight-content h2 {color:#894125;}
+#main .spotlight .spotlight-video {width:355px;height:285px;background-color:#eee;display:block;}
+
+#main #listings li.red {border: none; font-size:16px;font-family:Helvetica,Arial,Sans-Serif;}
+#main #listings li.red a {color:#894125;font-weight:bold;}
+

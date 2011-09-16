@@ -4,27 +4,38 @@ ActiveAdmin::Dashboards.build do
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
 
-  section "Recent Users" do
-    User.all.each do |user|
-      link_to user.username, user_path(user)
+#  section "Recent Users" do
+#    User.all.each do |user|
+#      link_to user.username, user_path(user)
+#    end
+#  end
+
+ # section "Recent Works" do
+ #   Work.all.each do |work|
+ #     link_to work.work, work_path(work)
+ #   end
+ # end
+
+  section "Recent Users", :priority => 1 do
+    table_for User.order('id desc').limit(5).each do |user|
+      column(:email) {|user| link_to(user.email, admin_user_path(user)) }
+      column(:username)
+      column(:last_sign_in_at)
+      column(:created_at)
     end
   end
 
-  section "Recent Works" do
-    Work.all.each do |work|
-      link_to work.work, work_path(work)
-    end
-  end
+  section "Recent Projects", :priority => 2 do
+     table_for Project.order('id desc').limit(5).each do |project|
+       column(:title) {|project| link_to(project.title, admin_project_path(project)) }
+       column(:price)
+       column(:due_date)
+     end
+   end
 
-  section "Recent Projects" do
-    Project.all.each do |project|
-      link_to project.title, project_path(project)
-    end
-  end
-
-  section "Recent Keywords" do
-    Keyword.all.each do |keyword|
-      link_to keyword.name, keyword_path(keyword)
+  section "Recent Keywords", :priority => 3 do
+    table_for Keyword.order('id desc').limit(5).each do |keyword|
+      column(:name) {|keyword| link_to(keyword.name, admin_keyword_path(keyword)) }
     end
   end
 
