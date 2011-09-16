@@ -52,7 +52,7 @@
   </div>
 </div> <!--/NEEDDONE-->
 
-<div id="container"> 
+<div id="container">
   <div id="main">
     <div class="rightside">
 
@@ -84,7 +84,7 @@
       <div class="twitbox">
         <div id="twitter">
           <ul id="twitter_update_list"><li></li></ul>
-          
+
         </div>
         <span class="quote"></span>
       </div> <!--/TWITBOX-->
@@ -98,18 +98,42 @@
       <div class="head">
 
         <div class="left" style="width:450px">
-          <h2>See What Sprowty Has Done For The Week</h2>
+          <h2 style='margin-top:5px;'>See What Sprowty Has Done For The Week</h2>
 
         </div> <!--/LEFT-->
+        <div class='spotlight'>
+          <div class='spotlight-video'>
 
-      <div id="listings">
-        
-      </div> <!--/LISTINGS-->
-      
+          </div>
+          <div class='spotlight-content'>
+            <h2>WEEK ONE</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nibh vel nibh ullamcorper molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce purus enim, vulputate vitae malesuada in, tristique vel ante. Integer eget purus at purus laoreet facilisis id sed magna.</p>
+            <p>Mauris lectus ipsum, commodo sit amet mattis tempus, porta sed mi. Fusce dictum porta tempus. Sed rutrum posuere mauris id porttitor. Nam pretium pharetra purus, id fringilla erat placerat vitae. Integer risus arcu, tempor vel dignissim et, dapibus et quam. Etiam rutrum diam quis quam tincidunt vitae iaculis justo pretium.</p>
+          </div> <!--/SPOTLIGHT-CONTENT-->
+        </div> <!--/SPOTLIGHT-->
+
+        <div id="listings">
+          <div class='clear'></div>
+          <%- @projects.each do |project| %>
+            <div class="post" style="background-color: <%= cycle('#E5D7C1', '#F5EFE6') -%>;width:620px;">
+              <div class='pic' style="background-color:#000;width:123px;height:103px;margin-top:15px;margin-bottom:25px;margin-right: 20px;"><%#= project.user.profile.picture %></div>
+              <h2 style='color:#894125;font-size:32px;margin-top: 10px;'><%= project.title %></h2>
+              <div class='posted red'>By: <%= link_to project.user.username, user_path(project.user) %></div>
+              <p style='color:#000;'><%= project.description %></p>
+              <div class='clear'></div>
+              <ul class='actions' style='float: right;margin-top:-50px;'>
+                <li>LIKE</li>
+                <li class='red'><%= link_to 'Fund Community', '#' %></li>
+                <li class='red'><%= link_to 'Donate Time', '#' %></li>
+              </ul>
+            </div>
+          <% end %>
+        </div> <!--/LISTINGS-->
+
     </div> <!--/HEAD-->
 
     </div> <!--/CONTENT-->
-    
+
   </div> <!--/MAIN-->
 
   <div class="clear"></div>
