@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :js
   
   def index
     @projects = current_user.projects
@@ -15,9 +15,9 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(params[:project])
     
     if @project.save
-      render :json => { :success => true }
+      respond_with(@project, :location => root_url)
     else
-      render :json => { :success => 'false', :html => render_to_string(:file => 'projects/new.html.erb', :template => false) }
+      render :action => 'new'
     end
   end
   

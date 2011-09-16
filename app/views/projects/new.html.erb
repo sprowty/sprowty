@@ -1,9 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-<title>sprowty</title>
-<%= stylesheet_link_tag "application" %>
 
 <style type="text/css">
 a:active, a:focus, button{outline: 0;}
@@ -16,7 +10,7 @@ h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-
 h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
 
 #plantseed .right p i {float: none; margin-bottom: 20px; padding: 0}
-#plantseed {font: 12px Helvetica, Arial, Sans-Serif; text-align: center; background-color: #E5D7C1; height: 100%;}
+#plantseed {font: 12px Helvetica, Arial, Sans-Serif; text-align: center; background-color: #E5D7C1; height: 100%; width: 100%;}
 #plantseed .head {
 background-color: green; 
 padding: 30px 30px 25px 30px; 
@@ -64,27 +58,21 @@ margin-bottom: 14px;
 }
 
 input.city {
-  width: 180px;
+  width: 160px;
+  padding: 6px;
 }
-
-select.states {
-  width: 100px;
-  float: right;
-  margin: 12px;
-}
-
 
 
 input.price {font: bold 16px Helvetica, Arial, Sans-Serif; font-style: normal; color: #585A05; width: 50px }
 input.year {font: bold 14px Helvetica, Arial, Sans-Serif; font-style: normal; padding: 10px; width: 150px; color: #422215}
-p {padding-bottom: 14px; margin: 0}
-select {float: left;  width: 179px; margin: 0px 0 14px 0}
+p {padding-bottom: 10px; margin: 0}
+select {float: left;  width: 179px; margin: 0px 0 10px 0}
 textarea {resize:none;}
 
 
 #plantseed textarea {
 font: 12px Helvetica,Arial,Sans-Serif;
-height: 50px;
+height: 100px;
 padding: 12px;
 }
 
@@ -99,8 +87,6 @@ height: 73px;
 text-indent: -9999em; 
 display: block; 
 margin: 0 auto;
-float: right;
-margin-right: 20px;
 margin-top: -24px
 }
 
@@ -117,122 +103,12 @@ select.month, select.day, select.year, #project_due_date_2i, #project_due_date_1
 select.year, #project_due_date_1i {width: 60px}
 </style>
 
-</head>
-
-<body>
-
 <div id="plantseed">
-
-<div class="head">
-<h3>Plant A Seed</h3>
-</div>
-
-
-<div class="left">
-
-<%= form_for @project do |f| %>
-  <% unless error_messages_for.nil? %>
-    <p><%= error_messages_for :project %></p>
-  <% end %>
-  <div class="labelholder">
-    <label>Job Title:</label>
-  </div>
-  <%= f.text_field :title, :class => 'field' %>
-
-  <div class="labelholder">
-    <label>Description:</label>
-    <i>Insert the full description and guidelines of your job</i>
-  </div>
-  <%= f.text_area :description, :class => 'field' %>
-
-
-  <div class="labelholder">
-    <label>City/State:</label>
-  </div>
-  <%= f.text_field :city, :class => 'city' %>
-  <%= f.select :state, STATES_ABBREVIATED, {:include_blank => true}, {:class => 'states'} %>
   
-  
-
-  <div class="labelholder">
-    <label>Tags:</label>
-    <i>Tags Associated With Job</i>
+  <div class="head">
+    <h3>Plant A Seed</h3>
   </div>
-  <%= f.text_field :tags, :class => 'field' %>
-
-  <div class="labelholder">
-    <label>Price:</label>
-    <i>Enter in Increments of $5</i>
+  <div id="new_project_form">
+    <%= render :partial => 'form', :locals => {:project => @project} %>
   </div>
-  <%= f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price' %>
-
-</div> <!--LEFT-->
-
-
-<div class="right">
-<h5>Categories:</h5>
-<p><i>Choose the categories your job should be listed in</i></p>
-
-<select>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-</select>
-
-<select>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-</select>
-
-<select>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-</select>
-
-
-<h5>Due Date:</h5>
-<p><i>Select Your Due Date</i></p>
-<%= f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date' %>
-
-
-</div> <!--RIGHT-->
-
-<div class="clear"></div>
-
-  <%= f.submit 'Plant Seed', :class => 'plantseed' %>
-<% end %>
 </div> <!--PLANTSEED-->
-
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    $("#project_submit").click(function () {
-      $.post("<%= projects_path %>",
-        $("#new_project").serialize() + "&" 
-        + $('.date').serialize(),
-        function(json) {
-          console.log(json);
-          if (json.success == 'false') {
-            $.fn.colorbox({
-              html:   json.html,
-              open:   true,
-              iframe: false
-            });
-          } else {
-            $('#cboxClose').click();
-            return false;
-          }
-        }, "json");
-    });
-  });
-</script>
-
-</body> 
-</html>
