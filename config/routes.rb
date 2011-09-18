@@ -33,7 +33,5 @@ Sprowty::Application.routes.draw do
   match '/user'          => 'profiles#index',  :as => :user_root
   match "/community"     => 'community#index'
   match '/community_project/:id' => 'community#show', :as => :community_project
-
-
-
+  match '/community_overview' => 'community#overview', :as => :community_overview
 end

@@ -1079,3 +1079,10 @@ border-radius: 22px;
 #main #listings li.red {border: none; font-size:16px;font-family:Helvetica,Arial,Sans-Serif;}
 #main #listings li.red a {color:#894125;font-weight:bold;}
 
+#listings .gallery {float:left;margin-top: 20px; height:970px;}
+#listings .gallery .box-week {float:left;background-color: #f4efe6;width:200px;height:300px;-moz-border-radius: 10px;border-radius: 10px;border: 1px solid #d5bea0;margin-right: 14px;margin-top: 14px;}
+#listings .gallery .box-week h2 a {color:#595911;font-size:32px;margin-top: 10px;margin-left: 10px;}
+#listings .gallery .box-week .pic {width: 170px;height:110px;background-color:#000;margin:10px;float:left;}
+#listings .gallery .box-week .title a {font-size:14px;font-family:Helvetica,Arial,Sans-Serif;color:#894125;font-weight:bold;margin-left: 10px;text-decoration:none;}
+#listings .gallery .box-week p.description {color:#000;margin-left:10px;font-size:12px;font-family:Helvetica,Arial,Sans-Serif;margin-top:5px;width:180px;height:50px;}
+#listings .gallery .box-week .actions {margin-top:0px;margin-left:20px;margin-top:-5px;}
