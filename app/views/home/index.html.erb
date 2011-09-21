@@ -1,5 +1,6 @@
+<% content_for :keywords, @tags %>
 <% unless current_user %>
-  
+
 
   <div id="slider">
     <div class="holder">
@@ -26,7 +27,7 @@
         <input class="field" id="what_you_need_done" name="what_you_need_done" type="text" placeholder="Type What You Need Done Here" />
         <button id="plant_it" type="submit">Plant</button>
       </form>
-    </div> <!--/RIGHT--> 
+    </div> <!--/RIGHT-->
 
 
   </div>
@@ -35,7 +36,7 @@
 
 
 
-<div id="container"> 
+<div id="container">
 
 
   <div id="main">
@@ -70,7 +71,7 @@
       <div class="twitbox">
         <div id="twitter">
           <ul id="twitter_update_list"><li></li></ul>
-          
+
         </div>
         <span class="quote"></span>
       </div> <!--/TWITBOX-->
@@ -155,17 +156,17 @@
             </div>
             <div class="clear"></div>
           </div> <!--/POST TWO-->
-          
+
         <% end %>
-        
+
       </div> <!--/LISTINGS-->
-      
+
 
 
     </div> <!--/CONTENT-->
-    
+
   </div> <!--/MAIN-->
-  
+
   <div class="clear"></div>
   <%= will_paginate @projects %>
 </div> <!--/CONTAINER-->

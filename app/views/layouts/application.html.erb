@@ -3,18 +3,8 @@
 
 <head>
   <title>sprowty</title>
-  <% if content_for?(:meta_description) %>
-    <meta keywords=<%= yield :meta_cription %>/>
-  <% else %>
-    <meta description="Unique site providing users to bid on projects as well as post projects for bids by other users. Donate money to community projects." />
-  <% end %>
-
-  <% if content_for?(:meta_keywords) %>
-    <meta keywords=<%= yield :meta_keywords %>/>
-  <% else %>
-    <meta keywords="freelance, work, bid, money, earn, contract, project" />
-  <% end %>
-
+  <meta description="Unique site providing users to bid on projects as well as post projects for bids by other users. Donate money to community projects." />
+  <meta name="keywords" content="<%= (keywords = yield :keywords) ? keywords : 'projects,work,money,paid,contract,freelance,bid' %>">
   <meta name="copyright" content="© 2010 Sprowty" />
   <meta name="contact" content="someone@sprowty.com" />
   <meta http-equiv="content-language" content="en" />

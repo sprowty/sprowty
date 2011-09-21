@@ -3,6 +3,7 @@ class CommunityController < ApplicationController
 
   def index
     @projects = Project.paginate(:page => params[:page], :per_page => 6)
+    @tags = @projects.map(&:tags).uniq
   end
 
   def show
