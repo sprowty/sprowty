@@ -1,3 +1,10 @@
+<% content_for :meta_keywords do %>
+  <%= @projects.map(&:tags) %>
+<% end %>
+<% content_for :meta_desription do %>
+  <%= @projects.map(&:description) %>
+<% end %>
+
 <div id="subhead"></div>
 <div id="needdone">
   <div class="holder">
@@ -14,7 +21,7 @@
   </div>
 </div> <!--/NEEDDONE-->
 
-<div id="container"> 
+<div id="container">
   <div id="main">
     <div class="rightside">
       <div class="boxheadin"><h3>Recent Projects</h3></div>
@@ -36,7 +43,7 @@
       <% end %>
       </div> <!--/BOX-->
     </div> <!--/RIGHTSIDE-->
-    
+
     <div class="content">
       <div class="head">
         <div class="left">
@@ -80,7 +87,7 @@
             <li><a href="#" class="next">&#8250;&#8250;</a></li>
           </ol>
         </div>
-      </div>	
+      </div>
 <!--/PAGINATION-->
     </div> <!--/CONTENT-->
   </div> <!--/MAIN-->
