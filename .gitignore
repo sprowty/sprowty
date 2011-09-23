@@ -5,3 +5,4 @@ tmp/
 .DS_Store
 public/system/pictures/*
 config/*.yml
+public/system/*
