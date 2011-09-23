@@ -63,7 +63,6 @@
           <img src="/images/sign_up_header.png" />
           </a>
 
-        <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
 
         <fieldset id="signin_menu">
           <%= semantic_form_for "user", :url => user_session_path do |f| %>
@@ -89,7 +88,6 @@
 
         <ul class="loggedin">
           <li><%= link_to 'My Profile', profile_path %></li>
-          <li><%= link_to_resume %>
           <li><%= link_to 'Inbox', inbox_path %></li>
           <li><a href="#">Projects</a></li>
           <li><a href="#">You're Needed</a></li>
@@ -100,6 +98,7 @@
           <li><%= link_to current_user.username, profile_path %></li>
           <li><%= link_to 'Logout', logout_path %></li>
         </ul>
+
       <% end %>
     </div> <!--/RIGHT-->
 
