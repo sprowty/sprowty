@@ -1,6 +1,6 @@
 <div id="subhead"></div>
 
-<div id="container"> 
+<div id="container">
 
   <div id="main">
 
@@ -20,7 +20,11 @@
       <div class="box">
         <% @works.each do |work| %>
           <ul class="upload">
-            <li class="file"><%= link_to work.work_file_name, work.work.url %></li>
+            <li class="file">
+              <% if work.image_approved %>
+                <%= link_to work.work_file_name, work.work.url %>
+              <% end %>
+            </li>
           </ul>
         <% end %>
         <div class="clear"></div>

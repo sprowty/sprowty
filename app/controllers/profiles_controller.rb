@@ -1,16 +1,16 @@
 class ProfilesController < ApplicationController
-  
+
   def index
     @profile  = current_user.profile
     @seeds    = current_user.projects
     @skills   = current_user.skills
     @works    = current_user.works
   end
-  
+
   def new
     render :edit
   end
-  
+
   def create
     @profile = Profile.new(params[:profile])
     if @profile.save
@@ -19,12 +19,12 @@ class ProfilesController < ApplicationController
       render :edit
     end
   end
-  
+
   def edit
     @profile = current_user.profile
 
   end
-  
+
   def update
     @profile = current_user.profile
     if @profile.update_attributes(params[:profile])
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
       render :edit
     end
   end
-  
+
   def show
     @profile = params[:id].blank? ? current_user.profile : Profile.find(params[:id])
     @user = @profile.user
@@ -42,5 +42,16 @@ class ProfilesController < ApplicationController
     @seeds   = @profile.projects
     params[:id].blank? ? render(:action => :index) : render
   end
-  
+
+  def approve
+    @profile = Profile.find(params[:id])
+    if @profile.image_approved == true
+      @profile.image_approved = false
+    else
+      @profile.image_approved = true
+    end
+    @profile.save!
+    flash[:notice] = 'Success!'
+    redirect_to admin_dashboard_path
+  end
 end

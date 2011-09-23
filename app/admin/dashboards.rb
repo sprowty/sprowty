@@ -22,6 +22,7 @@ ActiveAdmin::Dashboards.build do
       column(:username)
       column(:last_sign_in_at)
       column(:created_at)
+      column("# Works") {|user| link_to(user.works.length, admin_user_path(user))}
     end
   end
 

@@ -12,12 +12,23 @@ ActiveAdmin.register User do
   end
 
   show :title => :username do
-    panel "Recent Activity" do
-      table_for(user.bids) do
-        #column("Order", :sortable => :id) {|order| link_to "##{order.id}", admin_order_path(order) }
-        #column("State") {|order| status_tag(order.state) }
-        #column("Date", :sortable => :checked_out_at){|order| pretty_format(order.checked_out_at) }
-        #column("Total") {|order| number_to_currency order.total_price }
+    panel "Profile" do
+      table do
+        tr do
+          th "Profile Image"
+          th "Image Approved"
+        end
+        tr do
+          td link_to(image_tag(user.profile.picture.url, :size => '100x100'), approve_profile_path(user.profile))
+          td user.profile.image_approved
+        end
+      end
+    end
+
+    panel "Works" do
+      table_for(user.works) do
+        column(:work) {|work| link_to(image_tag(work.work.url, :size => '100x100'), approve_work_path(work))}
+        column(:image_approved)
       end
     end
     active_admin_comments

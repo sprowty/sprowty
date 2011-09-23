@@ -435,8 +435,8 @@ width: 114px
 .box button.upload { background: url(/images/button_upload.png) no-repeat left top; width: 71px; height: 30px;}
 
 .box ul.upload {margin: 4px 0 28px 8px; float: left; width: 120px}
-.box ul.upload li {list-style-type: none; display: inline; font: bold 12px Helvetica, Arial, sans-serif;padding: 6px; }
-.box ul.upload a {text-decoration: none; color: #422215}
+.box ul.upload li {list-style-type: none; display: block; font: bold 12px Helvetica, Arial, sans-serif; }
+.box ul.upload a {text-decoration: none; color: #422215; margin-left: 10px;}
 .box ul.upload a:hover {text-decoration: underline}
 .box ul.upload li.file {background: url(/images/icon_addfile.png) no-repeat center left; padding-left: 18px}
 
@@ -1086,3 +1086,5 @@ border-radius: 22px;
 #listings .gallery .box-week .title a {font-size:14px;font-family:Helvetica,Arial,Sans-Serif;color:#894125;font-weight:bold;margin-left: 10px;text-decoration:none;}
 #listings .gallery .box-week p.description {color:#000;margin-left:10px;font-size:12px;font-family:Helvetica,Arial,Sans-Serif;margin-top:5px;width:180px;height:50px;}
 #listings .gallery .box-week .actions {margin-top:0px;margin-left:20px;margin-top:-5px;}
+
+#active_admin_content #main_content_wrapper #main_content .panel .panel_contents ul li { list-style: none;}

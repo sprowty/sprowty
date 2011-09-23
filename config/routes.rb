@@ -6,17 +6,20 @@ Sprowty::Application.routes.draw do
 
   resources :messages, :projects, :skills, :bids, :works, :keywords
 
-  resource :profile, :controller => "profiles"
+  resource :profile#, :controller => "profiles"
 
   resource :resume, :controller => "resumes"
 
-  resources :profiles, :only => :show
+  resources :profiles#, :only => :show
 
   resources :projects do
     collection do
       get :dashboard
     end
   end
+
+  match '/approve_work/:id' => 'works#approve', :as => 'approve_work'
+  match '/approve_profile/:id' => 'profiles#approve', :as => 'approve_profile'
 
   # Authentication
   devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" } do

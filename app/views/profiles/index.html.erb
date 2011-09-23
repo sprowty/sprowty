@@ -26,11 +26,15 @@
 <div class="boxhead"><h3>My Work</h3></div>
 <div class="box">
   <% @works.each do |work| %>
-  <ul class="upload">
-    <li class="file"><%= link_to work.work_file_name, work.work.url %></li>
-  </ul>
-  <%= link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true) %>
-  <div class="clear"></div>
+    <% if work.image_approved %>
+      <ul class="upload">
+        <li class="file">
+          <%= link_to work.work_file_name, work.work.url %>
+        </li>
+      </ul>
+      <%= link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true) %>
+      <div class="clear"></div>
+    <% end %>
   <% end %>
 
 <%= semantic_form_for Work.new, :html => { :multipart => true } do |f| %>
