@@ -79,7 +79,7 @@
 <div id="info">
 
 <div class="left">
-  <%= image_tag @profile.picture_file_name.blank? ? 'dummy_profile.jpg' : @profile.picture.url(:profile) %>
+  <%= image_tag @profile.picture_file_name.blank? ? 'dummy_avatar.jpg' : @profile.picture.url(:profile) %>
   <ul class="action">
     <li class="upload"><%= link_to 'Upload A Pic', '/profile/edit#profile_picture' %></li>
     <li class="invite"><a href="#">Invite A Friend</a></li>
