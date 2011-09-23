@@ -5,19 +5,21 @@ class Profile < ActiveRecord::Base
   has_many :projects, :through  => :user
 
   attr_accessible :user_attributes, :first_name, :last_name, :location, :about, :paypal, :facebook, :twitter, :picture
-  
-  has_attached_file :picture, :styles => { :thumb => '124x124', :profile => "195x175#" }
-  
+
+  has_attached_file :picture,
+    :default_url => '/images/default-avatar.png',
+    :styles => { :thumb => '124x124', :profile => "195x175#" }
+
   before_update :remove_emails
-  
+
   accepts_nested_attributes_for :user
 
   def self.find_by_id_or_username(param)
     where("username = ? or id = ?", param, param).first
   end
-  
+
   private
-  
+
   def remove_emails
     self.about = self.about.gsub(/[^@\s]*@[^@\s]*\.[^@\s]*/, '')
   end
