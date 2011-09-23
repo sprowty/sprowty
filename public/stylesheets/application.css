@@ -173,7 +173,7 @@ border-radius: 9px;
 
 /* --/Sign In-- */
 
-.fbconnect {float: right; margin-top: 3px; margin-right:125px;}
+.fbconnect {margin-top: 20px; padding-bottom:125px; padding-left:54px;}
 
 /* --Logged In-- */
 ul.loggedin {float: left; margin-left: 17px; margin-top: 8px;}
@@ -992,7 +992,7 @@ box-shadow: 1px 1px 1px #fff;
 
 
 a:active, a:focus, button{outline: 0;}
-#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 300px;background-color: #E5D7C1;}
+#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 320px;background-color: #E5D7C1;}
 #signupcontainer .left {float: left; width: 350px;}
 #signupcontainer .right {float: right; width: 350px;}
 #signupcontainer .center {float: left; width: 100%; text-align: center; margin-top: 10px;}

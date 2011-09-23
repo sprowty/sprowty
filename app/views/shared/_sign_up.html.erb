@@ -8,8 +8,12 @@
     </div> <!--LEFT-->
 
     <div class="right">
-    
-      <p><%= f.check_box :terms, :class => 'checkbox', :style => 'width: auto' %> I have read & agree to sprowty’s <a href="#">Terms & Conditions</a></p>
+ <br/> <br/>
+      <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
+ <br/> <br/>
+      <div style="padding-left:22px; padding-bottom:2px">
+      <%= f.check_box :terms, :class => 'checkbox', :style => 'width: auto' %> I have read & agree to sprowty’s <a href="#">Terms & Conditions <br/> <br/>
+      </div>
       <%= f.submit 'Create Account', :class => 'create' %>
     </div> <!--RIGHT-->
     
