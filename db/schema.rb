@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923011553) do
+ActiveRecord::Schema.define(:version => 20110923132737) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20110923011553) do
     t.integer  "bid_count",   :default => 0
     t.string   "city"
     t.string   "state"
+    t.boolean  "approved",    :default => false
   end
 
   create_table "resumes", :force => true do |t|

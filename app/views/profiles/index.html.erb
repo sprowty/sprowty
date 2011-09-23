@@ -27,8 +27,15 @@
 
     <%= link_to_resume %>
 
-</div> <!--/BOX-->
-
+  </div> <!--/BOX-->
+<div class="boxheadin">
+  <h3>My Portfolio</h3>
+</div>
+<div class="box">
+  <%- @projects.all.each do |project| %>
+    <%= link_to project.title, project_path(project) %>
+  <% end %>
+</div>
 
 <div class="boxhead"><h3>My Work</h3></div>
 <div class="box">

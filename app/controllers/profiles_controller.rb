@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
     @seeds    = current_user.projects
     @skills   = current_user.skills
     @works    = current_user.works
+    @projects = current_user.projects.where(:approved => true)
   end
 
   def new
