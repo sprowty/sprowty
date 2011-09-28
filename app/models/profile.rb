@@ -23,4 +23,8 @@ class Profile < ActiveRecord::Base
   def remove_emails
     self.about = self.about.gsub(/[^@\s]*@[^@\s]*\.[^@\s]*/, '')
   end
+
+  def to_param
+    "#{id}-#{title}".downcase.gsub(/\s+/, '-').gsub(/[^\w\-]/, '')
+  end
 end
