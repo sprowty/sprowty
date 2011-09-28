@@ -16,7 +16,7 @@ gem 'rmagick', '2.12.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'will_paginate', '~> 3.0'
-
+gem 'activemerchant'
 gem 'sqlite3'
 
 gem 'activeadmin'
