@@ -15,7 +15,7 @@
     <option value="4">Option 4</option>
     <option value="5">Option 5</option>
     </select>
-  <div class='clear'/>
+    <div class='clear'></div>
   <div class="labelholder">
     <label>Job Title:</label>
   </div>
@@ -39,25 +39,25 @@
   </div>
   <%= f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price' %>
 
-  <div class='clear'/>
+  <div class='clear'></div>
   <div class="labelholder">
     <label>City:</label>
   </div>
   <%= f.text_field :city, :class => 'city' %>
 
-  <div class='clear'/>
+  <div class='clear'></div>
   <div class="labelholder">
     <label>State:</label>
   </div>
   <%= f.select :state, STATES, {:include_blank => true}, {:class => 'states'} %>
 
-  <div class='clear'/>
+  <div class='clear'></div>
   <div class="labelholder">
     <label>Due Date:</label>
   </div>
   <%= f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date' %>
 
-  <div class='clear'/>
+  <div class='clear'></div>
 
 </div> <!--LEFT-->
 

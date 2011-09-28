@@ -39,7 +39,7 @@ border-bottom-left-radius: 0px;
 
 h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
 textarea {resize:none;}
-
+#plantseed {margin:0 auto;}
 #plantseed .left {width: 490px; }
 #plantseed .right {width: 190px }
 #plantseed .labelholder {width: 140px; text-align: right; padding: 4px 14px 0 0;}
@@ -102,11 +102,14 @@ select.month, select.day, select.year, #project_due_date_2i, #project_due_date_1
 select.year, #project_due_date_1i {width: 60px}
 </style>
 
-<div id="plantseed">
-
-  <div class="head">
-    <h3>Plant A Seed</h3>
+<div id="subhead"></div>
+<div class="holder"></div>
+<div id="needdone">
+  <div class="holder">
+    <h4>Plant A Seed</h4>
   </div>
+</div>
+<div id="plantseed">
   <div id="new_project_form">
     <%= render :partial => 'form', :locals => {:project => @project} %>
   </div>
