@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'plant.js' %>
+
 <div id="subhead"></div>
 
 
@@ -129,7 +131,7 @@
 <div class="left">
 <h2>Plant</h2>
 <p>Ready to get a job done? Click plant and fill out the form to get your new job posted.</p>
-<%= link_to 'Sprowt It', new_project_path, :class => 'plant' %>
+<%= link_to 'Sprowt It', new_project_path, :class => 'plant_no_js' %>
 </div>
 
 <div class="right">
@@ -335,27 +337,4 @@
 
 </div> <!--/LEFT-->
 
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    $('.add').bind('click', function(e) {
-      e.preventDefault();
-      var skill         = $('#skill').val();
-      var current_user  = "<%= current_user.id %>";
-      $.post('<%= skills_path %>', { 'skill[skill]': skill, 'current_user': current_user }, function(json) {
-        if (json.status == 'success') {
-          $('ul.categories').append('<li>' + skill + ' ' + json.destroy_link + '</li>');
-          $('#skill').val('');
-        }
-      }, "json");
-    });
 
-    $('.delete').live('ajax:success', function(e) {
-      if ($(this).hasClass('work')) {
-       $(this).prev('ul').remove();
-       $(this).remove();
-      } else {
-        $(this).closest('li').remove();
-      }
-    });
-  });
-</script>

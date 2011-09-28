@@ -2,12 +2,12 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function() {
-	
+
 	$(".live-link").live('click', function () {
 		$.ajax({type: $(this).attr("method"), url: $(this).attr("href"), dataType: "script"});
 		return false;
 	});
-	
+
 	$(".live-form").live('submit', function () {
 		$.ajax({type: $(this).attr("method"), url: $(this).attr("action"), data: $(this).serialize(), dataType: "script"});
 		return false;

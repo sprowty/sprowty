@@ -5,7 +5,17 @@
 
 <div class="left">
 
-
+  <div class="labelholder">
+    <label>Category:</label>
+  </div>
+    <select>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+    <option value="5">Option 5</option>
+    </select>
+  <div class='clear'/>
   <div class="labelholder">
     <label>Job Title:</label>
   </div>
@@ -15,7 +25,7 @@
     <label>Description:</label>
     <i>Insert the full description and guidelines of your job</i>
   </div>
-  <%= f.text_area :description, :class => 'field' %>  
+  <%= f.text_area :description, :class => 'field' %>
 
   <div class="labelholder">
     <label>Tags:</label>
@@ -29,52 +39,27 @@
   </div>
   <%= f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price' %>
 
+  <div class='clear'/>
+  <div class="labelholder">
+    <label>City:</label>
+  </div>
+  <%= f.text_field :city, :class => 'city' %>
+
+  <div class='clear'/>
+  <div class="labelholder">
+    <label>State:</label>
+  </div>
+  <%= f.select :state, STATES, {:include_blank => true}, {:class => 'states'} %>
+
+  <div class='clear'/>
+  <div class="labelholder">
+    <label>Due Date:</label>
+  </div>
+  <%= f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date' %>
+
+  <div class='clear'/>
+
 </div> <!--LEFT-->
-
-
-<div class="right">
-<h5>Categories:</h5>
-<p><i>Choose the categories your job should be listed in</i></p>
-
-<select>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-</select>
-
-<select>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-</select>
-
-<select>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-</select>
-
-
-
-<h5>City:</h5>
-<%= f.text_field :city, :class => 'city' %>
-
-<h5>State:<h5>
-<%= f.select :state, STATES, {:include_blank => true}, {:class => 'states'} %>
-
-
-<h5>Due Date:</h5>
-<p><i>Select Your Due Date</i></p>
-<%= f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date' %>
-
-
-</div> <!--RIGHT-->
 
 <div class="clear"></div>
 
@@ -82,6 +67,3 @@
   <div class="clear"></div>
   <br />
 <% end %>
-
-
-

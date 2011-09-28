@@ -810,6 +810,23 @@ text-indent: -9999em;
 margin: 0 auto;
 }
 
+a.plant_no_js {
+background: url("/images/button_planttwo.png") no-repeat top;
+display: block;
+width: 205px;
+height: 73px;
+text-indent: -9999em;
+margin: 0 auto;
+}
+a.plant_no_js:hover {
+-moz-box-shadow: 0px 0px 8px #585959;
+box-shadow: 0px 0px 8px #585959;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+}
+/* --PLANT BUY-- */
+
 #plantbuy a.buy {background: url("/images/button_buy.png") no-repeat top; }
 #plantbuy a.plant:hover, #plantbuy a.buy:hover, #profile a.save:hover, #profile .save:hover { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; }
  /* --PLANT BUY-- */
@@ -1088,3 +1105,12 @@ border-radius: 22px;
 #listings .gallery .box-week .actions {margin-top:0px;margin-left:20px;margin-top:-5px;}
 
 #active_admin_content #main_content_wrapper #main_content .panel .panel_contents ul li { list-style: none;}
+
+#plantseed {
+  background-color: #E5D7C1;
+  font: 12px Helvetica,Arial,Sans-Serif;
+  height: 100%;
+  margin-left: 150px;
+  text-align: center;
+  width: 980px;
+}
