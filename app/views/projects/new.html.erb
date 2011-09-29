@@ -61,7 +61,11 @@ input.city {
   padding: 6px;
 }
 
-
+#plantseed {
+  margin-bottom: 40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 input.price {font: bold 16px Helvetica, Arial, Sans-Serif; font-style: normal; color: #585A05; width: 50px }
 input.year {font: bold 14px Helvetica, Arial, Sans-Serif; font-style: normal; padding: 10px; width: 150px; color: #422215}
 p {padding-bottom: 10px; margin: 0}
@@ -109,8 +113,10 @@ select.year, #project_due_date_1i {width: 60px}
     <h4>Plant A Seed</h4>
   </div>
 </div>
-<div id="plantseed">
-  <div id="new_project_form">
-    <%= render :partial => 'form', :locals => {:project => @project} %>
-  </div>
-</div> <!--PLANTSEED-->
+<div class="container">
+  <div id="plantseed">
+    <div id="new_project_form">
+      <%= render :partial => 'form', :locals => {:project => @project} %>
+    </div>
+  </div> <!--PLANTSEED-->
+</div><!--CONTAINER-->
