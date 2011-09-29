@@ -6,4 +6,6 @@ class HomeController < ApplicationController
     @tags = @projects.map(&:tags).uniq
   end
 
+  def buy_coins
+  end
 end
