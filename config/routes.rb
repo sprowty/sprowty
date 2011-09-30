@@ -37,5 +37,5 @@ Sprowty::Application.routes.draw do
   match "/community"     => 'community#index'
   match '/community_project/:id' => 'community#show', :as => :community_project
   match '/community_overview' => 'community#overview', :as => :community_overview
-  match '/buycoins' => 'home#buy_coins', :as => :buy_coins
+  match '/buycoins' => 'payments#new', :as => :buy_coins
 end
