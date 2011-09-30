@@ -3,6 +3,15 @@ class ProjectsController < ApplicationController
 
   def index
    @projects = current_user.projects
+
+   if params[:filter]
+     @filter = params[:filter]
+     case @filter
+       when @filter == 'open' then @projects.where(:state => 'open')
+       when @filter == 'completed' then @projects.where(:state => 'completed')
+     end
+   end
+
    @tags = @projects.map(&:tags).uniq
   end
 

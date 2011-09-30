@@ -1,5 +1,5 @@
 <% unless current_user %>
-  
+
 
   <div id="slider">
     <div class="holder">
@@ -22,11 +22,11 @@
 
 
     <div class="right">
-      <form id="search" method="get" action="" name="input">
+      <form id="search" method="get" action="/projects/new" name="input">
         <input class="field" id="what_you_need_done" name="what_you_need_done" type="text" placeholder="Type What You Need Done Here" />
         <button id="plant_it" type="submit">Plant</button>
       </form>
-    </div> <!--/RIGHT--> 
+    </div> <!--/RIGHT-->
 
 
   </div>
@@ -35,7 +35,7 @@
 
 
 
-<div id="container"> 
+<div id="container">
 
 
   <div id="main">
@@ -54,28 +54,10 @@
       <div class="clear"></div>
 
 
-      <div class="boxhead"><h3>Categories</h3></div>
-      <div class="box">
-        <ul class="categories">
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-          <li><a href="#">Sample Link</a></li>
-
-        </ul>
-      </div> <!--/BOX-->
+      <%= render :partial => 'categories' %>
 
 
-      <img src="images/icon_rooster.png" class="rooster" />
-      <div class="twitbox">
-        <div id="twitter">
-          <ul id="twitter_update_list"><li></li></ul>
-          
-        </div>
-        <span class="quote"></span>
-      </div> <!--/TWITBOX-->
-      <div class="follow"><h2><a href="http://twitter.com/#!/sprowty" target="_blank">@sprowty</a></h2></div>
-
+      <%= render :partial => 'twitter' %>
 
     </div> <!--/RIGHTSIDE-->
 
@@ -133,7 +115,9 @@
 
               <ul class="actions">
               <% if current_user %>
-                <li><%= link_to 'Sprowt it', new_bid_path(:project => project), :class => 'sprowt' %></li>
+                <% unless project.user == current_user %>
+                  <li><%= link_to 'Sprowt it', new_bid_path(:project => project), :class => 'sprowt' %></li>
+                <% end %>
                 <li><a href="#">Create Similar</a></li>
               <% end %>
                 <li class="share"><a id="stay-target-12" class="stay-tooltip-target tooltip-target">Share</a></li>
@@ -155,17 +139,17 @@
             </div>
             <div class="clear"></div>
           </div> <!--/POST TWO-->
-          
+
         <% end %>
-        
+
       </div> <!--/LISTINGS-->
-      
+
 
 
     </div> <!--/CONTENT-->
-    
+
   </div> <!--/MAIN-->
-  
+
   <div class="clear"></div>
   <%= will_paginate @projects %>
 </div> <!--/CONTAINER-->
@@ -194,13 +178,3 @@
   </div>
 
 </div> <!--/BOTLINKS-->
-<script type="text/javascript" charset="utf-8">
-  jQuery(function() {
-    jQuery('#plant_it').bind('click', function(e) {
-      e.preventDefault();
-      var link = "<%= new_project_url %>";
-      link = link + '?title=' + jQuery('#what_you_need_done').val();
-      jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
-    });
-  });
-</script>

@@ -45,9 +45,9 @@
         </div> <!--/LEFT-->
         <div class="right">
           <ul class="big">
-            <li><a href="#" class="active">All</a></li>
-            <li><a href="#">Open</a></li>
-            <li><a href="#">Completed</a></li>
+            <li><%= link_to('All', projects_url, :class => "active") %></li>
+            <li><%= link_to 'Open', projects_url(:filter => 'open') %></li>
+            <li><%= link_to 'Completed', projects_url(:filter => 'completed') %></li>
           </ul>
         </div> <!--/RIGHT-->
       </div> <!--/HEAD-->

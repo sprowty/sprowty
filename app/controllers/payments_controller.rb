@@ -6,23 +6,22 @@ class PaymentsController < ApplicationController
   require 'money'
 
   def new
-    @project = Project.find(params[:project_id])
-    fetch_decrypted(@project)
+    @payment = Payment.new
   end
 
   def create
-    @bid = current_user.bids.new(params[:bid])
+    @payment = current_user.payments.new(params[:payment])
 
-    if @bid.save
+    if @payment.save
       render :json => { :success => true }
     else
-      @payment = Payment.find(params[:bid][:payment_id])
-      render :json => { :success => 'false', :html => render_to_string(:file => 'bids/new.html.erb', :template => false) }
+      @payment = Payment.find(params[:payment_id])
+      render :json => { :success => 'false', :html => render_to_string(:file => 'new.html.erb', :template => false) }
     end
   end
 
   def place_order
-    @project = Project.find(params[:project_id])
+    #@project = Project.find(params[:project_id])
 
    # if @logged_user#.credits > 0
    #   render(:action => "confirm_order")

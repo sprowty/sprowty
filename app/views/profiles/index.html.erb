@@ -337,4 +337,13 @@
 
 </div> <!--/LEFT-->
 
-
+<script type="text/javascript" charset="utf-8">
+  jQuery(function() {
+    jQuery('#plant_it').bind('click', function(e) {
+      e.preventDefault();
+      var link = "<%= new_project_url %>";
+      link = link + '?title=' + jQuery('#what_you_need_done').val();
+      jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
+    });
+  });
+</script>
