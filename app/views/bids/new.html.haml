@@ -98,7 +98,7 @@
 
   %body
     = form_for Bid.new do |f|
-      = hidden_field :bid, :project_id, :value => params[:project]
+      = f.hidden_field :project_id, :value => @project.id
       #submitbid
         .head
           %h3= @project.title
