@@ -137,7 +137,7 @@
 <div class="right">
 <h2>Buy</h2>
 <h4>20</h4>
-<a href="/buycoins" rel="shadowbox;height=400;width=740" class="buy">Buy</a>
+<%= link_to 'Buy', new_payment_path, :class => 'buy' %>
 </div>
 
 <div class="clear"></div>
@@ -343,6 +343,15 @@
       e.preventDefault();
       var link = "<%= new_project_url %>";
       link = link + '?title=' + jQuery('#what_you_need_done').val();
+      jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
+    });
+  });
+</script>
+<script type="text/javascript" charset="utf-8">
+    jQuery(function() {
+    jQuery('.buy').bind('click', function(e) {
+      e.preventDefault();
+      var link = "<%= new_payment_url %>";
       jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
     });
   });
