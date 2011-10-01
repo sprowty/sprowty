@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_filter :fetch_decrypted, :only => 'create'
   respond_to :html, :json
 
   include ActiveMerchant::Billing::Integrations

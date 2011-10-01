@@ -1,12 +1,9 @@
 = stylesheet_link_tag "payments"
 
-:css
-  form {
-  }
-
 %div{:style => 'height: 400px;'}
   = form_for @payment do |f|
-    = #hidden_field :payment, :project_id, :value => params[:project]
+    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+    %input{:name => "encrypted", :type => "hidden", :value => @encrypted_basic}/
     #submitpayment
       .head
         %h1
@@ -16,12 +13,33 @@
         .clear
       .payment
         %h2
-          Select amount of coin to buy
-        %ul
+          Select amount of coins to buy
+        .clear
+        %ul.coinbox
           %li
-            %a.active.accept_current_price{:href => "#"} Accept Current
+            %h5
+              = image_tag 'coin.png', :height => 26
+              5
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              10
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              20
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              50
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              100
+        .clear
+        = submit_tag
     .clear
-    %form{:action => @action_url, :method => "post"}
-      %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-      %input{:name => "encrypted", :type => "hidden", :value => @encrypted_basic}/
-      %input{:alt => "1 credits", :name => "submit", :src => "/images/btn_buynow_SM.jpg", :type => "image"}/
