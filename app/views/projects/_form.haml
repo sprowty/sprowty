@@ -3,15 +3,6 @@
     %p= error_messages_for :project
   .left
     .labelholder
-      %label Category:
-    %select
-      %option{:value => "1"} Option 1
-      %option{:value => "2"} Option 2
-      %option{:value => "3"} Option 3
-      %option{:value => "4"} Option 4
-      %option{:value => "5"} Option 5
-    .clear
-    .labelholder
       %label Job Title:
     = f.text_field :title, :class => 'field'
     .labelholder
@@ -26,20 +17,24 @@
       %label Price:
       %i Enter in Increments of $5
     = f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price'
-    .clear
-    .labelholder
-      %label City:
-    = f.text_field :city, :class => 'city'
-    .clear
-    .labelholder
-      %label State:
-    = f.select :state, STATES, {:include_blank => true}, {:class => 'states'}
-    .clear
-    .labelholder
-      %label Due Date:
-    = f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date'
-    .clear
   / LEFT
+  .right
+    %h5 Categories:
+    %p
+      %i Choose the categories your job should be listed in
+    = f.select(:category_id,@categories), CATEGORIES, {:include_blank => true}
+    = f.select(:category_id,@categories), CATEGORIES, {:include_blank => true}
+    = f.select(:category_id,@categories), CATEGORIES, {:include_blank => true}
+    %h5 City:
+    = f.text_field :city, :class => 'city'
+    %h5 State:
+    %h5
+      = f.select :state, STATES, {:include_blank => true}, {:class => 'states'}
+    %h5 Due Date:
+    %p
+      %i Select Your Due Date
+    = f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date'
+  / RIGHT
   .clear
   = f.submit 'Plant Seed', :class => 'plantseed'
   .clear

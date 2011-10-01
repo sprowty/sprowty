@@ -12,7 +12,7 @@
       %h4 Need Something Done?
     / /LEFT
     .right
-      %form#search{:action => "/projects/new", :method => "get", :name => "input"}
+      %form#search{:action => "", :method => "get", :name => "input"}
         %input#what_you_need_done.field{:name => "what_you_need_done", :placeholder => "Type What You Need Done Here", :type => "text"}/
         %button#plant_it{:type => "submit"} Plant
     / /RIGHT
@@ -26,15 +26,51 @@
         = f.text_field :title_or_description_contains, :placeholder => 'Search'
         %button{:type => "submit"} Search
       .clear
-      = render :partial => 'categories'
-      = render :partial => 'twitter'
+      .boxhead
+        %h3 Categories
+      .box
+        %ul.categories
+          %li
+            %a{:href => "#"} Accounting/Finance
+          %li
+            %a{:href => "#"} Customer Services
+          %li
+            %a{:href => "#"} Design
+          %li
+            %a{:href => "#"} Fashion
+          %li
+            %a{:href => "#"} Location Based
+          %li
+            %a{:href => "#"} Marketing/PR
+          %li
+            %a{:href => "#"} Medical/Health
+          %li
+            %a{:href => "#"} Music/Audio
+          %li
+            %a{:href => "#"} Organizing/Planning
+          %li
+            %a{:href => "#"} Photography
+          %li
+            %a{:href => "#"} Programming/Development
+          %li
+            %a{:href => "#"} Research
+          %li
+            %a{:href => "#"} Social Media
+          %li
+            %a{:href => "#"} Translation
+          %li
+            %a{:href => "#"} Video
+          %li
+            %a{:href => "#"} Writing
+          %li
+            %a{:href => "#"} Other
+      / /BOX
     / /RIGHTSIDE
     = javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5'
     .content
       .head
         .left
           %h2 All Jobs
-          %p Job Listings
         / /LEFT
         .right
           %ul
@@ -73,8 +109,7 @@
                 = link_to 'Read More', project, :class => 'readmore'
               %ul.actions
                 - if current_user
-                  - unless project.user == current_user
-                    %li= link_to 'Sprowt it', new_bid_path(:project => project), :class => 'sprowt'
+                  %li= link_to 'Sprowt it', new_bid_path(:project => project), :class => 'sprowt'
                   %li
                     %a{:href => "#"} Create Similar
                 %li.share
@@ -115,9 +150,17 @@
         %a{:href => "#"} Sample
       %li
         %a{:href => "#"} Sample
-    %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
   / /LEFT
   .right
     %h4 Sprowty
     %b All Rights Reserved, 2010
 / /BOTLINKS
+%script{:charset => "utf-8", :type => "text/javascript"}
+  jQuery(function() {
+  jQuery('#plant_it').bind('click', function(e) {
+  e.preventDefault();
+  var link = "<haml:loud> new_project_url </haml:loud>";
+  link = link + '?title=' + jQuery('#what_you_need_done').val();
+  jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
+  });
+  });

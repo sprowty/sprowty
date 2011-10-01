@@ -1,3 +1,7 @@
+CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Helath", "Music/Audio", "Organzing/Planning", "Other", "Photography", "Programing/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
+
+
+
 STATES = [
     [ "Alabama", "AL" ],
     [ "Alaska", "AK" ],
@@ -52,3 +56,4 @@ STATES = [
   ]
   
 STATES_ABBREVIATED = STATES.collect {|s| s.last}
+

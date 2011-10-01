@@ -5,14 +5,15 @@
       %h4 Login
 #container
   #main
-    %p= notice
-    %p= alert
+    - if alert
+      .errors
+        %p= alert
     #signupcontainer
       .left
         %h2 Sign in
         = semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
           %p= f.text_field :email,   :class    => 'field clearField', :value => 'E-mail'
-          %p= f.password_field :password, :class => 'field clearField', :value => 'Password'
+          %p= f.text_field :password, :class => 'field clearField', :value => 'Password'
           - if devise_mapping.rememberable?
             %p
               = f.check_box :remember_me
