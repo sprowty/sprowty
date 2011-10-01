@@ -23,24 +23,9 @@
         %h3 Categories
       .box
         %ul.categories
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
+          - CATEGORIES.each do |category|
+            %li
+              = link_to category, '#'
       / /BOX
       %img.rooster{:src => "images/icon_rooster.png"}/
       .twitbox
