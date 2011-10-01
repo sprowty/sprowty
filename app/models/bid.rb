@@ -7,7 +7,7 @@ class Bid < ActiveRecord::Base
 
   after_save :update_bids
 
-  state_machine :initial => :unprocessed do
+  state_machine :sm_state, :initial => :unprocessed do
     event :submit do
       transition :unprocessed => :pending_approval
     end

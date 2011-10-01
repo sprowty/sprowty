@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111001175535) do
+ActiveRecord::Schema.define(:version => 20111001181356) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(:version => 20111001175535) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accept_current_price"
-    t.string   "state"
+    t.string   "sm_state"
   end
 
-  add_index "bids", ["state"], :name => "index_bids_on_state"
+  add_index "bids", ["sm_state"], :name => "index_bids_on_sm_state"
 
   create_table "keywords", :force => true do |t|
     t.string   "name"
@@ -108,9 +108,11 @@ ActiveRecord::Schema.define(:version => 20111001175535) do
     t.string   "state"
     t.boolean  "approved",    :default => false
     t.string   "category"
+    t.string   "sm_state"
   end
 
   add_index "projects", ["category"], :name => "index_projects_on_category"
+  add_index "projects", ["sm_state"], :name => "index_projects_on_sm_state"
 
   create_table "resumes", :force => true do |t|
     t.string   "title"
@@ -163,9 +165,9 @@ ActiveRecord::Schema.define(:version => 20111001175535) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "image_approved",    :default => false
-    t.string   "state"
+    t.string   "sm_state"
   end
 
-  add_index "works", ["state"], :name => "index_works_on_state"
+  add_index "works", ["sm_state"], :name => "index_works_on_sm_state"
 
 end

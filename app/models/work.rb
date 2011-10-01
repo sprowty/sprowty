@@ -4,7 +4,7 @@ class Work < ActiveRecord::Base
   has_attached_file :work, :styles => { :thumb => '100x100' }
   validates_presence_of :work
 
-  state_machine :initial => :unprocessed do
+  state_machine :smstate, :initial => :unprocessed do
     event :post do
       transition :unprocessed => :pending_approval
     end
