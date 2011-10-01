@@ -1,0 +1,38 @@
+#profile
+  = form_for @resume, :url => resume_path do |f|
+    %p= error_messages_for :resume
+    .settings
+      .label
+        %label Resume Title
+      .input
+        = f.text_field :title, :placeholder => "Experienced accountant with 10 years experience"
+    .clear
+    .settings
+      .label
+        %label Bio
+      .input
+        = f.text_area :activities, :placeholder => 'Enter your Bio here.'
+    / /SETTINGS
+    .clear
+    .settings
+      .label
+        %label Education
+      .input
+        = f.text_area :education, :placeholder => 'Enter education'
+    .clear
+    .settings
+      .label
+        %label Experience
+      .input
+        = f.text_area :experience, :placeholder => 'Enter experience'
+    .clear
+    .settings
+      .label
+        %label Skills
+      .input
+        = f.text_area :sample_work, :placeholder => 'Enter any skills you feel is beneficial (if applicable)'
+      .clear
+      .clear
+      .clear
+      = f.submit 'Save', :class => 'save', :style => 'border: none;'
+/ /PROFILE

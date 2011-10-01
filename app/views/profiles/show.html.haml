@@ -1,0 +1,182 @@
+#subhead
+#container
+  #main
+    .rightside
+      .boxheadin
+        %h3 What They Can Do
+      .box
+        %ul.categories
+          - @skills.each do |skill|
+            %li
+              = skill.skill
+              = link_to '', skill_path(skill), :method => :delete, :class => "delete", :remote => true
+      / /BOX
+      = link_to_resume
+      .boxhead
+        %h3 Their Work
+      .box
+        - @works.each do |work|
+          %ul.upload
+            %li.file
+              - if work.image_approved
+                = link_to work.work_file_name, work.work.url
+        .clear
+      / /BOX
+    / /RIGHTSIDE
+    .content
+      .head
+        .left
+          %h5 Profile
+        / /LEFT
+      / /HEAD
+      #profile
+        #info
+          .left
+            = image_tag @profile.picture.url(:profile)
+            %ul.action
+              %li.invite
+                %a{:href => "#"} Invite A Friend
+          / /LEFT
+          .right
+            %h2= @user.username
+            %ul.user
+              %li= @user.username
+              %li= @user.profile.location
+            %b.ratings Customer Ratings:
+            %ul.ratings
+              %li.positive 214
+              %li.negative 4
+            .clear
+            %b About:
+            %p= @profile.about
+          / /RIGHT
+          .clear
+        / /INFO
+        .feedback
+          %h2 Feedback:
+          .clear
+          .holder
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .down
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+          / /HOLDER
+          .clear
+        / /FEEDBACK
+        #colholder
+          .column
+            .infohead
+              %b Latest Seeds:
+              %p Jobs I Recently Need Done
+            %ul
+              - @seeds.each do |project|
+                %li
+                  %a{:href => "#"}= project.title
+                %i
+                  due #{project.due_date.strftime("%m/%d/%Y")}
+          .column
+            .infohead
+              %b Latest Sprowts:
+              %p Jobs I Have Done
+            %ul
+              %li
+                %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+          .column
+            .infohead
+              %b Working On:
+              %p Jobs I Am Doing
+            %ul
+              %li
+                %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+        / /COLHOLDER
+      / /PROFILE
+    / /CONTENT
+  / /MAIN
+  .clear
+/ /CONTAINER
+#botlinks
+  .left
+    %ul
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+    %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+  / /LEFT

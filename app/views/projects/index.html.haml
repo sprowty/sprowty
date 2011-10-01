@@ -1,0 +1,83 @@
+- content_for :keywords, @tags
+#subhead
+#needdone
+  .holder
+    .left
+      %h4 Need Something Done?
+    / /LEFT
+    .right
+      %form#search{:action => "", :method => "get", :name => "input"}
+        %input.field{:name => "Type What You Need Done Here", :onblur => "if(this.value=='')this.value='Type What You Need Done Here'", :onfocus => "if(this.value=='Type What You Need Done Here')this.value=''", :type => "text", :value => "Type What You Need Done Here"}/
+        %button{:type => "submit"} Plant
+    / /RIGHT
+/ /NEEDDONE
+#container
+  #main
+    .rightside
+      .boxheadin
+        %h3 Recent Projects
+      .recentprojects
+        - @projects.each do |project|
+          %a.job{:href => "#"}= project.title
+          %p
+            %b By:
+            %a#stay-target-1.stay-tooltip-target.tooltip-target{:href => "#"} Username
+          #stay-content-1.stay-tooltip-username.tooltip-username
+            %a{:href => "#"} Sample Name
+            %p New York City, New York
+            %ul
+              %li.up 215
+              %li.down 0
+          / /Stay Content 1
+          %p.status
+            %em Status:
+            %i.completed Completed
+      / /BOX
+    / /RIGHTSIDE
+    .content
+      .head
+        .left
+          %h5 Projects
+        / /LEFT
+        .right
+          %ul.big
+            %li= link_to('All', projects_url, :class => "active")
+            %li= link_to 'Open', projects_url(:filter => 'open')
+            %li= link_to 'Completed', projects_url(:filter => 'completed')
+        / /RIGHT
+      / /HEAD
+      #inboxhead
+        %b.left Order #
+        %b.right Updated
+        .clear
+      #inbox
+        %ul
+          %li
+            %a{:href => "#", :title => "Text"}
+              \#012345678
+              %em Aug. 20th, 2011
+              %span Message Message
+      / INBOX
+      / PAGINATION
+      #paginationholder
+        .pagination
+          %ol.wp-paginate
+            %li
+              %span.title
+            %li
+              %a.prev{:href => "#"} ‹‹
+            %li
+              %span.currentpage 1
+            %li
+              %a.page{:href => "#", :title => "2"} 2
+            %li
+              %a.page{:href => "#", :title => "3"} 3
+            %li
+              %a.page{:href => "#", :title => "4"} 4
+            %li
+              %a.next{:href => "#"} ››
+      / /PAGINATION
+    / /CONTENT
+  / /MAIN
+  .clear
+/ /CONTAINER

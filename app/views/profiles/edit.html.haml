@@ -1,0 +1,122 @@
+#subhead
+#container
+  #main
+    .rightside
+      .boxheadin
+        %h3 What You Can Do
+      .box
+        %ul.categories
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+        %input{:name => "Add New Skill", :onblur => "if(this.value=='')this.value='Add New Skill'", :onfocus => "if(this.value=='Add New Skill')this.value=''", :size => "50", :type => "text", :value => "Add New Skill"}/
+        %button.add
+      / /BOX
+      .boxhead
+        %h3 My Work
+      .box
+        %button.upload
+        %ul.upload
+          %li.file
+            %a{:href => "#"} Filename.jpg
+        %a.delete{:href => "#"}
+        .clear
+      / /BOX
+    / /RIGHTSIDE
+    .content
+      .head
+        .left
+          %h5 Profile Settings
+        / /LEFT
+        .right
+          %ul
+            %li.sort
+              %b Manage Your Account:
+            %li
+              %a{:href => "#"} Edit Information
+        / /RIGHT
+      / /HEAD
+      #profile
+        = semantic_form_for @profile, :html => { :multipart => true } do |f|
+          %p= error_messages_for :profile, :user
+          .settings
+            .label
+              %label Email Address
+            .input
+              = f.fields_for :user do |u|
+                = u.text_field :email, :value => current_user.email.nil? || current_user.email.empty? ? 'First Name' : current_user.email, :onfocus => "if(this.value=='E-mail Address')this.value=''", :onblur => "if(this.value=='')this.value='E-mail Address'"
+          .clear
+          .settings
+            .label
+              %label First Name
+            .input
+              = f.text_field :first_name, :value => @profile.first_name.nil? || @profile.first_name.empty? ? 'First Name' : @profile.first_name, :onfocus => "if(this.value=='First Name')this.value=''", :onblur => "if(this.value=='')this.value='First Name'"
+          / /SETTINGS
+          .clear
+          .settings
+            .label
+              %label Last Name
+            .input
+              = f.text_field :last_name, :value => @profile.last_name.nil? || @profile.last_name.empty? ? 'Last Name' : @profile.last_name, :onfocus => "if(this.value=='Last Name')this.value=''", :onblur => "if(this.value=='')this.value='Last Name'"
+          .clear
+          .settings
+            .label
+              %label Location
+              %p (Example: Dallas, TX)
+            .input
+              = f.text_field :location, :value => @profile.location.nil? || @profile.location.empty? ? 'New York, NY' : @profile.location, :onfocus => "if(this.value=='New York, NY')this.value=''", :onblur => "if(this.value=='')this.value='New York, NY'"
+          .clear
+          .settings
+            .label
+              %label About
+              %p (Max 400 Characters)
+            .input
+              = f.text_area :about
+            .clear
+            .paypal
+              %img{:src => "/images/icon_settings_paypal.png"}/
+              = f.text_field :paypal, :value => @profile.paypal.nil? || @profile.paypal.empty? ? 'Username' : @profile.paypal, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
+            .clear
+            .facebook
+              %img{:src => "/images/icon_settings_facebook.png"}/
+              = f.text_field :facebook, :value => @profile.facebook.nil? || @profile.facebook.empty? ? 'Username' : @profile.facebook, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
+            .clear
+            .twitter
+              %img{:src => "/images/icon_settings_twitter.png"}/
+              = f.text_field :twitter, :value => @profile.twitter.nil? || @profile.twitter.empty? ? 'Username' : @profile.twitter, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
+            .clear
+          .head
+            .left
+              %h5 Privacy Settings
+            / /LEFT
+          / /HEAD
+          .settings
+            .label
+              %label Username
+            .input
+              = f.fields_for :user do |u|
+                = u.text_field :username, :value => current_user.username.nil? || current_user.username.empty? ? 'Username' : current_user.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
+          .clear
+          .settings
+            #profile_picture.input
+              .label
+                %label Profile Picture
+              = f.file_field :picture
+          .clear
+          = f.submit 'Save', :class => 'save'
+    / /PROFILE

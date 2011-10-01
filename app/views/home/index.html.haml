@@ -1,0 +1,123 @@
+- unless current_user
+  #slider
+    .holder
+      %b SLIDER HERE
+  / /SLIDER
+- else
+  #subhead
+.holder
+#needdone
+  .holder
+    .left
+      %h4 Need Something Done?
+    / /LEFT
+    .right
+      %form#search{:action => "/projects/new", :method => "get", :name => "input"}
+        %input#what_you_need_done.field{:name => "what_you_need_done", :placeholder => "Type What You Need Done Here", :type => "text"}/
+        %button#plant_it{:type => "submit"} Plant
+    / /RIGHT
+/ /NEEDDONE
+#container
+  #main
+    .rightside
+      %h2 Harvest Fields
+      %p Find the jobs you want to do
+      = form_for :search, :url => root_url do |f|
+        = f.text_field :title_or_description_contains, :placeholder => 'Search'
+        %button{:type => "submit"} Search
+      .clear
+      = render :partial => 'categories'
+      = render :partial => 'twitter'
+    / /RIGHTSIDE
+    = javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5'
+    .content
+      .head
+        .left
+          %h2 All Jobs
+          %p Job Listings
+        / /LEFT
+        .right
+          %ul
+            %li.sort
+              %b Filter By:
+            %li= sort_link @search, :created_at, 'Newest'
+            %li= sort_link @search, :due_date, 'Expiration'
+            %li= sort_link @search, :price
+            %li= sort_link @search, :bid_count, 'Sprowt count'
+        / /RIGHT
+      / /HEAD
+      #listings
+        - @projects.each do |project|
+          .post
+            .sprowts
+              %span.bold.bid_count= project.bid_count
+              %p Sprowts
+              %p (Bids)
+            .pic= link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+            .info
+              %h2= link_to project.title, project_path(project)
+              %ul.posted
+                %li
+                  %b Due:
+                  = project.due_date.strftime("%m/%d/%Y")
+                %li
+                  %b By:
+                  %a#stay-target-11.stay-tooltip-target.tooltip-target= project.user.username
+                %li
+                  %b Location:
+                  = project.city
+                  , #{project.state}
+              / /Posted
+              %p
+                = project.description.truncate(30)
+                = link_to 'Read More', project, :class => 'readmore'
+              %ul.actions
+                - if current_user
+                  - unless project.user == current_user
+                    %li= link_to 'Sprowt it', new_bid_path(:project => project), :class => 'sprowt'
+                  %li
+                    %a{:href => "#"} Create Similar
+                %li.share
+                  %a#stay-target-12.stay-tooltip-target.tooltip-target Share
+              #stay-content-12.stay-tooltip-username.tooltip-share
+                %ul
+                  %li
+                    %a.facebook{:href => "#"}
+                  %li
+                    %a.twitter{:href => "#"}
+                  %li
+                    %a.email{:href => "#"}
+              / /stay-content-12
+            / /INFO
+            .price
+              %h4= number_to_currency(project.price, :precision => 0)
+              %i Asking Price
+            .clear
+          / /POST TWO
+      / /LISTINGS
+    / /CONTENT
+  / /MAIN
+  .clear
+  = will_paginate @projects
+/ /CONTAINER
+#botlinks
+  .left
+    %ul
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+    %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+  / /LEFT
+  .right
+    %h4 Sprowty
+    %b All Rights Reserved, 2010
+/ /BOTLINKS

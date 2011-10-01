@@ -1,0 +1,283 @@
+= javascript_include_tag 'plant.js'
+#subhead
+#container
+  #main
+    .rightside
+      .boxheadin
+        %h3 My Skills
+      .box
+        %ul.categories
+          - @skills.each do |skill|
+            %li
+              = skill.skill
+              = link_to '', skill_path(skill), :method => :delete, :class => "delete", :remote => true
+        %input#skill{:name => "skill", :onblur => "if(this.value=='')this.value='Add New Skill'", :onfocus => "if(this.value=='Add New Skill')this.value=''", :size => "50", :type => "text", :value => "Add New Skill"}/
+        %button.add
+      / /BOX
+      .boxheadin
+        %h3 My Resume
+      .box
+        = link_to_resume
+      / /BOX
+      .boxheadin
+        %h3 My Portfolio
+      .box
+      .boxhead
+        %h3 My Work
+      .box
+        - @works.each do |work|
+          - if work.image_approved
+            %ul.upload
+              %li.file
+                = link_to work.work_file_name, work.work.url
+            = link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true)
+            .clear
+        = semantic_form_for Work.new, :html => { :multipart => true } do |f|
+          = f.input :work, :as => :file, :label => false
+          %button#submit.upload
+        .clear
+      / /BOX
+    / /RIGHTSIDE
+    .content
+      .head
+        .left
+          %h5 Profile
+        / /LEFT
+        .right
+          %ul
+            %li.sort
+              %b Manage Your Account:
+            %li= link_to 'Edit Information', edit_profile_path
+        / /RIGHT
+      / /HEAD
+      #profile
+        #info
+          .left
+            = image_tag @profile.picture.url(:profile)
+            %ul.action
+              %li.upload= link_to 'Upload A Pic', '/profile/edit#profile_picture'
+              %li.invite
+                %a{:href => "#"} Invite A Friend
+          / /LEFT
+          .right
+            %h2= @current_user.username
+            %ul.user
+              %li= @current_user.username
+              %li= @current_user.profile.location
+            %b.ratings Customer Ratings:
+            %ul.ratings
+              %li.positive 214
+              %li.negative 4
+            .clear
+            %b About:
+            %p= @profile.about
+          / /RIGHT
+          .clear
+        / /INFO
+        #plantbuy
+          .holder
+            .left
+              %h2 Plant
+              %p Ready to get a job done? Click plant and fill out the form to get your new job posted.
+              = link_to 'Sprowt It', new_project_path, :class => 'plant_no_js'
+            .right
+              %h2 Buy
+              %h4 20
+              = link_to 'Buy', new_payment_path, :class => 'buy'
+            .clear
+          / /HOLDER
+        / /PLANTBUY
+        .mybalance
+          %h2 Available:
+          %h3 $50.00
+          .clear
+          .column
+            %b
+              Awaiting Clearance:
+              %em $20.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN
+          .column
+            %b
+              Upcoming Payments:
+              %em $20.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN
+          .columnlast
+            %b
+              My Balance:
+              %em $20.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN LAST
+          .column
+            %b
+              Already Withdrawn:
+              %em $20.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN
+          .column
+            %b
+              Revenue Purchases:
+              %em $20.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN
+          .columnlast
+            %b
+              Money Spent:
+              %em $1,800.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN LAST
+          .column
+            %b
+              Revenue Purchases:
+              %em $20.00
+            %p asdfafsf asf sadfsfasfasdfasfasf as fasfasfd afsadfasfd
+          / /COLUMN
+          %a.withdraw{:href => "#"} Sprowt It
+          .clear
+        / /MY BALANCE
+        .feedback
+          %h2 Feedback:
+          .clear
+          .holder
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .down
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+            .up
+            .left
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+            / /Up
+          / /HOLDER
+          .clear
+        / /FEEDBACK
+        #colholder
+          .column
+            .infohead
+              %b Latest Seeds:
+              %p Jobs I Need Done
+            %ul
+              - @seeds.each do |project|
+                %li
+                  %a{:href => "#"}= project.title
+                %i
+                  due #{project.due_date.strftime("%m/%d/%Y")}
+          .column
+            .infohead
+              %b Latest Sprowts:
+              %p Jobs I Have Done
+            %ul
+              %li
+                %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+          .column
+            .infohead
+              %b Working On:
+              %p Jobs I Am Doing
+            %ul
+              %li
+                %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+            %li
+              %a{:href => "#"} I need a flyer for a club I am promoting
+            %i due 03/11/2011
+        / /COLHOLDER
+      / /PROFILE
+    / /CONTENT
+  / /MAIN
+  .clear
+/ /CONTAINER
+#botlinks
+  .left
+    %ul
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+    %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+  / /LEFT
+  %script{:charset => "utf-8", :type => "text/javascript"}
+    jQuery(function() {
+    jQuery('#plant_it').bind('click', function(e) {
+    e.preventDefault();
+    var link = "<haml:loud> new_project_url </haml:loud>";
+    link = link + '?title=' + jQuery('#what_you_need_done').val();
+    jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
+    });
+    });
+  %script{:charset => "utf-8", :type => "text/javascript"}
+    jQuery(function() {
+    jQuery('.buy').bind('click', function(e) {
+    e.preventDefault();
+    var link = "<haml:loud> new_payment_url </haml:loud>";
+    jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
+    });
+    });
