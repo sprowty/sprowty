@@ -273,11 +273,4 @@
     jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
     });
     });
-  %script{:charset => "utf-8", :type => "text/javascript"}
-    jQuery(function() {
-    jQuery('.buy').bind('click', function(e) {
-    e.preventDefault();
-    var link = "#{new_payment_url}";
-    jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
-    });
-    });
+

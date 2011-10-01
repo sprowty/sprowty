@@ -1,45 +1,19 @@
-= stylesheet_link_tag "payments"
-
-%div{:style => 'height: 400px;'}
-  = form_for @payment do |f|
-    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-    %input{:name => "encrypted", :type => "hidden", :value => @encrypted_basic}/
-    #submitpayment
-      .head
-        %h1
-          Buy Coins
-        .left
-          %p= error_messages_for @payment
-        .clear
-      .payment
-        %h2
-          Select amount of coins to buy
-        .clear
-        %ul.coinbox
-          %li
-            %h5
-              = image_tag 'coin.png', :height => 26
-              5
-        %ul.coinbox
-          %li
-            %h5
-              = image_tag 'coin.png', :height => 26
-              10
-        %ul.coinbox
-          %li
-            %h5
-              = image_tag 'coin.png', :height => 26
-              20
-        %ul.coinbox
-          %li
-            %h5
-              = image_tag 'coin.png', :height => 26
-              50
-        %ul.coinbox
-          %li
-            %h5
-              = image_tag 'coin.png', :height => 26
-              100
-        .clear
-        = submit_tag
-    .clear
+%div.new_payment{:style=>'display:block;width:300px;height:300px;'}
+  %form{:action => "http://www.sandbox.paypal.com/cgi-bin/webscr", :method => "post", :name => "paypalFrm"}
+    %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
+    %input{:name => "business", :type => "hidden", :value => "sprowt_1317256762_biz@sprowty.com"}/
+    %input{:name => "item_name", :type => "hidden", :value => "Togens"}/
+    %input{:name => "receiver_email", :type => "hidden", :value => "sprowt_1317256762_biz@sprowty.com"}/
+    %input{:name => "image_url", :type => "hidden", :value => "http://sprowty.com/images/6756-07071124508Logo-white.logo.png"}/
+    %input{:name => "lc", :type => "hidden", :value => "en"}/
+    / <input name="invoice" type="hidden" value="2_289_gfMAD_7">
+    %input#notify_url{:name => "notify_url", :type => "hidden", :value => "http://localhost:3000/payment/ipn"}/
+    %input#cancel_return{:name => "cancel_return", :type => "hidden", :value => "http://localhost:3000/payment/notify"}/
+    %input#return{:name => "return", :type => "hidden", :value => "http://localhost:3000/payment/notify"}/
+    %input{:name => "amount", :type => "hidden", :value => "0.01"}/
+    %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+    %input{:name => "shipping", :type => "hidden", :value => "0.00"}/
+    %input{:name => "no_shipping", :type => "hidden", :value => "0"}/
+    %input{:name => "custom", :type => "hidden", :value => "english"}/
+    %input{:name => "Submit", :type => "hidden", :value => "Pay with Paypal"}/
+    %input{:alt => "PayPal - The safer, easier way to pay online", :border => "0", :name => "submit", :src => "https://www.paypal.com/en_US/i/btn/btn_buynow_LG.gif", :type => "image"}/
