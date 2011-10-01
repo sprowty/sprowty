@@ -18,10 +18,11 @@
         %h3 Recent Projects
       .recentprojects
         - @projects.each do |project|
-          %a.job{:href => "#"}= project.title
+          = link_to project.title, project_url(project.id)
           %p
             %b By:
-            %a#stay-target-1.stay-tooltip-target.tooltip-target{:href => "#"} Username
+            = link_to project.user.username, profile_url(project.user)
+            %a#stay-target-1.stay-tooltip-target.tooltip-target
           #stay-content-1.stay-tooltip-username.tooltip-username
             %a{:href => "#"} Sample Name
             %p New York City, New York
@@ -32,7 +33,7 @@
           %p.status
             %em Status:
             %i.completed
-              = project.state
+              = project.sm_state
       / /BOX
     / /RIGHTSIDE
     .content

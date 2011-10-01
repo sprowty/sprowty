@@ -17,21 +17,23 @@
       %label Price:
       %i Enter in Increments of $5
     = f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price'
-  / LEFT
-  .right
-    %h5 Categories:
-    %p
+    .clear
+    .labelholder
+      %label Categories:
       %i Choose the categories your job should be listed in
     = f.select :category, CATEGORIES, {:include_blank => true}
-    %h
-      City:
+    .clear
+    .labelholder
+      %label City:
     = f.text_field :city, :class => 'city'
-    %h5
-      State:
-    %h5
-      = f.select :state, STATES, {:include_blank => true}, {:class => 'states'}
-    %h5
-      Due Date:
+    .clear
+    .labeleholder
+      %label State:
+      %i Choose state
+    = f.select :state, STATES, {:include_blank => true}, {:class => 'states'}
+    .clear
+    .labelholder
+      %label Due Date:
     %p
       %i Select Your Due Date
     = f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date'
