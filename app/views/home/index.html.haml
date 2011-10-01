@@ -159,7 +159,7 @@
   jQuery(function() {
   jQuery('#plant_it').bind('click', function(e) {
   e.preventDefault();
-  var link = "<haml:loud> new_project_url </haml:loud>";
+  var link = "#{new_project_url}";
   link = link + '?title=' + jQuery('#what_you_need_done').val();
   jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
   });

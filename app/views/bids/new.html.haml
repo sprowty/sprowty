@@ -12,12 +12,12 @@
       .clear {clear: both}
       h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
       h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
-      
+
       #submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%;}
       #submitbid .head {
       text-align: center;
-      background-color: green; 
-      padding: 30px 30px 25px 30px; 
+      background-color: green;
+      padding: 30px 30px 25px 30px;
       background: -webkit-gradient(
           linear,
           left bottom,
@@ -38,64 +38,64 @@
       border-top-left-radius: 14px;
       border-top-right-radius: 14px;
       border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px; 
+      border-bottom-left-radius: 0px;
       }
-      
-      
+
+
       #submitbid .head b, .head a {color: white; font-size: 16px; text-shadow: 1px 1px 0px #313104; filter: dropshadow(color=#313104, offx=1, offy=1); }
       #submitbid .head a {text-decoration: none; padding-left: 6px}
       #submitbid .head a:hover {color: #E69A2C}
       #submitbid h3  {color: #313104; text-shadow: 1px 1px 1px #b4b64c;filter: dropshadow(color=#b4b64c, offx=1, offy=1);margin: 0; padding-bottom: 4px; font-size: 22px; text-transform: uppercase;  }
-      
+
       #submitbid h4 {margin-bottom: 0; margin-top: 10px;}
       #submitbid h4 {color: #422215; font-size: 16px;}
       #submitbid i {font-size: 11px}
-      
+
       #submitbid .bid {margin: 0; padding: 0; text-align: left}
       #submitbid .bid .left {width: 380px; }
       #submitbid .bid .right {width: 250px; float: left }
       #submitbid .right input {width: 80px; float: right; height: 20px; margin-top: -24px; padding: 10px;font: bold 18px Helvetica, Arial, Sans-Serif; margin-right: 20px; border: 1px solid #c3b288; color: #585a05 }
       #submitbid .why {padding: 0px 30px 20px 38px}
-      
+
       #submitbid textarea {
-      padding: 10px; 
-      border: 1px solid #c3b288; 
-      font-style: italic; 
-      color: #3c3c39; 
+      padding: 10px;
+      border: 1px solid #c3b288;
+      font-style: italic;
+      color: #3c3c39;
       width: 550px;
-      font: 12px Helvetica, Arial, Sans-Serif; 
-      font-style: normal; 
+      font: 12px Helvetica, Arial, Sans-Serif;
+      font-style: normal;
       height: 70px;
       margin-top: 10px;
       resize:none;
       }
-      
+
       #submitbid ul.expires {padding-bottom: 24px; }
       #submitbid ul.expires li.offer, #submitbid .left li {margin-right: 12px;}
-      
+
       .bid ul li, .bid li a,  ul.expires li, .expires li a {color: #422215;}
       .bid ul li, ul.expires li {list-style: none; display: inline; margin-right: 4px; font-size: 16px; font-weight: bold; }
-      
+
       #submitbid ul li label, #submitbid ul li a {
-      padding: 14px; 
-      background-color: #a18a66; 
-      -webkit-border-radius: 30px; 
-      -moz-border-radius: 30px; 
-      border-radius: 30px; 
-      font-size: 14px; 
-      text-decoration: none  
+      padding: 14px;
+      background-color: #a18a66;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+      font-size: 14px;
+      text-decoration: none
       }
-      
+
       #submitbid ul li label:hover, #submitbid ul li label.active, #submitbid ul li a:hover {background-color: #E69A2C; }
       #submitbid a.submit, .submit {background: url(../images/button_submitbid.png) no-repeat; width: 309px; height: 77px; text-indent: -9999em; display: block; margin: 0 auto; border: none; }
-      
+
       #submitbid a.submit:hover, .submit:hover {
       -webkit-box-shadow: 0px 0px 8px #000;
       -moz-box-shadow: 0px 0px 8px #000;
-      box-shadow: 0px 0px 8px #000; 
+      box-shadow: 0px 0px 8px #000;
       -moz-border-radius: 22px;
       border-radius: 22px; }
-      
+
   %body
     = form_for Bid.new do |f|
       = hidden_field :bid, :project_id, :value => params[:project]
@@ -151,15 +151,15 @@
       accept_current_price.val(1);
       }
       });
-      
+
       $('.expires li label').click(function() {
       $('.expires li label').removeClass('active');
       $(this).addClass('active');
       });
-      
+
       $("#bid_submit").click(function(e) {
       e.preventDefault();
-      $.post("<haml:loud> bids_path </haml:loud>",
+      $.post("#{bids_path}",
       $("#new_bid").serialize(),
       function(json) {
       console.log(json);
