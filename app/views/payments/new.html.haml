@@ -1,182 +1,27 @@
-!!! Strict
-%html{:xmlns => "http://www.w3.org/1999/xhtml"}
-  %head
-    %title sprowty
-    = stylesheet_link_tag "application"
-    :css
-      a:active, a:focus, button{outline: 0;}
-      .left, .right {text-align: left; padding: 20px 0 20px 20px}
-      .right {padding:20px 20px 20px 0px}
-      .left, .labelholder {float: left}
-      .right, #plantseed i {float: right}
-      .clear {clear: both}
-      h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
-      h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
-      
-      #submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%;}
-      #submitbid .head {
-      text-align: center;
-      background-color: green;
-      padding: 30px 30px 25px 30px;
-      background: -webkit-gradient(
-          linear,
-          left bottom,
-          left top,
-          color-stop(0.19, rgb(122,124,30)),
-          color-stop(0.58, rgb(159,161,36))
-      );
-      background: -moz-linear-gradient(
-          center bottom,
-          rgb(122,124,30) 19%,
-          rgb(159,161,36) 58%
-      );
-      border-bottom: 1px solid #606117;
-      -moz-border-radius-topleft: 14px;
-      -moz-border-radius-topright: 14px;
-      -moz-border-radius-bottomright: 0px;
-      -moz-border-radius-bottomleft: 0px;
-      border-top-left-radius: 14px;
-      border-top-right-radius: 14px;
-      border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-      }
-      
-      
-      #submitbid .head b, .head a {color: white; font-size: 16px; text-shadow: 1px 1px 0px #313104; filter: dropshadow(color=#313104, offx=1, offy=1); }
-      #submitbid .head a {text-decoration: none; padding-left: 6px}
-      #submitbid .head a:hover {color: #E69A2C}
-      #submitbid h3  {color: #313104; text-shadow: 1px 1px 1px #b4b64c;filter: dropshadow(color=#b4b64c, offx=1, offy=1);margin: 0; padding-bottom: 4px; font-size: 22px; text-transform: uppercase;  }
-      
-      #submitbid h4 {margin-bottom: 0; margin-top: 10px;}
-      #submitbid h4 {color: #422215; font-size: 16px;}
-      #submitbid i {font-size: 11px}
-      
-      #submitbid .bid {margin: 0; padding: 0; text-align: left}
-      #submitbid .bid .left {width: 380px; }
-      #submitbid .bid .right {width: 250px; float: left }
-      #submitbid .right input {width: 80px; float: right; height: 20px; margin-top: -24px; padding: 10px;font: bold 18px Helvetica, Arial, Sans-Serif; margin-right: 20px; border: 1px solid #c3b288; color: #585a05 }
-      #submitbid .why {padding: 0px 30px 20px 38px}
-      
-      #submitbid textarea {
-      padding: 10px;
-      border: 1px solid #c3b288;
-      font-style: italic;
-      color: #3c3c39;
-      width: 550px;
-      font: 12px Helvetica, Arial, Sans-Serif;
-      font-style: normal;
-      height: 70px;
-      margin-top: 10px;
-      resize:none;
-      }
-      
-      #submitbid ul.expires {padding-bottom: 24px; }
-      #submitbid ul.expires li.offer, #submitbid .left li {margin-right: 12px;}
-      
-      .bid ul li, .bid li a,  ul.expires li, .expires li a {color: #422215;}
-      .bid ul li, ul.expires li {list-style: none; display: inline; margin-right: 4px; font-size: 16px; font-weight: bold; }
-      
-      #submitbid ul li label, #submitbid ul li a {
-      padding: 14px;
-      background-color: #a18a66;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      font-size: 14px;
-      text-decoration: none
-      }
-      
-      #submitbid ul li label:hover, #submitbid ul li label.active, #submitbid ul li a:hover {background-color: #E69A2C; }
-      #submitbid a.submit, .submit {background: url(../images/button_submitbid.png) no-repeat; width: 309px; height: 77px; text-indent: -9999em; display: block; margin: 0 auto; border: none; }
-      
-      #submitbid a.submit:hover, .submit:hover {
-      -webkit-box-shadow: 0px 0px 8px #000;
-      -moz-box-shadow: 0px 0px 8px #000;
-      box-shadow: 0px 0px 8px #000;
-      -moz-border-radius: 22px;
-      border-radius: 22px; }
-      
-  %body
-    = form_for Payment.new do |f|
-      = hidden_field :bid, :project_id, :value => params[:project]
-      #submitbid
-        .head
-          %h3 >Project Title
-          = succeed "someone" do
-            %b Posted By:
-        - unless error_messages_for.nil?
-          .left
-            %p= error_messages_for :payment
-          .clear
-        .bid
-          .left
-            %ul
-              %li Accept Current Bid
-              %li
-                %a.active.accept_current_price{:href => "#"} Accept Current
-      .right
-        %h4 Or Enter Other:
-        %i Increment of $5
-      / BID
-      .clear
-      .why
-        %h4 Why Should You Get This Job?
-      %ul.expires
-        %li.offer Offer Expires In:
-        %li
-          %label{:for => "24hours"} 24 Hours
-          %input#24hours{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 1.day}/
-        %li
-          %label{:for => "1week"} 1 Week
-          %input#1week{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 1.week}/
-        %li
-          %label{:for => "2weeks"} 2 Weeks
-          %input#2weeks{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 2.week}/
-        %li
-          %label{:for => "never"} Never
-          %input#never{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 5.year}/
-      = f.submit 'Submit Bid', :class => 'submit'
-      / SUBMITBID
-    %script{:charset => "utf-8", :type => "text/javascript"}
-      $(function() {
-      $('.accept_current_price').click(function(e) {
-      e.preventDefault();
-      var accept_current_price = $("[name='bid[accept_current_price]']");
-      if (accept_current_price.val() == '1') {
-      accept_current_price.val(0);
-      } else {
-      accept_current_price.val(1);
-      }
-      });
-      
-      $('.expires li label').click(function() {
-      $('.expires li label').removeClass('active');
-      $(this).addClass('active');
-      });
-      
-      $("#bid_submit").click(function(e) {
-      e.preventDefault();
-      $.post("<haml:loud> bids_path </haml:loud>",
-      $("#new_bid").serialize(),
-      function(json) {
-      console.log(json);
-      if (json.success == 'false') {
-      $.fn.colorbox({
-      html:   json.html,
-      open:   true,
-      iframe: false,
-      width: "50%",
-      height: "650px",
-      innerHeight: "540px"
-      });
-      } else {
-      $('#cboxClose').click();
-      return false;
-      }
-      }, "json");
-      });
-      });
-%form{:action => @action_url, :method => "post"}
-  %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-  %input{:name => "encrypted", :type => "hidden", :value => @encrypted_basic}/
-  %input{:alt => "1 credits", :name => "submit", :src => "/images/btn_buynow_SM.jpg", :type => "image"}/
+= stylesheet_link_tag "payments"
+
+:css
+  form {
+  }
+
+%div{:style => 'height: 400px;'}
+  = form_for @payment do |f|
+    = #hidden_field :payment, :project_id, :value => params[:project]
+    #submitpayment
+      .head
+        %h1
+          Buy Coins
+        .left
+          %p= error_messages_for @payment
+        .clear
+      .payment
+        %h2
+          Select amount of coin to buy
+        %ul
+          %li
+            %a.active.accept_current_price{:href => "#"} Accept Current
+    .clear
+    %form{:action => @action_url, :method => "post"}
+      %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+      %input{:name => "encrypted", :type => "hidden", :value => @encrypted_basic}/
+      %input{:alt => "1 credits", :name => "submit", :src => "/images/btn_buynow_SM.jpg", :type => "image"}/

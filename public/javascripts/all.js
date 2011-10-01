@@ -178,7 +178,7 @@ var scrolltotop={
 	//startline: Integer. Number of pixels from top of doc scrollbar is scrolled before showing control
 	//scrollto: Keyword (Integer, or "Scroll_to_Element_ID"). How far to scroll document up when control is clicked on (0=top).
 	setting: {startline:100, scrollto: 0, scrollduration:800, fadeduration:[500, 100]},
-	controlHTML: '<img src="up.png" style="" />', //HTML for control, which is auto wrapped in DIV w/ ID="topcontrol"
+	controlHTML: '<img src="" style="" />', //HTML for control, which is auto wrapped in DIV w/ ID="topcontrol"
 	controlattrs: {offsetx:5, offsety:5}, //offset of control relative to right/ bottom of window corner
 	anchorkeyword: '#top', //Enter href value of HTML anchors on the page that should also act as "Scroll Up" links
 
@@ -246,18 +246,18 @@ scrolltotop.init()
 
 /**
  * jQuery-Plugin "clearField"
- * 
+ *
  * @version: 1.1, 04.12.2010
- * 
+ *
  * @author: Stijn Van Minnebruggen
  *          stijn@donotfold.be
  *          http://www.donotfold.be
- * 
+ *
  * @example: $('selector').clearField();
  * @example: $('selector').clearField({ blurClass: 'myBlurredClass', activeClass: 'myactiveClass' });
- * 
+ *
  */
-	
+
 	(function($){$.fn.clearField=function(s){s=jQuery.extend({blurClass:'clearFieldBlurred',activeClass:'clearFieldActive',attribute:'rel',value:''},s);return $(this).each(function(){var el=$(this);s.value=el.val();if(el.attr(s.attribute)==undefined){el.attr(s.attribute,el.val()).addClass(s.blurClass)}else{s.value=el.attr(s.attribute)}el.focus(function(){if(el.val()==el.attr(s.attribute)){el.val('').removeClass(s.blurClass).addClass(s.activeClass)}});el.blur(function(){if(el.val()==''){el.val(el.attr(s.attribute)).removeClass(s.activeClass).addClass(s.blurClass)}})})}})(jQuery);
 
 
@@ -272,34 +272,34 @@ scrolltotop.init()
 // released under the MIT license
 
 (function($) {
-    
+
     function Tipsy(element, options) {
         this.$element = $(element);
         this.options = options;
         this.enabled = true;
         this.fixTitle();
     }
-    
+
     Tipsy.prototype = {
         show: function() {
             var title = this.getTitle();
             if (title && this.enabled) {
                 var $tip = this.tip();
-                
+
                 $tip.find('.tipsy-inner')[this.options.html ? 'html' : 'text'](title);
                 $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
                 $tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
-                
+
                 var pos = $.extend({}, this.$element.offset(), {
                     width: this.$element[0].offsetWidth,
                     height: this.$element[0].offsetHeight
                 });
-                
+
                 var actualWidth = $tip[0].offsetWidth, actualHeight = $tip[0].offsetHeight;
                 var gravity = (typeof this.options.gravity == 'function')
                                 ? this.options.gravity.call(this.$element[0])
                                 : this.options.gravity;
-                
+
                 var tp;
                 switch (gravity.charAt(0)) {
                     case 'n':
@@ -315,7 +315,7 @@ scrolltotop.init()
                         tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + this.options.offset};
                         break;
                 }
-                
+
                 if (gravity.length == 2) {
                     if (gravity.charAt(1) == 'w') {
                         tp.left = pos.left + pos.width / 2 - 15;
@@ -323,9 +323,9 @@ scrolltotop.init()
                         tp.left = pos.left + pos.width / 2 - actualWidth + 15;
                     }
                 }
-                
+
                 $tip.css(tp).addClass('tipsy-' + gravity);
-                
+
                 if (this.options.fade) {
                     $tip.stop().css({opacity: 0, display: 'block', visibility: 'visible'}).animate({opacity: this.options.opacity});
                 } else {
@@ -333,7 +333,7 @@ scrolltotop.init()
                 }
             }
         },
-        
+
         hide: function() {
             if (this.options.fade) {
                 this.tip().stop().fadeOut(function() { $(this).remove(); });
@@ -341,14 +341,14 @@ scrolltotop.init()
                 this.tip().remove();
             }
         },
-        
+
         fixTitle: function() {
             var $e = this.$element;
             if ($e.attr('title') || typeof($e.attr('original-title')) != 'string') {
                 $e.attr('original-title', $e.attr('title') || '').removeAttr('title');
             }
         },
-        
+
         getTitle: function() {
             var title, $e = this.$element, o = this.options;
             this.fixTitle();
@@ -361,14 +361,14 @@ scrolltotop.init()
             title = ('' + title).replace(/(^\s*|\s*$)/, "");
             return title || o.fallback;
         },
-        
+
         tip: function() {
             if (!this.$tip) {
                 this.$tip = $('<div class="tipsy"></div>').html('<div class="tipsy-arrow"></div><div class="tipsy-inner"></div>');
             }
             return this.$tip;
         },
-        
+
         validate: function() {
             if (!this.$element[0].parentNode) {
                 this.hide();
@@ -376,14 +376,14 @@ scrolltotop.init()
                 this.options = null;
             }
         },
-        
+
         enable: function() { this.enabled = true; },
         disable: function() { this.enabled = false; },
         toggleEnabled: function() { this.enabled = !this.enabled; }
     };
-    
+
     $.fn.tipsy = function(options) {
-        
+
         if (options === true) {
             return this.data('tipsy');
         } else if (typeof options == 'string') {
@@ -391,9 +391,9 @@ scrolltotop.init()
             if (tipsy) tipsy[options]();
             return this;
         }
-        
+
         options = $.extend({}, $.fn.tipsy.defaults, options);
-        
+
         function get(ele) {
             var tipsy = $.data(ele, 'tipsy');
             if (!tipsy) {
@@ -402,7 +402,7 @@ scrolltotop.init()
             }
             return tipsy;
         }
-        
+
         function enter() {
             var tipsy = get(this);
             tipsy.hoverState = 'in';
@@ -413,7 +413,7 @@ scrolltotop.init()
                 setTimeout(function() { if (tipsy.hoverState == 'in') tipsy.show(); }, options.delayIn);
             }
         };
-        
+
         function leave() {
             var tipsy = get(this);
             tipsy.hoverState = 'out';
@@ -423,20 +423,20 @@ scrolltotop.init()
                 setTimeout(function() { if (tipsy.hoverState == 'out') tipsy.hide(); }, options.delayOut);
             }
         };
-        
+
         if (!options.live) this.each(function() { get(this); });
-        
+
         if (options.trigger != 'manual') {
             var binder   = options.live ? 'live' : 'bind',
                 eventIn  = options.trigger == 'hover' ? 'mouseenter' : 'focus',
                 eventOut = options.trigger == 'hover' ? 'mouseleave' : 'blur';
             this[binder](eventIn, enter)[binder](eventOut, leave);
         }
-        
+
         return this;
-        
+
     };
-    
+
     $.fn.tipsy.defaults = {
         delayIn: 0,
         delayOut: 0,
@@ -450,7 +450,7 @@ scrolltotop.init()
         title: 'title',
         trigger: 'hover'
     };
-    
+
     // Overwrite this method to provide options on a per-element basis.
     // For example, you could store the gravity in a 'tipsy-gravity' attribute:
     // return $.extend({}, options, {gravity: $(ele).attr('tipsy-gravity') || 'n' });
@@ -458,15 +458,15 @@ scrolltotop.init()
     $.fn.tipsy.elementOptions = function(ele, options) {
         return $.metadata ? $.extend({}, options, $(ele).metadata()) : options;
     };
-    
+
     $.fn.tipsy.autoNS = function() {
         return $(this).offset().top > ($(document).scrollTop() + $(window).height() / 2) ? 's' : 'n';
     };
-    
+
     $.fn.tipsy.autoWE = function() {
         return $(this).offset().left > ($(document).scrollLeft() + $(window).width() / 2) ? 'e' : 'w';
     };
-    
+
 })(jQuery);
 
 
