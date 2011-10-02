@@ -18,11 +18,10 @@ class ProjectsController < ApplicationController
   def new
     @project        = Project.new
     @project.title  = params[:title] unless !params || params[:title].blank?
-<<<<<<< HEAD
+
     render :layout => 'blank'
     @categories = Category.find(:all)
-=======
->>>>>>> b329b8243d12762bf0dcecddbce82de462dbcb54
+
   end
 
   def create
