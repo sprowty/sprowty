@@ -23,7 +23,7 @@
           Post what you need done.
         = image_tag 'slider-dots.png'
       .sprowter-image
-        = image_tag 'sprowter-slider.png'    
+        = image_tag 'sprowter-slider.png'
     .clear
   / /SLIDER
 - else
@@ -43,7 +43,7 @@
 #container
   #main
     .rightside
-      %h2 Harvest Fields
+      %h2 Sprowt Around
       %p Find the jobs you want to do
       = form_for :search, :url => root_url do |f|
         = f.text_field :title_or_description_contains, :placeholder => 'Search'
