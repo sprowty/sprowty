@@ -250,9 +250,14 @@ border-bottom-left-radius: 0px;
 border-top: 8px solid #c7e7fc;
 border-left: 8px solid #c7e7fc;
 border-right: 8px solid #c7e7fc;
+position: relative;
 }
 
-#slider .holder  {color: #e69a2c; margin: 30px 30px 0 30px; font: 30px'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; }
+#slider .holder  {color: #fff; margin: 30px 30px 0 30px; font: 22px Georgia, Hevletica, sans-serif; }
+#slider .holder p {color: #fff; font: 22px Georgia, Hevletica, sans-serif; margin-bottom: 10px;}
+#slider .seeder-image {position: absolute; top: -36px; right: 20px}
+#slider .sprowter-image {position: absolute; top: -60px; right: 20px}
+#slider .holder img {margin: 0 0 10px 0;}
 /* --------------SLIDER------------- */
 
 
@@ -810,6 +815,23 @@ text-indent: -9999em;
 margin: 0 auto;
 }
 
+a.plant_no_js {
+background: url("/images/button_planttwo.png") no-repeat top;
+display: block;
+width: 205px;
+height: 73px;
+text-indent: -9999em;
+margin: 0 auto;
+}
+a.plant_no_js:hover {
+-moz-box-shadow: 0px 0px 8px #585959;
+box-shadow: 0px 0px 8px #585959;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+}
+/* --PLANT BUY-- */
+
 #plantbuy a.buy {background: url("/images/button_buy.png") no-repeat top; }
 #plantbuy a.plant:hover, #plantbuy a.buy:hover, #profile a.save:hover, #profile .save:hover { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; }
  /* --PLANT BUY-- */
@@ -1106,3 +1128,26 @@ background-image: url('/images/errors3.png');
 #listings .gallery .box-week .actions {margin-top:0px;margin-left:20px;margin-top:-5px;}
 
 #active_admin_content #main_content_wrapper #main_content .panel .panel_contents ul li { list-style: none;}
+
+#plantseed {
+  background-color: #E5D7C1;
+  font: 12px Helvetica,Arial,Sans-Serif;
+  height: 100%;
+  margin-left: 150px;
+  text-align: center;
+  width: 585px;
+}
+
+.infos, .errors {
+border: 1px solid;
+margin: 10px 21px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+
+.errors {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('/images/errors3.png');
+}

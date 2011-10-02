@@ -14,9 +14,9 @@ gem 'rmagick', '2.12.2'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'state_machine'
 gem 'will_paginate', '~> 3.0'
-
+gem 'activemerchant'
 gem 'sqlite3'
 
 gem 'activeadmin'

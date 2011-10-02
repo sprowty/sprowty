@@ -1,0 +1,8 @@
+%div.new_payment{:style=>'display:block;width:500px;height:300px;float: left;background-color:#E5D7C1;'}
+  = form_tag "http://www.sandbox.paypal.com/cgi-bin/webscr", :method => "post", :name => "paypalFrm" do
+    = hidden_field_tag "cmd","_xclick"
+    = hidden_field_tag "item_name", "Togens"
+    = hidden_field_tag "amount", "1.00"
+    = hidden_field_tag "currency_code", "USD"
+    = hidden_field_tag "page_style", "paypal"
+    = image_submit_tag 'button_pay.png', :width => 100

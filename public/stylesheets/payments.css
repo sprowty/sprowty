@@ -1,0 +1,109 @@
+a:active, a:focus, button{outline: 0;}
+.left, .right {text-align: left; padding: 20px 0 20px 20px}
+.right {padding:20px 20px 20px 0px}
+.left, .labelholder {float: left}
+.right, #plantseed i {float: right}
+.clear {clear: both}
+h2 { font-size: 48px; color: #422215}
+h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal;}
+h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
+
+#submitpayment {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%;}
+#submitpayment .head {
+text-align: center;
+background-color: green;
+padding: 30px 30px 25px 0px;
+background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.19, rgb(122,124,30)),
+    color-stop(0.58, rgb(159,161,36))
+);
+background: -moz-linear-gradient(
+    center bottom,
+    rgb(122,124,30) 19%,
+    rgb(159,161,36) 58%
+);
+border-bottom: 1px solid #606117;
+-moz-border-radius-topleft: 14px;
+-moz-border-radius-topright: 14px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+border-top-left-radius: 14px;
+border-top-right-radius: 14px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+
+#submitpayment .head b, .head a {color: white; font-size: 16px; text-shadow: 1px 1px 0px #313104; filter: dropshadow(color=#313104, offx=1, offy=1); }
+#submitpayment .head a {text-decoration: none; padding-left: 6px}
+#submitpayment .head a:hover {color: #E69A2C}
+#submitpayment h3  {color: #313104; text-shadow: 1px 1px 1px #b4b64c;filter: dropshadow(color=#b4b64c, offx=1, offy=1);margin: 0; padding-bottom: 4px; font-size: 22px; text-transform: uppercase;  }
+
+#submitpayment h4 {margin-bottom: 0; margin-top: 10px;}
+#submitpayment h4 {color: #422215; font-size: 16px;}
+#submitpayment i {font-size: 11px}
+
+#submitpayment .payment {margin: 0; padding: 0; text-align: left; width: 100%;}
+#submitpayment .payment .left {width: 380px; }
+#submitpayment .payment .right {width: 250px; float: left }
+#submitpayment .right input {width: 80px; float: right; height: 20px; margin-top: -24px; padding: 10px;font: bold 18px Helvetica, Arial, Sans-Serif; margin-right: 20px; border: 1px solid #c3b288; color: #585a05 }
+#submitpayment .why {padding: 0px 30px 20px 38px}
+
+#submitpayment textarea {
+padding: 10px;
+border: 1px solid #c3b288;
+font-style: italic;
+color: #3c3c39;
+width: 550px;
+font: 12px Helvetica, Arial, Sans-Serif;
+font-style: normal;
+height: 70px;
+margin-top: 10px;
+resize:none;
+}
+
+#submitpayment ul.expires {padding-bottom: 24px; }
+#submitpayment ul.expires li.offer, #submitpayment .left li {margin-right: 12px;}
+
+.payment ul li, .payment li a,  ul.expires li, .expires li a {color: #422215;}
+.payment ul li, ul.expires li {list-style: none; display: inline; margin-right: 4px; font-size: 16px; font-weight: bold; }
+
+#submitpayment ul li label:hover, #submitpayment ul li label.active, #submitpayment ul li a:hover {background-color: #E69A2C; }
+#submitpayment a.submit, .submit {background: url(../images/button_submitpayment.png) no-repeat; width: 309px; height: 77px; text-indent: -9999em; display: block; margin: 0 auto; border: none; }
+
+#submitpayment a.submit:hover, .submit:hover {
+-webkit-box-shadow: 0px 0px 8px #000;
+-moz-box-shadow: 0px 0px 8px #000;
+box-shadow: 0px 0px 8px #000;
+-moz-border-radius: 22px;
+border-radius: 22px; }
+
+#submitpayment ul li a {
+padding: 14px;
+width: 100px;
+height: 100px;
+background-color: #a18a66;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+font-size: 14px;
+text-decoration: none
+}
+
+#submitpayment ul.coinbox {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background-color: #f5efe7;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 5px;
+}
+
+#submitpayment ul.coinbox li h5 { color: #894125; margin-left: 30px; margin-top: 20px; }

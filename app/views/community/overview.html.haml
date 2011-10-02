@@ -1,0 +1,103 @@
+- unless current_user
+  #subhead
+- else
+  #subhead
+#needdone
+  .holder
+    .left
+      %h4 Need Something Done?
+    / /LEFT
+    .right
+      %form#search{:action => "", :method => "get", :name => "input"}
+        %input#what_you_need_done.field{:name => "what_you_need_done", :placeholder => "Type What You Need Done Here", :type => "text"}/
+        %button#plant_it{:type => "submit"} Plant
+    / /RIGHT
+/ /NEEDDONE
+#container
+  #main
+    .rightside
+      %h2 Sprowt Around
+      %p Find the jobs you want to do
+      = form_for :search, :url => root_url do |f|
+        = f.text_field :title_or_description_contains, :placeholder => 'Search'
+        %button{:type => "submit"} Search
+      .clear
+      .boxhead
+        %h3 Categories
+      .box
+        %ul.categories
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+          %li
+            %a{:href => "#"} Sample Link
+      / /BOX
+      %img.rooster{:src => "images/icon_rooster.png"}/
+      .twitbox
+        #twitter
+          %ul#twitter_update_list
+            %li
+        %span.quote
+      / /TWITBOX
+      .follow
+        %h2
+          %a{:href => "http://twitter.com/#!/sprowty", :target => "_blank"} @sprowty
+    / /RIGHTSIDE
+    = javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5'
+    .content
+      .head
+        .left{:style => "width:450px"}
+          %h2{:style => "margin-top:5px;"} What Sprowty Community Has Done
+        / /LEFT
+        #listings
+          .clear
+          .gallery
+            - @projects.each do |project|
+              .box-week
+                %h2= link_to "Week #", community_project_path(project.id)
+                .pic
+                .title= link_to project.title, '#'
+                %p.description= project.description
+                .clear
+                %ul.actions
+                #fb-root
+                :javascript
+                  (function(d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0];
+                                        if (d.getElementById(id)) {return;}
+                                        js = d.createElement(s); js.id = id;
+                                        js.src = "//connect.facebook.net/en_US/all.js#appId=281738251836411&xfbml=1";
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                      }(document, 'script', 'facebook-jssdk'));                .fb-like{"data-href" => "http://sprowty.com", "data-layout" => "button_count", "data-send" => "false", "data-show-faces" => "false", "data-width" => "45"}
+          / /GALLERY
+        / /LISTINGS
+      / /HEAD
+    / /CONTENT
+  / /MAIN
+  .clear
+  = will_paginate @projects
+/ /CONTAINER
+#botlinks
+  .left
+    %ul
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+      %li
+        %a{:href => "#"} Sample
+    %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+  / /LEFT
+  .right
+    %h4 Sprowty
+    %b All Rights Reserved, 2010
+/ /BOTLINKS

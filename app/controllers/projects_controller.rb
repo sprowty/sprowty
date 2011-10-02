@@ -3,14 +3,26 @@ class ProjectsController < ApplicationController
 
   def index
    @projects = current_user.projects
+
+   if params[:filter]
+     @filter = params[:filter]
+     case @filter
+       when @filter == 'open' then @projects.where(:state => 'open')
+       when @filter == 'completed' then @projects.where(:state => 'completed')
+     end
+   end
+
    @tags = @projects.map(&:tags).uniq
   end
 
   def new
     @project        = Project.new
     @project.title  = params[:title] unless !params || params[:title].blank?
+<<<<<<< HEAD
     render :layout => 'blank'
     @categories = Category.find(:all)
+=======
+>>>>>>> b329b8243d12762bf0dcecddbce82de462dbcb54
   end
 
   def create

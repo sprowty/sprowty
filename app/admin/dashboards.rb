@@ -10,11 +10,34 @@ ActiveAdmin::Dashboards.build do
 #    end
 #  end
 
- # section "Recent Works" do
- #   Work.all.each do |work|
- #     link_to work.work, work_path(work)
- #   end
- # end
+ section "Recent Works" do
+   Work.all.each do |work|
+     link_to work.work, work_path(work)
+   end
+ end
+
+  section "Recent Projects", :priority => 1 do
+     table_for Project.order('id desc').limit(5).each do |project|
+       column(:title) {|project| link_to(project.title, admin_project_path(project)) }
+       column(:price)
+       column(:due_date)
+       column(:sm_state)
+     end
+   end
+
+  section "Recent Coin Purchases" do
+     table_for Payment.order('id desc').limit(5).each do |payment|
+       column(:id) {|payment| link_to(payment.id, admin_project_path(project)) }
+       column(:amount)
+       column(:sm_state)
+     end
+  end
+
+  section "Recent Keywords", :priority => 3 do
+    table_for Keyword.order('id desc').limit(5).each do |keyword|
+      column(:name)
+    end
+  end
 
   section "Recent Users", :priority => 1 do
     table_for User.order('id desc').limit(5).each do |user|
@@ -26,19 +49,6 @@ ActiveAdmin::Dashboards.build do
     end
   end
 
-  section "Recent Projects", :priority => 2 do
-     table_for Project.order('id desc').limit(5).each do |project|
-       column(:title) {|project| link_to(project.title, admin_project_path(project)) }
-       column(:price)
-       column(:due_date)
-     end
-   end
-
-  section "Recent Keywords", :priority => 3 do
-    table_for Keyword.order('id desc').limit(5).each do |keyword|
-      column(:name) {|keyword| link_to(keyword.name, admin_keyword_path(keyword)) }
-    end
-  end
 
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section

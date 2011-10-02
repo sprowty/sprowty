@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :bids
   has_many :works
   has_one :resume
+  has_many :payments
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,0 +1,44 @@
+= form_for @project, :html => {:class => 'live-form'} do |f|
+  - unless error_messages_for.nil?
+    %p= error_messages_for :project
+  .left
+    .labelholder
+      %label Job Title:
+    = f.text_field :title, :class => 'field'
+    .labelholder
+      %label Description:
+      %i Insert the full description and guidelines of your job
+    = f.text_area :description, :class => 'field'
+    .labelholder
+      %label Tags:
+      %i Tags Associated With Job
+    = f.text_field :tags, :class => 'field'
+    .labelholder
+      %label Price:
+      %i Enter in Increments of $5
+    = f.text_field :price, :value => '$5', :onfocus => "if(this.value=='$5')this.value=''", :onblur => "if(this.value=='')this.value='$5'", :class => 'price'
+    .clear
+    .labelholder
+      %label Categories:
+      %i Choose the categories your job should be listed in
+    = f.select :category, CATEGORIES, {:include_blank => true}
+    .clear
+    .labelholder
+      %label City:
+    = f.text_field :city, :class => 'city'
+    .clear
+    .labeleholder
+      %label State:
+      %i Choose state
+    = f.select :state, STATES, {:include_blank => true}, {:class => 'states'}
+    .clear
+    .labelholder
+      %label Due Date:
+    %p
+      %i Select Your Due Date
+    = f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date'
+  / RIGHT
+  .clear
+  = f.submit 'Plant Seed', :class => 'plantseed'
+  .clear
+  %br/

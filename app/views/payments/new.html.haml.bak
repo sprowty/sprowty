@@ -1,0 +1,44 @@
+= stylesheet_link_tag "payments"
+
+%div{:style => 'height: 400px;'}
+  = form_for @action_url do |f|
+    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+    %input{:name => "encrypted", :type => "hidden", :value => @encrypted_basic}/
+    #submitpayment
+      .head
+        %h1
+          Buy Coins
+        .left
+        .clear
+      .payment
+        %h2
+          Select amount of coins to buy
+        .clear
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              5
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              10
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              20
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              50
+        %ul.coinbox
+          %li
+            %h5
+              = image_tag 'coin.png', :height => 26
+              100
+        .clear
+        = submit_tag
+    .clear
