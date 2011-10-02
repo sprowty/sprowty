@@ -12,6 +12,20 @@ $(document).ready(function() {
 		$.ajax({type: $(this).attr("method"), url: $(this).attr("action"), data: $(this).serialize(), dataType: "script"});
 		return false;
 	});
+	
+	$(".next-slide").click(function(){
+		$(this).closest('.slide').hide();
+		$(this).closest('.slide').next('.slide').show();
+		return false;
+	});
+	
+	$(".previous-slide").click(function(){
+		$(this).closest('.slide').hide();
+		$(this).closest('.slide').prev('.slide').show();
+		return false;
+	});
+	
+	
 });
 
 // Always send the authenticity_token with ajax
