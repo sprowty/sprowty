@@ -1,7 +1,17 @@
 - unless current_user
   #slider
     .holder
-      %b SLIDER HERE
+      = image_tag 'seeder-button-on.png'
+      = image_tag 'sprowter-button-off.png'
+      %br/
+      = image_tag 'plant-seed.png'
+      %br/
+      %p<
+        Post what you need done.
+      = image_tag 'slider-dots.png'
+    .seeder-image
+      = image_tag 'seeder-slider.png'
+    .clear
   / /SLIDER
 - else
   #subhead
