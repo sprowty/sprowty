@@ -1,7 +1,30 @@
 - unless current_user
   #slider
-    .holder
-      %b SLIDER HERE
+    .slide
+      .holder
+        = image_tag 'seeder-button-on.png'
+        = link_to image_tag('sprowter-button-off.png'), '', :class => 'next-slide'
+        %br/
+        = image_tag 'plant-seed.png'
+        %br/
+        %p<
+          Post what you need done.
+        = image_tag 'slider-dots.png'
+      .seeder-image
+        = image_tag 'seeder-slider.png'
+    .slide{:style => 'display: none;'}
+      .holder
+        = link_to image_tag('seeder-button-off.png'), '', :class => 'previous-slide'
+        = image_tag 'sprowter-button-on.png'
+        %br/
+        = image_tag 'plant-seed.png'
+        %br/
+        %p<
+          Post what you need done.
+        = image_tag 'slider-dots.png'
+      .sprowter-image
+        = image_tag 'sprowter-slider.png'    
+    .clear
   / /SLIDER
 - else
   #subhead
