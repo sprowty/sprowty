@@ -25,6 +25,14 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$(".slider").easySlider({
+		controlsShow: false,
+		continuous: true,
+		auto: true,
+		pause: 5000,
+		speed: 500
+	});
+	
 	
 });
 

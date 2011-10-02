@@ -257,7 +257,7 @@ position: relative;
 #slider .holder p {color: #fff; font: 22px Georgia, Hevletica, sans-serif; margin-bottom: 10px;}
 #slider .seeder-image {position: absolute; top: -36px; right: 20px}
 #slider .sprowter-image {position: absolute; top: -60px; right: 20px}
-#slider .holder img {margin: 0 0 10px 0;}
+#slider .holder img {margin: 0;}
 /* --------------SLIDER------------- */
 
 
