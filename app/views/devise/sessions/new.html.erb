@@ -17,8 +17,11 @@
 
 <div id="container">
   <div id="main">
-    <p><%= notice %></p>
-    <p><%= alert %></p>
+    <%- if alert %>
+      <div class="errors">
+      <p><%= alert %></p>
+      </div>
+    <% end %>
     <div id="signupcontainer">
       <div class="left">
         <h2>Sign in</h2>

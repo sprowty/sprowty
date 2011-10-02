@@ -3,11 +3,15 @@
     <div class="left">
       <%= f.text_field :username,              :class => "field clearField",     :value => 'Username' %>
       <%= f.email_field :email,                :class => "field clearField",     :value => 'E-mail Address' %>
-      <%= f.text_field :password,              :class => 'field clearField',     :value => "Password" %>
-      <%= f.text_field :password_confirmation, :class => 'fieldlast clearField', :value => "Password Confirmation" %>
+      <%= f.text_field :password,              :type  => "hidden",               :class => 'field clearField', :value => 'Password' %>
+      <%= f.text_field :password_confirmation, :class => 'field clearField', :value => "Password Confirmation" %>
     </div> <!--LEFT-->
 
     <div class="right">
+      <div class ="member">
+        Already have an account?<br/>
+        <a href="#">Log In</a>
+      </div>
  <br/> <br/>
       <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
  <br/> <br/>

@@ -991,10 +991,12 @@ box-shadow: 1px 1px 1px #fff;
 }
 
 
+
 a:active, a:focus, button{outline: 0;}
-#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 320px;background-color: #E5D7C1;}
+#signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 340px;background-color: #E5D7C1;}
 #signupcontainer .left {float: left; width: 350px;}
 #signupcontainer .right {float: right; width: 350px;}
+#signupcontainer .right .member{font-size:18px;}
 #signupcontainer .center {float: left; width: 100%; text-align: center; margin-top: 10px;}
 
 #signupcontainer input.field, input.fieldlast {
@@ -1069,6 +1071,22 @@ border-radius: 22px;
 .community a {text-decoration: none; margin-left: 6px}
 .community a:hover {text-decoration: underline}
 .community p {margin-bottom: 20px}
+
+.infos, .errors {
+border: 1px solid;
+margin: 10px 21px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+
+.errors {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('/images/errors3.png');
+
+}
+
 
 #main .spotlight {width:650px;height:285px;float:left;margin-top:35px;margin-bottom:20px;}
 #main .spotlight .spotlight-content {float:right;width:273px;margin-top:-285px;}

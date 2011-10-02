@@ -10,11 +10,12 @@ class ProjectsController < ApplicationController
     @project        = Project.new
     @project.title  = params[:title] unless !params || params[:title].blank?
     render :layout => 'blank'
+    @categories = Category.find(:all)
   end
 
   def create
     @project = current_user.projects.new(params[:project])
-
+    @category = Category.find(params[:id])  
     if @project.save
       respond_with(@project, :location => root_url)
     else
