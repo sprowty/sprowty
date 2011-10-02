@@ -1,19 +1,8 @@
-%div.new_payment{:style=>'display:block;width:300px;height:300px;'}
-  %form{:action => "http://www.sandbox.paypal.com/cgi-bin/webscr", :method => "post", :name => "paypalFrm"}
-    %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
-    %input{:name => "business", :type => "hidden", :value => "sprowt_1317256762_biz@sprowty.com"}/
-    %input{:name => "item_name", :type => "hidden", :value => "Togens"}/
-    %input{:name => "receiver_email", :type => "hidden", :value => "sprowt_1317256762_biz@sprowty.com"}/
-    %input{:name => "image_url", :type => "hidden", :value => "http://sprowty.com/images/6756-07071124508Logo-white.logo.png"}/
-    %input{:name => "lc", :type => "hidden", :value => "en"}/
-    / <input name="invoice" type="hidden" value="2_289_gfMAD_7">
-    %input#notify_url{:name => "notify_url", :type => "hidden", :value => "http://localhost:3000/payment/ipn"}/
-    %input#cancel_return{:name => "cancel_return", :type => "hidden", :value => "http://localhost:3000/payment/notify"}/
-    %input#return{:name => "return", :type => "hidden", :value => "http://localhost:3000/payment/notify"}/
-    %input{:name => "amount", :type => "hidden", :value => "0.01"}/
-    %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
-    %input{:name => "shipping", :type => "hidden", :value => "0.00"}/
-    %input{:name => "no_shipping", :type => "hidden", :value => "0"}/
-    %input{:name => "custom", :type => "hidden", :value => "english"}/
-    %input{:name => "Submit", :type => "hidden", :value => "Pay with Paypal"}/
-    %input{:alt => "PayPal - The safer, easier way to pay online", :border => "0", :name => "submit", :src => "https://www.paypal.com/en_US/i/btn/btn_buynow_LG.gif", :type => "image"}/
+%div.new_payment{:style=>'display:block;width:500px;height:300px;float: left;background-color:#E5D7C1;'}
+  = form_tag "http://www.sandbox.paypal.com/cgi-bin/webscr", :method => "post", :name => "paypalFrm" do
+    = hidden_field_tag "cmd","_xclick"
+    = hidden_field_tag "item_name", "Togens"
+    = hidden_field_tag "amount", "1.00"
+    = hidden_field_tag "currency_code", "USD"
+    = hidden_field_tag "page_style", "paypal"
+    = image_submit_tag 'button_pay.png', :width => 100
