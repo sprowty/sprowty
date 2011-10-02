@@ -5,11 +5,24 @@
         = image_tag 'seeder-button-on.png'
         = link_to image_tag('sprowter-button-off.png'), '', :class => 'next-slide'
         %br/
-        = image_tag 'plant-seed.png'
-        %br/
-        %p<
-          Post what you need done.
-        = image_tag 'slider-dots.png'
+        .slider
+          %ul
+            %li
+              = image_tag 'plant-seed.png'
+              %p<
+                Post what you need done.
+            %li
+              = image_tag 'get-sprowter.png'
+              %p<
+                Wait for bids, and choose who you like best.
+            %li
+              = image_tag 'watch-sprowt.png'
+              %p<
+                Watch your project progress.
+            %li
+              = image_tag 'grown-up.png'
+              %p<
+                Your project is complete, leave feedback and relax!
       .seeder-image
         = image_tag 'seeder-slider.png'
     .slide{:style => 'display: none;'}
@@ -17,11 +30,26 @@
         = link_to image_tag('seeder-button-off.png'), '', :class => 'previous-slide'
         = image_tag 'sprowter-button-on.png'
         %br/
-        = image_tag 'plant-seed.png'
-        %br/
-        %p<
-          Post what you need done.
-        = image_tag 'slider-dots.png'
+        .slider
+          %ul
+            %li
+              = image_tag 'set-skills.png'
+              %p<
+                List what you’re good at, and the jobs will come to you. 
+            %li
+              = image_tag 'sprowt-around.png'
+              %p<
+                Search for jobs you’re interested in.
+            %li
+              = image_tag 'start-bidding.png'
+              %p<
+                Use tokens to bid on any open job.
+            %li
+              = image_tag 'rake-money.png'
+              %p<
+                Self-explanatory, we hope!
+          
+        
       .sprowter-image
         = image_tag 'sprowter-slider.png'
     .clear
