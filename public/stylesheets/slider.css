@@ -1,5 +1,6 @@
 /* Easy Slider */
 
+	.slider{overflow:hidden; height: 140px;}
 	.slider ul, #slider li,
 	.slider2 ul, #slider2 li{
 		margin:0;
