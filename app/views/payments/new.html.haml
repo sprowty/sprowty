@@ -1,8 +1,38 @@
-%div.new_payment{:style=>'display:block;width:500px;height:300px;float: left;background-color:#E5D7C1;'}
-  = form_tag "http://www.sandbox.paypal.com/cgi-bin/webscr", :method => "post", :name => "paypalFrm" do
-    = hidden_field_tag "cmd","_xclick"
-    = hidden_field_tag "item_name", "Togens"
-    = hidden_field_tag "amount", "1.00"
-    = hidden_field_tag "currency_code", "USD"
-    = hidden_field_tag "page_style", "paypal"
-    = image_submit_tag 'button_pay.png', :width => 100
+= stylesheet_link_tag "payments"
+
+%div.new_payment
+  = form_tag "https://www.paypal.com/cgi-bin/webscr", :method => "post" do
+    #submitpayment
+      .head
+        %h1
+          Buy Coins
+        .left
+          %p= error_messages_for @payment
+        .clear
+      .payment
+        %h2
+          Select amount of coins to buy
+        .clear
+        - COIN_OPTIONS.each do |qty|
+          %ul.coinbox
+            %li
+              %h5
+                = image_tag 'coin.png', :height => 26
+                = "#{qty}"
+              = radio_button_tag 'quantity', qty, false, :class => 'rdio'
+        .clear
+        %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
+        %input{:name => "business", :type => "hidden", :value => "founders@sprowty.com"}/
+        %input{:name => "lc", :type => "hidden", :value => "US"}/
+        %input{:name => "item_name", :type => "hidden", :value => "Togen"}/
+        %input{:name => "button_subtype", :type => "hidden", :value => "services"}/
+        %input{:name => "amount", :type => "hidden", :value => "1.00"}/
+        %input{:name => "no_note", :type => "hidden", :value => "0"}/
+        %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+        %input{:name => "bn", :type => "hidden", :value => "PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest"}/
+        %input{:name => "hosted_button_id", :type => "hidden", :value => "XPUUMHQNVBE4U"}/
+        %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif", :type => "image"}/
+        %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
+    .clear
+
+

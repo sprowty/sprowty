@@ -1,6 +1,8 @@
-CATEGORIES = ["Accounting/Finance", "Customer Service", "Design/Fashion", "Location Based", "Marketing/PR", "Medical/Health", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programming/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
+
+CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Helath", "Music/Audio", "Organzing/Planning", "Other", "Photography", "Programing/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
 
 
+COIN_OPTIONS = %w(5 10 20 50 100)
 
 STATES = [
     [ "Alabama", "AL" ],

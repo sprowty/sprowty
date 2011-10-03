@@ -1,0 +1,25 @@
+<div id="signupcontainer">
+  <%= form_for(:user, :url => registration_path('user')) do |f| %>
+    <div class="left">
+      <%= f.text_field :username,              :class => "field clearField",     :value => 'Username' %>
+      <%= f.email_field :email,                :class => "field clearField",     :value => 'E-mail Address' %>
+      <%= f.text_field :password,              :type  => "hidden",               :class => 'field clearField', :value => 'Password' %>
+      <%= f.text_field :password_confirmation, :class => 'field clearField', :value => "Password Confirmation" %>
+    </div> <!--LEFT-->
+
+    <div class="right">
+      <div class ="member">
+        Already have an account?<br/>
+        <a href="#">Log In</a>
+      </div>
+ <br/> <br/>
+      <%= link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook) %>
+ <br/> <br/>
+      <div style="padding-left:22px; padding-bottom:2px">
+      <%= f.check_box :terms, :class => 'checkbox', :style => 'width: auto' %> I have read & agree to sprowty’s <a href="#">Terms & Conditions <br/> <br/>
+      </div>
+      <%= f.submit 'Create Account', :class => 'create' %>
+    </div> <!--RIGHT-->
+    
+  <% end %>
+</div> <!--SIGNUPCONTAINER-->
