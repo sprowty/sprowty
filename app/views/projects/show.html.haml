@@ -23,7 +23,7 @@
         %h3 Categories
       .box
         %ul.categories
-          - CATEGORIES.each do |category|
+          - @project.categories.each do |category|
             %li
               = link_to category, '#'
       / /BOX

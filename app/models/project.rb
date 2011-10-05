@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :bids
   has_many :project_alerts
+  has_many :categories
 
   validates_presence_of :title, :description, :price, :tags, :city, :state
 

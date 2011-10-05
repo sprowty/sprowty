@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     @project.title  = params[:title] unless !params || params[:title].blank?
 
     render :layout => 'blank'
-    @categories = CATEGORIES
+    @categories = Category.all
 
   end
 

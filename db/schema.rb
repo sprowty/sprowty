@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004232413) do
+ActiveRecord::Schema.define(:version => 20111005022540) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(:version => 20111004232413) do
   end
 
   add_index "bids", ["sm_state"], :name => "index_bids_on_sm_state"
+
+  create_table "categories", :force => true do |t|
+    t.string  "name",       :null => false
+    t.integer "project_id"
+  end
 
   create_table "keywords", :force => true do |t|
     t.string   "name"
