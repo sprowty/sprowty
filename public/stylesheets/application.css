@@ -757,7 +757,7 @@ font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica N
 font-weight: 200;
 }
 
-#profile .withdraw {background: url("/images/button_withdraw.png") no-repeat left top;  width: 279px;  height: 65px; margin: 20px 0 0 110px}
+#profile .withdraw {background: url("/images/button_withdraw.png") no-repeat left top;  width: 279px;  height: 65px; margin: 20px 0 0 159px}
 #profile .withdraw:hover {-moz-border-radius: 20px; border-radius: 20px; }
 
 /* --INFO-- */

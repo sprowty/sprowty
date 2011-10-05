@@ -12,7 +12,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new(params[:resume])
     @resume.user_id = current_user.id
     if @resume.save
-      redirect_to root_url, :notice => 'Successfully created your Resume!'
+      redirect_to profile_url, :notice => 'Successfully created your Resume!'
     else
       render :edit
     end
@@ -25,7 +25,7 @@ class ResumesController < ApplicationController
   def update
     @resume = current_user.resume
     if @resume.update_attributes(params[:resume])
-      redirect_to root_url, :notice => 'Successfully updated your Resume!'
+      redirect_to profile_url, :notice => 'Successfully updated your Resume!'
     else
       render :edit
     end
