@@ -30,15 +30,8 @@
         %b.right Updated
         .clear
       #inbox
-        %ul
-          - @messages.each do |message|
-            %li
-              = link_to @project.id
-              %span
-                = message.message
-              %em
-                = message.occurred
-      / INBOX
+        = render :partial => 'messages', :locals => {:project => @project}
+        / INBOX
       / PAGINATION
       #paginationholder
         .pagination

@@ -31,11 +31,6 @@ class Project < ActiveRecord::Base
     event :post_issue do
       transition :work_completed => :work_in_progress
     end
-
-    after_transition do |project, transition|
-      project.project_alerts.create(:message => transition.to,:occurred => DateTime.now)
-      puts "@@@@@@@@@@@@@@@@@@ project: #{project} transition: #{transition.to}"
-    end
   end
 
   def to_param
