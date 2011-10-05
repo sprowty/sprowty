@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     @project.title  = params[:title] unless !params || params[:title].blank?
 
     render :layout => 'blank'
-    @categories = Category.find(:all)
+    @categories = CATEGORIES
 
   end
 
@@ -40,6 +40,5 @@ class ProjectsController < ApplicationController
 
   def inside
     @project = Project.find(params[:project_id])
-    @messages = @project.project_alerts
   end
 end
