@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(params[:project])
-    @category = Category.find(params[:id])  
+    @category = Category.find(params[:id])
     if @project.save
       respond_with(@project, :location => root_url)
     else
@@ -38,4 +38,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def inside
+    @project = Project.find(params[:project_id])
+    @messages = @project.project_alerts
+  end
 end
