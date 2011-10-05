@@ -16,6 +16,6 @@
           %p
             = f.label :email
             %br/
-            = f.email_field :email
+            = f.text_field :email
           %p= f.submit "Send me reset password instructions"
         = render :partial => "devise/shared/links"
