@@ -23,9 +23,9 @@
         %h3 Categories
       .box
         %ul.categories
-          - @project.categories.each do |category|
+          - Category.all.each do |category|
             %li
-              = link_to category, '#'
+              = link_to category.name, '#'
       / /BOX
       = image_tag 'icon_rooster.png', :class => 'rooster'
       .twitbox
@@ -71,30 +71,9 @@
               .keywords
                 %b In Category:
                 %ul
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
-                  %li
-                    %a{:href => "#"}> Category
-                    ,
+                  - @project.categories.each do |category|
+                    %li
+                      = link_to @category.name, category
               / /Category
               .keywords
                 %b Keywords:
