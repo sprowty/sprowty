@@ -13,11 +13,11 @@ Sprowty::Application.routes.draw do
   match '/buycoins' => 'payments#new', :as => :buy_coins
 
   resources :projects do
+    get :inside
     collection do
       get :dashboard
     end
   end
-
   match '/approve_work/:id' => 'works#approve', :as => 'approve_work'
   match '/approve_profile/:id' => 'profiles#approve', :as => 'approve_profile'
 

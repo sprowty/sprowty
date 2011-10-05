@@ -1,0 +1,10 @@
+%ul
+  - project.project_alerts.each do |message|
+    .posttwo
+      .pic
+        = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+        .info
+          = project.user.username
+          = project.title
+          = message.message
+          = message_icon_for(message.message)

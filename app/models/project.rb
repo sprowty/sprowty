@@ -1,31 +1,35 @@
 class Project < ActiveRecord::Base
   belongs_to :user
   has_many :bids
-
-  has_many :project_messages
-  has_many :messages, :through => :project_messages
+  has_many :project_alerts
+  has_many :categories
 
   validates_presence_of :title, :description, :price, :tags, :city, :state
 
-  state_machine :sm_state, :initial => :unprocessed do
+  state_machine :sm_state, :initial => :pending_post do
     event :post do
-      transition :unprocessed => :pending_approval
+      transition :pending_post => :posted
+      # waiting for bids
     end
 
-    event :approved do
-      transition :pending_approval => :posted
-    end
-
-    event :reject do
-      transition :pending_approval => :rejected
-    end
-
-    event :assigned do
+    event :accept_bid do
       transition :posted => :assigned
     end
 
-    event :work_approved do
-      transition :assigned => :completed
+    event :submit_payment do
+      transition :assigned => :funded
+    end
+
+    event :work_started do
+      transition :funded => :work_in_progress
+    end
+
+    event :work_completed do
+      transition :work_in_progress => :work_completed
+    end
+
+    event :post_issue do
+      transition :work_completed => :work_in_progress
     end
   end
 

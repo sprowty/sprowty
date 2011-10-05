@@ -21,7 +21,7 @@
     .labelholder
       %label Categories:
       %i Choose the categories your job should be listed in
-    = f.select :category, CATEGORIES, {:include_blank => true}
+    = f.select :category, Category.all.map(&:name), {:include_blank => true}
     .clear
     .labelholder
       %label City:

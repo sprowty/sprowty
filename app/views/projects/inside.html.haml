@@ -13,29 +13,6 @@
 / /NEEDDONE
 #container
   #main
-    .rightside
-      .boxheadin
-        %h3 Recent Projects
-      .recentprojects
-        - @projects.each do |project|
-          = link_to project.title, project_url(project.id)
-          %p
-            %b By:
-            = link_to project.user.username, profile_url(project.user)
-            %a#stay-target-1.stay-tooltip-target.tooltip-target
-          #stay-content-1.stay-tooltip-username.tooltip-username
-            %a{:href => "#"} Sample Name
-            %p New York City, New York
-            %ul
-              %li.up 215
-              %li.down 0
-          / /Stay Content 1
-          %p.status
-            %em Status:
-            %i.completed
-              = project.sm_state
-      / /BOX
-    / /RIGHTSIDE
     .content
       .head
         .left
@@ -53,15 +30,8 @@
         %b.right Updated
         .clear
       #inbox
-        %ul
-          - @projects.each do |project|
-            %li
-              = link_to project.id, project_inside_path(project.id)
-              %span
-                = project.title
-              %em
-                = project.updated_at
-      / INBOX
+        = render :partial => 'messages', :locals => {:project => @project}
+        / INBOX
       / PAGINATION
       #paginationholder
         .pagination
@@ -85,3 +55,4 @@
   / /MAIN
   .clear
 / /CONTAINER
+
