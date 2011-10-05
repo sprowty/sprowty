@@ -184,7 +184,7 @@ ul.loggedin li a:hover, ul.loggedin li a.active {text-decoration: underline}
 /* --Logged In-- */
 
 /* --User LogIn-- */
-ul.userlog {padding-top: 10px;}
+ul.userlog {padding-top: 10px; float: right; padding-right: 6px}
 ul.userlog li {display: inline; float: left; margin-right: 6px; font: 12px Helvetica, Arial, Sans-Serif; color: #894125;border-right: 1px solid #585a05  }
 ul.userlog li a { color: #585a05; margin-right: 8px; }
 ul.userlog li:last-child {margin-right: 0px}
