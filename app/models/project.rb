@@ -2,6 +2,9 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :bids
 
+  has_many :project_messages
+  has_many :messages, :through => :project_messages
+
   validates_presence_of :title, :description, :price, :tags, :city, :state
 
   state_machine :sm_state, :initial => :unprocessed do

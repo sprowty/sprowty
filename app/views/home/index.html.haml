@@ -35,7 +35,7 @@
             %li
               = image_tag 'set-skills.png'
               %p<
-                List what you’re good at, and the jobs will come to you. 
+                List what you’re good at, and the jobs will come to you.
             %li
               = image_tag 'sprowt-around.png'
               %p<
@@ -48,8 +48,8 @@
               = image_tag 'rake-money.png'
               %p<
                 Self-explanatory, we hope!
-          
-        
+
+
       .sprowter-image
         = image_tag 'sprowter-slider.png'
     .clear
@@ -137,7 +137,7 @@
         - @projects.each do |project|
           .post
             .sprowts
-              %span.bold.bid_count= project.bid_count
+              %span.bold.bid_count= project.bids.length
               %p Sprowts
               %p (Bids)
             .pic= link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)

@@ -27,7 +27,7 @@
             %li
               = link_to category, '#'
       / /BOX
-      %img.rooster{:src => "images/icon_rooster.png"}/
+      = image_tag 'icon_rooster.png', :class => 'rooster'
       .twitbox
         #twitter
           %ul#twitter_update_list
@@ -48,7 +48,7 @@
         .posttwo
           .sprowts
             %b
-              = @project.bid_count
+              = @project.bids.length
             %p Sprowts
             %p (Bids)
           .pic
@@ -137,6 +137,7 @@
           .clear
         / /POST
       / /LISTINGS
+      = render :partial => 'inside', :locals => {:project => @project}
     / /CONTENT
   / /MAIN
   .clear

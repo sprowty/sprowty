@@ -1,0 +1,6 @@
+#listings
+  - actions.each do |action|
+    .post
+      .pic= link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+      .info
+        action.message
