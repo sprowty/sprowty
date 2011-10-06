@@ -6,8 +6,8 @@
       %h4 Need Something Done?
     / /LEFT
     .right
-      %form#search{:action => "", :method => "get", :name => "input"}
-        %input.field{:name => "Type What You Need Done Here", :onblur => "if(this.value=='')this.value='Type What You Need Done Here'", :onfocus => "if(this.value=='Type What You Need Done Here')this.value=''", :type => "text", :value => "Type What You Need Done Here"}/
+      = form_tag('/projects/new', :method => :get, :id => 'search') do
+        = text_field_tag "title", nil, :class => 'field', :placeholder => "Type What You Need Done Here"
         %button{:type => "submit"} Plant
     / /RIGHT
 / /NEEDDONE
