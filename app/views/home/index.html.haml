@@ -63,9 +63,9 @@
       %h4 Need Something Done?
     / /LEFT
     .right
-      %form#search{:action => "", :method => "get", :name => "input"}
-        %input#what_you_need_done.field{:name => "what_you_need_done", :placeholder => "Type What You Need Done Here", :type => "text"}/
-        %button#plant_it{:type => "submit"} Plant
+      = form_tag('/projects/new', :method => :get, :id => 'search') do
+        = text_field_tag "title", nil, :class => 'field', :placeholder => "Type What You Need Done Here"
+        %button{:type => "submit"} Plant
     / /RIGHT
 / /NEEDDONE
 #container
@@ -78,7 +78,7 @@
         %button{:type => "submit"} Search
       .clear
       %br/
-      #listings 
+      #listings
         %a
           = link_to image_tag('community.png'), community_path
       .boxhead
@@ -153,7 +153,7 @@
                 %li
                   %b By:
                   = link_to project.user.username, profile_url(project.user)
-              %ul.posted  
+              %ul.posted
                 %li
                   %b Location:
                   = project.city
@@ -162,7 +162,7 @@
               #description
                 .keywords
                   %b In Category:
-                  
+
                 .keywords
                   %b Keywords:
 
