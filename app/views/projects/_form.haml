@@ -27,17 +27,15 @@
       %label City:
     = f.text_field :city, :class => 'city'
     .clear
-    .labeleholder
+    .labelholder
       %label State:
-      %i Choose state
     = f.select :state, STATES, {:include_blank => true}, {:class => 'states'}
     .clear
     .labelholder
       %label Due Date:
-    %p
       %i Select Your Due Date
     = f.date_select :due_date, { :order => [:month, :day, :year], :use_month_numbers => true }, :class => 'date'
-  / RIGHT
+    .clear
   .clear
   = f.submit 'Plant Seed', :class => 'plantseed'
   .clear
