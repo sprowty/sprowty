@@ -55,6 +55,11 @@
                 .clear
           / /SIGN IN
         - else
+          %ul.userlog
+            %li
+              %b Welcome
+            %li= link_to current_user.username, profile_path
+            %li= link_to 'Logout', logout_path
           %ul.loggedin
             %li= link_to 'My Profile', profile_path
             %li= link_to 'Inbox', inbox_path
@@ -62,12 +67,6 @@
               %a{:href => "/projects"} Projects
             %li
               %a{:href => "#"} You're Needed
-          %br/
-          %ul.userlog
-            %li
-              %b Welcome
-            %li= link_to current_user.username, profile_path
-            %li= link_to 'Logout', logout_path
       / /RIGHT
       .clear
     / /HEADER
