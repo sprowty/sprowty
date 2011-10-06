@@ -14,6 +14,7 @@ Sprowty::Application.routes.draw do
 
   resources :projects do
     get :inside
+    get :approve
     collection do
       get :dashboard
     end

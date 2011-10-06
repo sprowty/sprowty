@@ -37,4 +37,10 @@ class ProjectsController < ApplicationController
   def inside
     @project = Project.find(params[:project_id])
   end
+
+  def approve
+    @project = Project.find(params[:project_id])
+    @project.post
+    redirect_to :back
+  end
 end

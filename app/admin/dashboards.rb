@@ -21,7 +21,13 @@ ActiveAdmin::Dashboards.build do
        column(:title) {|project| link_to(project.title, admin_project_path(project)) }
        column(:price)
        column(:due_date)
-       column(:sm_state)
+       column(:sm_state) {|project|
+         if project.sm_state == "pending_post"
+           link_to("APPROVE", project_approve_path(project.id))
+         else
+           project.sm_state
+         end
+       }
      end
    end
 
