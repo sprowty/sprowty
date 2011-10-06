@@ -1162,7 +1162,7 @@ background-image: url('/images/errors3.png');
 #inbox .field {
     color: #422215;
     display: block;
-    font: bold 14px Arial,Helvetica,sans-serif;
+    font: normal 12px Arial,Helvetica,sans-serif;
     padding: 16px 24px 16px 20px;
   }
 #inbox .field {float:left;}

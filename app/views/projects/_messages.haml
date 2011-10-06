@@ -2,11 +2,13 @@
   .row
     .field{:style=>'min-width:10%;'}
       = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
-    .field{:style=>'min-width:50%;'}
+    .field{:style=>'min-width:50%; padding-top: 23px; font-weight:bold; font-size: 14px'}
       = project.user.username
-    .field{:style=>'min-width:10%;'}
+      %br/
+    .field{:style=>'min-width:10%; margin-top: -30px'}
       = project.title
       = message.message
       = message.occurred.strftime("%b %d, %Y")
+    .field{:style=>'min-width:5%; margin-top: -46px; float: right;'} 
       = message_icon_for(message.message)
   .clear
