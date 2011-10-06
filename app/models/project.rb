@@ -8,7 +8,8 @@ class Project < ActiveRecord::Base
 
   state_machine :sm_state, :initial => :pending_post do
     event :post do transition :pending_post => :posted end
-    event :post_bid do transition :posted => :bid_received end
+    event :waiting_for_bids do transition :posted => :waiting_for_bids end
+    event :post_bid do transition :waiting_for_bids => :bid_received end
     event :accept_bid do transition :bid_received => :assigned end
     event :submit_payment do transition :assigned => :funded end
     event :work_started do transition :funded => :work_in_progress end
