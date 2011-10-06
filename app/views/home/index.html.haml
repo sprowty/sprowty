@@ -121,7 +121,6 @@
             %a{:href => "#"} Other
       / /BOX
     / /RIGHTSIDE
-    = javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5'
     .content
       .head
         .left
@@ -160,6 +159,13 @@
                   = project.city
                   , #{project.state}
               / /Posted
+              #description
+                .keywords
+                  %b In Category:
+                  
+                .keywords
+                  %b Keywords:
+
               %p
                 = project.description.truncate(30)
                 = link_to 'Read More', project, :class => 'readmore'
