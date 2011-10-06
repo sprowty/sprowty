@@ -123,7 +123,7 @@
     / /RIGHTSIDE
     .content
       .head
-        .left
+        .left{:style=>'padding-top: 11px;'}
           %h2 All Jobs
         / /LEFT
         .right
@@ -152,7 +152,7 @@
                   = project.due_date.strftime("%m/%d/%Y")
                 %li
                   %b By:
-                  %a#stay-target-11.stay-tooltip-target.tooltip-target= project.user.username
+                  = link_to project.user.username, profile_url(project.user)
               %ul.posted  
                 %li
                   %b Location:
