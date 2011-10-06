@@ -1,10 +1,12 @@
 - project.project_alerts.each do |message|
-  %li
-    .posttwo
-      .pic
-        = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
-        .info
-          = project.user.username
-          = project.title
-          = message.message
-          = message_icon_for(message.message)
+  .row
+    .field{:style=>'min-width:10%;'}
+      = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+    .field{:style=>'min-width:50%;'}
+      = project.user.username
+    .field{:style=>'min-width:10%;'}
+      = project.title
+      = message.message
+      = message.occurred.strftime("%b %d, %Y")
+      = message_icon_for(message.message)
+  .clear

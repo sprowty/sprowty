@@ -17,7 +17,7 @@ ActiveAdmin::Dashboards.build do
  end
 
   section "Recent Projects", :priority => 1 do
-     table_for Project.order('id desc').limit(5).each do |project|
+     table_for Project.order('id desc').each do |project|
        column(:title) {|project| link_to(project.title, admin_project_path(project)) }
        column(:price)
        column(:due_date)
