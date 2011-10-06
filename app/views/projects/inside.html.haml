@@ -4,35 +4,28 @@
   .holder
     .left
       %h4 Need Something Done?
-    / /LEFT
     .right
       = form_tag('/projects/new', :method => :get, :id => 'search') do
         = text_field_tag "title", nil, :class => 'field', :placeholder => "Type What You Need Done Here"
         %button{:type => "submit"} Plant
-    / /RIGHT
-/ /NEEDDONE
 #container
   #main
     .content
       .head
         .left
           %h5 Projects
-        / /LEFT
         .right
           %ul.big
             %li= link_to('All', projects_url, :class => "active")
             %li= link_to 'Open', projects_url(:filter => 'open')
             %li= link_to 'Completed', projects_url(:filter => 'completed')
-        / /RIGHT
-      / /HEAD
       #inboxhead
         %b.left Order #
         %b.right Updated
         .clear
       #inbox
-        = render :partial => 'messages', :locals => {:project => @project}
-        / INBOX
-      / PAGINATION
+        %ul
+          = render :partial => 'messages', :locals => {:project => @project}
       #paginationholder
         .pagination
           %ol.wp-paginate
@@ -50,9 +43,4 @@
               %a.page{:href => "#", :title => "4"} 4
             %li
               %a.next{:href => "#"} ››
-      / /PAGINATION
-    / /CONTENT
-  / /MAIN
   .clear
-/ /CONTAINER
-

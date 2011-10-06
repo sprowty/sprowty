@@ -1151,3 +1151,12 @@ color: #D8000C;
 background-color: #FFBABA;
 background-image: url('/images/errors3.png');
 }
+
+#inbox .row {width:100%; background: url("/images/linebg.gif") repeat-x scroll 0 0 transparent;}
+#inbox .field {
+    color: #422215;
+    display: block;
+    font: bold 14px Arial,Helvetica,sans-serif;
+    padding: 16px 24px 16px 20px;
+  }
+#inbox .field {float:left;}
