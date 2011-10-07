@@ -44,15 +44,16 @@
         %b.right Updated
         .clear
       #inbox
-        - @projects.each do |project|
-          .row
-            .field{:style=>'min-width:10%;'}
-              = link_to project.id, project_inside_path(project.id)
-            .field{:style=>'min-width:50%;'}
-              = project.title
-            .field{:style=>'min-width:10%;'}
-              = project.updated_at.strftime("%b %d, %Y")
-          .clear
+        .post{:style=>'border-bottom: 1px solid #D6BF9E;'}
+          - @projects.each do |project|
+            .row
+              .field{:style=>'min-width:10%;'}
+                = link_to project.id, project_inside_path(project.id)
+              .field{:style=>'min-width:50%;'}
+                = project.title
+              .field{:style=>'min-width:10%;'}
+                = project.updated_at.strftime("%b %d, %Y")
+            .clear
       #paginationholder
         .pagination
           %ol.wp-paginate

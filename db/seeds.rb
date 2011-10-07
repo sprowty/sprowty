@@ -28,6 +28,13 @@ User.all.each do |x|
                   :due_date => DateTime.now()+2.months})
 end
 
+# post every other project (lets have some variety eh?)
+%w(1 3 5 7 9).each do |x|
+  p "...posting project #{x}"
+  p = Project.find(x)
+  p.post
+end
+
 # bids
 
 # keywords
