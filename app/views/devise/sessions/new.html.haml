@@ -9,11 +9,12 @@
       .errors
         %p= alert
     #signupcontainer
-      .left
-        %h2 Sign in
+      .left{:style => "width: 400px;"}
         = semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-          %p= f.text_field :email,   :class    => 'field clearField', :value => 'E-mail'
-          %p= f.password_field :password, :class => 'field clearField', :value => 'Password'
+          %h2 E-mail 
+          %p= f.text_field :email,   :class    => 'field clearField'
+          %h2 Password
+          %p= f.password_field :password, :class => 'field clearField'
           - if devise_mapping.rememberable?
             %p
               = f.check_box :remember_me
