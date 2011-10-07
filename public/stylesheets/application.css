@@ -480,9 +480,9 @@ margin-top: -40px
 /* ----------/BOXES------------*/
 
 #community {
-
-
-
+	
+	
+	
 }
 
 
@@ -1160,8 +1160,7 @@ background-color: #FFBABA;
 background-image: url('/images/errors3.png');
 }
 
-#inbox .row {width:100%; background: url("/images/linebg.gif") repeat-x scroll 0 0 transparent;float:left;}
-
+#inbox .row {width:100%; background: url("/images/linebg.gif") repeat-x scroll 0 0 transparent;}
 #inbox .field {
     color: #422215;
     display: block;
