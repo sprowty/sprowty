@@ -9,7 +9,8 @@
       .field{:style=>'min-width:10%; margin-top: -30px'}
         = project.title
         = message.message
-        = message.occurred.strftime("%b %d, %Y")
       .field{:style=>'min-width:5%; margin-top: -46px; float: right;'}
         = message_icon_for(message.message)
+        %div{:style=>'float:left;margin-top:35px;margin-left:-367px;'}
+          = message.occurred.strftime("%b %d, %Y - %H:%M")
     .clear
