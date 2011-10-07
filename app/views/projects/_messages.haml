@@ -1,6 +1,6 @@
 - project.project_alerts.each do |message|
   #listings
-    .post{:style=>'min-width:97%;'}
+    .post{:style=>'min-width:97%; border-bottom: 1px solid #D6BF9E;'}
       .field{:style=>'min-width:10%;'}
         = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
       .field{:style=>'min-width:50%; padding-top: 23px; font-weight:bold; font-size: 14px'}
@@ -10,6 +10,6 @@
         = project.title
         = message.message
         = message.occurred.strftime("%b %d, %Y")
-      .field{:style=>'min-width:5%; margin-top: -46px; float: right;'} 
+      .field{:style=>'min-width:5%; margin-top: -46px; float: right;'}
         = message_icon_for(message.message)
     .clear
