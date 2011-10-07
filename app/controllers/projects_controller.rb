@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
 
   def inside
     @project = Project.find(params[:project_id])
+    @project_alerts = @project.project_alerts.paginate(:page => params[:page], :per_page => 6, :order => 'created_at ASC')
   end
 
   def approve

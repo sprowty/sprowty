@@ -10,37 +10,44 @@
         %button{:type => "submit"} Plant
 #container
   #main
-    .content
-      .head
-        .left
-          %h5 Projects
-        .right
-          %ul.big
-            %li= link_to('All', projects_url, :class => "active")
-            %li= link_to 'Open', projects_url(:filter => 'open')
-            %li= link_to 'Completed', projects_url(:filter => 'completed')
-      #inboxhead
-        %b.left Order #
-        %b.right Updated
-        .clear
-      #inbox
-        %ul
-          = render :partial => 'messages', :locals => {:project => @project}
-      #paginationholder
-        .pagination
-          %ol.wp-paginate
-            %li
-              %span.title
-            %li
-              %a.prev{:href => "#"} ‹‹
-            %li
-              %span.currentpage 1
-            %li
-              %a.page{:href => "#", :title => "2"} 2
-            %li
-              %a.page{:href => "#", :title => "3"} 3
-            %li
-              %a.page{:href => "#", :title => "4"} 4
-            %li
-              %a.next{:href => "#"} ››
+    .rightside
+      .boxheadin
+        %h3 Report a Problem
+      .box
+        = image_tag 'icon_report.png', :style => 'float: left;margin-right:10px;'
+        = link_to 'Report a problem', '#'
+    .leftside
+      .content
+        .head
+          .left
+            %h5 Projects
+          .right
+            %ul.big
+              %li= link_to('All', projects_url, :class => "active")
+              %li= link_to 'Open', projects_url(:filter => 'open')
+              %li= link_to 'Completed', projects_url(:filter => 'completed')
+        #inboxhead
+          %b.left Order #
+          %b.right Updated
+          .clear
+        #inbox
+          %ul
+            = render :partial => 'messages', :locals => {:project => @project}
+        #paginationholder
+          .pagination
+            %ol.wp-paginate
+              %li
+                %span.title
+              %li
+                %a.prev{:href => "#"} ‹‹
+              %li
+                %span.currentpage 1
+              %li
+                %a.page{:href => "#", :title => "2"} 2
+              %li
+                %a.page{:href => "#", :title => "3"} 3
+              %li
+                %a.page{:href => "#", :title => "4"} 4
+              %li
+                %a.next{:href => "#"} ››
   .clear
