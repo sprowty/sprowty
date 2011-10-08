@@ -12,7 +12,7 @@ ActiveAdmin::Dashboards.build do
 
  section "Recent Works" do
    Work.all.each do |work|
-     link_to work.work, work_path(work)
+     #link_to work.work, work_path(work)
    end
  end
 
