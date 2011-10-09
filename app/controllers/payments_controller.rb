@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_filter :authenticate_user!
   respond_to :html, :json
 
   include ActiveMerchant::Billing::Integrations

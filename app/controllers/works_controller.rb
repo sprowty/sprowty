@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  before_filter :require_user
 
   def create
     @work = current_user.works.new(params[:work])

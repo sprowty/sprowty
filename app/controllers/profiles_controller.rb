@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_filter :require_user, :only => [:edit, :update, :destroy]
 
   def index
     @profile  = current_user.profile

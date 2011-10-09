@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :require_user
+
   respond_to :html, :js
 
   def index
