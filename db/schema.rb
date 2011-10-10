@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009160656) do
+ActiveRecord::Schema.define(:version => 20111009235939) do
+
+  create_table "accounts", :force => true do |t|
+    t.integer "user_id"
+    t.decimal "balance",                  :precision => 10, :scale => 0
+    t.decimal "available_funds",          :precision => 10, :scale => 0
+    t.decimal "withdrawn_funds",          :precision => 10, :scale => 0
+    t.decimal "funds_awaiting_clearance", :precision => 10, :scale => 0
+    t.decimal "revenue_purchases",        :precision => 10, :scale => 0
+    t.decimal "incoming_payments",        :precision => 10, :scale => 0
+    t.decimal "money_spent",              :precision => 10, :scale => 0
+  end
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -137,6 +148,14 @@ ActiveRecord::Schema.define(:version => 20111009160656) do
   create_table "skills", :force => true do |t|
     t.integer  "user_id"
     t.string   "skill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "account_id"
+    t.decimal  "amount",           :precision => 10, :scale => 0
+    t.integer  "reference_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

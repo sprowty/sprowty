@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :works
   has_one :resume
   has_many :payments
+  has_one :account
 
   has_many :user_messages
   has_many :messages, :through => :user_messages
@@ -18,14 +19,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :terms
   after_create :create_profile
+  after_create :setup_account
 
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_acceptance_of :terms
-
-  def create_profile
-    self.build_profile.save
-  end
 
   def self.find_by_id_or_username(param)
     where("id = ? or username = ?", param, param).first
@@ -68,4 +66,15 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  private
+
+  def create_profile
+    self.build_profile.save
+  end
+
+  def setup_account
+    create_account
+  end
+
 end
