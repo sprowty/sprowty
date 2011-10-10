@@ -38,4 +38,9 @@ Sprowty::Application.routes.draw do
   match "/community"     => 'community#index'
   match '/community_project/:id' => 'community#show', :as => :community_project
   match '/community_overview' => 'community#overview', :as => :community_overview
+  match '/contact'       => 'home#contact'
+  match '/terms'         => 'home#terms'
+  match '/how_to'        => 'home#how_to'
+  match '/faq'           => 'home#faq'
+  match '/blog'          => 'home#blog'
 end
