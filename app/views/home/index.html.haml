@@ -78,8 +78,10 @@
         %button{:type => "submit"} Search
       .clear
       %br/
-      = link_to image_tag('community.png'), community_path
-      .boxhead
+      #listings
+        .post
+          = link_to image_tag('community.png'), community_path
+      .boxhead{:style => 'margin-top: 100px'}
         %h3 Categories
       .box
         %ul.categories
@@ -120,11 +122,11 @@
       / /BOX
     / /RIGHTSIDE
     .content
-      .head
+      .head{:style=>'width: 634px;'}
         .left{:style=>'padding-top: 11px;'}
           %h2 All Jobs
         / /LEFT
-        .right
+        .right{:style=>'width: 425px;'}
           %ul
             %li.sort
               %b Filter By:
