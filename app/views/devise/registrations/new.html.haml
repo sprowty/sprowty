@@ -20,7 +20,10 @@
           %p= f.text_field :password_confirmation,  :class => 'fieldlast clearField'
       / LEFT
       .right
-        %img.recaptcha{:src => "/images/dummy_recaptcha.gif"}/
+        .member
+          Already have an account?
+          %br/
+          %a{:href => "#"} Log In
         .radio
           %input{:name => "data[Submit][question]", :type => "radio"}/
           %p

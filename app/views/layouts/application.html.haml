@@ -41,8 +41,8 @@
             #topnav.topnav
               %a.signin{:href => "login"}
                 %span Sign in
-            %a#sign_up{:href => new_user_registration_path}
-              %img{:src => "/images/sign_up_header.png"}/
+            %a.sign_up{:href => new_user_registration_path}
+              %img{:src => "/images/sign_up_header.png"}
             %fieldset#signin_menu
               = semantic_form_for "user", :url => user_session_path do |f|
                 %ul

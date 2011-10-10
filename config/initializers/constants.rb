@@ -5,6 +5,7 @@ SKILLS = [".NET", "3d","3d Modelling", "3ds Max", "ABAP", "Academic Writing", "A
 
 COIN_OPTIONS = %w(5 10 20 50 100)
 
+
 STATES = [
     [ "Alabama", "AL" ],
     [ "Alaska", "AK" ],
