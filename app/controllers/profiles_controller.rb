@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
     @skills   = current_user.skills
     @works    = current_user.works
     @projects = current_user.projects.where(:approved => true)
+    @account  = current_user.account
   end
 
   def new
@@ -24,7 +25,6 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user.profile
-
   end
 
   def update

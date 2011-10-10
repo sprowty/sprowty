@@ -89,43 +89,50 @@
         / /PLANTBUY
         .mybalance
           %h2 My Balance:
-          %h3 $50.00
+          %h3
+            = @account.balance ||= "$0.00"
           .clear
           .column
             %b
               Available:
-              %em $0.00
+              %em
+                = @account.available_funds ||= "$0.00"
             %p Cleared funds available for Withdrawal or Purchasing
           / /COLUMN
           .column
             %b
               Awaiting Clearance:
-              %em $0.00
+              %em
+                = @account.funds_awaiting_clearance ||= "$0.00"
             %p Incoming payments that are not yet available for withdrawal
           / /COLUMN
           .columnlast
             %b
               Incoming Payments:
-              %em $0.00
+              %em
+                = @account.incoming_payments ||= "$0.00"
             %p Expected revenue from active orders
           / /COLUMN LAST
           .column
             %b
               Already Withdrawn:
-              %em $0.00
+              %em
+                = @account.withdrawn_funds ||= "$0.00"
             %p Funds you transferred to your PayPal account
           / /COLUMN
           .column
             %b
               Revenue Purchases:
-              %em $0.00
+              %em
+                = @account.revenue_purchases ||= "$0.00"
             %p Revenues used to pay for other jobs
           / /COLUMN
           .columnlast
             %b
               Money Spent:
-              %em $0.00
-            %p Total money you’ve spent buying services 
+              %em
+                = @account.money_spent ||= "$0.00"
+            %p Total money you’ve spent buying services
           / /COLUMN LAST
           %a.withdraw{:href => "#"} Sprowt It
           .clear
@@ -151,7 +158,7 @@
                 %a{:href => "#"} Username
               .clear
               %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
-            
+
           / /HOLDER
           .clear
         / /FEEDBACK
@@ -174,7 +181,7 @@
               %li
                 %a{:href => "#"} I need a flyer for a club I am promoting
               %i due 03/11/2011
-            
+
           .column
             .infohead
               %b Working On:
@@ -183,7 +190,7 @@
               %li
                 %a{:href => "#"} I need a flyer for a club I am promoting
               %i due 03/11/2011
-            
+
         / /COLHOLDER
       / /PROFILE
     / /CONTENT
