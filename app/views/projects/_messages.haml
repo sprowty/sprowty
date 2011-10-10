@@ -2,15 +2,18 @@
   #listings
     .post{:style=>'min-width:97%; border-bottom: 1px solid #D6BF9E;'}
       .field{:style=>'min-width:10%;'}
-        = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+        = link_to image_tag(project.user.profile.picture.url(:thumb), :size => "75x75"), profile_path(project.user)
       .field{:style=>'min-width:50%; padding-top: 23px; font-weight:bold; font-size: 14px'}
         = project.user.username
         %br/
-      .field{:style=>'min-width:10%; margin-top: -30px'}
+      .field{:style=>'min-width:10%; margin-top: -30px;'}
         = project.title
-        = message.message
-      .field{:style=>'min-width:5%; margin-top: -46px; float: right;'}
+        %TABLE{:BGCOLOR => "#FFF", :BORDER => "0", :CELLPADDING => "2", :CELLSPACING => "30", :WIDTH => "350"}
+          %TR
+            %TD
+              = message.message
+      .field{:style=>'min-width:5%; float: right;'}
         = message_icon_for(message.message)
-        %div{:style=>'float:left;margin-top:35px;margin-left:-367px;'}
-          = message.occurred.strftime("%b %d, %Y - %H:%M")
+      .field{:style=>'float:left;margin-top:60px;margin-left:-367px;'}
+        = message.occurred.strftime("%b %d, %Y - %H:%M")
     .clear
