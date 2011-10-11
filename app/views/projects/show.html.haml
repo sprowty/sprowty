@@ -1,15 +1,4 @@
-#subhead
-#needdone
-  .holder
-    .left
-      %h4 Need Something Done?
-    / /LEFT
-    .right
-      %form#search{:action => "", :method => "get", :name => "input"}
-        %input.field{:name => "Type What You Need Done Here", :onblur => "if(this.value=='')this.value='Type What You Need Done Here'", :onfocus => "if(this.value=='Type What You Need Done Here')this.value=''", :type => "text", :value => "Type What You Need Done Here"}/
-        %button{:type => "submit"} Plant
-    / /RIGHT
-/ /NEEDDONE
+= render :partial => 'plant'
 #container
   #main
     .rightside
@@ -19,13 +8,7 @@
         %input{:name => "Search", :onblur => "if(this.value=='')this.value='Search'", :onfocus => "if(this.value=='Search')this.value=''", :type => "text", :value => "Search"}/
         %button{:type => "submit"} Search
       .clear
-      .boxhead
-        %h3 Categories
-      .box
-        %ul.categories
-          - Category.all.each do |category|
-            %li
-              = link_to category.name, '#'
+      = render :partial => 'shared/categories'
       / /BOX
       = image_tag 'icon_rooster.png', :class => 'rooster'
       .twitbox
@@ -61,7 +44,7 @@
                 = @project.due_date.strftime("%m/%d/%Y")
               %li
                 %b By:
-                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.username, profile_path(@project.user) 
+                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.username, profile_path(@project.user)
             %ul.posted
               %li
                 %b Location:

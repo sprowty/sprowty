@@ -28,48 +28,7 @@
 
   %body
     #topbar
-    / /Topbar
-    #header
-      .left
-        .logo
-          %h1= link_to 'sprowty', root_path
-      / /LEFT
-      .right
-        - unless current_user
-          / SIGN IN
-          #logincontainer
-            #topnav.topnav
-              %a.signin{:href => "login"}
-                %span Sign in
-            %a.sign_up{:href => new_user_registration_path}
-              %img{:src => "/images/sign_up_header.png"}
-            %fieldset#signin_menu
-              = semantic_form_for "user", :url => user_session_path do |f|
-                %ul
-                  = f.input :email, :as => :string
-                  = f.input :password, :as => :password
-                %p
-                  = f.check_box :remember_me
-                  = f.label :remember_me
-                = f.submit 'Sign in', :style => 'float:right;'
-                .clear
-          / /SIGN IN
-        - else
-          %ul.userlog
-            %li
-              %b Welcome
-            %li= link_to current_user.username, profile_path
-            %li= link_to 'Logout', logout_path
-          %ul.loggedin
-            %li= link_to 'My Profile', profile_path
-            %li= link_to 'Inbox', inbox_path
-            %li
-              %a{:href => "/projects"} Projects
-            %li
-              %a{:href => "#"} You're Needed
-      / /RIGHT
-      .clear
-    / /HEADER
+    = render :partial => 'layouts/nav'
     = yield
     #sign_up_container{:style => "display: none;"}
       = render "shared/sign_up"
@@ -77,9 +36,6 @@
       .holder
         %a{:href => "#top"}/
         %h3 Back to Top
-      / /HOLDER
-    / /FOOTER
-    / Sign In
     :javascript
       $(function(){
 

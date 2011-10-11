@@ -1,35 +1,8 @@
 - content_for :keywords, @tags
-#subhead
-#needdone
-  .holder
-    .left
-      %h4 Need Something Done?
-    .right
-      = form_tag('/projects/new', :method => :get, :id => 'search') do
-        = text_field_tag "title", nil, :class => 'field', :placeholder => "Type What You Need Done Here"
-        %button{:type => "submit"} Plant
+= render :partial => 'plant'
 #container
   #main
-    .rightside
-      .boxheadin
-        %h3 Recent Projects
-      .recentprojects
-        - @projects.each do |project|
-          = link_to project.title, project_url(project.id)
-          %p
-            %b By:
-            = link_to project.user.username, profile_url(project.user)
-            %a#stay-target-1.stay-tooltip-target.tooltip-target
-          #stay-content-1.stay-tooltip-username.tooltip-username
-            %a{:href => "#"} Sample Name
-            %p New York City, New York
-            %ul
-              %li.up 215
-              %li.down 0
-          %p.status
-            %em Status:
-            %i.completed
-              = project.sm_state
+    = render :partial => 'recent_projects'
     .content
       .head
         .left
