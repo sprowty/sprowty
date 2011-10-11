@@ -1,0 +1,7 @@
+.boxhead
+  %h3 Categories
+.box
+  %ul.categories
+    - Category.all.each do |category|
+      %li
+        = link_to category.name, '#'

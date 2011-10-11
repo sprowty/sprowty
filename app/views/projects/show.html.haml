@@ -8,13 +8,7 @@
         %input{:name => "Search", :onblur => "if(this.value=='')this.value='Search'", :onfocus => "if(this.value=='Search')this.value=''", :type => "text", :value => "Search"}/
         %button{:type => "submit"} Search
       .clear
-      .boxhead
-        %h3 Categories
-      .box
-        %ul.categories
-          - Category.all.each do |category|
-            %li
-              = link_to category.name, '#'
+      = render :partial => 'shared/categories'
       / /BOX
       = image_tag 'icon_rooster.png', :class => 'rooster'
       .twitbox
