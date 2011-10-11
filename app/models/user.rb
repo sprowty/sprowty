@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :messages, :through => :user_messages
 
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  # :token_authenticatable, :encryptable, :lockable, :timeoutable, :confirmable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :omniauthable, :trackable, :validatable
 
