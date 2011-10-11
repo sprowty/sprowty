@@ -1,15 +1,4 @@
-#subhead
-#needdone
-  .holder
-    .left
-      %h4 Need Something Done?
-    / /LEFT
-    .right
-      %form#search{:action => "", :method => "get", :name => "input"}
-        %input.field{:name => "Type What You Need Done Here", :onblur => "if(this.value=='')this.value='Type What You Need Done Here'", :onfocus => "if(this.value=='Type What You Need Done Here')this.value=''", :type => "text", :value => "Type What You Need Done Here"}/
-        %button{:type => "submit"} Plant
-    / /RIGHT
-/ /NEEDDONE
+= render :partial => 'plant'
 #container
   #main
     .rightside
@@ -61,7 +50,7 @@
                 = @project.due_date.strftime("%m/%d/%Y")
               %li
                 %b By:
-                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.username, profile_path(@project.user) 
+                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.username, profile_path(@project.user)
             %ul.posted
               %li
                 %b Location:
