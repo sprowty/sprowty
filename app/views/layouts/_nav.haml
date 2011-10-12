@@ -8,8 +8,8 @@
         #topnav.topnav
           %a.signin{:href => "login"}
             %span Sign in
-          %a.signin{:href => new_user_registration_path}
-            %span Sign up
+          %a.signup{:style => "margin-left: 110px; margin-top: -32px", :href => new_user_registration_path}
+            %span{:style => "margin-right: 17px"} sign up
         %fieldset#signin_menu
           = semantic_form_for "user", :url => user_session_path do |f|
             %ul

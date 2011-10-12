@@ -109,6 +109,19 @@ display: block;
 text-transform: lowercase;
 }
 
+#topnav a.signup {
+background:#88bbd4;
+width: 91px;
+height: 25px;
+text-decoration:none;
+font: bold 16px Helvetica, Arial, Sans-Serif;
+color:#412214;
+background:transparent url("/images/sign.png") no-repeat top left;
+display: block;
+text-transform: lowercase;
+}
+
+
 #topnav a.signin:hover {*padding:10px;}
 #topnav a.signin:hover, #topnav a.menu-open { background:transparent url("/images/signin.png") no-repeat bottom left;}
 a.signin, #topnav a.menu-open { position:relative; margin-left:3px; padding: 7px 0 0 9px ;}
@@ -116,10 +129,8 @@ a.signin, #topnav a.menu-open { position:relative; margin-left:3px; padding: 7px
 #small_signup { display:inline; float:none; line-height:23px; margin:25px 0 0; width:170px;}
 
 #topnav a.signup:hover {*padding:10px;}
-#topnav a.signup:hover { background:transparent url("/images/signin.png") no-repeat bottom left;}
-a.signin, #topnav a.menu-open { position:relative; margin-left:3px; padding: 7px 0 0 9px ;}
-#topnav a.menu-open { outline:none;}
-#small_signup { display:inline; float:none; line-height:23px; margin:25px 0 0; width:170px;}
+#topnav a.signup:hover { background:transparent url("/images/sign.png") no-repeat bottom left;}
+a.signup { padding: 7px 0 0 9px ;}
 
 
 #signin_menu {
