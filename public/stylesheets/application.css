@@ -115,6 +115,13 @@ a.signin, #topnav a.menu-open { position:relative; margin-left:3px; padding: 7px
 #topnav a.menu-open { outline:none;}
 #small_signup { display:inline; float:none; line-height:23px; margin:25px 0 0; width:170px;}
 
+#topnav a.signup:hover {*padding:10px;}
+#topnav a.signup:hover { background:transparent url("/images/signin.png") no-repeat bottom left;}
+a.signin, #topnav a.menu-open { position:relative; margin-left:3px; padding: 7px 0 0 9px ;}
+#topnav a.menu-open { outline:none;}
+#small_signup { display:inline; float:none; line-height:23px; margin:25px 0 0; width:170px;}
+
+
 #signin_menu {
 -moz-border-radius-topleft:5px;
 -moz-border-radius-bottomleft:5px;
