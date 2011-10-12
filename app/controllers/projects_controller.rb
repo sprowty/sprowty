@@ -46,4 +46,7 @@ class ProjectsController < ApplicationController
     @project.post
     redirect_to :back
   end
+
+  def cancel
+  end
 end

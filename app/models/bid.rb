@@ -15,6 +15,6 @@ class Bid < ActiveRecord::Base
   end
 
   def perform_project_actions
-    ProjectAlert.create(:project_id => project.id, :message => why, :alert_type => 'bid', :occurred => DateTime.now)
+    ProjectAlert.create(:project_id => project.id, :message => why, :alert_type => 'bid', :occurred => DateTime.now, :bid_id => id)
   end
 end
