@@ -25,27 +25,8 @@
       .clear
       .boxhead
         %h3 Categories
-      .box
-        %ul.categories
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-          %li
-            %a{:href => "#"} Sample Link
-      / /BOX
-      = image_tag "icon_rooster.png", :class => 'rooster'
-      .twitbox
-        #twitter
-          %ul#twitter_update_list
-            %li
-        %span.quote
-      / /TWITBOX
-      .follow
-        %h2
-          %a{:href => "http://twitter.com/#!/sprowty", :target => "_blank"} @sprowty
+      
+      
     / /RIGHTSIDE
     = javascript_include_tag 'http://www.twitter.com/javascripts/blogger.js', 'http://twitter.com/statuses/user_timeline/sprowty.json?callback=twitterCallback2&amp;count=5'
     .content

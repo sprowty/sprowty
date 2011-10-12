@@ -955,7 +955,7 @@ border-radius: 18px;
 font: 14px Georgia, Serif;
 margin: 0px 2px;
 -webkit-box-shadow: 1px 1px 1px #fff;
--moz-box-shadow: 1px 1px 1px #fff;
+-moz-box-shadow: 1px 1px -1px #fff;
 box-shadow: 1px 1px 1px #fff;
 color:#fff;
 padding: 4px 11px 8px;}
