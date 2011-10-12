@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009235939) do
+ActiveRecord::Schema.define(:version => 20111012113907) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20111009235939) do
     t.datetime "occurred"
     t.integer  "project_id"
     t.string   "alert_type"
+    t.integer  "bid_id"
   end
 
   create_table "projects", :force => true do |t|

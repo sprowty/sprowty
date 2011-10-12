@@ -1,16 +1,46 @@
 - project.project_alerts.each do |message|
   #listings
-    .post{:style=>'min-width:97%; border-bottom: 1px solid #D6BF9E;'}
-      .field{:style=>'min-width:10%;'}
-        = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
-      .field{:style=>'min-width:50%; padding-top: 23px; font-weight:bold; font-size: 14px'}
-        = project.user.username
-        %br/
-      .field{:style=>'min-width:10%; margin-top: -30px'}
-        = project.title
-        = message.message
-      .field{:style=>'min-width:5%; margin-top: -46px; float: right;'}
-        = message_icon_for(message.message)
-        %div{:style=>'float:left;margin-top:35px;margin-left:-367px;'}
-          = message.occurred.strftime("%b %d, %Y - %H:%M")
-    .clear
+    - unless message.alert_type == "bid"
+      .post{:style=>'min-width:97%; border-bottom: 1px solid #D6BF9E;'}
+        .field{:style=>'min-width:10%;'}
+          = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+        .field{:style=>'min-width:50%; padding-top: 23px; font-weight:bold; font-size: 14px'}
+          = project.user.username
+          %br/
+        .field{:style=>'min-width:10%; margin-top: -30px'}
+          = project.title
+          = message.message
+        .field{:style=>'min-width:5%; margin-top: -46px; float: right;'}
+          = message_icon_for(message.message)
+          %div{:style=>'float:left;margin-top:35px;margin-left:-367px;'}
+            = message.occurred.strftime("%b %d, %Y - %H:%M")
+      .clear
+    - else
+      .post{:style=>'min-width:97%; border-bottom: 1px solid #D6BF9E;'}
+        .field{:style=>'min-width:10%;font-style:italic;'}
+          Choose Sprowter
+          %br
+          (Accept Provider)
+        .field{:style => 'float: right;'}
+          = link_to 'Cancel Project', project_cancel_path(project.id)
+        %ul.sprowter{:style => 'margin-top: 40px;clear:both;margin-left:60px;'}
+          %li.left{:style=>'background:none;float:left;'}
+            = link_to image_tag(Bid.find(message.bid_id).user.profile.picture.url(:thumb), :size => '60x60'), profile_path(Bid.find(message.bid_id).user)
+          %li.left{:style=>'background:none;'}
+            = link_to Bid.find(message.bid_id).user.username, profile_path(Bid.find(message.bid_id).user)
+          %li.left{:style=>'background:none;'}
+            = link_to 'Feedback', '#'
+          %li.left{:style=>'background:none;'}
+            = link_to 'Resume', '#'
+
+        %p.text{:style => 'background-color:#fff;padding:10px; border:1px solid #894125; float:left;width:300px;margin-left: 150px;height:100px;overflow:scroll;clear:both;margin-top:-40px;'}
+          = message.message
+        .field{:style=>'min-width:5%; margin-top: -46px; float: right;'}
+          = message_icon_for(message.message)
+        %ul.sprowter{:style => 'margin-top: 10px;clear:both;margin-left:160px;'}
+          %li.left{:style=>'background:none;'}
+            = link_to "Accept", bid_accept_path(message.bid_id)
+          %li.left{:style=>'background:none;'}
+            = link_to "Decline", bid_reject_path(message.bid_id)
+          %li.left{:style=>'background:none;'}
+            = link_to "Counter Offer", bid_counteroffer_path(message.bid_id)

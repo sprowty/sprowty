@@ -4,10 +4,16 @@ Sprowty::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :messages, :projects, :skills, :bids, :works, :keywords
+  resources :messages, :projects, :skills, :works, :keywords
   resource :profile#, :controller => "profiles"
   resource :resume, :controller => "resumes"
   resources :profiles#, :only => :show
+
+  resources :bids do
+    get :accept
+    get :reject
+    get :counteroffer
+  end
 
   resources :payments
   match '/buycoins' => 'payments#new', :as => :buy_coins
@@ -15,6 +21,7 @@ Sprowty::Application.routes.draw do
   resources :projects do
     get :inside
     get :approve
+    get :cancel
     collection do
       get :dashboard
     end

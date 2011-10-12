@@ -22,4 +22,13 @@ class BidsController < ApplicationController
     @project  = Project.find(params[:project])
     @bids     = Bid.where(:project_id => @project.id)
   end
+
+  def accept
+  end
+
+  def reject
+  end
+
+  def counteroffer
+  end
 end
