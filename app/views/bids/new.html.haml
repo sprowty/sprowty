@@ -1,3 +1,5 @@
+= javascript_include_tag 'bids'
+
 !!! Strict
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
@@ -139,43 +141,3 @@
             %label{:for => "never"} Never
             %input#never{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 5.year}/
         = f.submit 'Submit Bid', :class => 'submit'
-      / SUBMITBID
-    %script{:charset => "utf-8", :type => "text/javascript"}
-      $(function() {
-      $('.accept_current_price').click(function(e) {
-      e.preventDefault();
-      var accept_current_price = $("[name='bid[accept_current_price]']");
-      if (accept_current_price.val() == '1') {
-      accept_current_price.val(0);
-      } else {
-      accept_current_price.val(1);
-      }
-      });
-
-      $('.expires li label').click(function() {
-      $('.expires li label').removeClass('active');
-      $(this).addClass('active');
-      });
-
-      $("#bid_submit").click(function(e) {
-      e.preventDefault();
-      $.post("#{bids_path}",
-      $("#new_bid").serialize(),
-      function(json) {
-      console.log(json);
-      if (json.success == 'false') {
-      $.fn.colorbox({
-      html:   json.html,
-      open:   true,
-      iframe: false,
-      width: "50%",
-      height: "650px",
-      innerHeight: "540px"
-      });
-      } else {
-      $('#cboxClose').click();
-      return false;
-      }
-      }, "json");
-      });
-      });

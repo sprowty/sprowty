@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(:version => 20111012113907) do
     t.datetime "occurred"
     t.integer  "project_id"
     t.string   "alert_type"
-    t.integer  "user_id"
     t.integer  "bid_id"
   end
 

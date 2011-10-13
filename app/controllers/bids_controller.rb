@@ -24,6 +24,12 @@ class BidsController < ApplicationController
   end
 
   def accept
+    @bid = Bid.find(params[:bid_id])
+    @project = @bid.project
+    @sprowter = @bid.user
+    @project.accept_bid
+    @project.work_started
+    redirect_to :back
   end
 
   def reject
