@@ -1,3 +1,6 @@
+- if alert
+  .errors
+    %p= alert
 #signupcontainer{:style => "height: 400px"}
   = form_for(:user, :url => registration_path('user')) do |f|
     .left

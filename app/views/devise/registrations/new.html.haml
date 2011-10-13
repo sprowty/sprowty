@@ -6,6 +6,9 @@
     / /LEFT
 #container
   #main
+    - if alert
+      .errors
+        %p= alert
     #signupcontainer{:style => "background-color: #FFF; height: 400px;"}
       .left
         = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
@@ -32,21 +35,3 @@
         = f.submit 'Create Account', :class => 'create'
       / RIGHT
     / SIGNUPCONTAINER
-#botlinks
-  .left
-    %ul
-      %li
-        %a{:href => "#"} Contact Us
-      %li
-        %a{:href => "#"} Terms Of Service
-      %li
-        %a{:href => "#"} How To
-      %li
-        %a{:href => "#"} FAQ
-      %li
-        %a{:href => "#"} Blog
-  / /LEFT
-  .right
-    %h4 Sprowty
-    %b All Rights Reserved, 2010
-/ /BOTLINKS

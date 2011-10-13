@@ -13,25 +13,7 @@
         = semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
           = devise_error_messages!
           %p
-            %h2 Please enter your E-mail, and we will send you reset instructions
+            %h2 Please enter your E-mail
             = f.text_field :email, :class => "field clearField"
           %p= f.submit "Send me reset password instructions"
         = render :partial => "devise/shared/links"
-#botlinks
-  .left
-    %ul
-      %li
-        %a{:href => "#"} Contact Us
-      %li
-        %a{:href => "#"} Terms Of Service
-      %li
-        %a{:href => "#"} How To
-      %li
-        %a{:href => "#"} FAQ
-      %li
-        %a{:href => "#"} Blog
-  / /LEFT
-  .right
-    %h4 Sprowty
-    %b All Rights Reserved, 2011
-/ /BOTLINKS
