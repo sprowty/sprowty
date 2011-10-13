@@ -4,10 +4,8 @@ Sprowty::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :messages, :projects, :skills, :works, :keywords
-  resource :profile#, :controller => "profiles"
+  resources :messages, :projects, :skills, :works, :keywords, :profiles
   resource :resume, :controller => "resumes"
-  resources :profiles#, :only => :show
 
   resources :bids do
     get :accept
@@ -29,7 +27,6 @@ Sprowty::Application.routes.draw do
   match '/approve_work/:id' => 'works#approve', :as => 'approve_work'
   match '/approve_profile/:id' => 'profiles#approve', :as => 'approve_profile'
 
-  # Authentication
   devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" } do
     get 'login',  :to => 'devise/sessions#new'
     get 'logout', :to => 'devise/sessions#destroy'
@@ -37,9 +34,6 @@ Sprowty::Application.routes.draw do
 
   root :to => 'home#index'
   match 'inbox'          => 'messages#index',  :as => 'inbox'
-  #match 'profile'       => 'profiles#index',  :as => 'my_profile'
-  #match 'profile/edit'  => 'profiles#edit',   :as => 'edit_profile'
-  #match 'profile/:id'   => 'profiles#show',   :as => 'profile'
 
   match '/user'          => 'profiles#index',  :as => :user_root
   match "/community"     => 'community#index'

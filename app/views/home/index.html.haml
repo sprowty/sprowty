@@ -116,7 +116,7 @@
                   = project.due_date.strftime("%m/%d/%Y")
                 %li
                   %b By:
-                  = link_to project.user.username, profile_url(project.user)
+                  = link_to project.user.username, project.user.profile
               %ul.posted
                 %li
                   %b Location:

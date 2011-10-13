@@ -11,7 +11,7 @@
               = skill.skill
               = link_to '', skill_path(skill), :method => :delete, :class => "delete", :remote => true
       / /BOX
-      = link_to_resume
+      = link_to_resume unless @profile.user.resume.blank?
       .boxhead
         %h3 Their Portfolio
       .box
