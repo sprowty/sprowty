@@ -41,6 +41,7 @@ class ProfilesController < ApplicationController
     @user = @profile.user
     @works   = @profile.works
     @skills  = @profile.skills
+    @account  = @profile.user.account
     @seeds   = @profile.projects
     params[:id].blank? ? render(:action => :index) : render
   end
