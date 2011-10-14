@@ -47,7 +47,7 @@
           %ul
             %li.sort
               %b Manage Your Account:
-            %li= link_to 'Edit Information', edit_profile_path
+            %li= link_to 'Edit Information', edit_profile_path(@profile.id)
         / /RIGHT
       / /HEAD
       #profile
@@ -85,8 +85,6 @@
               %h4 20
               = link_to 'Buy', new_payment_path, :class => 'buy'
             .clear
-          / /HOLDER
-        / /PLANTBUY
         .mybalance
           %h2 My Balance:
           %h3
@@ -98,45 +96,38 @@
               %em
                 = @account.available_funds ||= "$0.00"
             %p Cleared funds available for Withdrawal or Purchasing
-          / /COLUMN
           .column
             %b
               Awaiting Clearance:
               %em
                 = @account.funds_awaiting_clearance ||= "$0.00"
             %p Incoming payments that are not yet available for withdrawal
-          / /COLUMN
           .columnlast
             %b
               Incoming Payments:
               %em
                 = @account.incoming_payments ||= "$0.00"
             %p Expected revenue from active orders
-          / /COLUMN LAST
           .column
             %b
               Already Withdrawn:
               %em
                 = @account.withdrawn_funds ||= "$0.00"
             %p Funds you transferred to your PayPal account
-          / /COLUMN
           .column
             %b
               Revenue Purchases:
               %em
                 = @account.revenue_purchases ||= "$0.00"
             %p Revenues used to pay for other jobs
-          / /COLUMN
           .columnlast
             %b
               Money Spent:
               %em
                 = @account.money_spent ||= "$0.00"
             %p Total money you’ve spent buying services
-          / /COLUMN LAST
           %a.withdraw{:href => "#"} Sprowt It
           .clear
-        / /MY BALANCE
         .feedback
           %h2 Feedback:
           .clear
@@ -149,7 +140,6 @@
                 %a{:href => "#"} Username
               .clear
               %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
-            / /Up
             .down
             .left
               %h6 Help Me Build A Resume
@@ -159,9 +149,7 @@
               .clear
               %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
 
-          / /HOLDER
           .clear
-        / /FEEDBACK
         #colholder
           .column
             .infohead
@@ -170,7 +158,7 @@
             %ul
               - @seeds.each do |project|
                 %li
-                  %a{:href => "#"}= project.title
+                  = link_to project.title, '#'
                 %i
                   due #{project.due_date.strftime("%m/%d/%Y")}
           .column
@@ -178,25 +166,23 @@
               %b Latest Sprowts:
               %p Jobs I Have Done
             %ul
-              %li
-                %a{:href => "#"} I need a flyer for a club I am promoting
-              %i due 03/11/2011
+              - @latest_sprowts.each do |sprowt|
+                %li
+                  = link_to sprowt.title, '#'
+                %i
+                  due #{sprowt.due_date.strftime("%m/%d/%Y")}
 
           .column
             .infohead
               %b Working On:
               %p Jobs I Am Doing
             %ul
-              %li
-                %a{:href => "#"} I need a flyer for a club I am promoting
-              %i due 03/11/2011
-
-        / /COLHOLDER
-      / /PROFILE
-    / /CONTENT
-  / /MAIN
+              - @current_sprowts.each do |sprowt|
+                %li
+                  = link_to sprowt.title, '#'
+                %i
+                  due #{sprowt.due_date.strftime("%m/%d/%Y")}
   .clear
-/ /CONTAINER
 = render :partial => 'layouts/footer'
 
 %script{:charset => "utf-8", :type => "text/javascript"}

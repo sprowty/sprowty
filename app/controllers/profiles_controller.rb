@@ -3,10 +3,11 @@ class ProfilesController < ApplicationController
 
   def index
     @profile  = current_user.profile
-    @seeds    = current_user.projects
+    @seeds    = current_user.latest_seeds
     @skills   = current_user.skills
     @works    = current_user.works
-    @projects = current_user.projects.where(:approved => true)
+    @latest_sprowts = current_user.latest_sprowts
+    @current_sprowts = current_user.current_sprowts
     @account  = current_user.account
   end
 
@@ -43,6 +44,8 @@ class ProfilesController < ApplicationController
     @skills  = @profile.skills
     @account  = @profile.user.account
     @seeds   = @profile.projects
+    @latest_sprowts = current_user.latest_sprowts
+    @current_sprowts = current_user.current_sprowts
     params[:id].blank? ? render(:action => :index) : render
   end
 
