@@ -67,6 +67,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def latest_seeds
+    projects
+  end
+
+  def latest_sprowts
+    projects
+  end
+
+  def current_sprowts
+    projects
+  end
+
   private
 
   def create_profile

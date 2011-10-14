@@ -1,25 +1,40 @@
+= javascript_include_tag 'plant.js'
 #subhead
 #container
   #main
     .rightside
       .boxheadin
-        %h3 What They Can Do
+        %h3 My Skills
       .box
         %ul.categories
           - @skills.each do |skill|
             %li
               = skill.skill
               = link_to '', skill_path(skill), :method => :delete, :class => "delete", :remote => true
+        %input#skill{:name => "skill", :onblur => "if(this.value=='')this.value='Add New Skill'", :onfocus => "if(this.value=='Add New Skill')this.value=''", :size => "50", :type => "text", :value => "Add New Skill"}/
+        %button.add
       / /BOX
-      = link_to_resume
+      .boxheadin
+        %h3 My Resume
+      .box
+        = link_to_resume
+      / /BOX
+      .boxheadin
+        %h3 My Work
+      .box
       .boxhead
-        %h3 Their Portfolio
+        %h3 My Portfolio
       .box
         - @works.each do |work|
-          %ul.upload
-            %li.file
-              - if work.image_approved
+          - if work.image_approved
+            %ul.upload
+              %li.file
                 = link_to work.work_file_name, work.work.url
+            = link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true)
+            .clear
+        = semantic_form_for Work.new, :html => { :multipart => true } do |f|
+          = f.input :work, :as => :file, :label => false
+          %button#submit.upload
         .clear
       / /BOX
     / /RIGHTSIDE
@@ -28,12 +43,19 @@
         .left
           %h5 Profile
         / /LEFT
+        .right
+          %ul
+            %li.sort
+              %b Manage Your Account:
+            %li= link_to 'Edit Information', edit_profile_path(@profile.id)
+        / /RIGHT
       / /HEAD
       #profile
         #info
           .left
             = image_tag @profile.picture.url(:profile)
             %ul.action
+              %li.upload= link_to 'Upload A Pic', '/profile/edit#profile_picture'
               %li.invite
                 %a{:href => "#"} Invite A Friend
           / /LEFT
@@ -44,59 +66,132 @@
               %li= @user.profile.location
             %b.ratings Customer Ratings:
             %ul.ratings
-              %li.positive 214
-              %li.negative 4
+              %li.positive 0
+              %li.negative 0
             .clear
             %b About:
             %p= @profile.about
-          / /RIGHT
           .clear
-        / /INFO
+        - if @user == current_user
+          #plantbuy
+            .holder
+              .left
+                %h2 Plant
+                %p Ready to get a job done? Click plant and fill out the form to get your new job posted.
+                = link_to 'Sprowt It', new_project_path, :class => 'plant_no_js'
+              .right
+                %h2 Buy
+                %h4 20
+                = link_to 'Buy', new_payment_path, :class => 'buy'
+              .clear
+          .mybalance
+            %h2 My Balance:
+            %h3
+              = @account.balance ||= "$0.00"
+            .clear
+            .column
+              %b
+                Available:
+                %em
+                  = @account.available_funds ||= "$0.00"
+              %p Cleared funds available for Withdrawal or Purchasing
+            .column
+              %b
+                Awaiting Clearance:
+                %em
+                  = @account.funds_awaiting_clearance ||= "$0.00"
+              %p Incoming payments that are not yet available for withdrawal
+            .columnlast
+              %b
+                Incoming Payments:
+                %em
+                  = @account.incoming_payments ||= "$0.00"
+              %p Expected revenue from active orders
+            .column
+              %b
+                Already Withdrawn:
+                %em
+                  = @account.withdrawn_funds ||= "$0.00"
+              %p Funds you transferred to your PayPal account
+            .column
+              %b
+                Revenue Purchases:
+                %em
+                  = @account.revenue_purchases ||= "$0.00"
+              %p Revenues used to pay for other jobs
+            .columnlast
+              %b
+                Money Spent:
+                %em
+                  = @account.money_spent ||= "$0.00"
+              %p Total money you’ve spent buying services
+            %a.withdraw{:href => "#"} Sprowt It
+            .clear
         .feedback
           %h2 Feedback:
           .clear
           .holder
             .up
             .left
-            / /Up
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
             .down
             .left
-            / /Up
-            .up
-            .left
-            / /Up
-            .up
-            .left
-            / /Up
-            .up
-            .left
-            / /Up
-          / /HOLDER
+              %h6 Help Me Build A Resume
+              %b.post
+                By:
+                %a{:href => "#"} Username
+              .clear
+              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
+
           .clear
-        / /FEEDBACK
         #colholder
           .column
             .infohead
               %b Latest Seeds:
-              %p Jobs I Recently Need Done
+              %p Jobs I Need Done
             %ul
               - @seeds.each do |project|
                 %li
-                  %a{:href => "#"}= project.title
+                  = link_to project.title, '#'
                 %i
                   due #{project.due_date.strftime("%m/%d/%Y")}
           .column
             .infohead
               %b Latest Sprowts:
               %p Jobs I Have Done
+            %ul
+              - @latest_sprowts.each do |sprowt|
+                %li
+                  = link_to sprowt.title, '#'
+                %i
+                  due #{sprowt.due_date.strftime("%m/%d/%Y")}
+
           .column
             .infohead
               %b Working On:
               %p Jobs I Am Doing
-        / /COLHOLDER
-      / /PROFILE
-    / /CONTENT
-  / /MAIN
+            %ul
+              - @current_sprowts.each do |sprowt|
+                %li
+                  = link_to sprowt.title, '#'
+                %i
+                  due #{sprowt.due_date.strftime("%m/%d/%Y")}
   .clear
-/ /CONTAINER
 = render :partial => 'layouts/footer'
+
+%script{:charset => "utf-8", :type => "text/javascript"}
+  jQuery(function() {
+  jQuery('#plant_it').bind('click', function(e) {
+  e.preventDefault();
+  var link = "#{new_project_url}";
+  link = link + '?title=' + jQuery('#what_you_need_done').val();
+  jQuery.colorbox({ href: link, width: "800px", Height: "640px" });
+  });
+  });
+
+
