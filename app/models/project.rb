@@ -4,6 +4,9 @@ class Project < ActiveRecord::Base
   has_many :project_alerts
   has_many :categories
 
+  has_one :assignment
+  has_one :user, :through => :assignment
+
   validates_presence_of :title, :description, :price, :tags, :city, :state
 
   state_machine :sm_state, :initial => :pending_post do
