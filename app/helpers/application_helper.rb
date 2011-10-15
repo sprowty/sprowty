@@ -13,10 +13,10 @@ module ApplicationHelper
       image_tag('icon_big_accept.png', :style => 'border: none;')
     when "waiting_for_bids"
       image_tag('icon_big_clock.png', :style => 'border: none;')
+    when "assigned"
+      image_tag('icon_big_pay.png', :style => 'border: none;')
     when "work_in_progress"
       image_tag('icon_big_gear.png', :style => 'border: none;')
-    when "funded"
-      image_tag('icon_big_pay.png', :style => 'border: none;')
     when "work_completed"
       image_tag('icon_big_star.png', :style => 'border: none;')
     end

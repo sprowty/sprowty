@@ -11,9 +11,6 @@ class User < ActiveRecord::Base
   has_many :user_messages
   has_many :messages, :through => :user_messages
 
-  has_one :assignment
-  has_one :project, :through => :assignment
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable, :confirmable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -79,7 +76,8 @@ class User < ActiveRecord::Base
   end
 
   def current_sprowts
-    assigned_projects = Project.where(assignment.user_id => id)
+    #assigned_projects = Project.where(assignment.user_id => id)
+    projects
 
   end
 

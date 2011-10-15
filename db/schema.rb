@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014152522) do
+ActiveRecord::Schema.define(:version => 20111015054523) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -55,11 +55,6 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "assignments", :force => true do |t|
-    t.integer "user_id"
-    t.integer "project_id"
-  end
-
   create_table "bids", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -69,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accept_current_price"
+    t.boolean  "accepted",             :default => false
   end
 
   create_table "categories", :force => true do |t|

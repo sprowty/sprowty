@@ -4,6 +4,7 @@ class BidsController < ApplicationController
 
   def new
     @project = Project.find(params[:project])
+    @bid = Bid.new
     render :layout => 'blank'
   end
 
@@ -29,7 +30,9 @@ class BidsController < ApplicationController
     @sprowter = @bid.user
     @project.accept_bid
     @project.work_started
-    @project.create_assignment :user_id => @sprowter.id # this creates a hard link to who is working on this project
+    @bid.accepted = true
+    @bid.save
+
     redirect_to :back
   end
 
