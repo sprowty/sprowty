@@ -1,0 +1,43 @@
+#needdone
+  .holder
+    .left
+      %h4 Need Something Done?
+    / /LEFT
+    .right
+      %form#search{:action => "", :method => "get", :name => "input"}
+        %input.field{:name => "Type What You Need Done Here", :onblur => "if(this.value=='')this.value='Type What You Need Done Here'", :onfocus => "if(this.value=='Type What You Need Done Here')this.value=''", :type => "text", :value => "Type What You Need Done Here"}/
+        %button{:type => "submit"} Plant
+#container
+  #main
+    .rightside
+      .boxheadin
+        = render :partial => 'projects/recent_projects'
+    .content
+      .head
+        .left
+          %h5 Inbox
+        .right
+          %ul.big
+            %li
+              %a.active{:href => "#"} All
+            %li
+              %a{:href => "#"} Read
+            %li
+              %a{:href => "#"} Archived
+      #inboxhead
+        %b.left Recipient
+        %b.right Updated
+        .clear
+      #inbox
+        - unless @messages.blank?
+          %ul
+            - @messages.each do |message|
+              %li
+                = link_to message.sender.username, message_url(message.message.id)
+                %em
+                  = message.message.created_at.strftime("%b %d, %Y - %H:%M")
+                %span
+                  = message.message.subject
+        - else
+          %h2
+            %strong You currently have no messages

@@ -33,6 +33,7 @@ class BidsController < ApplicationController
     @bid.accepted = true
     @bid.save
 
+    @project.user.messages.create :to => @sprowter, :subject => "bid accepted", :body => "your bid has been accepted for project: #{@project.title}."
     redirect_to :back
   end
 

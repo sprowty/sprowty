@@ -4,8 +4,10 @@ Sprowty::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :messages, :projects, :skills, :works, :keywords, :profiles
+  resources :projects, :skills, :works, :keywords, :profiles
   resource :resume, :controller => "resumes"
+
+  resources :messages
 
   resources :bids do
     get :accept

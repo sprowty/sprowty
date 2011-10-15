@@ -1,0 +1,36 @@
+#subhead
+#container
+  #main
+    .rightside
+      .boxheadin
+        = render :partial => 'projects/recent_projects'
+    .content
+      .convohead
+        .left
+          %h5
+            = "Conversation With #{@sender.username}"
+        .right
+          %ul.big
+            %li
+              %a{:href => "#"} Archive This Message
+      #inbox
+        .message
+          .left
+            = image_tag current_user.profile.picture.url(:profile)
+          .right{:style => 'margin-left: 20px;'}
+            %strong
+              = link_to current_user.email, '#'
+            %p
+        .message
+          .left{:style => 'width: 100%;'}
+            = @message.body
+          .clear
+          .right
+            %h2 Leave A Comment:
+            = form_tag url_for(:controller => 'messages', :action => 'create'), :method => 'post' do
+              = hidden_field_tag :to, @sender.id
+              = hidden_field_tag :subject, "response from #{current_user.username}"
+              = text_area_tag :body
+              %a.attach{:href => "#"} Attach Files To This Comment
+              = #submit_tag "Post"
+  .clear

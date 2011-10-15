@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015111934) do
+ActiveRecord::Schema.define(:version => 20111015115700) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -74,6 +74,30 @@ ActiveRecord::Schema.define(:version => 20111015111934) do
 
   create_table "keywords", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "message_recipients", :force => true do |t|
+    t.integer  "message_id",    :null => false
+    t.integer  "receiver_id",   :null => false
+    t.string   "receiver_type", :null => false
+    t.string   "kind",          :null => false
+    t.integer  "position"
+    t.string   "state",         :null => false
+    t.datetime "hidden_at"
+  end
+
+  add_index "message_recipients", ["message_id", "kind", "position"], :name => "index_message_recipients_on_message_id_and_kind_and_position", :unique => true
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id",   :null => false
+    t.string   "sender_type", :null => false
+    t.text     "subject"
+    t.text     "body"
+    t.string   "state",       :null => false
+    t.datetime "hidden_at"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -8,8 +8,18 @@ class User < ActiveRecord::Base
   has_many :payments
   has_one :account
 
-  has_many :user_messages
-  has_many :messages, :through => :user_messages
+  has_many :messages,
+              :as => :sender,
+              :class_name => 'Message',
+              :conditions => {:hidden_at => nil},
+              :order => 'messages.created_at DESC'
+  has_many :received_messages,
+              :as => :receiver,
+              :class_name => 'MessageRecipient',
+              :include => :message,
+              :conditions => ['message_recipients.hidden_at IS NULL AND messages.state = ?', 'sent'],
+              :order => 'messages.created_at DESC'
+
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable, :confirmable and :omniauthable
