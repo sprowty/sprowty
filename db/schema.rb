@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015054523) do
+ActiveRecord::Schema.define(:version => 20111015111934) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -74,11 +74,6 @@ ActiveRecord::Schema.define(:version => 20111015054523) do
 
   create_table "keywords", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "messages", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -158,13 +153,6 @@ ActiveRecord::Schema.define(:version => 20111015054523) do
     t.integer  "account_id"
     t.decimal  "amount",           :precision => 10, :scale => 0
     t.integer  "reference_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_messages", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
