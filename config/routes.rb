@@ -1,5 +1,7 @@
 Sprowty::Application.routes.draw do
 
+  resources :problems
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -23,7 +23,6 @@ class MessagesController < ApplicationController
     @message.subject = params[:subject]
     @message.body = params[:body]
     @message.sender_id = current_user.id
-    debugger
     if @message.save
       flash[:notice] = "Message sent!"
       render :action => :index
