@@ -1,0 +1,23 @@
+#profile
+  = form_for @problem do |f|
+    %p= error_messages_for :problem
+    .settings
+      .label
+        %label Problem details:
+      .input
+        = f.text_area :detail
+    .clear
+    .settings
+      .label
+        %label Your Name:
+      .input
+        = f.text_field :name
+    / /SETTINGS
+    .clear
+    .settings
+      .label
+        %label Best method to contact you:
+      .input
+        = f.text_field :contact
+      .clear
+      = f.submit 'Save', :class => 'save', :style => 'width: 170px; margin-left: 358px'

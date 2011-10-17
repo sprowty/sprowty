@@ -8,11 +8,18 @@ class User < ActiveRecord::Base
   has_many :payments
   has_one :account
 
-  has_many :user_messages
-  has_many :messages, :through => :user_messages
+  has_many :messages,
+              :as => :sender,
+              :class_name => 'Message',
+              :conditions => {:hidden_at => nil},
+              :order => 'messages.created_at DESC'
+  has_many :received_messages,
+              :as => :receiver,
+              :class_name => 'MessageRecipient',
+              :include => :message,
+              :conditions => ['message_recipients.hidden_at IS NULL AND messages.state = ?', 'sent'],
+              :order => 'messages.created_at DESC'
 
-  has_one :assignment
-  has_one :project, :through => :assignment
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable, :confirmable and :omniauthable
@@ -79,7 +86,8 @@ class User < ActiveRecord::Base
   end
 
   def current_sprowts
-    assigned_projects = Project.where(assignment.user_id => id)
+    #assigned_projects = Project.where(assignment.user_id => id)
+    projects
 
   end
 

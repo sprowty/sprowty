@@ -107,7 +107,7 @@
               %span.bold.bid_count= project.bids.length
               %p Sprowts
               %p (Bids)
-            .pic= link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+            .pic= #link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
             .info
               %h2= link_to project.title, project_path(project.id)
               %ul.posted
@@ -116,7 +116,7 @@
                   = project.due_date.strftime("%m/%d/%Y")
                 %li
                   %b By:
-                  = link_to project.user.username, project.user.profile
+                  = #link_to project.user.username, project.user.profile
               %ul.posted
                 %li
                   %b Location:
@@ -135,7 +135,7 @@
                 = link_to 'Read More', project, :class => 'readmore'
               %ul.actions
                 - if current_user
-                  %li= link_to 'Sprowt it', new_bid_path(:project => project), :class => 'sprowt'
+                  %li= link_to 'Sprowt it', new_bid_path(:project => project)
                   %li
                     %a{:href => "#"} Create Similar
                 %li.share

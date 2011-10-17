@@ -99,7 +99,7 @@
       border-radius: 22px; }
 
   %body
-    = form_for Bid.new do |f|
+    = form_for @bid, new_bid_url do |f|
       = f.hidden_field :project_id, :value => @project.id
       #submitbid
         .head

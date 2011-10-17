@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014152522) do
+ActiveRecord::Schema.define(:version => 20111017024838) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -55,11 +55,6 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "assignments", :force => true do |t|
-    t.integer "user_id"
-    t.integer "project_id"
-  end
-
   create_table "bids", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -69,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accept_current_price"
+    t.boolean  "accepted",             :default => false
   end
 
   create_table "categories", :force => true do |t|
@@ -82,7 +78,26 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
     t.datetime "updated_at"
   end
 
+  create_table "message_recipients", :force => true do |t|
+    t.integer  "message_id",    :null => false
+    t.integer  "receiver_id",   :null => false
+    t.string   "receiver_type", :null => false
+    t.string   "kind",          :null => false
+    t.integer  "position"
+    t.string   "state",         :null => false
+    t.datetime "hidden_at"
+  end
+
+  add_index "message_recipients", ["message_id", "kind", "position"], :name => "index_message_recipients_on_message_id_and_kind_and_position", :unique => true
+
   create_table "messages", :force => true do |t|
+    t.integer  "sender_id",   :null => false
+    t.string   "sender_type", :null => false
+    t.text     "subject"
+    t.text     "body"
+    t.string   "state",       :null => false
+    t.datetime "hidden_at"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +105,15 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
     t.float    "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "problems", :force => true do |t|
+    t.text     "detail"
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "contact"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -162,13 +186,6 @@ ActiveRecord::Schema.define(:version => 20111014152522) do
     t.integer  "account_id"
     t.decimal  "amount",           :precision => 10, :scale => 0
     t.integer  "reference_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_messages", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

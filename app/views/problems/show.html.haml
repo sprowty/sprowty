@@ -1,0 +1,47 @@
+#subhead{:style => "padding: 975px 26px 26px;"}
+#container
+  #main
+    .content{:style => "margin-top: -990px;"}
+      .head
+        .left
+          %h5 My Resume
+        / /LEFT
+        .right
+          %ul
+            %li.sort
+              %b Manage Your Account:
+            %li= link_to 'Edit Information', edit_user_resume_path(current_user,current_user.resume.id)
+        / /RIGHT
+      / /HEAD
+      #profile
+        .settings
+          .label
+            %label Resume Title
+          .input{:style => "margin-top: 10px; margin-left: 40px;"}
+            = @resume.title
+        .clear
+        .settings
+          .label
+            %label Activities
+          .input{:style => "margin-top: 10px; margin-left: 40px;"}
+            = @resume.activities
+        .clear
+        .settings
+          .label
+            %label Experience
+          .input{:style => "margin-top: 10px; margin-left: 40px;"}
+            = @resume.experience
+        .clear
+        .settings
+          .label
+            %label Education
+          .input{:style => "margin-top: 10px; margin-left: 40px;"}
+            = @resume.education
+        .clear
+        .settings
+          .label
+            %label Sample Work
+          .input{:style => "margin-top: 10px; margin-left: 40px;"}
+            = @resume.sample_work
+        .clear
+    / /PROFILE

@@ -8,6 +8,11 @@ class Bid < ActiveRecord::Base
   after_save :update_bids
   after_create :perform_project_actions
 
+  def accept!
+    accepted = true
+    save!
+  end
+
   private
   def update_bids
     self.project.bid_count = self.project.bid_count + 1
