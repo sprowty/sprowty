@@ -32,16 +32,15 @@ Sprowty::Application.routes.draw do
     get 'logout', :to => 'devise/sessions#destroy'
   end
 
-  root :to => 'home#index'
-  match 'inbox'          => 'messages#index',  :as => 'inbox'
-
-  match '/user'          => 'profiles#index',  :as => :user_root
-  match "/community"     => 'community#index'
-  match '/community_project/:id' => 'community#show', :as => :community_project
-  match '/community_overview' => 'community#overview', :as => :community_overview
-  match '/contact'       => 'home#contact'
-  match '/terms'         => 'home#terms'
-  match '/how_to'        => 'home#how_to'
-  match '/faq'           => 'home#faq'
-  match '/blog'          => 'home#blog'
+  root :to                        => 'home#index'
+  match 'inbox'                   => 'messages#index',  :as => 'inbox'
+  match '/user'                   => 'profiles#index',  :as => :user_root
+  match "/community"              => 'community#index'
+  match '/community_project/:id'  => 'community#show', :as => :community_project
+  match '/community_overview'     => 'community#overview', :as => :community_overview
+  match '/contact'                => 'home#contact'
+  match '/terms'                  => 'home#terms'
+  match '/how_to'                 => 'home#how_to'
+  match '/faq'                    => 'home#faq'
+  match '/blog'                   => 'home#blog'
 end
