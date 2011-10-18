@@ -1,13 +1,13 @@
 Sprowty::Application.routes.draw do
 
-  resources :problems
-
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :projects, :skills, :works, :keywords, :profiles
+  resources :skills, :works, :keywords, :profiles
   resource :resume, :controller => "resumes"
+
+  resources :problems
 
   resources :messages
 
@@ -27,6 +27,7 @@ Sprowty::Application.routes.draw do
     collection do
       get :dashboard
     end
+    resources :problems
   end
   match '/approve_work/:id' => 'works#approve', :as => 'approve_work'
   match '/approve_profile/:id' => 'profiles#approve', :as => 'approve_profile'

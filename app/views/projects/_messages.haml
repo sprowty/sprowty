@@ -43,4 +43,4 @@
           %li.left{:style=>'background:none;'}
             = link_to "Decline", bid_reject_path(message.bid_id)
           %li.left{:style=>'background:none;'}
-            = link_to "Counter Offer", bid_counteroffer_path(message.bid_id)
+            = link_to "Counter Offer", new_bid_path(:project => project)

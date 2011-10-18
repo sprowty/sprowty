@@ -41,5 +41,8 @@ class BidsController < ApplicationController
   end
 
   def counteroffer
+    @bid = Bid.find(params[:bid_id])
+    @project = @bid.project
+    render :layout => 'blank'
   end
 end
