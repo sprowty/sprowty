@@ -5,7 +5,6 @@ class BidsController < ApplicationController
   def new
     @project = Project.find(params[:project])
     @bid = Bid.new
-    render :layout => 'blank'
   end
 
   def create
