@@ -1,0 +1,25 @@
+= javascript_include_tag 'bids'
+= stylesheet_link_tag 'application', 'bids'
+
+= form_for @bid, new_bid_url do |f|
+  = f.hidden_field :project_id, :value => @project.id
+  #submitbid
+    .head
+      %h3= @project.title
+      %b Posted By:
+      = link_to "#{@project.user.username}", profile_path(@project)
+    - unless error_messages_for.nil?
+      .left
+        %p= error_messages_for :bid
+      .clear
+    .bid
+      .right
+        %h4 Bid Price
+        %i Increment of $5
+        = f.text_field :price, :placeholder => '$0'
+    .clear
+    .why
+      %h4 Misc Info
+      = f.text_area :why
+    %ul.expires
+    = f.submit 'Submit Counter', :class => 'submit'

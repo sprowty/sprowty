@@ -29,7 +29,7 @@
           %li.left{:style=>'background:none;'}
             = link_to Bid.find(message.bid_id).user.username, profile_path(Bid.find(message.bid_id).user)
           %li.left{:style=>'background:none;'}
-            = link_to 'Feedback', '#'
+            = link_to 'Feedback',  feedbacks_url(:user_id => Bid.find(message.bid_id).user.id)
           %li.left{:style=>'background:none;'}
             = link_to 'Resume', '#'
 
@@ -43,4 +43,4 @@
           %li.left{:style=>'background:none;'}
             = link_to "Decline", bid_reject_path(message.bid_id)
           %li.left{:style=>'background:none;'}
-            = link_to "Counter Offer", new_bid_path(:project => project)
+            = link_to "Counter Offer", new_bid_path(:project_id => project.id, :coffer => true)

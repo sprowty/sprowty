@@ -14,9 +14,9 @@ Sprowty::Application.routes.draw do
   resources :bids do
     get :accept
     get :reject
-    get :counteroffer
   end
 
+  resources :feedbacks
   resources :payments
   match '/buycoins' => 'payments#new', :as => :buy_coins
 

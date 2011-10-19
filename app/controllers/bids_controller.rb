@@ -3,7 +3,7 @@ class BidsController < ApplicationController
   respond_to :html, :json
 
   def new
-    @project = Project.find(params[:project])
+    @project = Project.find(params[:project_id])
     @bid = Bid.new
   end
 
@@ -13,13 +13,13 @@ class BidsController < ApplicationController
     if @bid.save
       render :json => { :success => true }
     else
-      @project = Project.find(params[:bid][:project_id])
+      @project = Project.find(params[:project_id])
       render :json => { :success => 'false', :html => render_to_string(:file => 'bids/new.html.erb', :template => false) }
     end
   end
 
   def dashboard
-    @project  = Project.find(params[:project])
+    @project  = Project.find(params[:project_id])
     @bids     = Bid.where(:project_id => @project.id)
   end
 
@@ -37,11 +37,5 @@ class BidsController < ApplicationController
   end
 
   def reject
-  end
-
-  def counteroffer
-    @bid = Bid.find(params[:bid_id])
-    @project = @bid.project
-    render :layout => 'blank'
   end
 end

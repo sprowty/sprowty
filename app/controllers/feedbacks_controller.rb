@@ -1,30 +1,23 @@
-class MessagesController < ApplicationController
+class FeedbacksController < ApplicationController
   before_filter :require_user
   respond_to :html, :json
 
   def index
-    @messages = current_user.received_messages
-    @projects = current_user.projects
+    @feedbacks = current_user.feedbacks
   end
 
   def show
-    @projects = current_user.projects
-    @message = Message.find(params[:id])
-    @sender = User.find(@message.sender_id)
+    @feedback = Feedback.find(params[:id])
   end
 
   def new
-    @message = Message.new
+    @feedback = Feedback.new
   end
 
   def create
-    @message = current_user.messages.build
-    @message.to = params[:to]
-    @message.subject = params[:subject]
-    @message.body = params[:body]
-    @message.sender_id = current_user.id
-    if @message.save
-      flash[:notice] = "Message sent!"
+    @feedback = Feedback.new
+    if @feedback.save
+      flash[:notice] = "Feedback sent!"
       render :action => :index
     end
   end
