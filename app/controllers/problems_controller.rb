@@ -1,9 +1,11 @@
 class ProblemsController < InheritedResources::Base
+  before_filter :find_project, :only => [:new, :create]
+
   def index
   end
 
   def new
-    @problem = Project.find(params[:project_id]).problems.build
+    @problem = Project.new
   end
 
   def create
@@ -26,5 +28,12 @@ class ProblemsController < InheritedResources::Base
   end
 
   def show
+    @problem = Problem.find(params[:id])
+  end
+
+  protected
+
+  def find_project
+    @project = Project.find(params[:project_id])
   end
 end

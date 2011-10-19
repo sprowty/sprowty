@@ -498,9 +498,9 @@ margin-top: -40px
 /* ----------/BOXES------------*/
 
 #community {
-	
-	
-	
+
+
+
 }
 
 
@@ -1187,3 +1187,8 @@ background-image: url('/images/errors3.png');
   }
 #inbox .row .shaded {color: #F5EFE6; }
 #inbox .field {float:left;}
+
+#submitbid {
+  width: 700px;
+  float: left;
+}

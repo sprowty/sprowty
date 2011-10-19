@@ -7,7 +7,7 @@
         %h3 Report a Problem
       .box
         = image_tag 'icon_report.png', :style => 'float: left;margin-right:10px;'
-        = link_to 'Report a problem', new_problem_url(:project_id => @project.id)
+        = link_to 'Report a problem', new_project_problem_url(@project.id)
     .leftside
       .content
         .head

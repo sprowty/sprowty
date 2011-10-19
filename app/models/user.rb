@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :resume
   has_many :payments
   has_one :account
+  has_many :feedbacks
 
   has_many :messages,
               :as => :sender,

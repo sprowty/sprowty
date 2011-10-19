@@ -1,0 +1,9 @@
+#profile
+  = form_for @feedback, :url => feedback_path do |f|
+    %p= error_messages_for :feedback
+    .settings
+      .label
+        %label Feedback Details
+      .input
+        = f.text_area :feedback
+      = f.submit 'Save', :class => 'save', :style => 'width: 170px; margin-left: 358px'

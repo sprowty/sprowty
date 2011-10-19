@@ -1,0 +1,25 @@
+.content
+  .head
+    .left
+      %h5 Feedback
+    .right
+      %ul.big
+        %li
+          %a.active{:href => "#"} All
+        %li
+          %a{:href => "#"} Read
+        %li
+          %a{:href => "#"} Archived
+  #inboxhead
+    %b.left Recipient
+    %b.right Updated
+    .clear
+  #inbox
+    - unless @feedbacks.blank?
+      %ul
+        - @feedbacks.each do |feedbacks|
+          %li
+            = feedback.feedback
+    - else
+      %h2
+        %strong No feedback reported for this user

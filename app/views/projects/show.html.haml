@@ -9,24 +9,19 @@
         %button{:type => "submit"} Search
       .clear
       = render :partial => 'shared/categories'
-      / /BOX
       = image_tag 'icon_rooster.png', :class => 'rooster'
       .twitbox
         #twitter
           %ul#twitter_update_list
             %li
         %span.quote
-      / /TWITBOX
       .follow
         %h2
           %a{:href => "#"} @sprowty
-    / /RIGHTSIDE
     .content
       .convohead
         .left
           %h5 Project Description
-        / /LEFT
-      / /HEAD
       #listings
         .posttwo
           .sprowts
@@ -50,7 +45,6 @@
                 %b Location:
                 = @project.city
                 , #{@project.state}
-            / /Posted
             #description
               .keywords
                 %b In Category:
@@ -58,7 +52,6 @@
                   - @project.categories.each do |category|
                     %li
                       = link_to @category.name, category
-              / /Category
               .keywords
                 %b Keywords:
                 %ul
@@ -74,8 +67,6 @@
                   %li
                     %a{:href => "#"}> Keyword
                     ,
-              / /Keywords
-            / /Description
             %p= @project.description
             %ul.actions
               - unless @project.user == current_user
@@ -92,16 +83,9 @@
                   %a.twitter{:href => "#"}
                 %li
                   %a.email{:href => "#"}
-            / /stay-content-2
-          / /INFO
           .price
             %h4= number_to_currency(@project.price, :precision => 0)
             %i Asking Price
           .clear
-        / /POST
-      / /LISTINGS
-    / /CONTENT
-  / /MAIN
   .clear
-/ /CONTAINER
 = render :partial => 'layouts/footer'
