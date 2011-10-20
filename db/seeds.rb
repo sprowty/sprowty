@@ -35,6 +35,13 @@ end
   p.post
 end
 
+# create feedback for posted projects
+%w(1 3 5 7 9).each do |x|
+  p "...creating feedback for project #{x}"
+  p = Project.find(x)
+  Feedback.create :project_id => p.id, :user_id => p.user.id + 1, :feedback => "great job on project: #{p.title}"
+end
+
 # bids
 
 # keywords
