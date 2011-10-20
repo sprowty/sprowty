@@ -24,25 +24,16 @@ class PaymentsController < ApplicationController
     notify = Paypal::Notification.new(request.raw_post)
     if notify.acknowledge
       begin
-        my_file = File.new("filename.txt","w")
         if notify.complete?
-          my_file.write "Transaction complete.. add your business logic here"
-          p "Transaction complete.. add your business logic here"
+          logger.debug "Transaction complete.. add your business logic here"
         else
-          my_file.write "Transaction not complete, ERROR"
-          p "Transaction not complete, ERROR"
+          logger.debug "Transaction not complete, ERROR"
         end
       rescue => e
-        my_file.write "Amit we have a bug"
-        p "Amit we have a bug"
+        logger.error("error occurred with paypal process")
       ensure
-        my_file.write "Make sure we logged everything we must"
-        p "Make sure we logged everything we must"
       end
-        my_file.close
     else
-      my_file.write "Another reason to be suspicious"
-      p "Another reason to be suspicious"
     end
     render :nothing => true
   end

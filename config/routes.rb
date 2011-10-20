@@ -20,6 +20,8 @@ Sprowty::Application.routes.draw do
   resources :payments
   match '/buycoins' => 'payments#new', :as => :buy_coins
 
+  match '/ipn' => 'notifications#new', :as => :notifications
+
   resources :projects do
     get :inside
     get :approve

@@ -1,6 +1,5 @@
 class NotificationsController < ApplicationController
   def ipn
-    # Create a notify object we must
     notify = Paypal::Notification.new(request.raw_post)
 
     #we must make sure this transaction id is not allready completed
