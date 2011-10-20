@@ -29,7 +29,7 @@
           %li.left{:style=>'background:none;'}
             = link_to Bid.find(message.bid_id).user.username, profile_path(Bid.find(message.bid_id).user)
           %li.left{:style=>'background:none;'}
-            = link_to 'Feedback',  feedbacks_url(:user_id => Bid.find(message.bid_id).user.id)
+            = link_to 'Feedback',  profile_url(Bid.find(message.bid_id).user.id)
           %li.left{:style=>'background:none;'}
             = link_to 'Resume', '#'
 
