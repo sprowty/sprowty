@@ -1,0 +1,23 @@
+- unless @feedbacks.blank?
+  - @feedbacks.last(3).each do |feedback|
+    %h2 Feedback:
+    .clear
+    .holder
+      .up
+      .left
+        %h6
+          = Project.find(feedback.project_id).title
+        %b.post
+          By:
+          = link_to Project.find(feedback.project_id).user.username, profile_url(Project.find(feedback.project_id).user)
+        .clear
+        %p
+          = feedback.feedback
+    .clear
+    %hr{:style => 'color: #d6bf9e;'}
+- else
+  %h6
+    Sorry, no feedback has been reported for this user.
+.clear
+%br/
+= link_to 'see all feedback', '#'

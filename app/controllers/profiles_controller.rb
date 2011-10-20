@@ -46,6 +46,7 @@ class ProfilesController < ApplicationController
     @seeds   = @profile.projects
     @latest_sprowts = current_user.latest_sprowts
     @current_sprowts = current_user.current_sprowts
+    @feedbacks = @user.feedbacks
     params[:id].blank? ? render(:action => :index) : render
   end
 

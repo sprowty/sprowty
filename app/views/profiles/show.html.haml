@@ -128,27 +128,7 @@
             %a.withdraw{:href => "#"} Sprowt It
             .clear
         .feedback
-          %h2 Feedback:
-          .clear
-          .holder
-            .up
-            .left
-              %h6 Help Me Build A Resume
-              %b.post
-                By:
-                %a{:href => "#"} Username
-              .clear
-              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
-            .down
-            .left
-              %h6 Help Me Build A Resume
-              %b.post
-                By:
-                %a{:href => "#"} Username
-              .clear
-              %p Etiam at urna sagittis nulla pulvinar dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis mi vitae ligula tristique vel tempor magna lacinia. Cras laoreet, velit in ornare placerat, mi ipsum consectetur augue, vel egestas nibh mauris quis est.
-
-          .clear
+          = render :partial => 'shared/feedback'
         #colholder
           .column
             .infohead
@@ -182,8 +162,6 @@
                 %i
                   due #{sprowt.due_date.strftime("%m/%d/%Y")}
   .clear
-= render :partial => 'layouts/footer'
-
 %script{:charset => "utf-8", :type => "text/javascript"}
   jQuery(function() {
   jQuery('#plant_it').bind('click', function(e) {
