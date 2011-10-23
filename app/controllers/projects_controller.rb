@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(params[:project])
     if @project.save
-      respond_with(@project, :location => root_url)
+      redirect_to current_user.profile
     else
       render :action => 'new'
     end

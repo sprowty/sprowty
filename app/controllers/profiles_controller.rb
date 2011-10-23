@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :require_user, :only => [:edit, :update, :destroy]
+  respond_to :html, :js
 
   def index
     @profile  = current_user.profile
@@ -18,7 +19,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     if @profile.save
-      redirect_to profile_rul, :notice => 'Successfully updated your Profile!'
+      redirect_to profile_url, :notice => 'Successfully updated your Profile!'
     else
       render :edit
     end

@@ -51,7 +51,7 @@ end
 end
 
 #categories
-CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Helath", "Music/Audio", "Organzing/Planning", "Other", "Photography", "Program    ing/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
+CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Helath", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programming/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
 
 CATEGORIES.each do |c|
   Category.create({:name=> c})

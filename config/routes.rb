@@ -10,7 +10,7 @@ Sprowty::Application.routes.draw do
   resources :problems
 
   resources :messages
-
+  resources :profiles
   resources :feedbacks
   resources :payments
   match '/buycoins' => 'payments#new', :as => :buy_coins
@@ -40,7 +40,7 @@ Sprowty::Application.routes.draw do
 
   root :to                        => 'home#index'
   match 'inbox'                   => 'messages#index',  :as => 'inbox'
-  match '/user'                   => 'profiles#index',  :as => :user_root
+  match '/user'                   => 'profiles#index',  :as => :user_root # why are we doing this? rr
   match "/community"              => 'community#index'
   match '/community_project/:id'  => 'community#show', :as => :community_project
   match '/community_overview'     => 'community#overview', :as => :community_overview
