@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :require_user
 
-  respond_to :html, :js
+  respond_to :html
 
   def index
    @projects = current_user.projects
@@ -26,9 +26,13 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(params[:project])
     if @project.save
-      redirect_to current_user.profile
+      respond_to do |format|
+        format.html {redirect_to current_user.profile}
+      end
     else
-      render :action => 'new'
+      respond_to do |format|
+        render :action => 'new'
+      end
     end
   end
 

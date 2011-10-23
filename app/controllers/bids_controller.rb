@@ -45,5 +45,13 @@ class BidsController < ApplicationController
   end
 
   def reject
+    @bid = Bid.find(params[:bid_id])
+    @project = @bid.project
+    @sprowter = @bid.user
+    @project.reject_bid
+    @bid.accepted=false
+    @bid.save
+    @project.user.messages.create :to => @sprowter, :subject => "bid rejected", :body => "your bid has been rejected for project: #{@project.title}."
+    redirect_to :back
   end
 end

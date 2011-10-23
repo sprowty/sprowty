@@ -2,6 +2,9 @@ class Message < ActiveRecord::Base
   belongs_to :sender, :polymorphic => true
   has_many :recipients, :class_name => 'MessageRecipient', :order => 'kind DESC, position ASC', :dependent => :destroy
 
+  #this is a temporary solution - needs to be in a queue process
+  after_create :deliver_message
+
   validates_presence_of :state, :sender_id, :sender_type
 
   attr_accessible :subject, :body, :to, :cc, :bcc
@@ -114,5 +117,9 @@ class Message < ActiveRecord::Base
       else
         @receivers && @receivers[kind] || recipients.select {|recipient| recipient.kind == kind}.map(&:receiver)
       end
+    end
+
+    def deliver_message
+      deliver
     end
 end
