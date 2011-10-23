@@ -18,7 +18,8 @@ class Project < ActiveRecord::Base
     event :post_issue do transition :work_completed => :work_in_progress end
   end
 
-  def to_param
-    "#{id}-#{title}".downcase.gsub(/\s+/, '-').gsub(/[^\w\-]/, '')
-  end
+# need to leave this disabled - causing problem in routes until we have a chance to look at it - rr
+#  def to_param
+#    "#{id}-#{title}".downcase.gsub(/\s+/, '-').gsub(/[^\w\-]/, '')
+#  end
 end

@@ -1,8 +1,7 @@
 = javascript_include_tag 'bids'
 = stylesheet_link_tag 'application', 'bids'
 
-= form_for @bid, new_bid_url do |f|
-  = f.hidden_field :project_id, :value => @project.id
+= form_tag([@project, @bid], :url => {:action => 'create'}) do
   #submitbid
     .head
       %h3= @project.title
@@ -18,15 +17,15 @@
           %li Accept Current Bid
           %li
             %a.active.accept_current_price{:href => "#"} Accept Current
-          = f.check_box :accept_current_price, :style => 'display: none;'
+          = check_box_tag :accept_current_price, :style => 'display: none;'
       .right
         %h4 Or Enter Other:
         %i Increment of $5
-        = f.text_field :price, :placeholder => '$5'
+        = text_field_tag :price
     .clear
     .why
       %h4 Why Should You Get This Job?
-      = f.text_area :why
+      = text_area_tag :why
     %ul.expires
       %li.offer Offer Expires In:
       %li
@@ -41,4 +40,4 @@
       %li
         %label{:for => "never"} Never
         %input#never{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 5.year}/
-    = f.submit 'Submit Bid', :class => 'submit'
+    = submit_tag 'Submit Bid', :class => 'submit'

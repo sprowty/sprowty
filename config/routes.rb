@@ -11,11 +11,6 @@ Sprowty::Application.routes.draw do
 
   resources :messages
 
-  resources :bids do
-    get :accept
-    get :reject
-  end
-
   resources :feedbacks
   resources :payments
   match '/buycoins' => 'payments#new', :as => :buy_coins
@@ -30,6 +25,10 @@ Sprowty::Application.routes.draw do
       get :dashboard
     end
     resources :problems
+    resources :bids do
+      get :accept
+      get :reject
+    end
   end
   match '/approve_work/:id' => 'works#approve', :as => 'approve_work'
   match '/approve_profile/:id' => 'profiles#approve', :as => 'approve_profile'

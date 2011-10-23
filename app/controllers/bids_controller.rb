@@ -7,14 +7,22 @@ class BidsController < ApplicationController
     @bid = Bid.new
   end
 
+  def show
+  end
+
   def create
     @bid = current_user.bids.new(params[:bid])
+    @bid.why = params[:why]
+    @bid.price = params[:price]
+    @bid.project_id = params[:project_id]
 
     if @bid.save
-      render :json => { :success => true }
+      flash[:notice] = "Bid created"
+      redirect_to project_url(@bid.project)
     else
+      flash[:error] = "Error creating bid."
       @project = Project.find(params[:project_id])
-      render :json => { :success => 'false', :html => render_to_string(:file => 'bids/new.html.erb', :template => false) }
+      redirect_to project_url(@bid.project)
     end
   end
 

@@ -45,8 +45,8 @@
           = message_icon_for(message.message)
         %ul.sprowter
           %li.left
-            = link_to "Accept", bid_accept_path(message.bid_id)
+            = link_to "Accept", project_bid_accept_path(project.id, message.bid_id)
           %li.left
-            = link_to "Decline", bid_reject_path(message.bid_id)
+            = link_to "Decline", project_bid_reject_path(project.id, message.bid_id)
           %li.left
-            = link_to "Counter Offer", new_bid_path(:project_id => project.id, :coffer => true)
+            = link_to "Counter Offer", new_project_bid_path(:project_id => project.id, :coffer => true)
