@@ -1,27 +1,32 @@
 class NotificationsController < ApplicationController
-  def ipn
-    notify = Paypal::Notification.new(request.raw_post)
+  def notify
+    notify = ActiveMerchant::Billing::Integrations::Paypal::Notification.new(request.raw_post)
 
-    #we must make sure this transaction id is not allready completed
-    if !Trans.count("*", :conditions => ["paypal_transaction_id = ?", notify.transaction_id]).zero?
-       # do some logging here...
+    @transaction = Transaction.where(:paypal_transaction_id => notify.transaction_id).first
+
+    if @transaction.blank?
+      logger.debug("no transaction present")
+      @transaction = Transaction.new
+    else
+      logger.debug("transaction already present")
     end
 
     if notify.acknowledge
       begin
         if notify.complete?
-           #transaction complete.. add your business logic here
+          logger.debug("transaction complete")
+          @transaction.paypal_transaction_id = notify.transaction_id
+          @transaction.save
         else
-           #Reason to be suspicious
+          logger.error("transaction did not complete")
         end
-
       rescue => e
-        #Houston we have a bug
-      ensure
-        #make sure we logged everything we must
+        logger.error(e)
       end
-    else #transaction was not acknowledged
-      # another reason to be suspicious
+    else
+      logger.error("transaction was not acknowledged")
     end
+
+  render :nothing => true
   end
 end

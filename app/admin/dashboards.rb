@@ -32,7 +32,7 @@ ActiveAdmin::Dashboards.build do
   end
 
   section "Recent Coin Purchases" do
-    table_for Payment.order('id desc').limit(5).each do |payment|
+    table_for Transaction.order('id desc').limit(5).each do |payment|
       column(:id) {|payment| link_to(payment.id, admin_project_path(project)) }
       column(:amount)
       column(:sm_state)

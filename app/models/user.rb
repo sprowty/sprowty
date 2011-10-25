@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   has_many :bids
   has_many :works
   has_one :resume
-  has_many :payments
   has_one :account
   has_many :feedbacks
 
