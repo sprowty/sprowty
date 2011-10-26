@@ -15,8 +15,8 @@ Sprowty::Application.routes.draw do
   resources :transactions
   match '/buycoins' => 'transactions#new', :as => :buy_coins
 
-  #match '/notify' => 'notifications#notify', :as => :notifications
-  root :to  => 'notifications#notify'
+  match '/notify' => 'notifications#notify', :as => :notifications
+  #root :to  => 'notifications#notify'
 
   resources :projects do
     get :inside
