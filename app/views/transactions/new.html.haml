@@ -1,7 +1,7 @@
 = stylesheet_link_tag "payments"
 
 %div.new_payment
-  = form_tag "https://www.paypal.com/cgi-bin/webscr", :method => "post" do
+  = form_tag '/transactions', :method => "post" do
     #submitpayment
       .head
         %h1
@@ -21,12 +21,13 @@
                 = "#{qty}"
               = radio_button_tag 'quantity', qty, false, :class => 'rdio'
         .clear
+        %input{:name => "action_url", :type => "hidden", :value => "https://www.paypal.com/cgi-bin/webscr"}/
         %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
         %input{:name => "business", :type => "hidden", :value => "founders@sprowty.com"}/
         %input{:name => "lc", :type => "hidden", :value => "US"}/
         %input{:name => "item_name", :type => "hidden", :value => "Sprowty Togens"}/
         %input{:name => "button_subtype", :type => "hidden", :value => "services"}/
-        %input{:name => "amount", :type => "hidden", :value => "0.25"}/
+        %input{:name => "amount", :type => "hidden", :value => "1.00"}/
         %input{:name => "no_note", :type => "hidden", :value => "0"}/
         %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
         %input{:name => "bn", :type => "hidden", :value => "PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest"}/

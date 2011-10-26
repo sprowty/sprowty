@@ -12,10 +12,11 @@ Sprowty::Application.routes.draw do
   resources :messages
   resources :profiles
   resources :feedbacks
-  resources :payments
-  match '/buycoins' => 'payments#new', :as => :buy_coins
+  resources :transactions
+  match '/buycoins' => 'transactions#new', :as => :buy_coins
 
-  match '/ipn' => 'notifications#new', :as => :notifications
+  #match '/notify' => 'notifications#notify', :as => :notifications
+  root :to  => 'notifications#notify'
 
   resources :projects do
     get :inside
@@ -38,7 +39,7 @@ Sprowty::Application.routes.draw do
     get 'logout', :to => 'devise/sessions#destroy'
   end
 
-  root :to                        => 'home#index'
+  #root :to                        => 'home#index'
   match 'inbox'                   => 'messages#index',  :as => 'inbox'
   match '/user'                   => 'profiles#index',  :as => :user_root # why are we doing this? rr
   match "/community"              => 'community#index'

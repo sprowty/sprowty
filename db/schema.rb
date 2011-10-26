@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019005943) do
+ActiveRecord::Schema.define(:version => 20111025004921) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -110,13 +110,6 @@ ActiveRecord::Schema.define(:version => 20111019005943) do
     t.datetime "updated_at"
   end
 
-  create_table "payments", :force => true do |t|
-    t.integer  "user_id"
-    t.float    "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "problems", :force => true do |t|
     t.text     "detail"
     t.integer  "project_id"
@@ -195,11 +188,15 @@ ActiveRecord::Schema.define(:version => 20111019005943) do
 
   create_table "transactions", :force => true do |t|
     t.integer  "account_id"
-    t.decimal  "amount",           :precision => 10, :scale => 0
-    t.integer  "reference_number"
+    t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "paypal_transaction_id", :null => false
+    t.string   "sm_state"
+    t.string   "tx_type"
   end
+
+  add_index "transactions", ["paypal_transaction_id"], :name => "index_transactions_on_paypal_transaction_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
