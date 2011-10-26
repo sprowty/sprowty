@@ -107,7 +107,7 @@
               %span.bold.bid_count= project.bids.length
               %p Sprowts
               %p (Bids)
-            .pic= link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+            .pic= link_to image_tag(project.user.profile.picture.url, :size => "125x125"), profile_path(project.user)
             .info
               %h2= link_to project.title, project_path(project.id)
               %ul.posted
@@ -131,7 +131,7 @@
                   %b Keywords:
 
               %p
-                = project.description.truncate(30)
+                = project.description.truncate(60)
                 = link_to 'Read More', project, :class => 'readmore'
               %ul.actions
                 - if current_user
