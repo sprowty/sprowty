@@ -107,7 +107,7 @@
               %span.bold.bid_count= project.bids.length
               %p Sprowts
               %p (Bids)
-            .pic= link_to image_tag(project.user.profile.picture.url, :size => "125x125"), profile_path(project.user)
+            .pic= link_to image_tag(project.user.profile.picture.url, :size => "129x129"), profile_path(project.user)
             .info
               %h2= link_to project.title, project_path(project.id)
               %ul.posted

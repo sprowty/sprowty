@@ -39,7 +39,7 @@ Sprowty::Application.routes.draw do
     get 'logout', :to => 'devise/sessions#destroy'
   end
 
-  #root :to                        => 'home#index'
+  root :to                        => 'home#index'
   match 'inbox'                   => 'messages#index',  :as => 'inbox'
   match '/user'                   => 'profiles#index',  :as => :user_root # why are we doing this? rr
   match "/community"              => 'community#index'
