@@ -7,50 +7,27 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 # site users
-1.upto(10).each do |x|
-  p "...creating user #{x}"
-  User.create({:email => "testuser#{x}_sprowty@mailinator.com",
-               :password => "password#{x}",
-               :password_confirmation => "password#{x}",
-               :username => "testuser#{x}"})
-end
+seeder = User.create({:email => "seeder_sprowty@mailinator.com",
+             :password => "password",
+             :password_confirmation => "password",
+             :username => "seeder"})
 
-# projects
-User.all.each do |x|
-  p "...creating project #{x}"
-  Project.create({:user_id => x.id,
-                  :title => "Project #{x.id}",
-                  :description => "Example project",
-                  :city => "City#{x.id}",
-                  :state => "OK",
-                  :tags => "project",
-                  :price => 3245.25,
-                  :due_date => DateTime.now()+2.months})
-end
+User.create({:email => "sprowter_sprowty@mailinator.com",
+             :password => "password",
+             :password_confirmation => "password",
+             :username => "sprowter"})
 
-# post every other project (lets have some variety eh?)
-%w(1 3 5 7 9).each do |x|
-  p "...posting project #{x}"
-  p = Project.find(x)
-  p.post
-end
+project = Project.create({:user_id => seeder.id,
+                :title => "Test Project",
+                :description => "Example project",
+                :city => "Brooklyn",
+                :state => "NY",
+                :tags => "project",
+                :price => 3245.25,
+                :due_date => DateTime.now()+2.months})
 
-# create feedback for posted projects
-%w(1 3 5 7 9).each do |x|
-  p "...creating feedback for project #{x}"
-  p = Project.find(x)
-  Feedback.create :project_id => p.id, :user_id => p.user.id + 1, :feedback => "great job on project: #{p.title}"
-end
+project.post
 
-# bids
-
-# keywords
-1.upto(20).each do |k|
-  p "...creating keyword #{k}"
-  Keyword.create({:name => "keyword#{k}"})
-end
-
-#categories
 CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Helath", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programming/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
 
 CATEGORIES.each do |c|
