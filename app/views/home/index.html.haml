@@ -120,11 +120,14 @@
               %ul.posted
                 %li
                   %b Location:
-                  = project.city, #{project.state}
+                  = project.city
+                  , #{project.state}
               / /Posted
               #description
                 .keywords
                   %b In Category:
+
+
 
               %p
                 = project.description.truncate(60)
