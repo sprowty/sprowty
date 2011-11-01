@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   has_many :problems
   has_many :categories
 
-  validates_presence_of :title, :description, :price, :tags, :city, :state
+  validates_presence_of :title, :description, :price, :tags
 
   state_machine :sm_state, :initial => :pending_post do
     event :post do transition :pending_post => :posted end
