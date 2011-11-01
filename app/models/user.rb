@@ -82,13 +82,21 @@ class User < ActiveRecord::Base
   end
 
   def latest_sprowts
-    projects
+    projects = Array.new
+    bids.map(&:project).each do |bid|
+      if bid.project.sm_state == "work_completed"
+        projects << bid.project
+      end
+    end
   end
 
   def current_sprowts
-    #assigned_projects = Project.where(assignment.user_id => id)
-    projects
-
+    projects = Array.new
+    bids.map(&:project).each do |bid|
+      if bid.project.sm_state != "work_completed"
+        projects << bid.project
+      end
+    end
   end
 
   private
