@@ -134,9 +134,14 @@
                 = link_to 'Read More', project, :class => 'readmore'
               %ul.actions
                 - if current_user
-                  %li= link_to 'Sprowt it', new_project_bid_path(:project_id => project.id)
+                  %li= link_to 'Sprowt it', new_project_bid_path(:project_id => project.id)              
                   %li
                     %a{:href => "#"} Create Similar
+                - else 
+                  %li= link_to 'Sprowt it', sign_in_path
+                  %li
+                    %a{:href => "#"} Create Similar
+                
                 %li.share
                   %a#stay-target-12.stay-tooltip-target.tooltip-target Share
               #stay-content-12.stay-tooltip-username.tooltip-share
