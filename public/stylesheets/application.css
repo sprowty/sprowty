@@ -1063,7 +1063,7 @@ margin-bottom: 24px;
 .recaptcha {margin: 20px 0}
 .radio {margin: 20px 0}
 .radio input  {float: left; margin-right: 10px}
-#signupcontainer p {padding: 4px 0}
+#signupcontainer p {padding: 0px 0}
 #signupcontainer .create {background: url(/images/button_create.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
 
 #signupcontainer .create:hover {

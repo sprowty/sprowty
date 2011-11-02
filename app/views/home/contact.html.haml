@@ -2,17 +2,36 @@
   #main
     %h2 Contact Us
 
-    <form method="POST">
+    %form{:name => "email", :id => "email", :action => "/contact", :method => "post", :enctype => "text/plain"}
+      .settings
+        .label
+          %label Username:
+        .input
+          = text_field :username, :class => 'field'
+      .clear
+      .settings
+        .label
+          %label Email:
+        .input
+          = text_field :email, :class => 'field'
+      / /SETTINGS
+      .clear
+      .settings
+        .label
+          %label Project ID:
+        .input
+          = text_field :project_id, :class => 'field'
+      .clear
+      .settings
+        .label
+          %label Subject:
+        .input
+          = select :subject, CATEGORIES, {:include_blank => false}
+      .clear
+      .settings
+        .label
+          %label Comments
+        .input
+          = text_area :comments, :class => 'field'
+        .clear
 
-
-    <label _name">User Name*</label><input  id="first_name" maxlength="40" name="first_name" size="10" type="text" /><br>
-
-    <label for="email">Email*</label><input  id="email" maxlength="80" name="email" size="10" type="text" /><br>
-
-    <label for="company">Project ID</label><input  id="company" maxlength="40" name="company" size="10" type="text" /><br>
-
-    Comments:<br><textarea  id="00NE0000000ecRr" name="00NE0000000ecRr" rows="10" type="text" wrap="soft"></textarea><br>
-
-    <input type="submit" name="submit">
-
-    </form>
