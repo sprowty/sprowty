@@ -1,5 +1,5 @@
 
-CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Helath", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programing/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
+CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Health", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programing/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
 
 SUBJECT = ["Report a problem", "Can't do the project anymore", "Comments about the site", "Report a bug", "Question about my account", "Other"]
 
