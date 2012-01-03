@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :require_user, :only => [:edit, :update, :destroy]
+  before_filter :authenticate_user!
   respond_to :html, :js
 
   def index

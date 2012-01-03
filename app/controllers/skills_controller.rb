@@ -1,8 +1,6 @@
 class SkillsController < ApplicationController
-  before_filter :require_user
+  before_filter :authenticate_user!
   respond_to :html, :json
-
-
 
   def create
     @skill = Skill.new(:skill => params[:skill][:skill], :user_id => params[:current_user])

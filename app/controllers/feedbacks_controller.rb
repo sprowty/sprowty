@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_filter :require_user
+  before_filter :authenticate_user!
   respond_to :html, :json
 
   def index
