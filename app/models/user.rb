@@ -31,9 +31,10 @@ class User < ActiveRecord::Base
   after_create :create_profile
   after_create :setup_account
 
-  validates_presence_of :username
-  validates_uniqueness_of :username
+  validates_presence_of :username, :email
+  validates_uniqueness_of :username, :email
   validates_acceptance_of :terms
+  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
   def self.find_by_id_or_username(param)
     where("id = ? or username = ?", param, param).first
