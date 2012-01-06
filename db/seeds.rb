@@ -12,21 +12,23 @@ seeder = User.create({:email => "seeder_sprowty@mailinator.com",
              :password_confirmation => "password",
              :username => "seeder"})
 
-User.create({:email => "sprowter_sprowty@mailinator.com",
+sprowter = User.create({:email => "sprowter_sprowty@mailinator.com",
              :password => "password",
              :password_confirmation => "password",
              :username => "sprowter"})
 
-project = Project.create({:user_id => seeder.id,
-                :title => "Test Project",
-                :description => "Example project",
-                :city => "Brooklyn",
-                :state => "NY",
-                :tags => "project",
-                :price => 3245.25,
-                :due_date => DateTime.now()+2.months})
+[1..10].each do
+  project = Project.create({:user_id => seeder.id,
+                  :title => "Test Project",
+                  :description => "Example project",
+                  :city => "Brooklyn",
+                  :state => "NY",
+                  :tags => "project",
+                  :price => 3245.25,
+                  :due_date => DateTime.now()+2.months})
 
-project.post
+  project.post
+end
 
 CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Health", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programming/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
 
