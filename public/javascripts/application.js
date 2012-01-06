@@ -12,19 +12,19 @@ $(document).ready(function() {
 		$.ajax({type: $(this).attr("method"), url: $(this).attr("action"), data: $(this).serialize(), dataType: "script"});
 		return false;
 	});
-	
+
 	$(".next-slide").click(function(){
 		$(this).closest('.slide').hide();
 		$(this).closest('.slide').next('.slide').show();
 		return false;
 	});
-	
+
 	$(".previous-slide").click(function(){
 		$(this).closest('.slide').hide();
 		$(this).closest('.slide').prev('.slide').show();
 		return false;
 	});
-	
+
 	$(".slider").easySlider({
 		controlsShow: false,
 		continuous: true,
@@ -32,8 +32,8 @@ $(document).ready(function() {
 		pause: 5000,
 		speed: 500
 	});
-	
-	
+
+
 });
 
 // Always send the authenticity_token with ajax
@@ -48,4 +48,8 @@ $(document).ready(function() {
 $(document).ajaxSend(function(e, xhr, options) {
   var token = $("meta[name='csrf-token']").attr("content");
   xhr.setRequestHeader("X-CSRF-Token", token);
+});
+
+$(function(){
+  $(".tiptip").tipTip({keepAlive: true});
 });

@@ -10,8 +10,6 @@
     %meta{:content => "text/html;charset=utf-8", "http-equiv" => "content-type"}/
     %meta{:content => "noindex,nofollow", :name => "robots"}/
     %meta{:content => "nosnippet,nofollow", :name => "googlebot"}/
-    = stylesheet_link_tag "application", "colorbox", "slider"
-    = javascript_include_tag "jquery", "easySlider1.7", "application", "rails", "jquery.colorbox-min"
     %link{:href => "favicon.ico", :rel => "icon", :type => "image/x-icon"}/
     %link{:href => "favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     = csrf_meta_tag
@@ -71,6 +69,7 @@
 
         $('.clearField').clearField();
       });
-    = yield :javascript
-    = javascript_include_tag 'scrolltop', 'jquery.clearfield.min','jquery.ezpz_tooltip.min', 'jquery.tipsy', 'jquery.colorbox-min', :cache => false
 
+    = yield :javascript
+    = stylesheet_link_tag "application", "colorbox", "slider", "tipTip"
+    = javascript_include_tag "jquery", "easySlider1.7", "application", "rails", "jquery.colorbox-min", "scrolltop", "jquery.clearfield.min", "jquery.tipTip.minified"
