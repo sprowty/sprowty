@@ -16,11 +16,12 @@
               = f.label "Email"
               = f.text_field :email
               = f.label "Password"
+              = link_to 'Forgot Password?', '#', :style => "margin-left: 75px; margin-top: -4px; color: #894125; font: 12px Georgia,'Times New Roman',Serif;"
               = f.password_field :password
-            %p{:style => 'float: right; margin-top: 5px; margin-right: 3px;'}
+            %p{:style => 'float: left; margin-top: -1px; margin-right: 3px;'}
               = f.check_box :remember_me
               = f.label :remember_me
-            = f.submit 'Sign in', :style => 'float:left; margin-left: -1px;'
+            = f.submit 'Sign in', :style => 'float:right; margin-right:1px;'
             .clear
     - else
       %ul.userlog
