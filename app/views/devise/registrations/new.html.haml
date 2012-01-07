@@ -25,12 +25,12 @@
         .member
           Already have an account?
           %br/
-          %a{:href => "#"} Log In
+          %a{:href => "#"} Sign In
         .radio
           %input{:name => "data[Submit][question]", :type => "radio"}/
           %p
-            I have read & agree to sprowty’s
-            %a{:href => "#"} Terms & Conditions
-        = f.submit 'Create Account', :class => 'create'
+            I agree to the
+            %a{:href => "#"} Terms Of Service.
+        = f.submit 'Join', :class => 'create'
       / RIGHT
     / SIGNUPCONTAINER

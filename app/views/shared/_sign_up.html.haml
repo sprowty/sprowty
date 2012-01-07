@@ -6,7 +6,7 @@
     .left
       %h2 Username
       = f.text_field :username,                   :class => "field clearField"
-      %h2 E-mail Address 
+      %h2 E-mail Address
       = f.email_field :email,                     :class => "field clearField"
       %h2 Password
       = f.password_field :password,               :class => 'field clearField'
@@ -16,7 +16,7 @@
     .right
       .member{:style => "padding-left:35px; padding-top:45px"}
         Already have an account?
-        %a{:href => user_session_path} Log In
+        %a{:href => user_session_path} Sign In
       %br/
       %br/
       = link_to image_tag('fbconnect.png', :class => 'fbconnect'), user_omniauth_authorize_path(:facebook)
@@ -24,11 +24,11 @@
       %br/
       %div{:style => "padding-left:22px; padding-bottom:2px"}
         = f.check_box :terms, :class => 'checkbox', :style => 'width: auto'
-        I have read & agree to sprowty’s
+        I agree to the
         %a{:href => "#"}
-          Terms & Conditions
+          Terms of Service
           %br/
           %br/
-      = f.submit 'Create Account', :class => 'create'
+      = f.submit 'Join', :class => 'join'
     / RIGHT
 / SIGNUPCONTAINER
