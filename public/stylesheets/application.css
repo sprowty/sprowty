@@ -66,7 +66,7 @@ font-style: normal;
 /* ----------CONTAINER--------------------- */
 #container {
 height: auto !important;
-height: 100%;
+min-height: 100%;
 margin: 0 auto;
 width: 979px;
 background-color: #e5d7c1;
@@ -92,7 +92,6 @@ margin-bottom: 34px;
 
 /* --Sign In-- */
 #logincontainer { width:503px; position: relative;}
-#content { width:520px; min-height:500px;}
 #topnav {float: left; font-size: 11px; line-height: 30px; margin-left: 300px; text-align: center; width: 100px;}
 #topnav h5 {padding-top: 7px;font: bold 16px Helvetica, Arial, Sans-Serif;}
 
@@ -324,7 +323,7 @@ height: 52px
 
 
 /* ----------MAIN CONTENT------------*/
-#main { min-height: 100%; height: auto !important;  height: 100%; padding: 10px 26px 1226px 26px;  }
+#main { padding: 10px 26px 226px 26px; min-height: 400px;}
 #main .content {padding: 0 10px 10px 0; width: 650px; margin-right: 0px; height: auto; float: left; margin-bottom: 50px}
 #main .content p {line-height: 18px;}
 
