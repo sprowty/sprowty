@@ -1,5 +1,24 @@
 module HomeHelper
-  def share_link
-    link_to 'Share', '#', :id => 'stay-target-12', :class => 'stay-tooltip-target.tooltip-target tiptip', :title => "#{image_tag('icon_facebook.png')} #{image_tag('icon_twitter.png')} #{image_tag('icon_mail.png')}"
+  def display_sharing_tooltip
+    link_to 'Share', '#',
+      :id => 'stay-target-12',
+      :class => 'stay-tooltip-target.tooltip-target tiptip',
+      :title => "<ul class='share_icons'>" +
+                "<li>#{link_to(image_tag('icon_facebook.png'),'#')}</li>" +
+                "<li>#{link_to(image_tag('icon_twitter.png'), '#')}</li>" +
+                "<li>#{link_to(image_tag('icon_mail.png'), '#')}</li>" +
+                "</ul>"
   end
+
+  def display_poster_tooltip(project)
+    link_to project.user.username, project.user.profile,
+      :id => 'poster_tip',
+      :class => 'stay-tooltip-target.tooltip-target tiptip',
+      :title => "<ul class='poster_tip'>" +
+                "<li>#{link_to project.user.username}</li>" +
+                "<li>City, State</li>" +
+                "<li>Thumbs Up/Down</li>" +
+                "</ul>"
+  end
+
 end

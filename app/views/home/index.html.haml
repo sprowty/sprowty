@@ -113,7 +113,7 @@
                   = project.due_date.strftime("%m/%d/%Y")
                 %li
                   %b By:
-                  = link_to project.user.username, project.user.profile
+                  = display_poster_tooltip(project)
               %ul.posted
                 %li
                   %b Location:
@@ -123,9 +123,6 @@
               #description
                 .keywords
                   %b In Category:
-
-
-
               %p
                 = project.description.truncate(60)
                 = link_to 'Read More', project, :class => 'readmore'
@@ -134,15 +131,7 @@
                 %li= link_to 'Create Similar', new_project_path
 
                 %li.share
-                  = share_link
-              #stay-content-12.stay-tooltip-username.tooltip-share
-                %ul
-                  %li
-                    %a.facebook{:href => "#"}
-                  %li
-                    %a.twitter{:href => "#"}
-                  %li
-                    %a.email{:href => "#"}
+                  = display_sharing_tooltip
               / /stay-content-12
             / /INFO
             .price

@@ -1190,3 +1190,11 @@ background-image: url('/images/errors3.png');
   width: 700px;
   float: left;
 }
+
+ul.share_icons {list-style: none;height: 30px;}
+ul.share_icons li { float: left; padding: 3px; }
+
+ul.poster_tip {list-style: none; padding: 2px;}
+ul.poster_tip li.username {clear:both;}
+ul.poster_tip li.location {clear:both;}
+ul.poster_tip li.votes {clear:both;}
