@@ -323,7 +323,7 @@ height: 52px
 
 
 /* ----------MAIN CONTENT------------*/
-#main { padding: 10px 26px 226px 26px; min-height: 850px;}
+#main { padding: 10px 26px 26px 26px;}
 #main .content {padding: 0 10px 10px 0; width: 650px; margin-right: 0px; height: auto; float: left; margin-bottom: 50px}
 #main .content p {line-height: 18px;}
 
