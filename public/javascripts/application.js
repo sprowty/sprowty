@@ -33,23 +33,37 @@ $(document).ready(function() {
 		speed: 500
 	});
 
+  $(function(){
+    $(".tiptip").tipTip({keepAlive: true});
+  });
 
+  $(function(){
+    $(".signin").click(function(e) {
+      e.preventDefault();
+      $("fieldset#signin_menu").toggle();
+      $(".signin").toggleClass("menu-open");
+    });
+
+    $("fieldset#signin_menu").mouseup(function() {
+      return false
+    });
+
+    $(document).mouseup(function(e) {
+      if ($(e.target).parent("a.signin").length == 0) {
+        $(".signin").removeClass("menu-open");
+        $("fieldset#signin_menu").hide();
+      }
+    });
+
+    $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "800px", height: "440px", innerHeight: "420px" });
+    $('.plant').colorbox({ width: "800px", Height: "640px" });
+    $('.sprowt').colorbox({ width: "50%", height: "570px", innerHeight: "540px" });
+
+    $('.clearField').clearField();
+  });
 });
-
-// Always send the authenticity_token with ajax
-//$(document).ajaxSend(function(event, request, settings) {
-//    if ( settings.type != 'GET' ) {
-//        settings.data = (settings.data ? settings.data + "&" : "")
-//            + "authenticity_token=" + encodeURIComponent( AUTH_TOKEN );
-//    }
-//});
-
 
 $(document).ajaxSend(function(e, xhr, options) {
   var token = $("meta[name='csrf-token']").attr("content");
   xhr.setRequestHeader("X-CSRF-Token", token);
-});
-
-$(function(){
-  $(".tiptip").tipTip({keepAlive: true});
 });

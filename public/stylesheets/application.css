@@ -811,8 +811,12 @@ font-weight: 200;
 #info ul.ratings, b.ratings {float: left; }
 #info ul.ratings li {display: inline; font: bold 14px Helvetica, Arial, sans-serif; color: #585A05; margin-right: 12px}
 li.positive, li.negative { padding: 4px 0 4px 30px}
-#info ul.ratings li.positive {background: url(/images/icon_thumbup.png) no-repeat left center;}
-#info ul.ratings li.negative {background: url(/images/icon_thumbdown.png) no-repeat left center;}
+#info ul.ratings li.positive, #tiptip_content ul.poster_tip ul.ratings li.positive {background: url(/images/icon_thumbup.png) no-repeat left center;}
+#info ul.ratings li.negative, #tiptip_content ul.poster_tip ul.ratings li.negative {background: url(/images/icon_thumbdown.png) no-repeat left center;}
+#tiptip_content ul.poster_tip ul.ratings {list-style: none; padding-bottom: 15px;}
+#tiptip_content ul.poster_tip { padding: 5px;}
+#tiptip_content ul.poster_tip li { padding-bottom: 2px;}
+#tiptip_content ul.poster_tip ul.ratings li {float: left; color: #894125;}
 /* --/INFO-- */
 
 

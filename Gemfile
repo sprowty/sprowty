@@ -30,4 +30,5 @@ group :development, :test do
   gem 'pickle'
   gem 'launchy'
   gem 'capistrano'
+  gem 'engineyard'
 end

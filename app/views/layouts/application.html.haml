@@ -35,40 +35,6 @@
       .holder
         %a{:href => "#top"}/
         %h3 Back to Top
-    :javascript
-      $(function(){
-
-        $(".signin").click(function(e) {
-          e.preventDefault();
-          $("fieldset#signin_menu").toggle();
-          $(".signin").toggleClass("menu-open");
-        });
-
-        $("fieldset#signin_menu").mouseup(function() {
-          return false
-        });
-
-        $(document).mouseup(function(e) {
-          if ($(e.target).parent("a.signin").length == 0) {
-            $(".signin").removeClass("menu-open");
-            $("fieldset#signin_menu").hide();
-          }
-        });
-
-        $('#forget_username_link').tipsy({ gravity: 'w' });
-
-        $("#stay-target-1 #stay-target-2 #stay-target-3 #stay-target-4 #stay-target-5 #stay-target-6 #stay-target7 #stay-target8 #stay-target8 #stay-target-9 #stay-target-10 #stay-target-11 #stay-target-12").ezpz_tooltip({
-        	contentPosition: 'belowStatic',
-        	stayOnContent: true,
-        	offset: 0
-        });
-
-        $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "800px", height: "440px", innerHeight: "420px" });
-        $('.plant').colorbox({ width: "800px", Height: "640px" });
-        $('.sprowt').colorbox({ width: "50%", height: "570px", innerHeight: "540px" });
-
-        $('.clearField').clearField();
-      });
 
     = yield :javascript
     = stylesheet_link_tag "application", "colorbox", "slider", "tipTip"

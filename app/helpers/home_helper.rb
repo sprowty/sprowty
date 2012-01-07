@@ -17,8 +17,10 @@ module HomeHelper
       :title => "<ul class='poster_tip'>" +
                 "<li class='username'>#{link_to project.user.username}</li>" +
                 "<li class='location'>City, State</li>" +
-                "<li class='votes'>Thumbs Up/Down</li>" +
-                "</ul>"
+                "<ul class='ratings'>" +
+                "<li class='positive'>0</li>" +
+                "<li class='negative'>0</li>" +
+                "</ul></ul>"
   end
 
 end
