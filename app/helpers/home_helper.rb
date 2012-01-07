@@ -15,9 +15,9 @@ module HomeHelper
       :id => 'poster_tip',
       :class => 'stay-tooltip-target.tooltip-target tiptip',
       :title => "<ul class='poster_tip'>" +
-                "<li>#{link_to project.user.username}</li>" +
-                "<li>City, State</li>" +
-                "<li>Thumbs Up/Down</li>" +
+                "<li class='username'>#{link_to project.user.username}</li>" +
+                "<li class='location'>City, State</li>" +
+                "<li class='votes'>Thumbs Up/Down</li>" +
                 "</ul>"
   end
 
