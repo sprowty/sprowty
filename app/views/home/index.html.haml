@@ -68,7 +68,7 @@
         %button{:type => "submit"} Plant
     / /RIGHT
 / /NEEDDONE
-#container
+#container{:style => 'min-height: 100%;'}
   #main
     .rightside
       %h2 Sprowt Around
@@ -113,7 +113,7 @@
                   = project.due_date.strftime("%m/%d/%Y")
                 %li
                   %b By:
-                  = display_poster_tooltip(project)
+                  = link_to project.user.username, project.user.profile
               %ul.posted
                 %li
                   %b Location:

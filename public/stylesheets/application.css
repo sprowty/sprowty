@@ -66,7 +66,6 @@ font-style: normal;
 /* ----------CONTAINER--------------------- */
 #container {
 height: auto !important;
-min-height: 100%;
 margin: 0 auto;
 width: 979px;
 background-color: #e5d7c1;

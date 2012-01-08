@@ -1,16 +1,12 @@
 - if alert
   .errors
     %p= alert
-#signupcontainer{:style => "height: 400px"}
+#signupcontainer
   = form_for(:user, :url => registration_path('user')) do |f|
     .left
-      %h2 Username
       = f.text_field :username,                   :class => "field clearField", :placeholder => 'enter username'
-      %h2 E-mail Address
       = f.email_field :email,                     :class => "field clearField", :placeholder => 'enter email'
-      %h2 Password
       = f.password_field :password,               :class => 'field clearField', :placeholder => 'enter password'
-      %h2 Password Confirmation
       = f.password_field :password_confirmation,  :class => 'fieldlast clearField', :placeholder => 'confirm password'
     / LEFT
     .right
