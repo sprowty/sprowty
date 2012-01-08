@@ -421,21 +421,17 @@ border-bottom-left-radius: 20px;
 .boxhead, .boxheadin {background: url(/images/boxhead.png) no-repeat; height: 56px; width: 251px;}
 .boxhead h3, .boxheadin h3 {padding: 11px 0 0 10px; text-shadow: 1px 1px 0px #bfc15a; filter: dropshadow(color=#bfc15a, offx=1, offy=1);}
 
-.box ul.categories, ul.theirwork {margin: 0; padding-left: 8px}
+.box ul.categories, ul.theirwork {margin: 0;}
 
 .box ul.categories li, ul.theirwork li{
 list-style-type: none;
 display: block;
-padding-left: 20px;
-background: url(/images/icon_smallseed.png) no-repeat left center;
+background: url("/images/linebg.gif") repeat-x scroll center bottom;
 }
 
-ul.categories li.spacer {
-  background: url("/images/linebg.gif") repeat-x scroll 0 0 transparent;
-}
 
 .box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: bold 10px Georgia,'Times New Roman',Serif; text-transform: uppercase;}
-.box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; }
+.box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; float: left; width: 100%;}
 
 ul.theirwork li {background: url(/images/icon_viewwork.png) no-repeat left center; padding-left: 28px; font-weight: bold}
 ul.theirwork li a{font-weight: bold}
