@@ -1062,7 +1062,7 @@ margin-bottom: 24px;
 .radio input  {float: left; margin-right: 10px}
 #signupcontainer p {padding: 0px 0}
 #signupcontainer .create {background: url(/images/button_create.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
-#signupcontainer .join {background: url(/images/btn_join.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
+#signupcontainer .join {background: url(/images/btn_join_small.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
 
 #signupcontainer .create:hover {
 -webkit-box-shadow: 0px 0px 8px #000;
