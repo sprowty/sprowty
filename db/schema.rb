@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216013132) do
+ActiveRecord::Schema.define(:version => 20120108223949) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -87,6 +87,26 @@ ActiveRecord::Schema.define(:version => 20111216013132) do
     t.integer  "project_id"
     t.integer  "user_id"
     t.text     "feedback"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "geoinfo_cities", :force => true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.integer  "gnis_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "population_2000"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "geoinfo_states", :force => true do |t|
+    t.string   "name"
+    t.string   "abbr"
+    t.string   "country"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -226,8 +246,12 @@ ActiveRecord::Schema.define(:version => 20111216013132) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "is_admin",                            :default => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["is_admin"], :name => "index_users_on_is_admin"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

@@ -16,7 +16,7 @@
               = f.label "Email"
               = f.text_field :email, :placeholder => 'enter email'
               = f.label "Password"
-              = link_to 'Forgot Password?', '#', :style => "margin-left: 75px; margin-top: -4px; color: #894125; font: 12px Georgia,'Times New Roman',Serif;"
+              = link_to 'Forgot Password?', new_password_path(User), :style => "margin-left: 75px; margin-top: -4px; color: #894125; font: 12px Georgia,'Times New Roman',Serif;"
               = f.password_field :password, :placeholder => 'enter password'
             %p{:style => 'float: left; margin-top: -1px; margin-right: 3px;'}
               = f.check_box :remember_me
