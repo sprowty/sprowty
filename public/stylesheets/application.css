@@ -176,7 +176,7 @@ color: #422215
 #signin_menu p a { color:#27B!important;}
 #signin_submit, .signin_submit, #user_submit { background: url('/images/button_signin.png') no-repeat; width: 71px; height: 30px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
 
-#forgot_password { background: url('/images/btn_submit.png') no-repeat; width: 110px; height: 60px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
+#forgot_password { background: url('/images/btn_submit.png') no-repeat; width: 110px; height: 60px; border: none; text-indent: -9999em; margin: 33px -150px 0 4px; float: right; }
 #signin_submit::-moz-focus-inner { padding:0; border:0;}
 #signin_submit:hover, #signin_submit:focus {cursor:pointer;}
 
@@ -1071,11 +1071,6 @@ box-shadow: 0px 0px 8px #000;
 border-radius: 22px;
 }
 
-#error_explanation h2 {
-  padding-bottom: 10px;
-  font-size: 25px;
-}
-
 .bold {
   font-weight: bold;
 }
@@ -1127,9 +1122,31 @@ background-position: 10px center;
 color: #D8000C;
 background-color: #FFBABA;
 background-image: url('/images/errors3.png');
-
 }
 
+#error_explanation {
+  margin-left 10px;
+  color: #D8000C;
+  background-color: #FFBABA;
+  border: 1px solid;
+  clear: both;
+}
+
+#error_explanation h2 {
+  margin-left: 10px;
+  padding-bottom: 10px;
+  font-size: 25px;
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+
+#error_explanation ul {}
+#error_explanation ul li {
+  margin-left: 20px;
+  clear: both;
+  font: 12px Helvetica,Arial,Sans-Serif;
+  list-style: disc outside;
+}
 
 #main .spotlight {width:650px;height:285px;float:left;margin-top:35px;margin-bottom:20px;}
 #main .spotlight .spotlight-content {float:right;width:273px;margin-top:-285px;}

@@ -21,4 +21,11 @@ module ApplicationHelper
       image_tag('icon_big_star.png', :style => 'border: none;')
     end
   end
+
+  def flash_div(kind)
+    unless flash[kind].blank?
+      text = "<p>#{flash[kind]}</p>"
+      content_tag :div, text.html_safe, :id => "flash", :class => kind
+    end
+  end
 end

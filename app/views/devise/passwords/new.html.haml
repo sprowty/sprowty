@@ -5,15 +5,13 @@
       %h4 Forgot Your Password?
 #container
   #main
-    - if alert
-      .errors
-        %p= alert
     #signupcontainer
       .left
         = semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
           = devise_error_messages!
+          %br/
           %p
-            %h2 Please enter your E-mail
+            %h2 Enter your E-mail
             = f.text_field :email, :class => "field clearField"
             = f.submit "Send me reset password instructions", :id => 'forgot_password'
         = render :partial => "devise/shared/links"
