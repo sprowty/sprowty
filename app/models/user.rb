@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :omniauthable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
+  accepts_nested_attributes_for :profile
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :terms
   after_create :create_profile
   after_create :setup_account
@@ -97,6 +98,14 @@ class User < ActiveRecord::Base
       if bid.project.sm_state != "work_completed"
         projects << bid.project
       end
+    end
+  end
+
+  def full_name
+    if first_name.blank? && last_name.blank?
+      "Author"
+    else
+      "#{first_name} #{last_name}"
     end
   end
 

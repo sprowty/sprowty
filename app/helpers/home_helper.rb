@@ -11,7 +11,7 @@ module HomeHelper
   end
 
   def display_poster_tooltip(project)
-    link_to project.user.username, project.user.profile,
+    link_to project.user.full_name || 'Author', project.user.profile,
       :id => 'poster_tip',
       :class => 'stay-tooltip-target.tooltip-target tiptip',
       :title => "<ul class='poster_tip'>" +

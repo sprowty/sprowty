@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108223949) do
+ActiveRecord::Schema.define(:version => 20120110222303) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -91,26 +91,6 @@ ActiveRecord::Schema.define(:version => 20120108223949) do
     t.datetime "updated_at"
   end
 
-  create_table "geoinfo_cities", :force => true do |t|
-    t.string   "name"
-    t.integer  "state_id"
-    t.integer  "gnis_id"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "population_2000"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "geoinfo_states", :force => true do |t|
-    t.string   "name"
-    t.string   "abbr"
-    t.string   "country"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "keywords", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -167,7 +147,10 @@ ActiveRecord::Schema.define(:version => 20120108223949) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "image_approved",       :default => false
+    t.string   "zipcode"
   end
+
+  add_index "profiles", ["zipcode"], :name => "index_profiles_on_zipcode"
 
   create_table "project_alerts", :force => true do |t|
     t.string   "message"
@@ -267,5 +250,15 @@ ActiveRecord::Schema.define(:version => 20120108223949) do
     t.datetime "updated_at"
     t.boolean  "image_approved",    :default => false
   end
+
+  create_table "zip_codes", :force => true do |t|
+    t.integer "zipcode", :null => false
+    t.string  "city"
+    t.string  "state"
+    t.float   "lat"
+    t.float   "lng"
+  end
+
+  add_index "zip_codes", ["zipcode"], :name => "index_zip_codes_on_zipcode", :unique => true
 
 end
