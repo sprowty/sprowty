@@ -6,3 +6,4 @@ tmp/
 public/system/pictures/*
 config/*.yml
 public/system/*
+tags
