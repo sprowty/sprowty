@@ -66,7 +66,6 @@ font-style: normal;
 /* ----------CONTAINER--------------------- */
 #container {
 height: auto !important;
-min-height: 100%;
 margin: 0 auto;
 width: 979px;
 background-color: #e5d7c1;
@@ -177,7 +176,7 @@ color: #422215
 #signin_menu p a { color:#27B!important;}
 #signin_submit, .signin_submit, #user_submit { background: url('/images/button_signin.png') no-repeat; width: 71px; height: 30px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
 
-#forgot_password { background: url('/images/btn_submit.png') no-repeat; width: 110px; height: 60px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
+#forgot_password { background: url('/images/btn_submit.png') no-repeat; width: 110px; height: 60px; border: none; text-indent: -9999em; margin: 33px -150px 0 4px; float: right; }
 #signin_submit::-moz-focus-inner { padding:0; border:0;}
 #signin_submit:hover, #signin_submit:focus {cursor:pointer;}
 
@@ -421,21 +420,17 @@ border-bottom-left-radius: 20px;
 .boxhead, .boxheadin {background: url(/images/boxhead.png) no-repeat; height: 56px; width: 251px;}
 .boxhead h3, .boxheadin h3 {padding: 11px 0 0 10px; text-shadow: 1px 1px 0px #bfc15a; filter: dropshadow(color=#bfc15a, offx=1, offy=1);}
 
-.box ul.categories, ul.theirwork {margin: 0; padding-left: 8px}
+.box ul.categories, ul.theirwork {margin: 0;}
 
 .box ul.categories li, ul.theirwork li{
 list-style-type: none;
 display: block;
-padding-left: 20px;
-background: url(/images/icon_smallseed.png) no-repeat left center;
+background: url("/images/linebg.gif") repeat-x scroll center bottom;
 }
 
-ul.categories li.spacer {
-  background: url("/images/linebg.gif") repeat-x scroll 0 0 transparent;
-}
 
-.box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: 16px 'KnockoutHTF27-JuniorBantamwt',Hevletica,sans-serif;text-transform:uppercase;}
-.box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; }
+.box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: bold 10px Georgia,'Times New Roman',Serif; text-transform: uppercase;}
+.box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; float: left; width: 100%;}
 
 ul.theirwork li {background: url(/images/icon_viewwork.png) no-repeat left center; padding-left: 28px; font-weight: bold}
 ul.theirwork li a{font-weight: bold}
@@ -1066,7 +1061,7 @@ margin-bottom: 24px;
 .radio input  {float: left; margin-right: 10px}
 #signupcontainer p {padding: 0px 0}
 #signupcontainer .create {background: url(/images/button_create.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
-#signupcontainer .join {background: url(/images/btn_join.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
+#signupcontainer .join {background: url(/images/btn_join_small.png) no-repeat; width: 312px; height: 71px; text-indent: -9999em; display: block; margin: 0 auto; border: 0;}
 
 #signupcontainer .create:hover {
 -webkit-box-shadow: 0px 0px 8px #000;
@@ -1074,11 +1069,6 @@ margin-bottom: 24px;
 box-shadow: 0px 0px 8px #000;
 -moz-border-radius: 22px;
 border-radius: 22px;
-}
-
-#error_explanation h2 {
-  padding-bottom: 10px;
-  font-size: 25px;
 }
 
 .bold {
@@ -1132,9 +1122,31 @@ background-position: 10px center;
 color: #D8000C;
 background-color: #FFBABA;
 background-image: url('/images/errors3.png');
-
 }
 
+#error_explanation {
+  margin-left 10px;
+  color: #D8000C;
+  background-color: #FFBABA;
+  border: 1px solid;
+  clear: both;
+}
+
+#error_explanation h2 {
+  margin-left: 10px;
+  padding-bottom: 10px;
+  font-size: 25px;
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+
+#error_explanation ul {}
+#error_explanation ul li {
+  margin-left: 20px;
+  clear: both;
+  font: 12px Helvetica,Arial,Sans-Serif;
+  list-style: disc outside;
+}
 
 #main .spotlight {width:650px;height:285px;float:left;margin-top:35px;margin-bottom:20px;}
 #main .spotlight .spotlight-content {float:right;width:273px;margin-top:-285px;}

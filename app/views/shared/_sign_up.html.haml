@@ -1,17 +1,10 @@
-- if alert
-  .errors
-    %p= alert
-#signupcontainer{:style => "height: 400px"}
+#signupcontainer
   = form_for(:user, :url => registration_path('user')) do |f|
     .left
-      %h2 Username
-      = f.text_field :username,                   :class => "field clearField"
-      %h2 E-mail Address
-      = f.email_field :email,                     :class => "field clearField"
-      %h2 Password
-      = f.password_field :password,               :class => 'field clearField'
-      %h2 Password Confirmation
-      = f.password_field :password_confirmation,  :class => 'fieldlast clearField'
+      = f.text_field :username,                   :class => "field clearField", :placeholder => 'enter username'
+      = f.email_field :email,                     :class => "field clearField", :placeholder => 'enter email'
+      = f.password_field :password,               :class => 'field clearField', :placeholder => 'enter password'
+      = f.password_field :password_confirmation,  :class => 'fieldlast clearField', :placeholder => 'confirm password'
     / LEFT
     .right
       .member{:style => "padding-left:35px; padding-top:45px"}
@@ -25,7 +18,7 @@
       %div{:style => "padding-left:22px; padding-bottom:2px"}
         = f.check_box :terms, :class => 'checkbox', :style => 'width: auto'
         I agree to the
-        %a{:href => "#"}
+        %a{:href => "/terms"}
           Terms of Service
           %br/
           %br/

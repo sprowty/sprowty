@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable, :confirmable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :omniauthable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
       user.profile.first_name = data['first_name'] unless data['first_name'].blank?
       user.profile.last_name  = data['last_name'] unless data['last_name'].blank?
       user.profile.location   = data['location']['name'] unless data['location'].blank? || data['location']['name'].blank?
-      user.profile.username   = data['username'] unless data['username'].blank?
+      user.username   = data['username'] unless data['username'].blank?
       user.profile.save
       user
     end

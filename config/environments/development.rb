@@ -23,5 +23,7 @@ Sprowty::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   Paperclip.options[:command_path] = '/usr/local/bin'
+
+  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
 end
 
