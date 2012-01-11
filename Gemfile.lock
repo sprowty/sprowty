@@ -59,6 +59,9 @@ GEM
       activesupport (= 3.0.6)
     activesupport (3.0.6)
     addressable (2.2.6)
+    airbrake (3.0.9)
+      activesupport
+      builder
     annotate (2.4.0)
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
@@ -261,6 +264,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activemerchant
+  airbrake
   annotate
   capistrano
   capybara

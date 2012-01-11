@@ -18,6 +18,7 @@ gem 'sqlite3'
 gem 'activeadmin'
 gem 'rails3-jquery-autocomplete'
 gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'airbrake'
 
 group :development, :test do
   gem 'cucumber-rails'
