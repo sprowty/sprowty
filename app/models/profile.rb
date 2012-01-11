@@ -13,8 +13,6 @@ class Profile < ActiveRecord::Base
   # FIXME this is causing problems on when seeding db
   #before_update :remove_emails
 
-  accepts_nested_attributes_for :user
-
   def self.find_by_id_or_username(param)
     where("username = ? or id = ?", param, param).first
   end
@@ -29,6 +27,7 @@ class Profile < ActiveRecord::Base
 
   private
 
+  # FIXME
   def remove_emails
     self.about = self.about.gsub(/[^@\s]*@[^@\s]*\.[^@\s]*/, '')
   end
