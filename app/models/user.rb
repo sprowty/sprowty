@@ -32,13 +32,13 @@ class User < ActiveRecord::Base
   after_create :create_profile
   after_create :setup_account
 
-  validates_presence_of :username, :email
-  validates_uniqueness_of :username, :email
+  validates_presence_of :email
+  validates_uniqueness_of :email
   validates_acceptance_of :terms
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
-  def self.find_by_id_or_username(param)
-    where("id = ? or username = ?", param, param).first
+  def self.find_by_id_or_email(param)
+    where("id = ? or email = ?", param, param).first
   end
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
@@ -98,14 +98,6 @@ class User < ActiveRecord::Base
       if bid.project.sm_state != "work_completed"
         projects << bid.project
       end
-    end
-  end
-
-  def full_name
-    if first_name.blank? && last_name.blank?
-      "Author"
-    else
-      "#{first_name} #{last_name}"
     end
   end
 

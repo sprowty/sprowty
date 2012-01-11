@@ -10,12 +10,21 @@ class Profile < ActiveRecord::Base
     :default_url => '/images/default-avatar.png',
     :styles => { :thumb => '124x124', :profile => "195x175#" }
 
-  before_update :remove_emails
+  # FIXME this is causing problems on when seeding db
+  #before_update :remove_emails
 
   accepts_nested_attributes_for :user
 
   def self.find_by_id_or_username(param)
     where("username = ? or id = ?", param, param).first
+  end
+
+  def full_name
+    if first_name.blank? && last_name.blank?
+      "Author"
+    else
+      "#{first_name} #{last_name}"
+    end
   end
 
   private

@@ -9,13 +9,11 @@
 # site users
 seeder = User.create({:email => "seeder_sprowty@mailinator.com",
              :password => "password",
-             :password_confirmation => "password",
-             :username => "seeder"})
+             :password_confirmation => "password"})
 
 sprowter = User.create({:email => "sprowter_sprowty@mailinator.com",
              :password => "password",
-             :password_confirmation => "password",
-             :username => "sprowter"})
+             :password_confirmation => "password"})
 
 [1..10].each do
   project = Project.create({:user_id => seeder.id,

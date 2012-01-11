@@ -113,7 +113,7 @@
                   = project.due_date.strftime("%m/%d/%Y")
                 %li
                   %b By:
-                  = link_to project.user.full_name, project.user.profile
+                  = link_to project.user.profile.full_name, project.user.profile
 
               %ul.posted
                 %li
