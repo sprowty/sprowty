@@ -197,7 +197,7 @@ ul.loggedin {float: right; margin-left: 161px; margin-top: -16px;}
 ul.loggedin li {list-style-type: none; display: inline; padding: 0 14px; border-right: 1px solid #2f2f2f}
 ul.loggedin li:last-child, ul.userlog li:last-child, ul.userlog li:first-child {border-right: 0}
 ul.loggedin li a {font: bold 16px Helvetica, Arial, Sans-Serif; color: #2f2f2f; padding: 3px 0px 1px; text-decoration: none;  }
-ul.loggedin li a:hover, ul.loggedin li a.active {text-decoration: underline}
+ul.loggedin li a:hover, ul.loggedin li a.active {text-decoration: underline;}
 /* --Logged In-- */
 
 /* --User LogIn-- */
@@ -429,8 +429,8 @@ background: url("/images/linebg.gif") repeat-x scroll center bottom;
 }
 
 
-.box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: bold 10px Georgia,'Times New Roman',Serif; text-transform: uppercase;}
-.box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; float: left; width: 100%;}
+.box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: bold 10px Georgia,'Times New Roman',Serif; text-transform: uppercase; display: block;}
+.box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; float: left; width: 100%; display: block;}
 
 ul.theirwork li {background: url(/images/icon_viewwork.png) no-repeat left center; padding-left: 28px; font-weight: bold}
 ul.theirwork li a{font-weight: bold}
