@@ -1051,6 +1051,8 @@ width: 300px;
 margin-bottom: 24px;
 }
 
+#signupcontainer .profile_fields { margin-bottom: 25px; }
+
 #signupcontainer input.fieldlast {margin-bottom: 0}
 #signupcontainer h3, #signupcontainer p, #signupcontainer p a {color: #532c19}
 #signupcontainer h3 {margin: 0; padding: 0; font-size: 22px; }
