@@ -264,7 +264,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activemerchant
-  airbrake
+  airbrake (~> 3.0.9)
   annotate
   capistrano
   capybara
