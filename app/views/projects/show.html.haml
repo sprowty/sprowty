@@ -2,28 +2,19 @@
 #container
   #main
     .rightside
-      %h2 Sprowt Around
+      %h2 Harvest Fields
       %p Find the jobs you want to do
       %form#search{:action => "", :method => "get", :name => "input"}
         %input{:name => "Search", :onblur => "if(this.value=='')this.value='Search'", :onfocus => "if(this.value=='Search')this.value=''", :type => "text", :value => "Search"}/
         %button{:type => "submit"} Search
       .clear
       = render :partial => 'shared/categories'
-      = image_tag 'icon_rooster.png', :class => 'rooster'
-      .twitbox
-        #twitter
-          %ul#twitter_update_list
-            %li
-        %span.quote
-      .follow
-        %h2
-          %a{:href => "#"} @sprowty
     .content
       .convohead
         .left
           %h5 Project Description
       #listings
-        .posttwo
+        .posttwo{:style=>'background: inherit;'}
           .sprowts
             %b
               = @project.bids.length
@@ -39,28 +30,33 @@
                 = @project.due_date.strftime("%m/%d/%Y")
               %li
                 %b By:
-                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.username, profile_path(@project.user)
+                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.profile.full_name, profile_path(@project.user)
+
             %ul.posted
-              %li
-                %b Location:
-                = @project.city
-                , #{@project.state}
-            #description
-              .keywords
+              %li{:style => 'float: left;'}
                 %b In Category:
-                %ul
-                  - @project.categories.each do |category|
-                    %li
-                      = link_to @category.name, category
-             
+                - @project.categories.each do |category|
+                  = link_to category.name, category
+                .clear
+
+              %li.sprowtit{:style => 'float: right;margin-right: -110px;'}
+                = link_to(image_tag('button_sprowtit.png'), new_project_bid_path(:project_id => @project.id))
+                .clear
+
+              %li{:style => 'float: left; margin-top: 20px;'}
+                %b Location:
+                = link_to "#{@project.city}, #{@project.state}", '#'
+                .clear
+            .clear
+            #description
             %p= @project.description
             %ul.actions
               - unless @project.user == current_user
                 %li= link_to 'Sprowt it', new_project_bid_url(:project_id => @project.id), :class => 'sprowt'
               %li
-                %a{:href => "#"} Create Similar
+                = link_to "Create Similar", create_similar_project_url(@project)
               %li.share
-                %a#stay-target-2.stay-tooltip-target.tooltip-target Share
+                = display_sharing_tooltip
             #stay-content-2.stay-tooltip-username.tooltip-share
               %ul
                 %li

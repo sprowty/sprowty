@@ -510,6 +510,8 @@ margin-top: -40px
 #listings .post:hover {background-color: #f5efe6}
 #listings .post, .posttwo {float: left; background: url(/images/linebg.gif) repeat-x; padding: -1px 10px}
 #listings .posttwo {background-color: #f5efe6}
+#listings .sprowtit { float: right; padding: 10px; }
+#listings .sprowtit img { border: none; }
 #listings a.readmore {font-weight: bold; color: #894125; padding: 5px; text-decoration: none;}
 #listings a.readmore:hover {text-decoration: underline}
 

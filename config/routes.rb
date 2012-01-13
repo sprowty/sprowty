@@ -8,7 +8,7 @@ Sprowty::Application.routes.draw do
   resource :resume, :controller => "resumes"
 
   resources :problems
-
+  resources :categories
   resources :messages
   resources :profiles
   resources :feedbacks
@@ -22,6 +22,7 @@ Sprowty::Application.routes.draw do
     get :inside
     get :approve
     get :cancel
+    get :create_similar
     collection do
       get :dashboard
     end
