@@ -22,7 +22,6 @@ Sprowty::Application.routes.draw do
     get :inside
     get :approve
     get :cancel
-    get :create_similar
     collection do
       get :dashboard
     end

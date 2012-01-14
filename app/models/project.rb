@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :title, :description, :price, :tags
 
+  #validate increments are $5 only
+
   state_machine :sm_state, :initial => :pending_post do
     event :post do transition :pending_post => :posted end
     event :waiting_for_bids do transition :posted => :waiting_for_bids end

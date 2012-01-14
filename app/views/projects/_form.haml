@@ -1,4 +1,4 @@
-= form_for @project, :html => {:class => 'live-form'} do |f|
+= form_for(@project) do |f|
   - unless error_messages_for.nil?
     %p= error_messages_for :project
   .left

@@ -54,7 +54,7 @@
               - unless @project.user == current_user
                 %li= link_to 'Sprowt it', new_project_bid_url(:project_id => @project.id), :class => 'sprowt'
               %li
-                = link_to "Create Similar", create_similar_project_url(@project)
+                = link_to "Create Similar", new_project_url(:source_id => @project.id)
               %li.share
                 = display_sharing_tooltip
             #stay-content-2.stay-tooltip-username.tooltip-share

@@ -18,7 +18,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project        = Project.new
-    @project.title  = params[:title] unless !params || params[:title].blank?
+    if params[:source_id] && !params[:source_id].blank?
+      @source = Project.find(params[:source_id])
+      @project.title = @source.title
+      @project.description = @source.description
+    end
+    #@project.title  = params[:title] unless !params || params[:title].blank?
     @categories = Category.all
   end
 
