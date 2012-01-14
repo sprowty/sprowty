@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
   respond_to :html, :js
 
   def index

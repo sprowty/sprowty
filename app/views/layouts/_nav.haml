@@ -27,7 +27,7 @@
       %ul.userlog
         %li
           %b Welcome
-        %li= link_to current_user.username, profile_path(current_user.profile.id)
+        %li= link_to current_user.profile.first_name, profile_path(current_user.profile.id)
         %li= link_to 'Logout', logout_path
       %ul.loggedin
         %li= link_to 'My Profile', profile_path(current_user.profile.id)

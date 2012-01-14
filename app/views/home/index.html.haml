@@ -118,8 +118,7 @@
               %ul.posted
                 %li
                   %b Location:
-                  = project.city
-                  , #{project.state}
+                  = link_to "#{project.city}, #{project.state}", root_url(:city => project.city, :state => project.state)
               / /Posted
               #description
                 .keywords
