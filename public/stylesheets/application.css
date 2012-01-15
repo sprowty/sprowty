@@ -1171,17 +1171,6 @@ background-image: url('/images/errors3.png');
 
 #active_admin_content #main_content_wrapper #main_content .panel .panel_contents ul li { list-style: none;}
 
-#plantseed {
-  background-color: #E5D7C1;
-  font: 12px Helvetica,Arial,Sans-Serif;
-  height: 100%;
-  margin-left: 150px;
-  text-align: center;
-  width: 585px;
-}
-
-
-
 .infos, .errors {
 border: 1px solid;
 margin: 10px 21px;
