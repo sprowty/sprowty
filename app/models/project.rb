@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :title, :description, :category, :price, :due_date
   validate :price_increments
+  validate :price_minimum
 
 
   state_machine :sm_state, :initial => :pending_post do
@@ -29,6 +30,12 @@ class Project < ActiveRecord::Base
   def price_increments
     unless price % 5 == 0
       errors.add(:price, 'must be in increments of $5')
+    end
+  end
+
+  def price_minimum
+    unless price > 0
+      errors.add(:price, 'must be a minimum of $5')
     end
   end
 end
