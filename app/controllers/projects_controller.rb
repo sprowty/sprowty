@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
       @source = Project.find(params[:source_id])
       @project.title = @source.title
       @project.description = @source.description
+      @project.categories = @source.categories
     end
     #@project.title  = params[:title] unless !params || params[:title].blank?
     @categories = Category.all

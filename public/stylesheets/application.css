@@ -1219,3 +1219,17 @@ ul.poster_tip li.username, li.username a {clear:both;font-family:Georgia,'Times 
 ul.poster_tip li.location {clear:both;color:#894125;}
 ul.poster_tip li.votes {clear:both;color:#894125;}
 ul.poster_tip li {font-size: larger;}
+
+select {
+  border: 1px solid #C3B288;
+  color: #3C3C39;
+  font: italic 14px Georgia,'Times New Roman',Serif;
+  margin-bottom: 14px;
+  padding: 12px;
+}
+
+#project_category { width: 325px; }
+
+#project_due_date_2i { width: 100px; }
+#project_due_date_3i { width: 70px; }
+#project_due_date_1i { width: 100px; }

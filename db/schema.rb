@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110222303) do
+ActiveRecord::Schema.define(:version => 20120115035359) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -177,10 +177,12 @@ ActiveRecord::Schema.define(:version => 20120110222303) do
     t.boolean  "approved",    :default => false
     t.string   "category"
     t.string   "sm_state"
+    t.string   "zipcode"
   end
 
   add_index "projects", ["category"], :name => "index_projects_on_category"
   add_index "projects", ["sm_state"], :name => "index_projects_on_sm_state"
+  add_index "projects", ["zipcode"], :name => "index_projects_on_zipcode"
 
   create_table "resumes", :force => true do |t|
     t.string   "title"

@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   has_many :problems
   has_many :categories
 
-  validates_presence_of :title, :description, :price, :tags
+  validates_presence_of :title, :description, :category, :price, :due_date
   validate :price_increments
 
 
