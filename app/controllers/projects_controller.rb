@@ -28,10 +28,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(params[:project])
-    if @project.save
+    @project = current_user.projects.build(params[:project])
+    if @project.save!
       respond_to do |format|
-        format.html {redirect_to current_user.profile}
+        format.html {redirect_to @project}
       end
     else
       respond_to do |format|

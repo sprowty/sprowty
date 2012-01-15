@@ -11,9 +11,13 @@ seeder = User.create({:email => "seeder_sprowty@mailinator.com",
              :password => "password",
              :password_confirmation => "password"})
 
+seeder.confirm!
+
 sprowter = User.create({:email => "sprowter_sprowty@mailinator.com",
              :password => "password",
              :password_confirmation => "password"})
+
+sprowter.confirm!
 
 [1..10].each do
   project = Project.create({:user_id => seeder.id,
@@ -27,6 +31,8 @@ sprowter = User.create({:email => "sprowter_sprowty@mailinator.com",
 
   project.post
 end
+
+Category.delete_all
 
 CATEGORIES = ["Accounting/Finance", "Customer Services", "Design,Fashion", "Location Based", "Marketing/PR", "Medical/Health", "Music/Audio", "Organizing/Planning", "Other", "Photography", "Programming/Development", "Research", "Social Media", "Translation", "Video", "Writing"]
 

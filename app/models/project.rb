@@ -6,8 +6,8 @@ class Project < ActiveRecord::Base
   has_many :categories
 
   validates_presence_of :title, :description, :price, :tags
+  validate :price_increments
 
-  #validate increments are $5 only
 
   state_machine :sm_state, :initial => :pending_post do
     event :post do transition :pending_post => :posted end
@@ -25,4 +25,10 @@ class Project < ActiveRecord::Base
 #  def to_param
 #    "#{id}-#{title}".downcase.gsub(/\s+/, '-').gsub(/[^\w\-]/, '')
 #  end
+
+  def price_increments
+    unless price % 5 == 0
+      errors.add(:price, 'must be in increments of $5')
+    end
+  end
 end
