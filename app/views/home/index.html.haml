@@ -82,7 +82,7 @@
       = render :partial => 'shared/categories'
       / /BOX
     / /RIGHTSIDE
-    .content
+    .content{:style => 'float: none;'}
       - [:notice, :error].each do |key|
         - unless flash[key].blank?
           %div{:id => "flash_#{key}" }
@@ -103,7 +103,7 @@
             %li= sort_link @search, :bid_count, 'Sprowt count'
         / /RIGHT
       / /HEAD
-      #listings
+      #listings{:style => 'float: left;'}
         - @projects.each do |project|
           .post
             .sprowts
@@ -144,8 +144,9 @@
               %h4= number_to_currency(project.price, :precision => 0)
               %i Asking Price
             .clear
-          / /POST TWO
-      = will_paginate @projects
+              / /POST TWO
+        .pagination{:style => 'float: left; margin-top: 20px; margin-left: 300px;'}
+          = will_paginate @projects
       / /LISTINGS
     / /CONTENT
   / /MAIN
