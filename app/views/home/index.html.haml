@@ -83,6 +83,12 @@
       / /BOX
     / /RIGHTSIDE
     .content
+      - [:notice, :error].each do |key|
+        - unless flash[key].blank?
+          %div{:id => "flash_#{key}" }
+            .msg
+              = flash[key]
+            .clear
       .head{:style=>'width: 634px;'}
         .left{:style=>'padding-top: 11px;'}
           %h2 All Jobs
