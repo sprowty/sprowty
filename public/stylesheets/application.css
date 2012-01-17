@@ -425,11 +425,11 @@ border-bottom-left-radius: 20px;
 .box ul.categories li, ul.theirwork li{
 list-style-type: none;
 display: block;
-background: url("/images/linebg.gif") repeat-x scroll center bottom;
+
 }
 
 
-.box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: bold 10px Georgia,'Times New Roman',Serif; text-transform: uppercase; display: block;}
+.box ul.categories li a, ul.theirwork li a {text-decoration: none; color: #422215; padding: 4px 0 1px 0; font: bold 14px helvetica; text-transform: uppercase; display: block;}
 .box ul.categories li a:hover, ul.theirwork li a:hover { background-color: #f5efe6; float: left; width: 100%; display: block;}
 
 ul.theirwork li {background: url(/images/icon_viewwork.png) no-repeat left center; padding-left: 28px; font-weight: bold}
