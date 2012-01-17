@@ -5,6 +5,14 @@
       %h4 Sign In
 #container
   #main
+    - [:notice, :error].each do |key|
+      - unless flash[key].blank?
+        %div{:id => "flash_#{key}" }
+          .msg
+            = flash[key]
+          .clear
+
+
     - if alert
       .errors
         %p= alert
