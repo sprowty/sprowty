@@ -24,7 +24,9 @@ class ProjectsController < ApplicationController
       @project.description = @source.description
       @project.categories = @source.categories
     end
-    #@project.title  = params[:title] unless !params || params[:title].blank?
+    if params[:title] && !params[:title].blank?
+      @project.title  = params[:title]
+    end
     @categories = Category.all
   end
 

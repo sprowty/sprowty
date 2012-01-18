@@ -35,8 +35,7 @@
             %ul.posted
               %li{:style => 'float: left;'}
                 %b In Category:
-                - @project.categories.each do |category|
-                  = link_to category.name, category
+                = link_to @project.category, root_url(:category => @project.category)
                 .clear
 
               %li.sprowtit{:style => 'float: right;margin-right: -110px;'}

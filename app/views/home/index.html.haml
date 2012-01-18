@@ -129,6 +129,7 @@
               #description
                 .keywords
                   %b In Category:
+                  = link_to project.category, root_url(:category=>project.category), :style => "color: #894125;  font-family: Georgia,'Times New Roman',Serif; font-size: 14px;"
               %p
                 = project.description.truncate(60)
                 = link_to 'Read More', project, :class => 'readmore'
