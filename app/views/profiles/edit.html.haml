@@ -1,5 +1,5 @@
 #subhead
-  #container
+#container
   #main
     .rightside
       .boxheadin
@@ -31,7 +31,6 @@
           = f.input :work, :as => :file, :label => false
           %button#submit.upload
         .clear
-
       / /BOX
     / /RIGHTSIDE
     .content
@@ -50,6 +49,12 @@
       #profile
         = semantic_form_for @profile, :html => { :multipart => true } do |f|
           %p= error_messages_for :profile, :user
+          .settings
+            #profile_picture.input
+              .label
+                %label Profile Picture
+              = f.file_field :picture
+          .clear
           .settings
             .label
               %label Email Address
@@ -83,7 +88,7 @@
               %p (Max 400 Characters)
             .input
               = f.text_area :about
-            .clear
+          .settings
             .paypal
               %img{:src => "/images/icon_settings_paypal.png"}/
               = f.text_field :paypal, :value => @profile.paypal.nil? || @profile.paypal.empty? ? 'Username' : @profile.paypal, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
@@ -92,27 +97,6 @@
               %img{:src => "/images/icon_settings_facebook.png"}/
               = f.text_field :facebook, :value => @profile.facebook.nil? || @profile.facebook.empty? ? 'Username' : @profile.facebook, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
             .clear
-            .twitter
-              %img{:src => "/images/icon_settings_twitter.png"}/
-              = f.text_field :twitter, :value => @profile.twitter.nil? || @profile.twitter.empty? ? 'Username' : @profile.twitter, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
-            .clear
-          .head
-            .left
-              %h5 Privacy Settings
-            / /LEFT
-          / /HEAD
-          .settings
-            .label
-              %label Username
-            .input
-              = f.fields_for :user do |u|
-                = u.text_field :username, :value => current_user.username.nil? || current_user.username.empty? ? 'Username' : current_user.username, :onfocus => "if(this.value=='Username')this.value=''", :onblur => "if(this.value=='')this.value='Username'"
-          .clear
-          .settings
-            #profile_picture.input
-              .label
-                %label Profile Picture
-              = f.file_field :picture
-          .clear
-          = f.submit 'Save', :class => 'save'
+          = f.submit 'Save', :class => 'save', :style => 'margin-right: 100px;'
     / /PROFILE
+    .clear
