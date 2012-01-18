@@ -4,20 +4,8 @@
   #main
     .rightside
       .boxheadin
-        %h3 My Skills
-      .box
-        %ul.categories
-          - @skills.each do |skill|
-            %li
-              = skill.skill
-              = link_to '', skill_path(skill), :method => :delete, :class => "delete", :remote => true
-        %input#skill{:name => "skill", :onblur => "if(this.value=='')this.value='Add New Skill'", :onfocus => "if(this.value=='Add New Skill')this.value=''", :size => "50", :type => "text", :value => "Add New Skill"}/
-        %button.add
-      / /BOX
-      .boxheadin
         %h3 My Resume
       .box
-        = link_to_resume
       / /BOX
       .boxheadin
         %h3 My Work
@@ -30,11 +18,6 @@
             %ul.upload
               %li.file
                 = link_to work.work_file_name, work.work.url
-            = link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true)
-            .clear
-        = semantic_form_for Work.new, :html => { :multipart => true } do |f|
-          = f.input :work, :as => :file, :label => false
-          %button#submit.upload
         .clear
       / /BOX
     / /RIGHTSIDE

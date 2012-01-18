@@ -1,14 +1,11 @@
 #subhead
-#container
+  #container
   #main
     .rightside
       .boxheadin
-        %h3 What You Can Do
+        %h3 My Resume
       .box
-        %ul.categories
-          
-        %input{:name => "Add New Skill", :onblur => "if(this.value=='')this.value='Add New Skill'", :onfocus => "if(this.value=='Add New Skill')this.value=''", :size => "50", :type => "text", :value => "Add New Skill"}/
-        %button.add
+        = link_to_resume
       / /BOX
       .boxhead
         %h3 My Work
@@ -18,7 +15,22 @@
           %li.file
             %a{:href => "#"} Filename.jpg
         %a.delete{:href => "#"}
+      .clear
+      .boxhead
+        %h3 My Portfolio
+      .box
+        - @works.each do |work|
+          - if work.image_approved
+            %ul.upload
+              %li.file
+                = link_to work.work_file_name, work.work.url
+            = link_to('', work_path(work), :method => :delete, :class => "delete work", :remote => true)
+            .clear
+        = semantic_form_for Work.new, :html => { :multipart => true } do |f|
+          = f.input :work, :as => :file, :label => false
+          %button#submit.upload
         .clear
+
       / /BOX
     / /RIGHTSIDE
     .content

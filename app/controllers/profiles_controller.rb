@@ -26,6 +26,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @works    = current_user.works
     @profile = current_user.profile
   end
 
