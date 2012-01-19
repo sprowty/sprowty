@@ -43,10 +43,9 @@
                 %a{:href => "#"} Invite A Friend
           / /LEFT
           .right
-            %h2= @user.username
+            %h2= @user.profile.full_name
             %ul.user
-              %li= @user.username
-              %li= @user.profile.location
+              %li= get_location_for(@user)
             %b.ratings Customer Ratings:
             %ul.ratings
               %li.positive 0
@@ -59,11 +58,11 @@
           #plantbuy
             .holder
               .left
-                %h2 Plant
+                %h2 Plant a seed
                 %p Ready to get a job done? Click plant and fill out the form to get your new job posted.
                 = link_to 'Sprowt It', new_project_path, :class => 'plant_no_js'
               .right
-                %h2 Buy
+                %h2 Buy coins
                 %h4 20
                 = link_to 'Buy', new_transaction_path, :class => 'buy'
               .clear
