@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
-  has_one :profile
-  has_many :projects
-  has_many :skills
-  has_many :bids
-  has_many :works
-  has_one :resume
-  has_one :account
-  has_many :feedbacks
+  has_one :profile, :dependent => :destroy
+  has_many :projects, :dependent => :destroy
+  has_many :skills, :dependent => :destroy
+  has_many :bids, :dependent => :destroy
+  has_many :works, :dependent => :destroy
+  has_one :resume, :dependent => :destroy
+  has_one :account, :dependent => :destroy
+  has_many :feedbacks, :dependent => :destroy
 
   has_many :messages,
               :as => :sender,

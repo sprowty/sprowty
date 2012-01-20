@@ -40,7 +40,7 @@ posted = Project.create({:user_id => User.where(:email => 'seeder_sprowty@mailin
                          :city => "Brooklyn",
                          :state => "NY",
                          :category => "Other",
-                         :price => 3245.25,
+                         :price => 3245,
                          :due_date => DateTime.now()+2.months})
 posted.post
 
@@ -49,6 +49,6 @@ unposted = Project.create({:user_id => User.where(:email => 'seeder_sprowty@mail
                          :description => "Example project that is initially pending admin approval before posted.",
                          :city => "Brooklyn",
                          :state => "NY",
-                         :tags => "project",
-                         :price => 3245.25,
-                         :due_date => DateTime.now()+2.months})
+                         :category => "Other",
+                         :price => 250,
+                         :due_date => DateTime.now()+1.month})
