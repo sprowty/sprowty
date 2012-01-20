@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
       @source = Project.find(params[:source_id])
       @project.title = @source.title
       @project.description = @source.description
-      @project.categories = @source.categories
+      @project.category = @source.category
     end
     if params[:title] && !params[:title].blank?
       @project.title  = params[:title]
@@ -31,6 +31,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    if params[:project][:price].scan("$").length > 0
+      params[:project][:price].delete!('$')
+    end
     @project = current_user.projects.build(params[:project])
     if @project.save!
       respond_to do |format|
