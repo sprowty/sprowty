@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :terms, :profile_attributes
-  after_create :create_profile
+
   after_create :setup_account
 
   validates_presence_of :email
