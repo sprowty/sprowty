@@ -12,6 +12,10 @@
           %br/
           %p
             %h2 Enter your E-mail
-            = f.text_field :email, :class => "field clearField"
+            = f.text_field :email, :class => "field clearField", :placeholder => 'enter email'
             = f.submit "Send me reset password instructions", :id => 'forgot_password'
-        = render :partial => "devise/shared/links"
+        - if controller_name != 'sessions'
+          = link_to "Sign in", new_session_path(resource_name)
+          %br/
+        - if devise_mapping.registerable? && controller_name != 'registrations'
+          = link_to "Sign up", new_registration_path(resource_name)

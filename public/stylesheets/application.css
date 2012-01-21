@@ -177,7 +177,7 @@ color: #422215
 #signin_menu p a { color:#27B!important;}
 #signin_submit, .signin_submit, #user_submit { background: url('/images/button_signin.png') no-repeat; width: 71px; height: 30px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
 
-#forgot_password { background: url('/images/btn_submit.png') no-repeat; width: 110px; height: 60px; border: none; text-indent: -9999em; margin: 33px -150px 0 4px; float: right; }
+#forgot_password { background: url('/images/btn_submit.png') no-repeat; width: 110px; height: 60px; border: none; text-indent: -9999em; margin-left: 240px; float: left; }
 #signin_submit::-moz-focus-inner { padding:0; border:0;}
 #signin_submit:hover, #signin_submit:focus {cursor:pointer;}
 
