@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :show
   respond_to :html, :js
 
   def index
@@ -40,15 +40,15 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = params[:id].blank? ? current_user.profile : Profile.find(params[:id])
+    @profile = Profile.find(params[:id])
     @user = @profile.user
     @works   = @profile.works
     @skills  = @profile.skills
     @account  = @profile.user.account
     @seeds   = @profile.projects
-    @latest_sprowts = current_user.latest_sprowts
-    @current_sprowts = current_user.current_sprowts
-    @feedbacks = @user.feedbacks
+    @latest_sprowts = @profile.user.latest_sprowts
+    @current_sprowts = @profile.user.current_sprowts
+    @feedbacks = @profile.user.feedbacks
     params[:id].blank? ? render(:action => :index) : render
   end
 
