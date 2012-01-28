@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/brianmario/mysql2.git
+  revision: 158978435bb8957da36ed9e4e8ec57d433b24c3f
+  specs:
+    mysql2 (0.3.11)
+
+GIT
   remote: https://github.com/engineyard/engineyard.git
   revision: 319a83af6074becd4a0c43f1dd0d8983ced296cc
   specs:
@@ -191,7 +197,6 @@ GEM
     multi_json (1.0.4)
     multi_xml (0.4.1)
     multipart-post (1.1.4)
-    mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -337,7 +342,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   meta_search
-  mysql2
+  mysql2!
   oa-oauth
   omniauth
   omniauth-facebook
