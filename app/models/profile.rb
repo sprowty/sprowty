@@ -4,7 +4,7 @@ class Profile < ActiveRecord::Base
   has_many :skills,   :through  => :user
   has_many :projects, :through  => :user
 
-  attr_accessible :user_attributes, :first_name, :last_name, :location, :about, :paypal, :facebook, :twitter, :picture
+  attr_accessible :user_attributes, :first_name, :last_name, :location, :about, :paypal, :facebook, :twitter, :picture, :zipcode
 
   has_attached_file :picture,
     :default_url => '/images/default-avatar.png',
