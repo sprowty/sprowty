@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   respond_to :html, :js
 
   def index
-   @projects = current_user.projects
+   @projects = current_user.projects.paginate(:page => params[:page], :per_page => 10)
 
    if params[:filter]
      @filter = params[:filter]

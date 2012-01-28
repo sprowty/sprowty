@@ -27,22 +27,6 @@
               .field{:style=>'min-width:10%;'}
                 = project.updated_at.strftime("%b %d, %Y")
             .clear
-      #paginationholder
-        .pagination
-          %ol.wp-paginate
-            %li
-              %span.title
-            %li
-              %a.prev{:href => "#"} ‹‹
-            %li
-              %span.currentpage 1
-            %li
-              %a.page{:href => "#", :title => "2"} 2
-            %li
-              %a.page{:href => "#", :title => "3"} 3
-            %li
-              %a.page{:href => "#", :title => "4"} 4
-            %li
-              %a.next{:href => "#"} ››
+      .pagination{:style => 'float: left; margin-top: 20px; margin-left: 300px;'}
+        = will_paginate @projects
   .clear
-
