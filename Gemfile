@@ -44,7 +44,7 @@ group :development, :test do
   gem 'pickle'
   gem 'launchy'
   gem 'capistrano'
-  gem 'engineyard'
+  gem 'engineyard', :git => 'https://github.com/engineyard/engineyard.git'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
