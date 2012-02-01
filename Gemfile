@@ -25,6 +25,7 @@ gem 'sqlite3'
 gem 'rails3-jquery-autocomplete'
 gem 'airbrake', '~> 3.0.9'
 gem 'jquery-rails'
+gem 'dynamic_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

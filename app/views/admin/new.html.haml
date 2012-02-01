@@ -1,0 +1,149 @@
+= stylesheet_link_tag 'application'
+
+:css
+  a:active, a:focus, button{outline: 0;}
+  .left, .right {text-align: left; padding: 20px 0 20px 20px}
+  .right {padding:20px 20px 20px 0px}
+  .left, .labelholder {float: left}
+  .right, #plantseed i {float: right}
+  .clear {clear: both}
+  h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
+  h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
+
+  #needdone h4 {
+    color: #313104;
+    font-size: 32px;
+    text-shadow: 1px 1px 0 #BFC15A;
+    margin-left: 20px;
+  }
+
+  #needdone {
+      background: url("/images/ribbon-short.png") no-repeat scroll center center transparent;
+      height: 110px;
+      margin-left: -1px;
+      margin-top: -30px;
+  }
+
+  #subhead {
+      background-color: #E5D7C1;
+      border-radius: 20px 20px 0 0;
+      height: 52px;
+      width: 583px;
+  }
+  #plantseed .right p i {float: none; margin-bottom: 20px; padding: 0}
+  #plantseed .head {
+  background-color: green;
+  padding: 30px 30px 25px 30px;
+  background: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.19, rgb(122,124,30)),
+      color-stop(0.58, rgb(159,161,36))
+  );
+  background: -moz-linear-gradient(
+      center bottom,
+      rgb(122,124,30) 19%,
+      rgb(159,161,36) 58%
+  );
+  border-bottom: 1px solid #606117;
+  border-bottom: 1px solid #606117;
+  -moz-border-radius-topleft: 14px;
+  -moz-border-radius-topright: 14px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  }
+
+  h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
+  textarea {resize:none;}
+  #plantseed {margin:0 auto;}
+  #plantseed .left {width: 490px; }
+  #plantseed .right {width: 190px }
+  #plantseed .labelholder {width: 140px; text-align: right; padding: 4px 14px 0 0;}
+  #plantseed label, h5, h5.due {color: #422215; font-size: 18px; font-weight: bold; }
+  #plantseed i {font-style: normal; color: #894125; font-size: 11px}
+
+  #plantseed input.field, input.price, input.year, textarea, input.city {
+  padding: 12px;
+  border: 1px solid #c3b288;
+  font: 14px Georgia,'Times New Roman',Serif;
+  font-style: italic;
+  color: #3c3c39;
+  width: 300px;
+  margin-bottom: 14px;
+  }
+
+  input.city {
+    width: 160px;
+    padding: 6px;
+  }
+
+  #plantseed {
+    margin-bottom: 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #E5D7C1;
+    font: 12px Helvetica,Arial,Sans-Serif;
+    height: 100%;
+    width: 980px;
+    text-align: center;
+  }
+
+
+
+  input.price {font: bold 16px Helvetica, Arial, Sans-Serif; font-style: normal; color: #585A05; width: 50px }
+  input.year {font: bold 14px Helvetica, Arial, Sans-Serif; font-style: normal; padding: 10px; width: 150px; color: #422215}
+  p {padding-bottom: 10px; margin: 0}
+  select {float: left;  width: 179px; margin: 0px 0 10px 0}
+  textarea {resize:none;}
+
+
+  #plantseed textarea {
+  font: 12px Helvetica,Arial,Sans-Serif;
+  height: 100px;
+  padding: 12px;
+  }
+
+  #plantseed h4 {margin-bottom: 0; margin-top: 10px; color: #422215;}
+  #plantseed h5 {font-size: 18px; margin: 0; padding: 0}
+
+  #plantseed a.plantseed, #plantseed .plantseed {
+  background: url(../images/plantseed.png) no-repeat;
+  border: none;
+  height: 73px;
+  text-indent: -9999em;
+  display: block;
+  margin: 0 auto;
+  margin-top: -24px
+  }
+
+
+  #plantseed a.plantseed:hover, #plantseed .plantseed:hover {
+  -webkit-box-shadow: 0px 0px 8px #000;
+  -moz-box-shadow: 0px 0px 8px #000;
+  box-shadow: 0px 0px 8px #000;
+  -moz-border-radius: 22px;
+  border-radius: 22px;
+  }
+
+  #plantseed .plantseed {
+  width: 240px;
+  margin: 0 370px 0;
+  }
+
+  select.month, select.day, select.year, #project_due_date_2i, #project_due_date_1i, #project_due_date_3i {width: 48px; float: left; margin-right: 8px}
+  select.year, #project_due_date_1i {width: 60px}
+#subhead
+.holder
+#needdone
+  .holder
+    %h4 Plant A Seed
+.container
+  #plantseed
+    #new_project_form
+      = render :partial => 'form', :locals => {:project => @project}
+

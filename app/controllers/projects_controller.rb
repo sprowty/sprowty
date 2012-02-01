@@ -34,7 +34,16 @@ class ProjectsController < ApplicationController
     if params[:project][:price].scan("$").length > 0
       params[:project][:price].delete!('$')
     end
+
     @project = current_user.projects.build(params[:project])
+
+    if params[:zipcode] && !params[:zipcode].blank?
+      zipcode = ZipCode.where(:zipcode => params[:zipcode]).first
+      debugger
+      params[:project][:city] = zipcode.city
+      params[:project][:state] = zipcode.state
+    end
+
     if @project.save!
       respond_to do |format|
         format.html {redirect_to @project}

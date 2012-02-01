@@ -30,6 +30,7 @@
       %ul.loggedin
         %li= link_to 'My Profile', profile_path(current_user.profile.id)
         %li= link_to 'Inbox', inbox_path
-        %li
-          %a{:href => "/projects"} Projects
+        %li= link_to 'Projects', '/projects'
+        - if current_user.is_admin?
+          %li= link_to 'Admin', admin_path
   .clear

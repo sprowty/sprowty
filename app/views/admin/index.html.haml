@@ -1,0 +1,28 @@
+#container
+  #main
+    .content
+      .head
+        .left
+          %h5 Approve Projects
+        .right
+          %ul.big
+      #inboxhead
+        %b.left Order #
+        %b.right Action
+        .clear
+      #inbox
+        .post{:style=>'border-bottom: 1px solid #D6BF9E;'}
+          - @projects.each do |project|
+            .row
+              .field{:style=>'min-width:10%;'}
+                = link_to project.id, '#'
+              .field{:style=>'min-width:20%;'}
+                = project.title
+              .field{:style=>'min-width:10%;'}
+                = project.updated_at.strftime("%b %d, %Y")
+              .field{:style=>'min-width:10%;'}
+                = link_to 'approve', '#'
+            .clear
+      .pagination{:style => 'float: left; margin-top: 20px; margin-left: 300px;'}
+        = will_paginate @projects
+  .clear

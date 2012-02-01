@@ -27,6 +27,9 @@ Sprowty::Application.routes.draw do
       get :reject
     end
   end
+
+  match '/admin' => 'admin#index', :as => 'admin'
+
   match '/approve_work/:id' => 'works#approve', :as => 'approve_work'
   match '/approve_profile/:id' => 'profiles#approve', :as => 'approve_profile'
 
