@@ -1,0 +1,33 @@
+- content_for :keywords, @tags
+= render :partial => 'plant'
+#container
+  #main
+    .content
+      .head
+        .left
+          %h5 Pending Approval
+        .right
+          %ul.big
+            %li= link_to('All', projects_url, :class => "active")
+            %li= link_to 'Open', projects_url(:filter => 'open')
+            %li= link_to 'Completed', projects_url(:filter => 'completed')
+      #inboxhead
+        %b.left Order #
+        %b.right Updated
+        .clear
+      #inbox
+        .post{:style=>'border-bottom: 1px solid #D6BF9E;'}
+          - @projects.each do |project|
+            .row
+              .field
+                = link_to project.id, project_inside_path(project.id)
+              .field
+                = project.title
+              .field
+                = project.updated_at.strftime("%b %d, %Y")
+              .field
+                = link_to 'approve', admin_project_approve_url(project.id)
+            .clear
+      .pagination{:style => 'float: left; margin-top: 20px; margin-left: 300px;'}
+        = will_paginate @projects
+  .clear

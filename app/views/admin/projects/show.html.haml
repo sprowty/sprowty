@@ -1,0 +1,56 @@
+= render :partial => 'plant'
+#container
+  #main
+    .rightside
+    .content
+      .convohead
+        .left
+          %h5 Project Description
+      #listings
+        .posttwo{:style=>'background: inherit;'}
+          .info
+            %h2= @project.title
+            %ul.posted
+              %li
+                %b Due:
+                = @project.due_date.strftime("%m/%d/%Y")
+              %li
+                %b By:
+                %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.profile.full_name, profile_path(@project.user)
+
+            %ul.posted
+              %li{:style => 'float: left;'}
+                %b In Category:
+                = link_to @project.category, root_url(:category => @project.category)
+                .clear
+
+              %li.sprowtit{:style => 'float: right;margin-right: -110px;'}
+                = link_to(image_tag('button_sprowtit.png'), new_project_bid_path(:project_id => @project.id))
+                .clear
+
+              %li{:style => 'float: left; margin-top: 20px;'}
+                - unless @project.city.blank? || @project.state.blank?
+                  %b Location:
+                  = link_to "#{@project.city}, #{@project.state}", '#'
+                .clear
+            .clear
+            #description
+            %p= @project.description
+            %ul.actions
+              %li
+                = link_to "Create Similar", new_project_url(:source_id => @project.id)
+              %li.share
+                = display_sharing_tooltip
+            #stay-content-2.stay-tooltip-username.tooltip-share
+              %ul
+                %li
+                  %a.facebook{:href => "#"}
+                %li
+                  %a.twitter{:href => "#"}
+                %li
+                  %a.email{:href => "#"}
+          .price
+            %h4= number_to_currency(@project.price, :precision => 0)
+            %i Asking Price
+          .clear
+  .clear

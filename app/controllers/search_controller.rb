@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class SearchController < ApplicationController
 
   def index
     if params[:city] && params[:state]
