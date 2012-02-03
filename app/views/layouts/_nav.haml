@@ -14,9 +14,9 @@
           = form_for "user", :url => user_session_path do |f|
             %ul
               = f.label "Email"
-              = f.text_field :email, :placeholder => 'enter email'
+              = f.text_field :email
               = f.label "Password"
-              = f.password_field :password, :placeholder => 'enter password'
+              = f.password_field :password
             %p{:style => 'float: left; margin-top: 4px;'}
               = link_to 'Forgot Password?', new_password_path(User), :style => "color: #894125; font: 12px Georgia,'Times New Roman',Serif;"
             = f.submit 'Sign in', :style => 'float:right; margin-right:1px;'

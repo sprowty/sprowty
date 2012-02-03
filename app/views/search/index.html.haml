@@ -93,7 +93,10 @@
       .head{:style=>'width: 634px;'}
         .left{:style=>'padding-top: 11px;'}
           %h2 Search Results
-          %h3 Showing @project.length
+          %br/
+          .search_counter
+            = page_entries_info @projects, :html => false
+          .bar
         / /LEFT
         .right{:style=>'width: 425px;'}
           %ul

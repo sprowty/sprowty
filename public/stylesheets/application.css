@@ -101,7 +101,7 @@ background:#88bbd4;
 width: 91px;
 height: 25px;
 text-decoration:none;
-font: bold 16px Helvetica, Arial, Sans-Serif;
+font: bold 15px Helvetica, Arial, Sans-Serif;
 color:#412214;
 background:transparent url("/images/signin.png") no-repeat top left;
 display: block;
@@ -113,7 +113,7 @@ background:#88bbd4;
 width: 91px;
 height: 25px;
 text-decoration:none;
-font: bold 16px Helvetica, Arial, Sans-Serif;
+font: bold 15px Helvetica, Arial, Sans-Serif;
 color:#412214;
 background:transparent url("/images/sign.png") no-repeat top left;
 display: block;
@@ -175,7 +175,7 @@ color: #422215
 #signin_menu p.remember, #sigin .remember { padding:8px 0;}
 #signin_menu p.forgot, #signin_menu p.complete { clear:both; margin:5px 0;}
 #signin_menu p a { color:#27B!important;}
-#signin_submit, .signin_submit, #user_submit { background: url('/images/button_signin.png') no-repeat; width: 71px; height: 30px; border: none; text-indent: -9999em; margin: 0 6px 0 4px}
+#signin_submit, .signin_submit, #user_submit { background: url('/images/btn_signin_big.png') no-repeat; width: 175px; height: 75px; border: none; text-indent: -9999em; margin-left: 170px;}
 
 #forgot_password { background: url('/images/btn_submit_large.png') no-repeat; width: 210px; height: 90px; border: none; text-indent: -9999em; margin-left: 165px; float: left; }
 #forgot_password:hover {cursor:pointer;}
@@ -1235,3 +1235,13 @@ select {
 #project_due_date_2i { width: 100px; }
 #project_due_date_3i { width: 70px; }
 #project_due_date_1i { width: 100px; }
+
+.search_counter {
+  float: left;
+  margin-left: -10px;
+  text-transform: lowercase;
+  width: 400px;
+  font: bold 16px Helvetica,Arial,Sans-Serif;
+  padding-top: 5px;
+  color: #894125;
+}

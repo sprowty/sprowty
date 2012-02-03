@@ -25,7 +25,5 @@
           %p= f.password_field :password, :class => 'field clearField', :placeholder => 'enter password'
           %p
             = f.submit "Sign in", :class => "signin_submit"
-            = f.check_box :remember_me
-            = f.label :remember_me
         .clear
         %p= render :partial => "devise/shared/links"
