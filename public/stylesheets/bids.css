@@ -5,7 +5,6 @@ a:active, a:focus, button{outline: 0;}
 .right, #plantseed i {float: right}
 .clear {clear: both}
 h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
-h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
 
 #submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%; padding-bottom: 20px;margin-bottom: 50px; border-radius: 14px;}
 #submitbid .head {

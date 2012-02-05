@@ -1,10 +1,11 @@
-= javascript_include_tag 'bids'
+= #javascript_include_tag 'bids'
 = stylesheet_link_tag 'application', 'bids'
 
 = form_tag([@project, @bid], :url => {:action => 'create'}) do
   #submitbid
     .head
-      %h3= @project.title
+      %h3{:style => 'font-family: Helvetica'}
+        = @project.title
       %b Posted By:
       = link_to "#{@project.user.username}", profile_path(@project)
     - unless error_messages_for.nil?
@@ -17,7 +18,7 @@
           %li Accept Current Bid
           %li
             %a.active.accept_current_price{:href => "#"} Accept Current
-          = check_box_tag :accept_current_price, :style => 'display: none;'
+          = #check_box_tag :accept_current_price, :style => 'display: none;'
       .right
         %h4 Or Enter Other:
         %i Increment of $5
@@ -26,18 +27,4 @@
     .why
       %h4 Why Should You Get This Job?
       = text_area_tag :why
-    %ul.expires
-      %li.offer Offer Expires In:
-      %li
-        %label{:for => "24hours"} 24 Hours
-        %input#24hours{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 1.day}/
-      %li
-        %label{:for => "1week"} 1 Week
-        %input#1week{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 1.week}/
-      %li
-        %label{:for => "2weeks"} 2 Weeks
-        %input#2weeks{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 2.week}/
-      %li
-        %label{:for => "never"} Never
-        %input#never{:name => "bid[offer_expires]", :style => "display: none;", :type => "radio", :value => Time.now + 5.year}/
     = submit_tag 'Submit Bid', :class => 'submit'
