@@ -33,16 +33,12 @@
                 %a#stay-target-1.stay-tooltip-target.tooltip-target= link_to @project.user.profile.full_name, profile_path(@project.user)
 
             %ul.posted
-              %li{:style => 'float: left;'}
-                %b In Category:
+              %li{:style => 'float: left; margin-top: 5px;'}
+                %b Category:
                 = link_to @project.category, root_url(:category => @project.category)
                 .clear
-
-              %li.sprowtit{:style => 'float: right;margin-right: -110px;'}
-                = link_to(image_tag('button_sprowtit.png'), new_project_bid_path(:project_id => @project.id))
-                .clear
-
-              %li{:style => 'float: left; margin-top: 20px;'}
+              .clear
+              %li{:style => 'float: left; margin-top: 15px;'}
                 - unless @project.city.blank? || @project.state.blank?
                   %b Location:
                   = link_to "#{@project.city}, #{@project.state}", '#'
@@ -51,6 +47,8 @@
             #description
             %p= @project.description
             %ul.actions
+              %li{:style => 'float: left; margin-top: 2px;'}
+                = link_to "Sprowt It", new_project_bid_path(:project_id => @project.id)
               %li
                 = link_to "Create Similar", new_project_url(:source_id => @project.id)
               %li.share
