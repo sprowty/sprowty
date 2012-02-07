@@ -190,6 +190,8 @@ box-shadow: 0px 0px 6px rgba(0,0,0, 0.8);
 border-radius: 9px;
 }
 
+.submit_btn{ background: url('/images/btn_submit.png') no-repeat; width: 175px; height: 75px; border: none; text-indent: -9999em;}
+
 /* --/Sign In-- */
 
 .fbconnect {margin-top: 55px; padding-bottom:80px; padding-left:54px;}
