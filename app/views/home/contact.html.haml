@@ -1,37 +1,49 @@
+= render :partial => 'projects/plant'
 #container
   #main
-    %h2 Contact Us
+    .content
+      .head
+        .left{:style => 'width: 300px;'}
+          %h5 Contact Us
+      .contactus{:style => 'margin: 10px;'}
+        %form{:name => "email", :id => "email", :action => "/contact", :method => "post", :enctype => "text/plain"}
+          .settings
+            .label
+              %label Email:
+            .input
+              = text_field :email, :class => 'field'
+          / /SETTINGS
+          .clear
+          .settings
+            .label
+              %label Project ID:
+            .input
+              = text_field :project_id, :class => 'field'
+          .clear
+          .settings
+            .label
+              %label Subject:
+            .input
+              = select :subject, CATEGORIES, {:include_blank => false}
+          .clear
+          .settings
+            .label
+              %label Details
+            .input
+              = text_area :comments, :class => 'field'
+            .clear
+          = submit_tag "Submit"
+    .rightside
+      %h2 Sprowt Around
+      %p Find the jobs you want to do
+      = form_for :search, :url => search_url do |f|
+        = f.text_field :title_or_description_contains, :placeholder => 'Search'
+        = hidden_field_tag "source", "search"
+        %button{:type => "submit"} Search
+      .clear
+      %br/
 
-    %form{:name => "email", :id => "email", :action => "/contact", :method => "post", :enctype => "text/plain"}
-      .settings
-        .label
-          %label Username:
-        .input
-          = text_field :username, :class => 'field'
-      .clear
-      .settings
-        .label
-          %label Email:
-        .input
-          = text_field :email, :class => 'field'
-      / /SETTINGS
-      .clear
-      .settings
-        .label
-          %label Project ID:
-        .input
-          = text_field :project_id, :class => 'field'
-      .clear
-      .settings
-        .label
-          %label Subject:
-        .input
-          = select :subject, CATEGORIES, {:include_blank => false}
-      .clear
-      .settings
-        .label
-          %label Comments
-        .input
-          = text_area :comments, :class => 'field'
-        .clear
+      = render :partial => 'shared/categories'
 
+      #inbox
+  .clear
