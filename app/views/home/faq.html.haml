@@ -1,4 +1,22 @@
+= render :partial => 'projects/plant'
 #container
   #main
-    %h2 This is the faq page
-    
+    .content
+      .head
+        .left{:style => 'width: 300px;'}
+          %h5 Frequently Asked Questions
+        .clear
+    .rightside
+      %h2 Sprowt Around
+      %p Find the jobs you want to do
+      = form_for :search, :url => search_url do |f|
+        = f.text_field :title_or_description_contains, :placeholder => 'Search'
+        = hidden_field_tag "source", "search"
+        %button{:type => "submit"} Search
+      .clear
+      %br/
+
+      = render :partial => 'shared/categories'
+
+      #inbox
+  .clear
