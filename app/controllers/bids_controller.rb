@@ -5,6 +5,7 @@ class BidsController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @bid = Bid.new
+    render :layout => false
   end
 
   def show

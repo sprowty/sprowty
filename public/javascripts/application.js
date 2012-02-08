@@ -18,6 +18,16 @@
 
 $(document).ready(function() {
 
+  // Colorbox trigger
+	$("a.sprowt").colorbox({
+		href: function(){
+			return $(this).attr('href')
+			},
+		opacity:.25,
+    height: "600px",
+    width: "780px"
+	});
+
 	$(".live-link").live('click', function () {
 		$.ajax({type: $(this).attr("method"), url: $(this).attr("href"), dataType: "script"});
 		return false;
@@ -76,8 +86,8 @@ $(document).ready(function() {
 
   $('#sign_up').colorbox({ inline: true, href: '#signupcontainer', width: "800px", height: "440px", innerHeight: "420px" });
   $('.plant').colorbox({ width: "800px", Height: "640px" });
-  $('.sprowt').colorbox({ width: "50%", height: "570px", innerHeight: "540px" });
 });
+
 
 $(document).ajaxSend(function(e, xhr, options) {
   var token = $("meta[name='csrf-token']").attr("content");
