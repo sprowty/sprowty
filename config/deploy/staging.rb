@@ -1,9 +1,9 @@
 task :staging do
   set :branch, :master
-  set :stage, "finagle.sprowty.com"
-  set :user, "ubuntu"
-  set :runner, "ubuntu"
-  set :domain, "finagle.sprowty.com"
+  set :stage, "174.143.240.100"
+  set :user, "deployer"
+  set :runner, "deployer"
+  set :domain, "174.143.240.100"
   set :rails_env, "staging"
   set :port, 22
   role :web, domain

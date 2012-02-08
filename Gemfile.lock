@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/engineyard/engineyard.git
-  revision: 319a83af6074becd4a0c43f1dd0d8983ced296cc
+  revision: bad0846d8405a461ad033f0056898d96bec6f4b5
   specs:
     engineyard (1.4.23.pre)
       engineyard-serverside-adapter (= 1.5.27)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/plataformatec/devise.git
-  revision: 83c47552e88d2f87250b0f3664ea41aa8e685d4e
+  revision: dc37b8229800749fa20be2230470f459c3d78319
   specs:
     devise (2.0.0)
       bcrypt-ruby (~> 3.0)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/thoughtbot/paperclip.git
-  revision: 1cb40e352eaa0f42560021c32705933f4d4eb46a
+  revision: 772c8e96d8fdd8293e3745138287e3a4e9181e20
   specs:
     paperclip (2.5.2)
       activerecord (>= 2.3.0)
@@ -56,13 +56,12 @@ GEM
     active_utils (1.0.2)
       activesupport (>= 2.3.11)
       i18n
-    activemerchant (1.20.2)
+    activemerchant (1.20.3)
       active_utils (>= 1.0.2)
       activesupport (>= 2.3.11)
       braintree (>= 2.0.0)
       builder (>= 2.0.0)
       i18n
-      json (>= 1.5.1)
       money (<= 3.7.1)
     activemodel (3.2.1)
       activesupport (= 3.2.1)
@@ -86,7 +85,7 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (3.0.0)
     bcrypt-ruby (3.0.1)
-    braintree (2.13.3)
+    braintree (2.13.4)
       builder (>= 2.0.0)
     builder (3.0.0)
     capistrano (2.9.0)
@@ -102,7 +101,7 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    childprocess (0.3.0)
+    childprocess (0.3.1)
       ffi (~> 1.0.6)
     cocaine (0.2.1)
     coffee-rails (3.2.2)
@@ -133,7 +132,7 @@ GEM
     escape (0.0.4)
     execjs (1.3.0)
       multi_json (~> 1.0)
-    factory_girl (2.5.0)
+    factory_girl (2.5.1)
       activesupport
     factory_girl_rails (1.6.0)
       factory_girl (~> 2.5.0)
@@ -145,7 +144,7 @@ GEM
     ffi (1.0.11)
     formtastic (2.0.2)
       rails (~> 3.0)
-    gherkin (2.7.6)
+    gherkin (2.7.7)
       json (>= 1.4.6)
     haml (3.1.4)
     has_scope (0.5.1)
@@ -231,7 +230,7 @@ GEM
       activesupport (= 3.2.1)
       bundler (~> 1.0)
       railties (= 3.2.1)
-    rails3-jquery-autocomplete (1.0.5)
+    rails3-jquery-autocomplete (1.0.6)
       rails (~> 3.0)
     railties (3.2.1)
       actionpack (= 3.2.1)
@@ -270,7 +269,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.5)
-    sass (3.1.12)
+    sass (3.1.14)
     sass-rails (3.2.4)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
