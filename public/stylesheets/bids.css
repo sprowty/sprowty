@@ -6,7 +6,7 @@ a:active, a:focus, button{outline: 0;}
 .clear {clear: both}
 h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
 
-#submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%; padding-bottom: 20px;margin-bottom: 50px; border-radius: 14px;}
+#submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%; padding-bottom: 61px;}
 #submitbid .head {
 text-align: center;
 background-color: green;
@@ -24,14 +24,6 @@ background: -moz-linear-gradient(
     rgb(159,161,36) 58%
 );
 border-bottom: 1px solid #606117;
--moz-border-radius-topleft: 14px;
--moz-border-radius-topright: 14px;
--moz-border-radius-bottomright: 0px;
--moz-border-radius-bottomleft: 0px;
-border-top-left-radius: 14px;
-border-top-right-radius: 14px;
-border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px;
 }
 
 

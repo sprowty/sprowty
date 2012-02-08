@@ -8,15 +8,13 @@ h2 { font-size: 48px; color: #422215}
 h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal;}
 h3 {font-family: 'CoquetteBoldRegular', Georgia, Serif; font-weight: normal}
 
-#submitpayment {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%;}
+#submitpayment {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; }
 #submitpayment .head {
 height: 20px;
 text-align: center;
 background-color: green;
 padding: 20px 10px 25px 0px;
-margin-left: -5px;
 width: 500px;
-margin-top: -5px;
 background: -webkit-gradient(
     linear,
     left bottom,
@@ -30,14 +28,6 @@ background: -moz-linear-gradient(
     rgb(159,161,36) 58%
 );
 border-bottom: 1px solid #606117;
--moz-border-radius-topleft: 14px;
--moz-border-radius-topright: 14px;
--moz-border-radius-bottomright: 0px;
--moz-border-radius-bottomleft: 0px;
-border-top-left-radius: 14px;
-border-top-right-radius: 14px;
-border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px;
 }
 
 
@@ -112,5 +102,10 @@ text-decoration: none
 }
 
 #submitpayment ul.coinbox li h5 { color: #894125; margin-left: 30px; margin-top: 20px; }
-.new_payment { display:block; width:500px; height:300px; float: left; background-color:#E5D7C1; padding-left: 5px; padding-right: 5px; }
+.new_payment { display:block; width:500px; height:300px; float: left; background-color:#E5D7C1; padding-right: 8px; }
 .new_payment .rdio { float: left; margin-left: 10px; margin-top: -20px;}
+#cboxOverlay {
+  display: block;
+  background-color: #000;
+  cursor: pointer;
+}

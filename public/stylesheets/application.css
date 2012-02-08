@@ -1247,3 +1247,9 @@ select {
   padding-top: 5px;
   color: #894125;
 }
+
+#cboxOverlay {
+  display: block;
+  background-color: #000;
+  cursor: pointer;
+}

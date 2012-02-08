@@ -7,6 +7,7 @@ class TransactionsController < ApplicationController
 
   def new
     @payment = Transaction.new
+    render :layout => false
   end
 
   def create

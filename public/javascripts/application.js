@@ -18,14 +18,22 @@
 
 $(document).ready(function() {
 
-  // Colorbox trigger
 	$("a.sprowt").colorbox({
 		href: function(){
 			return $(this).attr('href')
 			},
-		opacity:.25,
-    height: "600px",
-    width: "780px"
+		opacity:.65,
+    height: "550px",
+    width: "702px"
+	});
+
+	$(".buycoins").colorbox({
+		href: function(){
+			return $(this).attr('href')
+			},
+		opacity:.65,
+    height: "334px",
+    width: "510px"
 	});
 
 	$(".live-link").live('click', function () {

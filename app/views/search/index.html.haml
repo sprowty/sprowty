@@ -139,7 +139,7 @@
                 = project.description.truncate(60)
                 = link_to 'Read More', project, :class => 'readmore'
               %ul.actions
-                %li= link_to 'Sprowt it', new_project_bid_path(:project_id => project.id)
+                %li= link_to 'Sprowt it', new_project_bid_path(:project_id => project.id), :class => 'sprowt'
                 %li= link_to "Create Similar", new_project_url(:source_id => project.id)
 
                 %li.share
