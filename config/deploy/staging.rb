@@ -8,5 +8,6 @@ task :staging do
   set :port, 22
   role :web, domain
   role :app, domain
+  role :console_host, domain
   role :db, domain, :primary => true
 end

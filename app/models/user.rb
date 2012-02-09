@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile, :allow_destroy => true
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :terms, :profile_attributes, :is_admin, :zipcode, :profile
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :terms, :profile_attributes, :is_admin, :zipcode
 
   after_create :setup_account
 
