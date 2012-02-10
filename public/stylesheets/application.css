@@ -283,7 +283,7 @@ position: relative;
 
 
 /* --------------NEED DONE------------- */
-#needdone { background: url(/images/ribbon.png) no-repeat center; height: 110px; margin-top: -30px;}
+#needdone { background: url(/images/ribbon.png) no-repeat center; height: 110px; margin-top: -30px; margin-bottom: -1px;}
 #needdone .holder { padding-top: 42px;}
 #needdone .holder .left {margin: 0 6px 0 20px}
 #needdone h4, #needdone input {font-family: Georgia, 'Times New Roman', Serif; font-weight: normal; font-style: italic;}
