@@ -1,7 +1,8 @@
 #signupcontainer
+  - @user.build_profile
   = form_for(@user, :url => registration_path('user')) do |f|
     .left
-      = f.fields_for Profile.new do |p|
+      = f.fields_for :profile do |p|
         .profile_fields
           = p.text_field :first_name, :class => 'field clearField', :placeholder => 'enter first name'
           = p.text_field :last_name, :class => 'field clearField', :placeholder => 'enter last name'
