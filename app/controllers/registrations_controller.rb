@@ -1,4 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+  def new
+    super
+    @user.build_profile
+  end
 
   def create
     super
