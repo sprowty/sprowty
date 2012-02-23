@@ -27,10 +27,11 @@
           %h5 Profile
         / /LEFT
         .right
-          %ul
-            %li.sort
-              %b Manage Your Account:
-            %li= link_to 'Edit Information', edit_profile_path(@profile.id)
+          - if current_user && current_user.profile == @profile.id
+            %ul
+              %li.sort
+                %b Manage Your Account:
+              %li= link_to 'Edit Information', edit_profile_path(@profile.id)
         / /RIGHT
       / /HEAD
       #profile
@@ -38,9 +39,10 @@
           .left
             = image_tag @profile.picture.url(:profile)
             %ul.action
-              %li.upload= link_to 'Upload A Pic', '/profile/edit#profile_picture'
-              %li.invite
-                %a{:href => "#"} Invite A Friend
+              - if current_user && current_user.profile == @profile.id
+                %li.upload= link_to 'Upload A Pic', '/profile/edit#profile_picture'
+                %li.invite
+                  %a{:href => "#"} Invite A Friend
           / /LEFT
           .right
             %h2= @user.profile.full_name
