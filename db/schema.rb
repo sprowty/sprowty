@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129064529) do
+ActiveRecord::Schema.define(:version => 20120226024506) do
 
   create_table "accounts", :force => true do |t|
     t.integer "user_id"
@@ -263,6 +263,6 @@ ActiveRecord::Schema.define(:version => 20120129064529) do
     t.float   "lng"
   end
 
-  add_index "zip_codes", ["zipcode"], :name => "index_zip_codes_on_zipcode", :unique => true
+  add_index "zip_codes", ["zipcode"], :name => "index_zip_codes_on_zipcode"
 
 end

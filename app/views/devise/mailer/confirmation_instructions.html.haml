@@ -1,4 +1,12 @@
 %p
-  Welcome #{@resource.email}!
-%p You can confirm your account through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  Hi #{@resource.profile.first_name},
+%br/
+%p
+  Thank you for joining Sprowty! To activate your account, simply click the link below or if the link is not clickable you may need to copy and paste the following link into your browser's address bar. We look forward to hearing from you!
+%br/
+link_to confirmation_url(@resource, :confirmation_token => @resource.confirmation_token), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+%br/
+%p
+  All the best,
+  The Sprowty Team
+
