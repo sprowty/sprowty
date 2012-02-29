@@ -124,8 +124,9 @@
 
               %ul.posted
                 %li
-                  %b Location:
-                  = link_to "#{project.city}, #{project.state}", root_url(:city => project.city, :state => project.state)
+                  - if !project.city.blank? || !project.state.blank?
+                    %b Location:
+                    = link_to "#{project.city}, #{project.state}", root_url(:city => project.city, :state => project.state)
               / /Posted
               #description
                 .keywords
