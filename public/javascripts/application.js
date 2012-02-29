@@ -27,6 +27,13 @@ $(document).ready(function() {
     width: "702px"
 	});
 
+  $(".colorbox-load").colorbox({
+    iframe:true,
+    innerWidth:525,
+    innerHeight:444,
+    opacity:.65
+  });
+
 	$(".buycoins").colorbox({
 		href: function(){
 			return $(this).attr('href')
