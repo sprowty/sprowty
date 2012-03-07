@@ -1,7 +1,7 @@
+%h2 Feedback:
+.clear
 - unless @feedbacks.blank?
   - @feedbacks.last(3).each do |feedback|
-    %h2 Feedback:
-    .clear
     .holder
       .up
       .left
@@ -14,10 +14,9 @@
         %p
           = feedback.feedback
     .clear
+    = link_to 'see all feedback', '#'
     %hr{:style => 'color: #d6bf9e;'}
 - else
   %h6
     Sorry, no feedback has been reported for this user.
 .clear
-%br/
-= link_to 'see all feedback', '#'

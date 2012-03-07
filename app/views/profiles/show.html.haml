@@ -36,7 +36,7 @@
           %h5 Profile
         / /LEFT
         .right
-          - if current_user && current_user.profile == @profile.id
+          - if current_user && current_user.profile.id == @profile.id
             %ul
               %li.sort
                 %b Manage Your Account:
