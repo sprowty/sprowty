@@ -9,6 +9,10 @@
         %form{:name => "email", :id => "email", :action => "/contact", :method => "post", :enctype => "text/plain"}
           .settings
             .label
+              %label Full Namr:
+            .input
+              = text_field :full_name, :class => 'field'
+            .label
               %label Email:
             .input
               = text_field :email, :class => 'field'
@@ -16,9 +20,9 @@
           .clear
           .settings
             .label
-              %label Project ID:
+              %label Order Number:
             .input
-              = text_field :project_id, :class => 'field'
+              = text_field :order_number, :class => 'field'
           .clear
           .settings
             .label
@@ -28,11 +32,11 @@
           .clear
           .settings
             .label
-              %label Details
+              %label message
             .input
-              = text_area :comments, :class => 'field'
+              = text_area :message, :class => 'field'
             .clear
-          = submit_tag "Submit", :class => 'submit_btn'
+          = submit_tag "send", :class => 'send_btn'
     .rightside
       %h2 Sprowt Around
       %p Find the jobs you want to do

@@ -1039,6 +1039,14 @@ box-shadow: 1px 1px 1px #fff;
 }
 
 
+.contactus input, .contactus select {
+  border: 1px solid #C3B288;
+  color: #3C3C39;
+  font: italic 22px Georgia,'Times New Roman',Serif;
+  margin-bottom: 24px;
+  padding: 20px;
+  width: 300px;
+}
 
 a:active, a:focus, button{outline: 0;}
 #signupcontainer {font: 12px Helvetica, Arial, Sans-Serif; padding: 20px; height: 340px;background-color: #E5D7C1;}

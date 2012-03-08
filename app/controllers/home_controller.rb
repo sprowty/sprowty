@@ -10,6 +10,6 @@ class HomeController < ApplicationController
     end
 
     @search   = Project.search(params[:search])
-    @projects = @search.paginate(:page => params[:page], :per_page => 5)
+    @projects = @search.paginate(:page => params[:page], :per_page => 5, :order => 'created_at desc')
   end
 end
