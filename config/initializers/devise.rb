@@ -172,7 +172,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   #config.omniauth :facebook, 'b511916bc648225a710d83dd47b03c18', 'c842e733d9875d6b911e2717718e2554'
-  config.omniauth :facebook, '224812504245322', 'd71cb1914fe553ab744a747acceaafbe', {:display => 'popup'}
+  config.omniauth :facebook, '365254376839518', '24953e730cf0489faa870dce656ffb38', {:display => 'popup'}
 
   config.reset_password_within = 6.hours
   # ==> Warden configuration
