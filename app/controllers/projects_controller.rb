@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
       @project.title = @source.title
       @project.description = @source.description
       @project.category = @source.category
+      @project.zipcode = @source.zipcode
     end
     if params[:title] && !params[:title].blank?
       @project.title  = params[:title]

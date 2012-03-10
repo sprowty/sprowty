@@ -74,7 +74,7 @@
       %h2 Sprowt Around
       %p Find the jobs you want to do
       = form_for :search, :url => search_url do |f|
-        = f.text_field :title_or_description_contains, :placeholder => 'Search'
+        = f.text_field :title_or_description_or_zipcode_contains, :placeholder => 'Search'
         = hidden_field_tag "source", "search"
         %button{:type => "submit"} Search
       .clear
