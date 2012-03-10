@@ -1,8 +1,8 @@
-= #javascript_include_tag 'bids'
 = stylesheet_link_tag 'application', 'bids'
+= javascript_include_tag "jquery", "jquery.colorbox-min"
 
-= form_tag([@project, @bid], :url => {:action => 'create'}) do
-  #submitbid
+#submitbid
+  = form_tag([@project, @bid], :url => {:action => 'create'}) do
     .head
       %h3{:style => 'font-family: Helvetica'}
         = @project.title
@@ -28,3 +28,6 @@
       %h4 Why Should You Get This Job?
       = text_area_tag :why
     = submit_tag 'Submit Bid', :class => 'submit'
+
+:javascript
+  $.fn.colorbox({inline:true, href:"#submitbid", opacity:.65, height: "550px", width: "702px"});

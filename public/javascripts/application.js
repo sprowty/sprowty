@@ -18,14 +18,6 @@
 
 $(document).ready(function() {
 
-	$("a.sprowt").colorbox({
-		href: function(){
-			return $(this).attr('href')
-			},
-		opacity:.65,
-    height: "550px",
-    width: "702px"
-	});
 
   $(".colorbox-load").colorbox({
     iframe:true,
