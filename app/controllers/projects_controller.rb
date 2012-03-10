@@ -40,13 +40,14 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(params[:project])
 
     unless params[:project][:zipcode].blank?
-      zipcode = ZipCode.where(:zipcode => params[:project][:zipcode]).first
-      @city = params[:project][:city] = zipcode.city
-      @state = params[:project][:state] = zipcode.state
-      @project.city = @city
-      @project.state = @state
+      if zipcode = ZipCode.where(:zipcode => params[:project][:zipcode]).first
+        @city = params[:project][:city] = zipcode.city
+        @state = params[:project][:state] = zipcode.state
+        @project.city = @city.humanize
+        @project.state = @state
+      end
     end
-    debugger
+
     if @project.save!
       respond_to do |format|
         format.html {redirect_to @project}
