@@ -9,7 +9,6 @@ class Project < ActiveRecord::Base
   validate :price_increments
   validate :price_minimum
 
-
   state_machine :sm_state, :initial => :pending_post do
     event :post do transition :pending_post => :posted end
     event :waiting_for_bids do transition :posted => :waiting_for_bids end
