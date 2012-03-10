@@ -4,11 +4,7 @@
     .rightside
       %h2 Harvest Fields
       %p Find the jobs you want to do
-      = form_for :search, :url => search_url do |f|
-        = f.text_field :title_or_description_or_zipcode_contains, :placeholder => 'Search'
-        = hidden_field_tag "source", "search"
-        %button{:type => "submit"} Search
-      .clear
+      = render :partial => 'shared/search'
       %br/
       = render :partial => 'shared/categories'
     .content
