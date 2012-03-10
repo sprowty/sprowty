@@ -4,10 +4,12 @@
     .rightside
       %h2 Harvest Fields
       %p Find the jobs you want to do
-      %form#search{:action => "", :method => "get", :name => "input"}
-        %input{:name => "Search", :onblur => "if(this.value=='')this.value='Search'", :onfocus => "if(this.value=='Search')this.value=''", :type => "text", :value => "Search"}/
+      = form_for :search, :url => search_url do |f|
+        = f.text_field :title_or_description_or_zipcode_contains, :placeholder => 'Search'
+        = hidden_field_tag "source", "search"
         %button{:type => "submit"} Search
       .clear
+      %br/
       = render :partial => 'shared/categories'
     .content
       .convohead
