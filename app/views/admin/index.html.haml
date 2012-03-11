@@ -21,7 +21,7 @@
               .field{:style=>'min-width:10%;'}
                 = project.updated_at.strftime("%b %d, %Y")
               .field{:style=>'min-width:10%;'}
-                = link_to 'approve', '#'
+                = link_to 'approve', project_approve_url(project)
             .clear
       .pagination{:style => 'float: left; margin-top: 20px; margin-left: 300px;'}
         = will_paginate @projects
