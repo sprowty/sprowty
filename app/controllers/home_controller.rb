@@ -9,7 +9,7 @@ class HomeController < ApplicationController
        @projects = Project.where(:category => params[:category])
     end
 
-    @search   = Project.search(params[:search])
+    @search   = Project.where(:sm_state => 'posted').search(params[:search])
     @projects = @search.paginate(:page => params[:page], :per_page => 5, :order => 'created_at desc')
   end
 end
