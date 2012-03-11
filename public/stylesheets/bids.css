@@ -6,7 +6,7 @@ a:active, a:focus, button{outline: 0;}
 .clear {clear: both}
 h2, h5 {font-family:'KnockoutHTF27-JuniorBantamwt', Hevletica, sans-serif; text-transform: uppercase; font-weight: normal}
 
-#submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; height: 100%; padding-bottom: 61px;}
+#submitbid {font: 12px Helvetica, Arial, Sans-Serif; background-color: #E5D7C1; padding-bottom: 61px;}
 #submitbid .head {
 text-align: center;
 background-color: green;
@@ -39,7 +39,7 @@ border-bottom: 1px solid #606117;
 #submitbid .bid {margin: 0; padding: 0; text-align: left}
 #submitbid .bid .left {width: 380px; }
 #submitbid .bid .right {width: 250px; float: left }
-#submitbid .right input {width: 80px; float: right; height: 20px; margin-top: -24px; padding: 10px;font: bold 18px Helvetica, Arial, Sans-Serif; margin-right: 20px; border: 1px solid #c3b288; color: #585a05 }
+#submitbid .right input {width: 80px; float: right; margin-top: -24px; padding: 10px;font: bold 18px Helvetica, Arial, Sans-Serif; margin-right: 20px; border: 1px solid #c3b288; color: #585a05 }
 #submitbid .why {padding: 0px 30px 20px 38px}
 
 #submitbid textarea {

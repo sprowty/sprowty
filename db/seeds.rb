@@ -33,6 +33,25 @@ end
   user.confirm!
 end
 
+["admin"].each do |user_str|
+
+  if User.where(:email => "#{user_str}_sprowty@mailinator.com").length > 0
+    User.where(:email => "#{user_str}_sprowty@mailinator.com").first.destroy
+  end
+
+  user = User.create({:email => "#{user_str}_sprowty@mailinator.com",
+                      :password => "password",
+                      :password_confirmation => "password",
+                      :is_admin => true})
+
+  profile = user.build_profile({:first_name => user_str.humanize,
+                                :last_name => 'User',
+                                :zipcode => '73069',
+                                :picture => File.open(File.join(Rails.root,"db","seed_files","#{user_str}_profile.jpg"))})
+  profile.save!
+  user.confirm!
+end
+
 
 posted = Project.create({:user_id => User.where(:email => 'seeder_sprowty@mailinator.com').first.id,
                          :title => "Posted Project - #{DateTime.now.strftime('%B %d, %Y at %I:%M%p')}",
