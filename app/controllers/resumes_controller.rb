@@ -38,6 +38,7 @@ class ResumesController < ApplicationController
       redirect_to :action => 'new', :notice => 'You need to create a resume'
     else
       @resume = current_user.resume #Resume.find(params[:id])
+      @profile = current_user.profile
     end
   end
 end

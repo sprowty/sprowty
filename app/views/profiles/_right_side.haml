@@ -1,0 +1,25 @@
+.rightside
+  .boxheadin
+    - if current_user && current_user.profile.id == profile.id
+      %h3 My Resume
+    - else
+      %h3 Their Resume
+  .box
+  / /BOX
+  .boxheadin
+    - if current_user && current_user.profile.id == profile.id
+      %h3 My Work
+    - else
+      %h3 Their Work
+  .box
+  .boxhead
+    - if current_user && current_user.profile.id == profile.id
+      %h3 My Portfolio
+    - else
+      %h3 Their Portfolio
+  .box
+    - @works.each do |work|
+      - if work.image_approved
+        %ul.upload
+          %li.file
+            = link_to work.work_file_name, work.work.url

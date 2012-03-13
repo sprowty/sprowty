@@ -3,16 +3,15 @@
     %p= error_messages_for :resume
     .settings
       .label
-        %label Resume Title
+        %label Title
       .input
         = f.text_field :title, :placeholder => "Experienced accountant with 10 years experience"
     .clear
     .settings
       .label
-        %label Bio
+        %label About
       .input
         = f.text_area :activities, :placeholder => 'Enter your Bio here.'
-    / /SETTINGS
     .clear
     .settings
       .label
@@ -31,8 +30,7 @@
         %label Skills
       .input
         = f.text_area :sample_work, :placeholder => 'Enter any skills you feel is beneficial (if applicable)'
-      .clear
-      .clear
-      .clear
-      = f.submit 'Save', :class => 'save', :style => 'width: 170px; margin-left: 358px'
-/ /PROFILE
+    .clear
+    = f.submit 'Save', :class => 'save', :style => 'width: 170px; float: left; margin-left: 300px'
+  .clear
+.clear

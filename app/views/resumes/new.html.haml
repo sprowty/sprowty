@@ -1,6 +1,7 @@
 #subhead
 #container
   #main
+    = render :partial => 'profiles/right_side', :locals => {:profile => current_user.profile}
     .content
       .head
         .left
@@ -10,3 +11,4 @@
         / /RIGHT
       / /HEAD
       = render :partial => 'form'
+    .clear
