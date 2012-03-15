@@ -18,6 +18,10 @@
 
 $(document).ready(function() {
 
+  $('#video_link').click(function() {
+    $(window).scrollTop(100);
+    return true;
+  });
 
   $(".colorbox-load").colorbox({
     iframe:true,
