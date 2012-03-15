@@ -95,38 +95,39 @@
             .clear
         .feedback
           = render :partial => 'shared/feedback'
-        #colholder
-          .column
-            .infohead
-              %b Latest Seeds:
-              %p Jobs I Need Done
-            %ul
-              - @seeds.each do |project|
-                %li
-                  = link_to project.title, '#'
-                %i
-                  due #{project.due_date.strftime("%m/%d/%Y")}
-          .column
-            .infohead
-              %b Latest Sprowts:
-              %p Jobs I Have Done
-            %ul
-              - @latest_sprowts.each do |sprowt|
-                %li
-                  = link_to sprowt.title, '#'
-                %i
-                  due #{sprowt.due_date.strftime("%m/%d/%Y")}
+        - if current_user && !current_user.profile.id = @profile.id
+          #colholder
+            .column
+              .infohead
+                %b Latest Seeds:
+                %p Jobs I Need Done
+              %ul
+                - @seeds.each do |project|
+                  %li
+                    = link_to project.title, '#'
+                  %i
+                    due #{project.due_date.strftime("%m/%d/%Y")}
+            .column
+              .infohead
+                %b Latest Sprowts:
+                %p Jobs I Have Done
+              %ul
+                - @latest_sprowts.each do |sprowt|
+                  %li
+                    = link_to sprowt.title, '#'
+                  %i
+                    due #{sprowt.due_date.strftime("%m/%d/%Y")}
 
-          .column
-            .infohead
-              %b Working On:
-              %p Jobs I Am Doing
-            %ul
-              - @current_sprowts.each do |sprowt|
-                %li
-                  = link_to sprowt.title, '#'
-                %i
-                  due #{sprowt.due_date.strftime("%m/%d/%Y")}
+            .column
+              .infohead
+                %b Working On:
+                %p Jobs I Am Doing
+              %ul
+                - @current_sprowts.each do |sprowt|
+                  %li
+                    = link_to sprowt.title, '#'
+                  %i
+                    due #{sprowt.due_date.strftime("%m/%d/%Y")}
   .clear
 %script{:charset => "utf-8", :type => "text/javascript"}
   jQuery(function() {
