@@ -91,6 +91,7 @@ class User < ActiveRecord::Base
         projects << bid.project
       end
     end
+    projects.flatten
   end
 
   def current_sprowts

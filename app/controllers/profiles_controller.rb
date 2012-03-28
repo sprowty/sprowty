@@ -4,10 +4,10 @@ class ProfilesController < ApplicationController
 
   def index
     @profile  = current_user.profile
-    @seeds    = current_user.latest_seeds
+    @seeds    = current_user.latest_seeds || []
     @skills   = current_user.skills
     @works    = current_user.works
-    @latest_sprowts = current_user.latest_sprowts
+    @latest_sprowts = current_user.latest_sprowts || []
     @current_sprowts = current_user.current_sprowts
     @account  = current_user.account
   end

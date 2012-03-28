@@ -3,7 +3,7 @@
     - unless message.alert_type == "bid"
       .post
         .field
-          = link_to image_tag(project.user.profile.picture.url(:thumb)), profile_path(project.user)
+          = link_to image_tag(project.user.profile.picture.url(:thumb)), '#' #profile_path(Bid.find(message.bid_id).user)
         .field
           = project.user.username
           %br/
@@ -14,24 +14,27 @@
           = message_icon_for(message.message)
           %div
             = message.occurred.strftime("%b %d, %Y - %H:%M")
-      .clear
     - else
       .post
         .field
-          Choose Sprowter
-          %br
-          (Accept Provider)
+          %span{:style => 'font-size: 16px; font-style: italic; color: #6d6f24; font-weight: bold; font-family: Georgia,Serif;'}
+            Choose Sprowter
+            %br
+          %span{:style => 'color: #6d6f24;'}
+            ( Accept Provider )
         .field
           = link_to 'Cancel Project', project_cancel_path(project.id)
-        %ul.sprowter
+        %ul.sprowter{:style => 'background: none;'}
           %li.left
             = link_to image_tag(Bid.find(message.bid_id).user.profile.picture.url(:thumb), :size => '60x60'), profile_path(Bid.find(message.bid_id).user)
           %li.left
-            = link_to Bid.find(message.bid_id).user.username, profile_path(Bid.find(message.bid_id).user)
+            = link_to Bid.find(message.bid_id).user.profile.full_name, profile_path(Bid.find(message.bid_id).user)
 
           %li.left
             = link_to 'Feedback',  feedbacks_url(:user_id => Bid.find(message.bid_id).user.id)
           %li.left
+            %p.text
+              = message.message
 
           %li.left{:style=>'background:none;'}
             = link_to 'Feedback',  profile_url(Bid.find(message.bid_id).user.id)
@@ -39,8 +42,6 @@
 
             = link_to 'Resume', '#'
 
-        %p.text
-          = message.message
         .field
           = message_icon_for(message.message)
         %ul.sprowter
