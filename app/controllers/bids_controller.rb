@@ -16,6 +16,7 @@ class BidsController < ApplicationController
     @bid.why = params[:why]
     @bid.price = params[:price]
     @bid.project_id = params[:project_id]
+    @bid.offer_expires=1.week
 
     if @bid.save
       flash[:notice] = "Bid created"

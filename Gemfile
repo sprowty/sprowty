@@ -48,3 +48,5 @@ group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
+gem 'pry', :group => :development
+

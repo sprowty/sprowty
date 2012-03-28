@@ -104,6 +104,7 @@ GEM
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     cocaine (0.2.1)
+    coderay (1.0.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -174,6 +175,7 @@ GEM
       activerecord (~> 3.1)
       activesupport (~> 3.1)
       polyamorous (~> 0.5.0)
+    method_source (0.7.1)
     mime-types (1.17.2)
     money (3.7.1)
       i18n (~> 0.4)
@@ -215,6 +217,10 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    pry (0.9.8.4)
+      coderay (~> 1.0.5)
+      method_source (~> 0.7.1)
+      slop (>= 2.4.4, < 3)
     rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -280,6 +286,7 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     shoulda (2.11.3)
+    slop (2.4.4)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -331,6 +338,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip!
   pickle
+  pry
   rails (= 3.2.1)
   rails3-jquery-autocomplete
   rspec-rails

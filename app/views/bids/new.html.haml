@@ -23,6 +23,7 @@
         %h4 Or Enter Other:
         %i Increment of $5
         = text_field_tag :price
+        = hidden_field_tag :user_id, current_user.id
     .clear
     .why
       %h4 Why Should You Get This Job?
