@@ -605,8 +605,8 @@ font-family: Helvetica, Arial, Sans-Serif;
 /* --------------INBOX / PROJECTS INSIDE------------- */
 #inboxhead {background-color: #d6bf9e; font-size: 16px; text-transform: none; padding: 24px 20px 20px 20px; margin: 0 }
 #inbox ul {list-style-type: none;}
-#inbox li {background: url(/images/linebg.gif) repeat-x; list-style-type: none;  }
-#inbox li a { color: #422215; display: block; font: bold 14px Arial, Helvetica, sans-serif; padding: 16px 24px 16px 20px; text-decoration: none;}
+#inbox li {/*background: url(/images/linebg.gif) repeat-x;*/ list-style-type: none;  }
+#inbox li a { color: #422215; display: block; font: bold 14px Arial, Helvetica, sans-serif; /*padding: 16px 24px 16px 20px;*/ text-decoration: none;}
 #inbox li a:last-child {padding-right: 0}
 * html #inbox li a {  /* make hover effect work in IE */width: 400px;}
 #inbox li a:hover {background: #F5EFE6;}

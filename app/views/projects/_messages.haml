@@ -1,19 +1,15 @@
-- project.project_alerts.each do |message|
-  #listings
+#listings
+  - project.project_alerts.each do |message|
     - unless message.alert_type == "bid"
-      .post
-        .field
-          = link_to image_tag(project.user.profile.picture.url(:thumb)), '#' #profile_path(Bid.find(message.bid_id).user)
-        .field
-          = project.user.username
-          %br/
-        .field
-          = project.title
+      %ul.post{:style => 'width: 100%;'}
+        %li.field
+          = link_to image_tag(project.user.profile.picture.url(:thumb), :height => '80'), '#'
+        %li.field{:style => 'color: #422215; font: bold 14px Helvetica; margin-top: 15px; margin-left: -30px;'}
+          = project.user.profile.full_name
+        %li.field{:style => 'margin-top: 35px; margin-left: -150px; color: #000; font-size: 12px;'}
           = message.message
-        .field
+        %li.field{:style => 'float: right; margin-top: 20px;'}
           = message_icon_for(message.message)
-          %div
-            = message.occurred.strftime("%b %d, %Y - %H:%M")
     - else
       .post
         .field
