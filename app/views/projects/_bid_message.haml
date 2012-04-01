@@ -1,0 +1,33 @@
+%ul.title
+  %li
+    Choose Sprowter
+    ( Accept Provider )
+  %li
+    = link_to 'Cancel Project', project_cancel_path(project.id)
+%ul.info
+  %li
+    = link_to image_tag(Bid.find(message.bid_id).user.profile.picture.url(:thumb), :size => '60x60'), profile_path(Bid.find(message.bid_id).user)
+  %li
+    = link_to Bid.find(message.bid_id).user.profile.full_name, profile_path(Bid.find(message.bid_id).user)
+  %li
+    = link_to 'Feedback',  feedbacks_url(:user_id => Bid.find(message.bid_id).user.id)
+  %li
+    = link_to 'Feedback',  profile_url(Bid.find(message.bid_id).user.id)
+  %li
+    = link_to 'Resume', '#'
+  %li
+    Bid Price: $XX.XX
+%ul
+  %li.box
+    = message.message
+  %li
+    Expires In:
+    %br/
+    XX Days
+%ul.sprowter
+  %li.left
+    = link_to "Accept", project_bid_accept_path(project.id, message.bid_id)
+  %li.left
+    = link_to "Decline", project_bid_reject_path(project.id, message.bid_id)
+  %li.left
+    = link_to "Counter Offer", new_project_bid_path(:project_id => project.id, :coffer => true)
