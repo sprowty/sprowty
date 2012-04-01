@@ -21,11 +21,6 @@ class Project < ActiveRecord::Base
     event :post_issue do transition :work_completed => :work_in_progress end
   end
 
-# need to leave this disabled - causing problem in routes until we have a chance to look at it - rr
-#  def to_param
-#    "#{id}-#{title}".downcase.gsub(/\s+/, '-').gsub(/[^\w\-]/, '')
-#  end
-
   def price_increments
     unless price % 5 == 0
       errors.add(:price, 'must be in increments of $5')

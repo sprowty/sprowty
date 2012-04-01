@@ -17,7 +17,6 @@ gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git'
 gem 'haml'
 gem 'inherited_resources'
 gem 'meta_search'
-#gem 'rmagick', '2.12.2'
 gem 'state_machine'
 gem 'will_paginate'
 gem 'activemerchant'
@@ -48,5 +47,11 @@ group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
-gem 'pry', :group => :development
+group :development do
+  gem 'pry'                  # pry core
+  gem 'pry-doc'              # pry docs
+  gem 'pry-nav'              # pry (better) navigation for debugging - next, step, and continue commands
+  gem 'pry-stack_explorer'   # pry debugging helpers - show-stack, frame, up and down commands
+  gem 'pry-vterm_aliases'    # pry bash and zsh aliases support
+end
 

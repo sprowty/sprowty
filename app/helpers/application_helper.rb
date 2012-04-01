@@ -28,4 +28,19 @@ module ApplicationHelper
       content_tag :div, text.html_safe, :id => "flash", :class => kind
     end
   end
+
+  def message_verbage_for(message)
+    case message
+    when "posted"
+      "Job Successfully Posted!"
+    when "waiting_for_bids"
+      "Waiting for Bids"
+    when "assigned"
+      "Sprowter Chosen"
+    when "work_in_progress"
+      "Work in Progress"
+    when "work_completed"
+      "Work Completed"
+    end
+  end
 end

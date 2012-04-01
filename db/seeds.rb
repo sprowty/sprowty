@@ -20,7 +20,7 @@ end
     User.where(:email => "#{user_str}_sprowty@mailinator.com").first.destroy
   end
 
-  user = User.create({:email => "#{user_str}_sprowty@mailinator.com",
+  user = User.create({:email => "#{user_str}@mailinator.com",
                       :password => "password",
                       :password_confirmation => "password",
                       :is_admin => false})
@@ -35,11 +35,11 @@ end
 
 ["admin"].each do |user_str|
 
-  if User.where(:email => "#{user_str}_sprowty@mailinator.com").length > 0
-    User.where(:email => "#{user_str}_sprowty@mailinator.com").first.destroy
+  if User.where(:email => "#{user_str}@mailinator.com").length > 0
+    User.where(:email => "#{user_str}@mailinator.com").first.destroy
   end
 
-  user = User.create({:email => "#{user_str}_sprowty@mailinator.com",
+  user = User.create({:email => "#{user_str}@mailinator.com",
                       :password => "password",
                       :password_confirmation => "password",
                       :is_admin => true})
@@ -53,21 +53,12 @@ end
 end
 
 
-posted = Project.create({:user_id => User.where(:email => 'seeder_sprowty@mailinator.com').first.id,
-                         :title => "Posted Project - #{DateTime.now.strftime('%B %d, %Y at %I:%M%p')}",
-                         :description => "Example project thats automatically posted.",
+posted = Project.create({:user_id => User.where(:email => 'seeder@mailinator.com').first.id,
+                         :title => "E-Commerce Website",
+                         :description => "e-commerce website with all the bells and whistles.",
                          :city => "Brooklyn",
                          :state => "NY",
                          :category => "Other",
                          :price => 3245,
                          :due_date => DateTime.now()+2.months})
 posted.post
-
-unposted = Project.create({:user_id => User.where(:email => 'seeder_sprowty@mailinator.com').first.id,
-                         :title => "Build a standup desk",
-                         :description => "Example project that is initially pending admin approval before posted.",
-                         :city => "Brooklyn",
-                         :state => "NY",
-                         :category => "Other",
-                         :price => 250,
-                         :due_date => DateTime.now()+1.month})

@@ -85,6 +85,7 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (3.0.0)
     bcrypt-ruby (3.0.1)
+    binding_of_caller (0.6.7)
     braintree (2.13.4)
       builder (>= 2.0.0)
     builder (3.0.0)
@@ -221,6 +222,16 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.7.1)
       slop (>= 2.4.4, < 3)
+    pry-doc (0.4.1)
+      pry (>= 0.9.0)
+      yard (~> 0.7.4)
+    pry-nav (0.2.0)
+      pry (~> 0.9.8.1)
+    pry-stack_explorer (0.4.1)
+      binding_of_caller (~> 0.6.2)
+      pry (~> 0.9.8.2)
+    pry-vterm_aliases (0.0.7)
+      pry (~> 0.9.8)
     rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -308,6 +319,7 @@ GEM
     will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+    yard (0.7.5)
 
 PLATFORMS
   ruby
@@ -339,6 +351,10 @@ DEPENDENCIES
   paperclip!
   pickle
   pry
+  pry-doc
+  pry-nav
+  pry-stack_explorer
+  pry-vterm_aliases
   rails (= 3.2.1)
   rails3-jquery-autocomplete
   rspec-rails

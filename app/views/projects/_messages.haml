@@ -6,40 +6,40 @@
           = link_to image_tag(project.user.profile.picture.url(:thumb), :height => '80'), '#'
         %li.field{:style => 'color: #422215; font: bold 14px Helvetica; margin-top: 15px; margin-left: -30px;'}
           = project.user.profile.full_name
-        %li.field{:style => 'margin-top: 35px; margin-left: -150px; color: #000; font-size: 12px;'}
-          = message.message
+        %li.field{:style => 'margin-top: 35px; margin-left: -135px; color: #000; font-size: 12px;'}
+          = message_verbage_for(message.message)
         %li.field{:style => 'float: right; margin-top: 20px;'}
           = message_icon_for(message.message)
     - else
       .post
-        .field
-          %span{:style => 'font-size: 16px; font-style: italic; color: #6d6f24; font-weight: bold; font-family: Georgia,Serif;'}
-            Choose Sprowter
-            %br
-          %span{:style => 'color: #6d6f24;'}
-            ( Accept Provider )
-        .field
-          = link_to 'Cancel Project', project_cancel_path(project.id)
-        %ul.sprowter{:style => 'background: none;'}
-          %li.left
-            = link_to image_tag(Bid.find(message.bid_id).user.profile.picture.url(:thumb), :size => '60x60'), profile_path(Bid.find(message.bid_id).user)
-          %li.left
-            = link_to Bid.find(message.bid_id).user.profile.full_name, profile_path(Bid.find(message.bid_id).user)
-
-          %li.left
-            = link_to 'Feedback',  feedbacks_url(:user_id => Bid.find(message.bid_id).user.id)
-          %li.left
-            %p.text
+        .bid{:style => 'width: 100%;'}
+          %ul.title
+            %li
+              Choose Sprowter
+              ( Accept Provider )
+            %li
+              = link_to 'Cancel Project', project_cancel_path(project.id)
+          %ul.info
+            %li
+              = link_to image_tag(Bid.find(message.bid_id).user.profile.picture.url(:thumb), :size => '60x60'), profile_path(Bid.find(message.bid_id).user)
+            %li
+              = link_to Bid.find(message.bid_id).user.profile.full_name, profile_path(Bid.find(message.bid_id).user)
+            %li
+              = link_to 'Feedback',  feedbacks_url(:user_id => Bid.find(message.bid_id).user.id)
+            %li
+              = link_to 'Feedback',  profile_url(Bid.find(message.bid_id).user.id)
+            %li
+              = link_to 'Resume', '#'
+            %li
+              Bid Price: $XX.XX
+          %ul
+            %li.box
               = message.message
+            %li
+              Expires In:
+              %br/
+              XX Days
 
-          %li.left{:style=>'background:none;'}
-            = link_to 'Feedback',  profile_url(Bid.find(message.bid_id).user.id)
-          %li.left{:style=>'background:none;'}
-
-            = link_to 'Resume', '#'
-
-        .field
-          = message_icon_for(message.message)
         %ul.sprowter
           %li.left
             = link_to "Accept", project_bid_accept_path(project.id, message.bid_id)
